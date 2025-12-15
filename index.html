@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>KFBCL | Microfinance</title>
+
+  <link rel="stylesheet" href="CRM/assets/Landing/style.css">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#007acc',
+            secondary: '#4CAF50',
+            navbar: {
+              text: 'white',
+              scrolled: '#333',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="font-sans antialiased text-gray-800 bg-gray-50">
+<custom-navbar></custom-navbar>
+
+<!-- Hero Section -->
+<section class="relative bg-cover bg-center hero-section">
+  <div class="absolute inset-0 bg-black/20"></div>
+  <div class="container mx-auto px-4 sm:px-6 flex flex-col items-center justify-center min-h-[95vh] text-center text-white">
+    <h1 class="hero-text text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8 leading-tight max-w-4xl px-4">
+      Empowering Entrepreneurs and Families with Financial Access and Opportunity
+    </h1>
+    <p class="text-lg sm:text-xl md:text-2xl mb-8 sm:mb-12 max-w-3xl mx-auto px-4">
+      For over 14 years, we've been providing microloans and financial tools to build sustainable livelihoods
+    </p>
+    <!-- Become a Member Button - Wider with CAPS -->
+    <a href="#services" class="border-2 border-white text-white px-10 sm:px-16 py-4 sm:py-5 rounded-full font-bold transition-all duration-300 inline-block shadow-lg transform hover:-translate-y-1 text-base sm:text-lg tracking-wider uppercase min-w-[250px] sm:min-w-[300px] text-center hero-cta-button">
+      Become a Member
+    </a>
+  </div>
+  <div class="absolute bottom-0 left-0 right-0 h-16 bg-white transform skew-y-1 -mb-8"></div>
+</section>
+
+<!-- About Us Section - Updated with Stats -->
+<section id="about" class="py-16 bg-white">
+  <div class="container mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div>
+        <h2 class="text-3xl font-bold mb-6">About Our Organization</h2>
+        <p class="text-lg text-gray-600 mb-6">For over 14 years, we have been a dedicated partner to our community, providing the microloans and financial tools that empower individuals to build sustainable livelihoods and improve their lives.</p>
+        <p class="text-lg text-gray-600 mb-8">Our mission is to create financial access where traditional banking cannot reach, fostering economic growth and stability for entrepreneurs and families alike.</p>
+        <a href="#" class="bg-primary text-white px-8 py-3 rounded-full font-bold hover:bg-primary-dark transition duration-300 inline-block">Our Story</a>
+      </div>
+      <div class="rounded-xl overflow-hidden shadow-lg">
+        <img src="http://static.photos/office/640x360/5" alt="Team meeting" class="w-full h-auto">
+      </div>
+    </div>
+
+    <!-- Stats Section Moved Here -->
+    <div class="mt-16 pt-12 border-gray-200">
+      <div class="text-center mb-12">
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">Our Impact in Numbers</h3>
+        <p class="text-gray-600 max-w-2xl mx-auto">Measurable results that demonstrate our commitment to empowering communities through financial inclusion.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        <div class="p-6 bg-gradient-to-br from-primary/5 to-transparent rounded-2xl">
+          <div class="text-5xl font-bold text-primary mb-2"><span class="stat-number">500+</span></div>
+          <div class="text-xl text-gray-600 font-medium">Loans Disbursed</div>
+          <p class="text-gray-500 mt-2">Empowering entrepreneurs since 2010</p>
+        </div>
+        <div class="p-6 bg-gradient-to-br from-primary/5 to-transparent rounded-2xl">
+          <div class="text-5xl font-bold text-primary mb-2"><span class="stat-number">14+</span></div>
+          <div class="text-xl text-gray-600 font-medium">Years of Service</div>
+          <p class="text-gray-500 mt-2">Consistent community support</p>
+        </div>
+        <div class="p-6 bg-gradient-to-br from-primary/5 to-transparent rounded-2xl">
+          <div class="text-5xl font-bold text-primary mb-2"><span class="stat-number">95%</span></div>
+          <div class="text-xl text-gray-600 font-medium">Satisfaction Rate</div>
+          <p class="text-gray-500 mt-2">Client trust and satisfaction</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Thumbnail Cards Section -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+      <!-- Card 1 -->
+      <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
+        <img src="http://static.photos/transportation/640x360/1" alt="Bodaboda group" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-3">Bodaboda Self-Help Group Story</h3>
+          <p class="text-gray-600">Learn how our rider groups have transformed individual operators into powerful cooperatives with collective bargaining power and financial security.</p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
+        <img src="http://static.photos/estate/640x360/2" alt="Land ownership" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-3">How to Own Land</h3>
+          <p class="text-gray-600">Our step-by-step guide to land ownership through affordable payment plans and financial education for first-time property buyers.</p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
+        <img src="http://static.photos/finance/640x360/3" alt="Business finance" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-3">How We Finance</h3>
+          <p class="text-gray-600">Discover our unique lending model that combines group accountability with flexible repayment terms tailored to your cash flow.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services Section - Pricing Style -->
+<section id="services" class="py-20 bg-gray-50">
+  <div class="container mx-auto px-4 sm:px-6">
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Financial Solutions</h2>
+      <p class="text-lg text-gray-600">Choose the perfect financial package for your needs. All plans come with our commitment to support and guidance.</p>
+    </div>
+
+    <div class="relative">
+      <!-- Pricing Cards Container -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center pricing-cards-container">
+
+        <!-- Service 1: Bodaboda Groups (Left Card) -->
+        <div class="bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-500 pricing-card pricing-card-left h-full">
+          <div class="p-8 h-full flex flex-col">
+            <!-- Badge -->
+            <div class="inline-block bg-blue-50 text-primary px-4 py-1 rounded-full text-sm font-semibold mb-6 self-start">
+              Community Based
+            </div>
+
+            <!-- Icon Header -->
+            <div class="flex items-center mb-6">
+              <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mr-4">
+                <i data-feather="users" class="text-primary w-7 h-7"></i>
+              </div>
+              <h3 class="text-xl font-bold text-gray-900">Bodaboda Groups</h3>
+            </div>
+
+            <!-- Price/Description -->
+            <div class="mb-6">
+              <div class="text-3xl font-bold text-gray-900 mb-2">Group Support</div>
+              <p class="text-gray-600">
+                Perfect for motorcycle taxi operators looking to grow together as a community.
+              </p>
+            </div>
+
+            <!-- Features List -->
+            <ul class="space-y-4 mb-8 flex-grow">
+              <li class="flex items-center">
+                <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                  <i data-feather="check" class="text-green-600 w-4 h-4"></i>
+                </div>
+                <span class="text-gray-700">Weekly savings meetings</span>
+              </li>
+              <li class="flex items-center">
+                <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                  <i data-feather="check" class="text-green-600 w-4 h-4"></i>
+                </div>
+                <span class="text-gray-700">Group insurance coverage</span>
+              </li>
+              <li class="flex items-center">
+                <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                  <i data-feather="check" class="text-green-600 w-4 h-4"></i>
+                </div>
+                <span class="text-gray-700">Emergency fund access</span>
+              </li>
+              <li class="flex items-center">
+                <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                  <i data-feather="check" class="text-green-600 w-4 h-4"></i>
+                </div>
+                <span class="text-gray-700">Collective bargaining power</span>
+              </li>
+              <li class="flex items-center">
+                <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                  <i data-feather="check" class="text-green-600 w-4 h-4"></i>
+                </div>
+                <span class="text-gray-700">Business training workshops</span>
+              </li>
+            </ul>
+
+            <!-- Button -->
+            <button onclick="window.location.href='CRM/System/index.html'" class="w-full border-2 border-primary text-primary px-6 py-4 rounded-xl font-bold hover:bg-primary hover:text-white transition duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 text-lg">
+              Join Us Today
+            </button>
+          </div>
+        </div>
+
+        <!-- Service 2: Loan Management (Center Card - Featured) -->
+        <div class="bg-white rounded-2xl shadow-2xl border-2 border-primary hover:shadow-2xl transition-all duration-500 pricing-card pricing-card-center h-full transform lg:scale-105 relative z-10">
+          <!-- Popular Badge -->
+          <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-primary text-white px-6 py-2 rounded-full font-bold text-sm">
+            MOST POPULAR
+          </div>
+
+          <div class="p-8 h-full flex flex-col">
+            <!-- Badge -->
+            <div class="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-semibold mb-6 self-start">
+              Flexible Financing
+            </div>
+
+            <!-- Icon Header -->
+            <div class="flex items-center mb-6">
+              <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mr-4">
+                <i data-feather="dollar-sign" class="text-primary w-7 h-7"></i>
+              </div>
+              <h3 class="text-xl font-bold text-gray-900">Loan Management</h3>
+            </div>
+
+            <!-- Price/Description -->
+            <div class="mb-6">
+              <div class="text-3xl font-bold text-gray-900 mb-2">Tailored Loans</div>
+              <p class="text-gray-600">
+                Comprehensive financial solutions for businesses and personal needs with flexible terms.
+              </p>
+            </div>
+
+            <!-- Features List -->
+            <ul class="space-y-4 mb-8 flex-grow">
+              <li class="flex items-center">
+                <div class="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center mr-3">
+                  <i data-feather="check" class="text-primary w-4 h-4"></i>
+                </div>
+                <span class="text-gray-700 font-semibold">Low interest rates (from 5%)</span>
+              </li>
+              <li class="flex items-center">
+                <div class="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center mr-3">
+                  <i data-feather="check" class="text-primary w-4 h-4"></i>
+                </div>
+                <span class="text-gray-700 font-semibold">Quick approval (24-48 hours)</span>
+              </li>
+              <li class="flex items-center">
+                <div class="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center mr-3">
+                  <i data-feather="check" class="text-primary w-4 h-4"></i>
+                </div>
+                <span class="text-gray-700 font-semibold">Flexible repayment plans</span>
+              </li>
+              <li class="flex items-center">
+                <div class="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center mr-3">
+                  <i data-feather="check" class="text-primary w-4 h-4"></i>
+                </div>
+                <span class="text-gray-700 font-semibold">No hidden fees</span>
+              </li>
+              <li class="flex items-center">
+                <div class="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center mr-3">
+                  <i data-feather="check" class="text-primary w-4 h-4"></i>
+                </div>
+                <span class="text-gray-700 font-semibold">Financial advisory included</span>
+              </li>
+              <li class="flex items-center">
+                <div class="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center mr-3">
+                  <i data-feather="check" class="text-primary w-4 h-4"></i>
+                </div>
+                <span class="text-gray-700 font-semibold">Grace period available</span>
+              </li>
+            </ul>
+
+            <!-- Button -->
+            <button class="w-full bg-primary text-white px-6 py-4 rounded-xl font-bold hover:bg-primary-dark transition duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 text-lg shadow-lg">
+              Get Financed Now
+            </button>
+          </div>
+        </div>
+
+        <!-- Service 3: Real Estate (Right Card) -->
+        <div class="bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-500 pricing-card pricing-card-right h-full">
+          <div class="p-8 h-full flex flex-col">
+            <!-- Badge -->
+            <div class="inline-block bg-blue-50 text-primary px-4 py-1 rounded-full text-sm font-semibold mb-6 self-start">
+              Long-term Investment
+            </div>
+
+            <!-- Icon Header -->
+            <div class="flex items-center mb-6">
+              <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mr-4">
+                <i data-feather="home" class="text-primary w-7 h-7"></i>
+              </div>
+              <h3 class="text-xl font-bold text-gray-900">Real Estate & Land</h3>
+            </div>
+
+            <!-- Price/Description -->
+            <div class="mb-6">
+              <div class="text-3xl font-bold text-gray-900 mb-2">Land Ownership</div>
+              <p class="text-gray-600">
+                Secure your future with our affordable land ownership programs and investment opportunities.
+              </p>
+            </div>
+
+            <!-- Features List -->
+            <ul class="space-y-4 mb-8 flex-grow">
+              <li class="flex items-center">
+                <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                  <i data-feather="check" class="text-green-600 w-4 h-4"></i>
+                </div>
+                <span class="text-gray-700">Verified land titles</span>
+              </li>
+              <li class="flex items-center">
+                <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                  <i data-feather="check" class="text-green-600 w-4 h-4"></i>
+                </div>
+                <span class="text-gray-700">Installment payment options</span>
+              </li>
+              <li class="flex items-center">
+                <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                  <i data-feather="check" class="text-green-600 w-4 h-4"></i>
+                </div>
+                <span class="text-gray-700">Prime locations</span>
+              </li>
+              <li class="flex items-center">
+                <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                  <i data-feather="check" class="text-green-600 w-4 h-4"></i>
+                </div>
+                <span class="text-gray-700">Legal assistance included</span>
+              </li>
+              <li class="flex items-center">
+                <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                  <i data-feather="check" class="text-green-600 w-4 h-4"></i>
+                </div>
+                <span class="text-gray-700">Future value appreciation</span>
+              </li>
+            </ul>
+
+            <!-- Button -->
+            <button class="w-full border-2 border-primary text-primary px-6 py-4 rounded-xl font-bold hover:bg-primary hover:text-white transition duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 text-lg">
+              Own Land Today
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials Slider -->
+<section class="py-16 bg-gray-50">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center mb-12">Success Stories</h2>
+    <div class="testimonial-slider relative">
+      <div class="testimonial-track flex gap-8 transition-transform duration-300 ease-in-out">
+        <!-- Testimonial 1 -->
+        <div class="bg-white p-8 rounded-xl shadow-md testimonial-slide flex-shrink-0 w-full md:w-1/2 lg:w-1/3 relative">
+          <div class="absolute -top-4 -left-4 text-primary opacity-20 text-7xl font-serif">"</div>
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 bg-primary-light rounded-full flex items-center justify-center mr-4">
+              <i data-feather="user" class="text-primary"></i>
+            </div>
+            <div>
+              <h4 class="font-bold">James M.</h4>
+              <p class="text-gray-500 text-sm">Bodaboda Rider</p>
+            </div>
+          </div>
+          <p class="text-gray-600 relative z-10">With the loan I received, I was able to purchase a better motorcycle. My income has doubled and I can now support my family properly.</p>
+          <div class="flex mt-4">
+            <div class="flex text-yellow-400">
+              <i data-feather="star" class="w-4 h-4 fill-current"></i>
+              <i data-feather="star" class="w-4 h-4 fill-current"></i>
+              <i data-feather="star" class="w-4 h-4 fill-current"></i>
+              <i data-feather="star" class="w-4 h-4 fill-current"></i>
+              <i data-feather="star" class="w-4 h-4"></i>
+            </div>
+            <span class="text-sm text-gray-500 ml-2">4.2</span>
+          </div>
+        </div>
+        <!-- Testimonial 2 -->
+        <div class="bg-white p-8 rounded-xl shadow-md testimonial-slide flex-shrink-0 w-full md:w-1/2 lg:w-1/3 relative">
+          <div class="absolute -top-4 -left-4 text-primary opacity-20 text-7xl font-serif">"</div>
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 bg-primary-light rounded-full flex items-center justify-center mr-4">
+              <i data-feather="user" class="text-primary"></i>
+            </div>
+            <div>
+              <h4 class="font-bold">Sarah K.</h4>
+              <p class="text-gray-500 text-sm">Small Business Owner</p>
+            </div>
+          </div>
+          <p class="text-gray-600 relative z-10">The business financing helped me expand my grocery store. I now employ two people from my community and can support my children's education.</p>
+          <div class="flex mt-4">
+            <div class="flex text-yellow-400">
+              <i data-feather="star" class="w-4 h-4 fill-current"></i>
+              <i data-feather="star" class="w-4 h-4 fill-current"></i>
+              <i data-feather="star" class="w-4 h-4 fill-current"></i>
+              <i data-feather="star" class="w-4 h-4 fill-current"></i>
+              <i data-feather="star" class="w-4 h-4 fill-current"></i>
+            </div>
+            <span class="text-sm text-gray-500 ml-2">5.0</span>
+          </div>
+        </div>
+        <!-- Testimonial 3 -->
+        <div class="bg-white p-8 rounded-xl shadow-md testimonial-slide flex-shrink-0 w-full md:w-1/2 lg:w-1/3 relative">
+          <div class="absolute -top-4 -left-4 text-primary opacity-20 text-7xl font-serif">"</div>
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 bg-primary-light rounded-full flex items-center justify-center mr-4">
+              <i data-feather="user" class="text-primary"></i>
+            </div>
+            <div>
+              <h4 class="font-bold">The O. Family</h4>
+              <p class="text-gray-500 text-sm">Land Ownership Program</p>
+            </div>
+          </div>
+          <p class="text-gray-600 relative z-10">After years of renting, we finally own our land. The payment plan made it possible for us to achieve this dream without financial strain.</p>
+          <div class="flex mt-4">
+            <div class="flex text-yellow-400">
+              <i data-feather="star" class="w-4 h-4 fill-current"></i>
+              <i data-feather="star" class="w-4 h-4 fill-current"></i>
+              <i data-feather="star" class="w-4 h-4 fill-current"></i>
+              <i data-feather="star" class="w-4 h-4 fill-current"></i>
+              <i data-feather="star" class="w-4 h-4"></i>
+            </div>
+            <span class="text-sm text-gray-500 ml-2">3.9</span>
+          </div>
+        </div>
+      </div>
+      <button class="absolute left-4 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow-md hover:bg-gray-100 slider-arrow slider-prev">
+        <i data-feather="chevron-left"></i>
+      </button>
+      <button class="absolute right-4 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow-md hover:bg-gray-100 slider-arrow slider-next">
+        <i data-feather="chevron-right"></i>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="py-20 bg-gray-50">
+  <div class="container mx-auto px-4 sm:px-6">
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Let's talk</h2>
+      <p class="text-lg text-gray-600">Get in touch with us for any inquiries or to start your financial journey</p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <!-- Contact Information -->
+      <div class="space-y-10">
+        <!-- Our Location -->
+        <div class="flex items-start">
+          <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
+            <i data-feather="map-pin" class="text-primary w-6 h-6"></i>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Our Location</h3>
+            <p class="text-gray-600">
+              456 Elm St. Los Angeles, CA<br>
+              90001, United States
+            </p>
+          </div>
+        </div>
+
+        <!-- Email Address -->
+        <div class="flex items-start">
+          <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
+            <i data-feather="mail" class="text-primary w-6 h-6"></i>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Email Address</h3>
+            <a href="mailto:info@company.com" class="text-primary hover:text-primary-dark transition duration-300">
+              info@company.com
+            </a>
+          </div>
+        </div>
+
+        <!-- Telephone -->
+        <div class="flex items-start">
+          <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
+            <i data-feather="phone" class="text-primary w-6 h-6"></i>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Telephone</h3>
+            <a href="tel:+27825100457" class="text-primary hover:text-primary-dark transition duration-300">
+              +27825100457
+            </a>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="pt-6 border-t border-gray-200">
+          <h4 class="text-lg font-bold text-gray-900 mb-4">Business Hours</h4>
+          <ul class="space-y-2">
+            <li class="flex justify-between">
+              <span class="text-gray-600">Monday - Friday</span>
+              <span class="font-medium">8:00 AM - 6:00 PM</span>
+            </li>
+            <li class="flex justify-between">
+              <span class="text-gray-600">Saturday</span>
+              <span class="font-medium">9:00 AM - 1:00 PM</span>
+            </li>
+            <li class="flex justify-between">
+              <span class="text-gray-600">Sunday</span>
+              <span class="font-medium text-gray-500">Closed</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="bg-white rounded-2xl p-8 lg:p-10 shadow-lg">
+        <h3 class="text-2xl font-bold text-gray-900 mb-8">Send us a message</h3>
+
+        <form id="contactForm" class="space-y-6" novalidate>
+          <!-- Name Fields -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+              <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">
+                First Name
+              </label>
+              <input
+                      type="text"
+                      id="firstName"
+                      name="firstName"
+                      placeholder="Enter your First Name"
+                      required
+                      class="w-full px-4 py-3 bg-white rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition duration-300 placeholder-gray-400">
+              <p class="text-red-500 text-sm mt-1 hidden" id="firstName-error"></p>
+            </div>
+
+            <div>
+              <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">
+                Last Name
+              </label>
+              <input
+                      type="text"
+                      id="lastName"
+                      name="lastName"
+                      placeholder="Enter your Last Name"
+                      required
+                      class="w-full px-4 py-3 bg-white rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition duration-300 placeholder-gray-400">
+              <p class="text-red-500 text-sm mt-1 hidden" id="lastName-error"></p>
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+              Email Address
+            </label>
+            <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter a valid email address"
+                    required
+                    class="w-full px-4 py-3 bg-white rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition duration-300 placeholder-gray-400">
+            <p class="text-red-500 text-sm mt-1 hidden" id="email-error"></p>
+          </div>
+
+          <!-- Subject Dropdown -->
+          <div>
+            <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">
+              Subject
+            </label>
+            <div class="relative">
+              <select
+                      id="subject"
+                      name="subject"
+                      required
+                      class="w-full px-4 py-3 bg-white rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition duration-300 appearance-none cursor-pointer">
+                <option value="" disabled selected>Select a subject</option>
+                <option value="loan-inquiry">Loan Inquiry</option>
+                <option value="membership">Membership Information</option>
+                <option value="bodaboda-group">Bodaboda Group Registration</option>
+                <option value="real-estate">Real Estate & Land Purchase</option>
+                <option value="general-inquiry">General Inquiry</option>
+                <option value="feedback">Feedback & Suggestions</option>
+                <option value="other">Other</option>
+              </select>
+              <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                <i data-feather="chevron-down" class="text-gray-400 w-5 h-5"></i>
+              </div>
+            </div>
+            <p class="text-red-500 text-sm mt-1 hidden" id="subject-error"></p>
+          </div>
+
+          <!-- Message -->
+          <div>
+            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">
+              Message
+            </label>
+            <textarea
+                    id="message"
+                    name="message"
+                    rows="5"
+                    placeholder="Enter your message"
+                    required
+                    class="w-full px-4 py-3 bg-white rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition duration-300 resize-none placeholder-gray-400"></textarea>
+            <p class="text-red-500 text-sm mt-1 hidden" id="message-error"></p>
+          </div>
+
+          <!-- Submit Button -->
+          <button
+                  type="submit"
+                  class="w-full bg-primary text-white px-8 py-4 rounded-xl font-bold hover:bg-primary-dark transition duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+            Submit Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<custom-footer></custom-footer>
+<scroll-to-top></scroll-to-top>
+<script src="components/navbar.js"></script>
+<script src="components/footer.js"></script>
+<script src="components/scroll-to-top.js"></script>
+<script src="CRM/assets/Landing/script.js"></script>
+<script>
+  feather.replace();
+</script>
+</body>
+</html>
