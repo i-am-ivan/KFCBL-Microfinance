@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-  <title>My Wallet - KFBCL | Mircofinance</title>
+  <title>My Account - KFBCL | Mircofinance</title>
 
   <link rel="icon" href="../../assets/favicon.ico">
   <link href="../../assets/style.css" rel="stylesheet">
@@ -96,6 +96,7 @@
                       :class="sidebarToggle ? 'xl:hidden' : ''">Dashboard</span>
               </a>
             </li>
+
             <!-- Menu Item Task -->
             <li>
               <a href="events.html" @click="selected = (selected === 'Events' ? '':'Events')" class="menu-item group"
@@ -106,19 +107,6 @@
 
                 <span class="menu-item-text"
                       :class="sidebarToggle ? 'xl:hidden' : ''">Events</span>
-              </a>
-            </li>
-            <!-- Menu Item Task -->
-            <li>
-              <a href="riders.html" @click="selected = (selected === 'Riders' ? '':'Riders')" class="menu-item group"
-                 :class=" (selected === 'Riders') || (page === 'riders' || page === 'riders') ? 'menu-item-active' : 'menu-item-inactive'">
-                <svg class="w-[23px] h-[23px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-width="1.1" d="M4.5 17H4a1 1 0 0 1-1-1 3 3 0 0 1 3-3h1m0-3.05A2.5 2.5 0 1 1 9 5.5M19.5 17h.5a1 1 0 0 0 1-1 3 3 0 0 0-3-3h-1m0-3.05a2.5 2.5 0 1 0-2-4.45m.5 13.5h-7a1 1 0 0 1-1-1 3 3 0 0 1 3-3h3a3 3 0 0 1 3 3 1 1 0 0 1-1 1Zm-1-9.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"/>
-                </svg>
-
-
-                <span class="menu-item-text"
-                      :class="sidebarToggle ? 'xl:hidden' : ''">Riders</span>
               </a>
             </li>
             <!-- Menu Item Task -->
@@ -594,7 +582,7 @@
                         <div class="order-3 xl:order-2">
                           <div class="flex flex-col items-center gap-1 xl:flex-row xl:gap-3 xl:text-left">
                             <p class="text-sm text-gray-500 dark:text-gray-400">
-                              Balance
+                              Rider: #RD102
                             </p>
                           </div>
                           <h4 class="mb-2 text-center text-lg font-semibold text-gray-800 xl:text-left dark:text-white/90">
@@ -602,7 +590,7 @@
                           </h4>
                           <div class="flex flex-col items-center gap-1 text-center xl:flex-row xl:gap-3 xl:text-left">
                             <p class="text-sm text-gray-500 dark:text-gray-400">
-                              Active
+                              Arizona, United States.
                             </p>
                           </div>
                         </div>
@@ -613,13 +601,6 @@
                           <path fill-rule="evenodd" clip-rule="evenodd" d="M5.31462 10.3761C5.45194 10.5293 5.65136 10.6257 5.87329 10.6257C5.8736 10.6257 5.8739 10.6257 5.87421 10.6257C6.0663 10.6259 6.25845 10.5527 6.40505 10.4062L9.40514 7.4082C9.69814 7.11541 9.69831 6.64054 9.40552 6.34754C9.11273 6.05454 8.63785 6.05438 8.34486 6.34717L6.62329 8.06753L6.62329 1.875C6.62329 1.46079 6.28751 1.125 5.87329 1.125C5.45908 1.125 5.12329 1.46079 5.12329 1.875L5.12329 8.06422L3.40516 6.34719C3.11218 6.05439 2.6373 6.05454 2.3445 6.34752C2.0517 6.64051 2.05185 7.11538 2.34484 7.40818L5.31462 10.3761Z" fill="currentColor"></path>
                         </svg>
                         Withdraw
-                      </button>
-
-                      <button @click="withdrawModal = true" class="shadow-theme-xs flex w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-white px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-800 lg:inline-flex lg:w-auto dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03] dark:hover:text-gray-200">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
-                          <path fill-rule="evenodd" clip-rule="evenodd" d="M5.56462 1.62411C5.70194 1.47091 5.90136 1.37451 6.12329 1.37451C6.1236 1.37451 6.1239 1.37451 6.12421 1.37451C6.3163 1.37434 6.50845 1.4475 6.65505 1.594L9.65514 4.59199C9.94814 4.88478 9.94831 5.35966 9.65552 5.65265C9.36272 5.94565 8.88785 5.94581 8.59486 5.65302L6.87329 3.93267L6.87329 10.1252C6.87329 10.5394 6.53751 10.8752 6.12329 10.8752C5.70908 10.8752 5.37329 10.5394 5.37329 10.1252L5.37329 3.93597L3.65516 5.65301C3.36218 5.94581 2.8873 5.94566 2.5945 5.65267C2.3017 5.35968 2.30185 4.88481 2.59484 4.59201L5.56462 1.62411Z" fill="currentColor"></path>
-                        </svg>
-                        Deposit
                       </button>
                     </div>
                   </div>
