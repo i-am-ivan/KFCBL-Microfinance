@@ -1,29 +1,28 @@
 <!doctype html>
 <html lang="en">
 
-<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+      <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-  <title>Events - KFBCL | Mircofinance</title>
+      <title>New Member | KFBCL - Mircofinance</title>
 
-  <link rel="icon" href="../../assets/favicon.ico">
-  <link href="../../assets/style.css" rel="stylesheet">
+      <link rel="icon" href="../../assets/favicon.ico">
+      <link href="../../assets/style.css" rel="stylesheet">
+  </head>
 
-</head>
-
-<body x-data="{ page: 'saas', 'loaded': true, 'darkMode': false, 'stickyMenu': false, 'sidebarToggle': false, 'scrollTop': false }"
-      x-init="
+  <body x-data="{ page: 'profile', 'loaded': true, 'darkMode': false, 'stickyMenu': false, 'sidebarToggle': false, 'scrollTop': false, 'isProfileInfoModal': false,  'isProfileContactModal': false, 'isProfileNextKinModal': false, 'isProfileAddressModal': false }"
+    x-init="
          darkMode = JSON.parse(localStorage.getItem('darkMode'));
          $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))"
-      :class="{'dark bg-gray-900': darkMode === true}">
+    :class="{'dark bg-gray-900': darkMode === true}">
     <!-- ===== Preloader Start ===== -->
     <div x-show="loaded"
-         x-init="window.addEventListener('DOMContentLoaded', () => {setTimeout(() => loaded = false, 500)})"
-         class="fixed left-0 top-0 z-999999 flex h-screen w-screen items-center justify-center bg-white dark:bg-black">
+      x-init="window.addEventListener('DOMContentLoaded', () => {setTimeout(() => loaded = false, 500)})"
+      class="fixed left-0 top-0 z-999999 flex h-screen w-screen items-center justify-center bg-white dark:bg-black">
       <div class="h-16 w-16 animate-spin rounded-full border-4 border-solid border-brand-500 border-t-transparent"></div>
     </div>
     <!-- ===== Preloader End ===== -->
@@ -140,8 +139,8 @@
               <ul class="mb-6 flex flex-col gap-1">
                 <!-- Menu Item Chat -->
                 <li>
-                  <a href="bodaboda.html" @click="selected = (selected === 'Accounts' ? '':'Accounts')" class="menu-item group"
-                     :class=" (selected === 'Accounts') && (page === 'accounts') ? 'menu-item-active' : 'menu-item-inactive'">
+                  <a href="bodaboda.html" @click="selected = (selected === 'Bodaboda' ? '':'Bodaboda')" class="menu-item group"
+                     :class=" (selected === 'Bodaboda') && (page === 'bodaboda') ? 'menu-item-active' : 'menu-item-inactive'">
                     <svg xmlns="http://www.w3.org/2000/svg"
                          width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#787878" stroke-width="1.5"
                          stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-motorbike">
@@ -153,7 +152,7 @@
                             class="menu-item-text"
                             :class="sidebarToggle ? 'xl:hidden' : ''"
                     >
-                      Bodaboda Sacco
+                      Bodaboda
                     </span>
                   </a>
                 </li>
@@ -336,7 +335,8 @@
       <!-- ===== Content Area Start ===== -->
       <div class="relative flex flex-1 flex-col overflow-x-hidden overflow-y-auto">
         <!-- Small Device Overlay Start -->
-        <div :class="sidebarToggle ? 'block xl:hidden' : 'hidden'" class="fixed z-50 h-screen w-full bg-gray-900/50"></div>
+        <div :class="sidebarToggle ? 'block xl:hidden' : 'hidden'"
+          class="fixed z-50 h-screen w-full bg-gray-900/50"></div>
         <!-- Small Device Overlay End -->
 
         <!-- ===== Header Start ===== -->
@@ -552,14 +552,13 @@
         <main>
           <div class="mx-auto max-w-(--breakpoint-2xl) p-4 pb-20 md:p-6 md:pb-6">
             <!-- Breadcrumb Start -->
-            <div x-data="{ pageName: `Events Calendar` }">
+            <div x-data="{ pageName: `New Member Profile`}">
               <div class="flex flex-wrap items-center justify-between gap-3 pb-6">
                 <h2 class="text-xl font-semibold text-gray-800 dark:text-white/90" x-text="pageName"></h2>
                 <nav>
                   <ol class="flex items-center gap-1.5">
                     <li>
-                      <a class="inline-flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400" href="index.html">
-                        Home
+                      <a class="inline-flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400" href="index.html">Home
                         <svg
                           class="stroke-current"
                           width="17"
@@ -585,282 +584,113 @@
             </div>
             <!-- Breadcrumb End -->
 
-            <!-- Content Start -->
-            <div>
-              <div class="grid grid-cols-12 gap-4 md:gap-6">
-                <div class="col-span-12 xl:col-span-5">
+            <div class="rounded-2xl border border-gray-200 bg-white p-5 lg:p-6 dark:border-gray-800 dark:bg-white/[0.03]">
+              <h3 class="mb-5 text-lg font-semibold text-gray-800 lg:mb-7 dark:text-white/90">New Member</h3>
 
-                </div>
-              </div>
-              <div class="mb-6 grid grid-cols-2 gap-4 sm:grid-cols-2 sm:gap-8 lg:grid-cols-2">
-                <!-- Upcoming Events -->
-                <!-- Activities  -->
-                <div class="rounded-xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-white/[0.03]">
-                  <div class="mb-6 flex justify-between">
-                    <div>
-                      <h2 class="text-lg font-semibold text-gray-800 dark:text-white/90">Current</h2>
-                    </div>
-                  </div>
-                  <div class="mb-6 flex justify-between">
-                    <div class="block">
-                      <h4 class="text-xl block text-gray-500 dark:text-white/90">December 2025</h4>
-                    </div>
-                  </div>
-                  <div class="relative">
-                    <!-- Timeline line -->
-                    <div class="custom-scrollbar max-w-full overflow-x-auto">
-                      <div class="min-w-[500px]">
-                        <div class="flex flex-col gap-2">
-                          <div x-data="{checked: false}" @click="checked = !checked"
-                               class="flex cursor-pointer gap-6 rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-white/[0.03]">
-                            <div class="flex items-start gap-3">
-                              <div class="text-center min-w-[60px]">
-                                <span class="text-sm text-gray-500 dark:text-gray-400">FRI</span>
-                                <span class="block text-2xl font-bold text-success-500 dark:text-white">19</span>
-                              </div>
-                            </div>
-                            <div class="w-px bg-gray-200 h-11 dark:bg-gray-800"></div>
-                            <div class="order-2 xl:order-2">
-                              <h4 class="mb-2 text-sm font-semibold text-gray-600 xl:text-left dark:text-white/90">
-                                Meeting with Software Engineer
-                              </h4>
-                              <div class="flex flex-col gap-1 text-center xl:flex-row xl:gap-3 xl:text-left">
-                                <p class="text-sm text-gray-500 dark:text-gray-400">
-                                  03:30 PM
-                                </p>
-                                <div class="hidden h-3.5 w-px bg-gray-300 xl:block dark:bg-gray-700"></div>
-                                <p class="text-sm text-gray-500 dark:text-gray-400">
-                                  BAT Office, Makongeni Thika.
-                                </p>
-                              </div>
-                            </div>
-                          </div>
+              <div class="border-t border-gray-100 p-4 sm:p-6 dark:border-gray-800">
+                <div class="rounded-xl border border-gray-200 p-6 dark:border-gray-800"
+                     x-data="{
+           activeStep: 1,
+           totalSteps: 7,
+           next() { if (this.activeStep < this.totalSteps) this.activeStep++ },
+           prev() { if (this.activeStep > 1) this.activeStep-- }
+         }">
+
+                  <!-- Stepper / Progress Bar -->
+                  <div class="mb-8">
+                    <div class="flex justify-between items-center">
+                      <button x-show="activeStep > 1" @click="prev" class="text-brand-500 hover:text-brand-600 font-medium flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                        Previous
+                      </button>
+                      <div class="flex-1 mx-4">
+                        <div class="w-full bg-gray-200 rounded-full h-2 dark:bg-gray-700">
+                          <div class="bg-brand-500 h-2 rounded-full transition-all duration-500"
+                               :style="{ width: `${(activeStep / totalSteps) * 100}%` }"></div>
                         </div>
                       </div>
+                      <button x-show="activeStep < totalSteps" @click="next" class="text-brand-500 hover:text-brand-600 font-medium flex items-center gap-2">
+                        Next
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                      </button>
+                      <button x-show="activeStep === totalSteps" class="bg-brand-500 text-white px-6 py-2 rounded-lg font-medium">
+                        Submit
+                      </button>
+                    </div>
+
+                    <!-- Step Labels -->
+                    <div class="mt-4 flex justify-between text-sm text-gray-500 dark:text-gray-400">
+                      <span :class="activeStep >= 1 ? 'text-brand-500 font-medium' : ''">Personal Info</span>
+                      <span :class="activeStep >= 2 ? 'text-brand-500 font-medium' : ''">Addresses</span>
+                      <span :class="activeStep >= 3 ? 'text-brand-500 font-medium' : ''">Contact Info</span>
+                      <span :class="activeStep >= 4 ? 'text-brand-500 font-medium' : ''">Next of Kin</span>
+                      <span :class="activeStep >= 5 ? 'text-brand-500 font-medium' : ''">Guarantors</span>
+                      <span :class="activeStep >= 6 ? 'text-brand-500 font-medium' : ''">Vehicles</span>
+                      <span :class="activeStep >= 7 ? 'text-brand-500 font-medium' : ''">Preview</span>
+                    </div>
+                  </div>
+
+                  <!-- Tab Content (Step Panels) -->
+                  <div class="pt-4">
+                    <!-- Step 1 -->
+                    <div x-show="activeStep === 1">
+                      <h3 class="mb-4 text-xl font-medium text-gray-800 dark:text-white/90">Personal Information</h3>
+                      <p class="text-sm text-gray-500 dark:text-gray-400">
+                        Enter the member's personal details here...
+                      </p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div x-show="activeStep === 2">
+                      <h3 class="mb-4 text-xl font-medium text-gray-800 dark:text-white/90">Addresses</h3>
+                      <p class="text-sm text-gray-500 dark:text-gray-400">
+                        Add home and stage addresses...
+                      </p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div x-show="activeStep === 3">
+                      <h3 class="mb-4 text-xl font-medium text-gray-800 dark:text-white/90">Contact Info</h3>
+                      <p class="text-sm text-gray-500 dark:text-gray-400">
+                        Provide phone, email, and emergency contacts...
+                      </p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div x-show="activeStep === 4">
+                      <h3 class="mb-4 text-xl font-medium text-gray-800 dark:text-white/90">Next of Kin</h3>
+                      <p class="text-sm text-gray-500 dark:text-gray-400">
+                        Add next of kin details...
+                      </p>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div x-show="activeStep === 5">
+                      <h3 class="mb-4 text-xl font-medium text-gray-800 dark:text-white/90">Guarantors</h3>
+                      <p class="text-sm text-gray-500 dark:text-gray-400">
+                        Enter guarantor information...
+                      </p>
+                    </div>
+
+                    <!-- Step 6 -->
+                    <div x-show="activeStep === 6">
+                      <h3 class="mb-4 text-xl font-medium text-gray-800 dark:text-white/90">Vehicles</h3>
+                      <p class="text-sm text-gray-500 dark:text-gray-400">
+                        Register motorcycle/tuktuk details...
+                      </p>
+                    </div>
+
+                    <!-- Step 7 -->
+                    <div x-show="activeStep === 7">
+                      <h3 class="mb-4 text-xl font-medium text-gray-800 dark:text-white/90">Profile Preview</h3>
+                      <p class="text-sm text-gray-500 dark:text-gray-400">
+                        Review all entered information before submission...
+                      </p>
                     </div>
                   </div>
                 </div>
-                <!-- Activities End -->
-                <!-- Activities  -->
-                <div class="rounded-xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-white/[0.03]">
-                  <div class="mb-6 flex justify-between">
-                    <div>
-                      <h2 class="text-lg font-semibold text-gray-600 dark:text-white/90">Next</h2>
-                    </div>
-                  </div>
-                  <div class="mb-6 flex justify-between">
-                    <div class="block">
-                      <h4 class="text-xl block text-gray-500 dark:text-white/90">December 2025</h4>
-                    </div>
-                  </div>
-                  <div class="relative">
-                    <!-- Timeline line -->
-                    <div class="custom-scrollbar max-w-full overflow-x-auto">
-                      <div class="min-w-[500px]">
-                        <div class="flex flex-col gap-2">
-                          <div x-data="{checked: false}" @click="checked = !checked"
-                               class="flex cursor-pointer gap-6 rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-white/[0.03]">
-                            <div class="flex items-start gap-3">
-                              <div class="text-center min-w-[60px]">
-                                <span class="text-sm text-gray-500 dark:text-gray-400">MON</span>
-                                <span class="block text-2xl font-bold text-warning-500 dark:text-white">19</span>
-                              </div>
-                            </div>
-                            <div class="w-px bg-gray-200 h-11 dark:bg-gray-800"></div>
-                            <div class="order-2 xl:order-2">
-                              <h4 class="mb-2 text-sm font-semibold text-gray-600 xl:text-left dark:text-white/90">
-                                Meeting with Software Engineer
-                              </h4>
-                              <div class="flex flex-col gap-1 text-center xl:flex-row xl:gap-3 xl:text-left">
-                                <p class="text-sm text-gray-500 dark:text-gray-400">
-                                  03:30 PM
-                                </p>
-                                <div class="hidden h-3.5 w-px bg-gray-300 xl:block dark:bg-gray-700"></div>
-                                <p class="text-sm text-gray-500 dark:text-gray-400">
-                                  BAT Office, Makongeni Thika.
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- Activities End -->
-              </div>
-              <div class="mb-6 grid grid-cols-1 gap-4 sm:grid-cols-1 sm:gap-8 lg:grid-cols-1">
-                <!-- Upcoming Events -->
-                <div class="rounded-xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-white/[0.03]">
-                  <div class="mb-6 flex justify-between">
-                    <div>
-                      <h2 class="text-lg font-semibold text-gray-500 dark:text-white/90">Upcoming</h2>
-                    </div>
-                  </div>
-                  <div class="mb-6 flex justify-between">
-                    <div class="block">
-                      <h4 class="text-xl block text-gray-500 dark:text-white/90">December 2025</h4>
-                    </div>
-                  </div>
-                  <div class="relative">
-                    <!-- Timeline line -->
-                    <div class="custom-scrollbar max-w-full overflow-x-auto">
-                      <div class="min-w-[500px]">
-                        <div class="flex flex-col gap-2">
-                          <div x-data="{checked: false}" @click="checked = !checked"
-                               class="flex cursor-pointer gap-6 rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-white/[0.03]">
-                            <div class="flex items-start gap-3">
-                              <div class="text-center min-w-[60px]">
-                                <span class="text-sm text-gray-500 dark:text-gray-400">DEC</span>
-                                <span class="block text-2xl font-bold text-gray-400 dark:text-white">19</span>
-                              </div>
-                            </div>
-                            <div class="w-px bg-gray-200 h-11 dark:bg-gray-800"></div>
-                            <div class="order-2 xl:order-2">
-                              <h4 class="mb-2 text-sm font-semibold text-gray-600 xl:text-left dark:text-white/90">
-                                Meeting with Software Engineer
-                              </h4>
-                              <div class="flex flex-col gap-1 text-center xl:flex-row xl:gap-3 xl:text-left">
-                                <p class="text-sm text-gray-500 dark:text-gray-400">
-                                  03:30 PM
-                                </p>
-                                <div class="hidden h-3.5 w-px bg-gray-300 xl:block dark:bg-gray-700"></div>
-                                <p class="text-sm text-gray-500 dark:text-gray-400">
-                                  BAT Office, Makongeni Thika.
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                          <div x-data="{checked: false}" @click="checked = !checked"
-                               class="flex cursor-pointer items-center gap-6 rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-white/[0.03]">
-                            <div class="flex items-start gap-3">
-                              <div class="text-center min-w-[60px]">
-                                <span class="block text-xs text-gray-500 dark:text-gray-400">DEC</span>
-                                <span class="block text-2xl font-bold text-gray-400 dark:text-white">23</span>
-                              </div>
-                            </div>
-                            <div class="w-px bg-gray-200 h-11 dark:bg-gray-800"></div>
-                            <div class="order-3 xl:order-2">
-                              <h4 class="mb-2 text-center text-sm font-semibold text-gray-600 xl:text-left dark:text-white/90">
-                                Christmas Holiday Break
-                              </h4>
-                              <div class="flex flex-col items-center gap-1 text-center xl:flex-row xl:gap-3 xl:text-left">
-                                <p class="text-sm text-gray-500 dark:text-gray-400">
-                                  12:00 PM
-                                </p>
-                                <div class="hidden h-3.5 w-px bg-gray-300 xl:block dark:bg-gray-700"></div>
-                                <p class="text-sm text-gray-500 dark:text-gray-400">
-                                  SSS 7, Makongeni Thika.
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                          <div x-data="{checked: false}" @click="checked = !checked"
-                               class="flex cursor-pointer items-center gap-6 rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-white/[0.03]">
-                            <div class="flex items-start gap-3">
-                              <div class="text-center min-w-[60px]">
-                                <span class="block text-xs text-gray-500 dark:text-gray-400">Wed</span>
-                                <span class="block text-2xl font-bold text-gray-400 dark:text-white">28</span>
-                              </div>
-                            </div>
-                            <div class="w-px bg-gray-200 h-11 dark:bg-gray-800"></div>
-                            <div class="order-3 xl:order-2">
-                              <h4 class="mb-2 text-center text-sm font-semibold text-gray-600 xl:text-left dark:text-white/90">
-                                Annual General Meeting
-                              </h4>
-                              <div class="flex flex-col items-center gap-1 text-center xl:flex-row xl:gap-3 xl:text-left">
-                                <p class="text-sm text-gray-500 dark:text-gray-400">
-                                  02:30 PM
-                                </p>
-                                <div class="hidden h-3.5 w-px bg-gray-300 xl:block dark:bg-gray-700"></div>
-                                <p class="text-sm text-gray-500 dark:text-gray-400">
-                                  SSS 7, Makongeni Thika.
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                          <div x-data="{checked: false}" @click="checked = !checked"
-                               class="flex cursor-pointer items-center gap-6 rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-white/[0.03]">
-                            <div class="flex items-start gap-3">
-                              <div class="text-center min-w-[60px]">
-                                <span class="block text-xs text-gray-500 dark:text-gray-400">Wed</span>
-                                <span class="block text-2xl font-bold text-gray-400 dark:text-white">28</span>
-                              </div>
-                            </div>
-                            <div class="w-px bg-gray-200 h-11 dark:bg-gray-800"></div>
-                            <div class="order-3 xl:order-2">
-                              <h4 class="mb-2 text-center text-sm font-semibold text-gray-600 xl:text-left dark:text-white/90">
-                                Annual General Meeting
-                              </h4>
-                              <div class="flex flex-col items-center gap-1 text-center xl:flex-row xl:gap-3 xl:text-left">
-                                <p class="text-sm text-gray-500 dark:text-gray-400">
-                                  02:30 PM
-                                </p>
-                                <div class="hidden h-3.5 w-px bg-gray-300 xl:block dark:bg-gray-700"></div>
-                                <p class="text-sm text-gray-500 dark:text-gray-400">
-                                  SSS 7, Makongeni Thika.
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                          <div x-data="{checked: false}" @click="checked = !checked"
-                               class="flex cursor-pointer items-center gap-6 rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-white/[0.03]">
-                            <div class="flex items-start gap-3">
-                              <div class="text-center min-w-[60px]">
-                                <span class="block text-xs text-gray-500 dark:text-gray-400">Wed</span>
-                                <span class="block text-2xl font-bold text-gray-400 dark:text-white">28</span>
-                              </div>
-                            </div>
-                            <div class="w-px bg-gray-200 h-11 dark:bg-gray-800"></div>
-                            <div class="order-3 xl:order-2">
-                              <h4 class="mb-2 text-center text-sm font-semibold text-gray-600 xl:text-left dark:text-white/90">
-                                Annual General Meeting
-                              </h4>
-                              <div class="flex flex-col items-center gap-1 text-center xl:flex-row xl:gap-3 xl:text-left">
-                                <p class="text-sm text-gray-500 dark:text-gray-400">
-                                  02:30 PM
-                                </p>
-                                <div class="hidden h-3.5 w-px bg-gray-300 xl:block dark:bg-gray-700"></div>
-                                <p class="text-sm text-gray-500 dark:text-gray-400">
-                                  SSS 7, Makongeni Thika.
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                          <div x-data="{checked: false}" @click="checked = !checked"
-                               class="flex cursor-pointer items-center gap-6 rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-white/[0.03]">
-                            <div class="flex items-start gap-3">
-                              <div class="text-center min-w-[60px]">
-                                <span class="block text-xs text-gray-500 dark:text-gray-400">Wed</span>
-                                <span class="block text-2xl font-bold text-gray-400 dark:text-white">28</span>
-                              </div>
-                            </div>
-                            <div class="w-px bg-gray-200 h-11 dark:bg-gray-800"></div>
-                            <div class="order-3 xl:order-2">
-                              <h4 class="mb-2 text-center text-sm font-semibold text-gray-600 xl:text-left dark:text-white/90">
-                                Annual General Meeting
-                              </h4>
-                              <div class="flex flex-col items-center gap-1 text-center xl:flex-row xl:gap-3 xl:text-left">
-                                <p class="text-sm text-gray-500 dark:text-gray-400">
-                                  02:30 PM
-                                </p>
-                                <div class="hidden h-3.5 w-px bg-gray-300 xl:block dark:bg-gray-700"></div>
-                                <p class="text-sm text-gray-500 dark:text-gray-400">
-                                  SSS 7, Makongeni Thika.
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- Activities End -->
               </div>
             </div>
-
-            <!-- Content End -->
           </div>
         </main>
         <!-- ===== Main Content End ===== -->
@@ -868,7 +698,9 @@
       <!-- ===== Content Area End ===== -->
     </div>
     <!-- ===== Page Wrapper End ===== -->
+
   <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
   <script defer src="../../assets/bundle.js"></script>
 </body>
+
 </html>
