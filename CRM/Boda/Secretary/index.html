@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <title>KFBCL - Mircofinance</title>
+    <title>Secretary | KFBCL - Mircofinance</title>
 
     <link rel="icon" href="../../assets/favicon.ico">
     <link href="../../assets/style.css" rel="stylesheet">
@@ -39,8 +39,8 @@
           class="sidebar-header flex items-center gap-2 pt-8 pb-7">
           <a href="index.html">
             <span class="logo" :class="sidebarToggle ? 'hidden' : ''">
-              <img class="dark:hidden" src="../../assets/src/images/logo/logo.svg" alt="Logo" />
-              <img class="hidden dark:block" src="../../assets/src/images/logo/logo-dark.svg" alt="Logo"/>
+              <img class="dark:hidden" src="../../assets/src/images/logo/KFCBL-Logo-transparent.png" alt="Logo" />
+              <img class="hidden dark:block" src="../../assets/src/images/logo/KFCBL-Logo-transparent.png" alt="Logo"/>
             </span>
 
             <img class="logo-icon" :class="sidebarToggle ? 'xl:block' : 'hidden'" src="../../assets/src/images/logo/logo-icon.svg" alt="Logo"/>
@@ -56,7 +56,7 @@
               <h3 class="mb-4 text-xs leading-[20px] text-gray-400 uppercase">
                 <span class="menu-group-title"
                   :class="sidebarToggle ? 'xl:hidden' : ''">
-                  MENU
+                  DASHBOARD
                 </span>
                 <svg
                   :class="sidebarToggle ? 'xl:block hidden' : 'hidden'"
@@ -100,13 +100,13 @@
                 <!-- Menu Item Task -->
                 <li>
                   <a href="events.html" @click="selected = (selected === 'Events' ? '':'Events')" class="menu-item group"
-                    :class=" (selected === 'Events') || (page === 'events' || page === 'events') ? 'menu-item-active' : 'menu-item-inactive'">
+                    :class=" (selected === 'Events') || (page === 'events') ? 'menu-item-active' : 'menu-item-inactive'">
                     <svg :class="(selected === 'Calendar') &amp;&amp; (page === 'calendar') ? 'menu-item-icon-active'  :'menu-item-icon-inactive'" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="menu-item-icon-inactive">
                       <path fill-rule="evenodd" clip-rule="evenodd" d="M8 2C8.41421 2 8.75 2.33579 8.75 2.75V3.75H15.25V2.75C15.25 2.33579 15.5858 2 16 2C16.4142 2 16.75 2.33579 16.75 2.75V3.75H18.5C19.7426 3.75 20.75 4.75736 20.75 6V9V19C20.75 20.2426 19.7426 21.25 18.5 21.25H5.5C4.25736 21.25 3.25 20.2426 3.25 19V9V6C3.25 4.75736 4.25736 3.75 5.5 3.75H7.25V2.75C7.25 2.33579 7.58579 2 8 2ZM8 5.25H5.5C5.08579 5.25 4.75 5.58579 4.75 6V8.25H19.25V6C19.25 5.58579 18.9142 5.25 18.5 5.25H16H8ZM19.25 9.75H4.75V19C4.75 19.4142 5.08579 19.75 5.5 19.75H18.5C18.9142 19.75 19.25 19.4142 19.25 19V9.75Z" fill="currentColor"></path>
                     </svg>
 
                     <span class="menu-item-text"
-                      :class="sidebarToggle ? 'xl:hidden' : ''">Events</span>
+                      :class="sidebarToggle ? 'xl:hidden' : ''">Calendar</span>
                   </a>
                 </li>
                 <!-- Menu Item Task -->
@@ -117,7 +117,7 @@
             <div>
               <h3 class="mb-4 text-xs leading-[20px] text-gray-400 uppercase">
                 <span class="menu-group-title"
-                  :class="sidebarToggle ? 'xl:hidden' : ''">My Wallet</span>
+                  :class="sidebarToggle ? 'xl:hidden' : ''">MANAGE</span>
 
                 <svg
                   :class="sidebarToggle ? 'xl:block hidden' : 'hidden'"
@@ -142,22 +142,18 @@
                 <li>
                   <a href="accounts.html" @click="selected = (selected === 'Accounts' ? '':'Accounts')" class="menu-item group"
                     :class=" (selected === 'Accounts') && (page === 'accounts') ? 'menu-item-active' : 'menu-item-inactive'">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                         fill="none"
-                         stroke="#787878"
-                         stroke-width="1.25"
-                         stroke-linecap="round"
-                         stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-wallet">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#787878" stroke-width="1.5"
+                         stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-motorbike">
                       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                      <path d="M17 8v-3a1 1 0 0 0 -1 -1h-10a2 2 0 0 0 0 4h12a1 1 0 0 1 1 1v3m0 4v3a1 1 0 0 1 -1 1h-12a2 2 0 0 1 -2 -2v-12" />
-                      <path d="M20 12v4h-4a2 2 0 0 1 0 -4h4" />
+                      <path d="M5 16m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M19 16m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M7.5 14h5l4 -4h-10.5m1.5 4l4 -4" /><path d="M13 6h2l1.5 3l2 4" />
                     </svg>
 
                     <span
                       class="menu-item-text"
                       :class="sidebarToggle ? 'xl:hidden' : ''"
                     >
-                      Accounts
+                      Bodaboda Sacco
                     </span>
                   </a>
                 </li>
@@ -166,7 +162,7 @@
                 <!-- Menu Item Tables -->
                 <li>
                   <a href="loans.html" @click="selected = (selected === 'Loans' ? '':'Loans')" class="menu-item group"
-                    :class="(selected === 'Loans') || (page === 'loans' || page === 'loans') ? 'menu-item-active' : 'menu-item-inactive'">
+                    :class="(selected === 'Loans') || (page === 'loans') ? 'menu-item-active' : 'menu-item-inactive'">
                     <svg
                        xmlns="http://www.w3.org/2000/svg"
                        width="24"
@@ -189,11 +185,19 @@
 
                     <span class="menu-item-text"
                       :class="sidebarToggle ? 'xl:hidden' : ''">Loans</span>
-                    <span :class="sidebarToggle ? 'xl:hidden' : ''"
-                      class="absolute right-10 flex items-center gap-1">
-                      <span class="menu-dropdown-badge"
-                        :class="page === 'products' ? 'menu-dropdown-badge-active' : 'menu-dropdown-badge-inactive'">Good</span>
-                    </span>
+                  </a>
+
+                </li>
+                <!-- Menu Item Tables -->
+                <!-- Menu Item Lands -->
+                <li>
+                  <a href="loans.html" @click="selected = (selected === 'Loans' ? '':'Loans')" class="menu-item group"
+                     :class="(selected === 'Loans') || (page === 'loans') ? 'menu-item-active' : 'menu-item-inactive'">
+                    <svg class="w-[21px] h-[21px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-width="1.1" d="M3 21h18M4 18h16M6 10v8m4-8v8m4-8v8m4-8v8M4 9.5v-.955a1 1 0 0 1 .458-.84l7-4.52a1 1 0 0 1 1.084 0l7 4.52a1 1 0 0 1 .458.84V9.5a.5.5 0 0 1-.5.5h-15a.5.5 0 0 1-.5-.5Z"/>
+                    </svg>
+                    <span class="menu-item-text"
+                          :class="sidebarToggle ? 'xl:hidden' : ''">Real Estate</span>
                   </a>
 
                 </li>
@@ -205,7 +209,7 @@
             <div>
               <h3 class="mb-4 text-xs leading-[20px] text-gray-400 uppercase">
                 <span class="menu-group-title"
-                  :class="sidebarToggle ? 'xl:hidden' : ''">My Assets</span>
+                  :class="sidebarToggle ? 'xl:hidden' : ''">Appointments</span>
 
                 <svg
                   :class="sidebarToggle ? 'xl:block hidden' : 'hidden'"
@@ -229,13 +233,15 @@
                 <!-- Menu Item Charts -->
                 <li>
                   <a href="vehicles.html" @click="selected = (selected === 'Vehicles' ? '':'Vehicles')" class="menu-item group"
-                    :class="(selected === 'Vehicles') || (page === 'vehicles' || page === 'vehicles' || page === 'vehicle') ? 'menu-item-active' : 'menu-item-inactive'"
+                    :class="(selected === 'Vehicles') || (page === 'vehicles') ? 'menu-item-active' : 'menu-item-inactive'"
                   >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#787878" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-motorbike"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 16m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M19 16m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M7.5 14h5l4 -4h-10.5m1.5 4l4 -4" /><path d="M13 6h2l1.5 3l2 4" />
+                    <svg class="w-[21px] h-[21px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.1" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-6 7 2 2 4-4m-5-9v4h4V3h-4Z"/>
                     </svg>
 
+
                     <span class="menu-item-text"
-                      :class="sidebarToggle ? 'xl:hidden' : ''">Vehicles</span>
+                      :class="sidebarToggle ? 'xl:hidden' : ''">Appointments</span>
                   </a>
                 </li>
                 <!-- Menu Item Charts -->
@@ -325,7 +331,6 @@
           <!-- Sidebar Menu -->
         </div>
       </aside>
-
       <!-- ===== Sidebar End ===== -->
 
       <!-- ===== Content Area Start ===== -->
@@ -401,10 +406,10 @@
                 <!-- Hamburger Toggle BTN -->
 
                 <a href="index.html" class="xl:hidden">
-                  <img class="dark:hidden" src="../../assets/src/images/logo/logo.svg" alt="Logo" />
+                  <img class="dark:hidden" src="../../assets/src/images/logo/KFCBL-Logo-transparent.png" alt="Logo" />
                   <img
                     class="hidden dark:block"
-                    src="../../assets/src/images/logo/logo-dark.svg"
+                    src="../../assets/src/images/logo/KFCBL-Logo-transparent.png"
                     alt="Logo"
                   />
                 </a>
@@ -561,11 +566,11 @@
                       </h4>
                       <div class="flex flex-col items-center gap-1 text-center xl:flex-row xl:gap-3 xl:text-left">
                         <p class="text-sm text-gray-500 dark:text-gray-400">
-                          Rider: #RD001
+                          Secretary
                         </p>
                         <div class="hidden h-3.5 w-px bg-gray-300 xl:block dark:bg-gray-700"></div>
                         <p class="text-sm text-gray-500 dark:text-gray-400">
-                          Posta, Makongeni Thika, Kiambu County
+                          Since May 20, 2021 14:52.
                         </p>
                       </div>
                     </div>
@@ -574,196 +579,220 @@
               </div>
               <!-- Metrics End -->
               <div class="gap-5 space-y-5 sm:gap-6 sm:space-y-6 xl:grid xl:grid-cols-12 xl:space-y-0">
-                <div class="xl:col-span-7 2xl:col-span-12">
+                <div class="xl:col-span-8 2xl:col-span-12">
                   <div class="space-y-5 sm:space-y-6">
-                    <!-- Chart -->
-                    <div class="grid gap-5 sm:gap-6 lg:grid-cols-2">
-                      <div class="overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-white/[0.03]">
-                        <div class="mb-6 flex justify-between">
-                          <div>
-                            <h3 class="text-lg font-semibold text-gray-800 dark:text-white/90">
-                              My Contributions
-                            </h3>
-                            <p class="text-theme-sm mt-1 text-gray-500 dark:text-gray-400">
-                              Your contributions statistics
-                            </p>
-                          </div>
-                          <div x-data="{openDropDown: false}" class="relative h-fit">
-                            <button @click="openDropDown = !openDropDown"
-                              :class="openDropDown ? 'text-gray-700 dark:text-white' : 'text-gray-400 hover:text-gray-700 dark:hover:text-white'">
-                              <svg
-                                class="fill-current"
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  fill-rule="evenodd"
-                                  clip-rule="evenodd"
-                                  d="M10.2441 6C10.2441 5.0335 11.0276 4.25 11.9941 4.25H12.0041C12.9706 4.25 13.7541 5.0335 13.7541 6C13.7541 6.9665 12.9706 7.75 12.0041 7.75H11.9941C11.0276 7.75 10.2441 6.9665 10.2441 6ZM10.2441 18C10.2441 17.0335 11.0276 16.25 11.9941 16.25H12.0041C12.9706 16.25 13.7541 17.0335 13.7541 18C13.7541 18.9665 12.9706 19.75 12.0041 19.75H11.9941C11.0276 19.75 10.2441 18.9665 10.2441 18ZM11.9941 10.25C11.0276 10.25 10.2441 11.0335 10.2441 12C10.2441 12.9665 11.0276 13.75 11.9941 13.75H12.0041C12.9706 13.75 13.7541 12.9665 13.7541 12C13.7541 11.0335 12.9706 10.25 12.0041 10.25H11.9941Z"
-                                  fill=""
-                                />
-                              </svg>
-                            </button>
-                            <div x-show="openDropDown"
-                              @click.outside="openDropDown = false"
-                              class="shadow-theme-lg dark:bg-gray-dark absolute top-full right-0 z-40 w-40 space-y-1 rounded-2xl border border-gray-200 bg-white p-2 dark:border-gray-800">
-                              <button onclick="window.location.href='accounts.html'" class="text-theme-xs flex w-full rounded-lg px-3 py-2 text-left font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300">
-                                View More
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="flex justify-between">
-                          <div>
-                            <h3 class="text-title-xs font-semibold text-gray-800 dark:text-white/90">
-                              4.26%
-                            </h3>
-                            <p class="text-theme-xs mt-1 text-gray-500 dark:text-gray-400">
-                              <span class="text-error-500 mr-1 inline-block">0.31%</span>
-                              than last Month
-                            </p>
-                          </div>
-                          <div class="max-w-full">
-                            <div id="chartTwentyOne" class="h-12 w-24"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-white/[0.03]">
-                        <div class="mb-6 flex justify-between">
-                          <div>
-                            <h3 class="text-lg font-semibold text-gray-800 dark:text-white/90">
-                              Loans
-                            </h3>
-                            <p class="text-theme-sm mt-1 text-gray-500 dark:text-gray-400">
-                              Update on your credit
-                            </p>
-                          </div>
-                          <div x-data="{openDropDown: false}" class="relative h-fit">
-                            <button
-                              @click="openDropDown = !openDropDown"
-                              :class="openDropDown ? 'text-gray-700 dark:text-white' : 'text-gray-400 hover:text-gray-700 dark:hover:text-white'"
-                            >
-                              <svg
-                                class="fill-current"
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  fill-rule="evenodd"
-                                  clip-rule="evenodd"
-                                  d="M10.2441 6C10.2441 5.0335 11.0276 4.25 11.9941 4.25H12.0041C12.9706 4.25 13.7541 5.0335 13.7541 6C13.7541 6.9665 12.9706 7.75 12.0041 7.75H11.9941C11.0276 7.75 10.2441 6.9665 10.2441 6ZM10.2441 18C10.2441 17.0335 11.0276 16.25 11.9941 16.25H12.0041C12.9706 16.25 13.7541 17.0335 13.7541 18C13.7541 18.9665 12.9706 19.75 12.0041 19.75H11.9941C11.0276 19.75 10.2441 18.9665 10.2441 18ZM11.9941 10.25C11.0276 10.25 10.2441 11.0335 10.2441 12C10.2441 12.9665 11.0276 13.75 11.9941 13.75H12.0041C12.9706 13.75 13.7541 12.9665 13.7541 12C13.7541 11.0335 12.9706 10.25 12.0041 10.25H11.9941Z"
-                                  fill=""
-                                />
-                              </svg>
-                            </button>
-                            <div
-                              x-show="openDropDown"
-                              @click.outside="openDropDown = false"
-                              class="shadow-theme-lg dark:bg-gray-dark absolute top-full right-0 z-40 w-40 space-y-1 rounded-2xl border border-gray-200 bg-white p-2 dark:border-gray-800"
-                            >
-                              <button onclick="window.location.href='loans.html'" class="text-theme-xs flex w-full rounded-lg px-3 py-2 text-left font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300"
-                              >
-                                View More
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="flex justify-between">
-                          <div>
-                            <h3 class="text-title-xs font-semibold text-gray-800 dark:text-white/90">
-                              3,768
-                            </h3>
-                            <p class="text-theme-xs mt-1 text-gray-500 dark:text-gray-400">
-                              <span class="text-success-600 mr-1 inline-block">+3.85%</span>
-                              than last Month
-                            </p>
-                          </div>
-                          <div class="max-w-full">
-                            <div id="chartTwentyTwo" class="h-12 w-24"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
                     <!-- Invoice Table -->
-                    <div class="rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03]">
-                      <div class="px-6 py-4">
-                        <h3 class="text-lg font-semibold text-gray-800 dark:text-white/90">Recent Transactions</h3>
+                    <div class="rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-white/[0.03]">
+                      <div class="mb-6 flex justify-between">
+                        <div>
+                          <h3 class="text-lg font-semibold text-gray-800 dark:text-white/90">Upcoming Appointments</h3>
+                        </div>
+                        <div x-data="{openDropDown: false}" class="relative h-fit">
+                          <button @click="openDropDown = !openDropDown"
+                                  :class="openDropDown ? 'text-gray-700 dark:text-white' : 'text-gray-400 hover:text-gray-700 dark:hover:text-white'">
+                            <svg
+                                    class="fill-current"
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                      fill-rule="evenodd"
+                                      clip-rule="evenodd"
+                                      d="M10.2441 6C10.2441 5.0335 11.0276 4.25 11.9941 4.25H12.0041C12.9706 4.25 13.7541 5.0335 13.7541 6C13.7541 6.9665 12.9706 7.75 12.0041 7.75H11.9941C11.0276 7.75 10.2441 6.9665 10.2441 6ZM10.2441 18C10.2441 17.0335 11.0276 16.25 11.9941 16.25H12.0041C12.9706 16.25 13.7541 17.0335 13.7541 18C13.7541 18.9665 12.9706 19.75 12.0041 19.75H11.9941C11.0276 19.75 10.2441 18.9665 10.2441 18ZM11.9941 10.25C11.0276 10.25 10.2441 11.0335 10.2441 12C10.2441 12.9665 11.0276 13.75 11.9941 13.75H12.0041C12.9706 13.75 13.7541 12.9665 13.7541 12C13.7541 11.0335 12.9706 10.25 12.0041 10.25H11.9941Z"
+                                      fill=""
+                              />
+                            </svg>
+                          </button>
+                          <div x-show="openDropDown"
+                               @click.outside="openDropDown = false"
+                               class="shadow-theme-lg dark:bg-gray-dark absolute top-full right-0 z-40 w-40 space-y-1 rounded-2xl border border-gray-200 bg-white p-2 dark:border-gray-800">
+                            <button onclick="window.location.href='events.html'" class="text-theme-xs flex w-full rounded-lg px-3 py-2 text-left font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300">View More</button>
+                          </div>
+                        </div>
                       </div>
                       <div class="custom-scrollbar overflow-x-auto">
-                        <table class="min-w-full">
+                        <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-800">
                           <thead>
-                            <tr class="bg-gray-50 dark:bg-gray-900">
-                              <th class="px-6 py-4 text-left text-sm font-medium whitespace-nowrap text-gray-500 dark:text-gray-400">Transaction Code:</th>
-                              <th class="px-6 py-4 text-left text-sm font-medium whitespace-nowrap text-gray-500 dark:text-gray-400">Date</th>
-                              <th class="px-6 py-4 text-left text-sm font-medium whitespace-nowrap text-gray-500 dark:text-gray-400">Type</th>
-                              <th class="px-6 py-4 text-left text-sm font-medium whitespace-nowrap text-gray-500 dark:text-gray-400">Amount</th>
-                              <th class="px-6 py-4 text-left text-sm font-medium whitespace-nowrap text-gray-500 dark:text-gray-400">Status</th>
-                            </tr>
+                          <tr class="bg-gray-50 dark:bg-gray-900">
+                            <th class="px-6 py-4 text-left text-sm font-medium whitespace-nowrap text-gray-500 dark:text-gray-400">Appointment ID</th>
+                            <th class="px-6 py-4 text-left text-sm font-medium whitespace-nowrap text-gray-500 dark:text-gray-400">DateTime</th>
+                            <th class="px-6 py-4 text-left text-sm font-medium whitespace-nowrap text-gray-500 dark:text-gray-400">Office</th>
+                            <th class="px-6 py-4 text-left text-sm font-medium whitespace-nowrap text-gray-500 dark:text-gray-400">Priority</th>
+                            <th class="px-6 py-4 text-left text-sm font-medium whitespace-nowrap text-gray-500 dark:text-gray-400">Status</th>
+                            <th class="px-6 py-4 text-left text-sm font-medium whitespace-nowrap text-gray-500 dark:text-gray-400">Action</th>
+                          </tr>
                           </thead>
                           <tbody class="divide-y divide-gray-200 dark:divide-gray-800">
-                            <tr>
-                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">#DF4292025</td>
-                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Apr 28, 2025 14:56</td>
-                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Contribution</td>
-                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">KES 1,000.00</td>
-                              <td class="px-6 py-4 text-left">
-                                <span class="bg-success-50 text-theme-xs text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 font-medium">Paid</span>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">#HTY272025</td>
-                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Oct 30, 2025 13:36</td>
-                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Contribution</td>
-                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">KES 200.00</td>
-                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">
-                                <span class="bg-success-50 text-theme-xs text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 font-medium">Paid</span>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">#LKE602025</td>
-                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">May 29, 2025 13:40</td>
-                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Withdrawal</td>
-                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">KES 4,500.00</td>
-                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">
-                                <span class="bg-warning-50 text-theme-xs text-warning-600 dark:bg-warning-500/15 dark:text-warning-500 rounded-full px-2 py-0.5 font-medium">Processing</span>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">#HRP442025</td>
-                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">May 20, 2025 13:43</td>
-                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Withdrawal</td>
-                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">KES 2,000.00</td>
-                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">
-                                <span class="bg-error-50 text-theme-xs text-error-600 dark:bg-error-500/15 dark:text-error-500 rounded-full px-2 py-0.5 font-medium">Cancelled</span>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">#WRH642025</td>
-                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Mar 13, 2025 13:46</td>
-                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Contribution</td>
-                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">KES 200.00</td>
-                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">
-                                <span class="bg-success-50 text-theme-xs text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 font-medium">Paid</span>
-                              </td>
-                            </tr>
+                          <tr>
+                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">#APP0012025</td>
+                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Dec 18, 2025 09:30</td>
+                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Treasurer</td>
+                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">High</td>
+                            <td class="px-6 py-4 text-left">
+                              <span class="bg-warning-50 text-theme-xs text-warning-600 dark:bg-warning-500/15 dark:text-warning-500 rounded-full px-2 py-0.5 font-medium">Pending Approval</span>
+                            </td>
+                            <td class="px-6 py-4 text-left">
+                              <div class="flex items-center justify-center">
+                                <button class=" items-center justify-center">
+                                  <svg class="w-[21px] h-[21px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                    <path stroke="currentColor" stroke-width="1.1" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
+                                    <path stroke="currentColor" stroke-width="1.1" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                                  </svg>
+                                </button>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">#APP0022025</td>
+                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Dec 18, 2025 11:00</td>
+                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">General</td>
+                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Medium</td>
+                            <td class="px-6 py-4 text-left">
+                              <span class="bg-success-50 text-theme-xs text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 font-medium">Confirmed</span>
+                            </td>
+                            <td class="px-6 py-4 text-left">
+                              <button class=" items-center justify-center">
+                                <svg class="w-[21px] h-[21px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                  <path stroke="currentColor" stroke-width="1.1" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
+                                  <path stroke="currentColor" stroke-width="1.1" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                                </svg>
+                              </button>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">#APP0032025</td>
+                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Dec 19, 2025 14:15</td>
+                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Treasurer</td>
+                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">High</td>
+                            <td class="px-6 py-4 text-left">
+                              <span class="bg-warning-50 text-theme-xs text-warning-600 dark:bg-warning-500/15 dark:text-warning-500 rounded-full px-2 py-0.5 font-medium">Pending Approval</span>
+                            </td>
+                            <td class="px-6 py-4 text-left">
+                              <button class=" items-center justify-center">
+                                <svg class="w-[21px] h-[21px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                  <path stroke="currentColor" stroke-width="1.1" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
+                                  <path stroke="currentColor" stroke-width="1.1" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                                </svg>
+                              </button>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">#APP0042025</td>
+                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Dec 20, 2025 10:00</td>
+                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Chairman</td>
+                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Medium</td>
+                            <td class="px-6 py-4 text-left">
+                              <span class="bg-success-50 text-theme-xs text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 font-medium">Confirmed</span>
+                            </td>
+                            <td class="px-6 py-4 text-left">
+                              <button class=" items-center justify-center">
+                                <svg class="w-[21px] h-[21px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                  <path stroke="currentColor" stroke-width="1.1" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
+                                  <path stroke="currentColor" stroke-width="1.1" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                                </svg>
+                              </button>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">#APP0052025</td>
+                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Dec 22, 2025 09:45</td>
+                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Office</td>
+                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Low</td>
+                            <td class="px-6 py-4 text-left">
+                              <span class="bg-error-50 text-theme-xs text-error-600 dark:bg-error-500/15 dark:text-error-500 rounded-full px-2 py-0.5 font-medium">Cancelled</span>
+                            </td>
+                            <td class="px-6 py-4 text-left">
+                              <button class=" items-center justify-center">
+                                <svg class="w-[21px] h-[21px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                  <path stroke="currentColor" stroke-width="1.1" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
+                                  <path stroke="currentColor" stroke-width="1.1" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                                </svg>
+                              </button>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">#APP0022025</td>
+                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Dec 18, 2025 11:00</td>
+                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">General</td>
+                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Medium</td>
+                            <td class="px-6 py-4 text-left">
+                              <span class="bg-success-50 text-theme-xs text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 font-medium">Confirmed</span>
+                            </td>
+                            <td class="px-6 py-4 text-left">
+                              <button class=" items-center justify-center">
+                                <svg class="w-[21px] h-[21px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                  <path stroke="currentColor" stroke-width="1.1" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
+                                  <path stroke="currentColor" stroke-width="1.1" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                                </svg>
+                              </button>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">#APP0032025</td>
+                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Dec 19, 2025 14:15</td>
+                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Treasurer</td>
+                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">High</td>
+                            <td class="px-6 py-4 text-left">
+                              <span class="bg-warning-50 text-theme-xs text-warning-600 dark:bg-warning-500/15 dark:text-warning-500 rounded-full px-2 py-0.5 font-medium">Pending Approval</span>
+                            </td>
+                            <td class="px-6 py-4 text-left">
+                              <button class=" items-center justify-center">
+                                <svg class="w-[21px] h-[21px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                  <path stroke="currentColor" stroke-width="1.1" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
+                                  <path stroke="currentColor" stroke-width="1.1" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                                </svg>
+                              </button>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">#APP0042025</td>
+                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Dec 20, 2025 10:00</td>
+                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Chairman</td>
+                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Medium</td>
+                            <td class="px-6 py-4 text-left">
+                              <span class="bg-success-50 text-theme-xs text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 font-medium">Confirmed</span>
+                            </td>
+                            <td class="px-6 py-4 text-left">
+                              <button class=" items-center justify-center">
+                                <svg class="w-[21px] h-[21px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                  <path stroke="currentColor" stroke-width="1.1" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
+                                  <path stroke="currentColor" stroke-width="1.1" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                                </svg>
+                              </button>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">#APP0052025</td>
+                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Dec 22, 2025 09:45</td>
+                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Office</td>
+                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Low</td>
+                            <td class="px-6 py-4 text-left">
+                              <span class="bg-error-50 text-theme-xs text-error-600 dark:bg-error-500/15 dark:text-error-500 rounded-full px-2 py-0.5 font-medium">Cancelled</span>
+                            </td>
+                            <td class="px-6 py-4 text-left">
+                              <button class=" items-center justify-center">
+                                <svg class="w-[21px] h-[21px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                  <path stroke="currentColor" stroke-width="1.1" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
+                                  <path stroke="currentColor" stroke-width="1.1" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                                </svg>
+                              </button>
+                            </td>
+                          </tr>
                           </tbody>
                         </table>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="space-y-6 xl:col-span-5 2xl:col-span-12">
+                <div class="space-y-6 xl:col-span-4 2xl:col-span-12">
                   <!-- Activities  -->
                   <div class="rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-white/[0.03]">
                     <div class="mb-6 flex justify-between">
                       <div>
-                        <h3 class="text-lg font-semibold text-gray-800 dark:text-white/90">Events Calendar</h3>
+                        <h2 class="text-lg font-semibold text-gray-800 dark:text-white/90">Schedule</h2>
                       </div>
                       <div x-data="{openDropDown: false}" class="relative h-fit">
                         <button @click="openDropDown = !openDropDown"
@@ -791,82 +820,158 @@
                         </div>
                       </div>
                     </div>
+                    <div class="mb-6 flex justify-between">
+                      <div class="block">
+                        <h4 class="text-xl block text-gray-500 dark:text-white/90">December 2025</h4>
+                      </div>
+                    </div>
                     <div class="relative">
                       <!-- Timeline line -->
-
                       <div class="custom-scrollbar max-w-full overflow-x-auto">
                         <div class="min-w-[500px]">
                           <div class="flex flex-col gap-2">
-                            <div x-data="{checked: false}" @click="checked = !checked" class="flex cursor-pointer items-center gap-9 rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-white/[0.03]">
+                            <div x-data="{checked: false}" @click="checked = !checked"
+                                 class="flex cursor-pointer gap-6 rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-white/[0.03]">
                               <div class="flex items-start gap-3">
-                                <div>
-                                  <span class="mb-0.5 block text-theme-xs text-gray-500 dark:text-gray-400">November, 2025</span>
-                                  <span class="text-theme-sm font-medium text-gray-700 dark:text-gray-400">14:00</span>
+                                <div class="text-center min-w-[60px]">
+                                  <span class="text-sm text-gray-500 dark:text-gray-400">DEC</span>
+                                  <span class="block text-2xl font-bold text-success-500 dark:text-white">19</span>
                                 </div>
                               </div>
-                              <div>
-                                <span class="mb-1 block text-theme-sm font-medium text-gray-700 dark:text-gray-400">General Meeting</span>
-                                <span class="text-theme-xs text-gray-500 dark:text-gray-400">Posta, Makongeni Thika</span>
+                              <div class="w-px bg-gray-200 h-11 dark:bg-gray-800"></div>
+                              <div class="order-2 xl:order-2">
+                                <h4 class="mb-2 text-sm font-semibold text-gray-600 xl:text-left dark:text-white/90">
+                                 Meeting with Software Engineer
+                                </h4>
+                                <div class="flex flex-col gap-1 text-center xl:flex-row xl:gap-3 xl:text-left">
+                                  <p class="text-sm text-gray-500 dark:text-gray-400">
+                                    03:30 PM
+                                  </p>
+                                  <div class="hidden h-3.5 w-px bg-gray-300 xl:block dark:bg-gray-700"></div>
+                                  <p class="text-sm text-gray-500 dark:text-gray-400">
+                                    BAT Office, Makongeni Thika.
+                                  </p>
+                                </div>
                               </div>
                             </div>
-                            <div x-data="{checked: false}" @click="checked = !checked" class="flex cursor-pointer items-center gap-9 rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-white/[0.03]">
+                            <div x-data="{checked: false}" @click="checked = !checked"
+                                 class="flex cursor-pointer items-center gap-6 rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-white/[0.03]">
                               <div class="flex items-start gap-3">
-                                <div>
-                                  <span class="mb-0.5 block text-theme-xs text-gray-500 dark:text-gray-400">November, 2025</span>
-                                  <span class="text-theme-sm font-medium text-gray-700 dark:text-gray-400">14:00</span>
+                                <div class="text-center min-w-[60px]">
+                                  <span class="block text-xs text-gray-500 dark:text-gray-400">DEC</span>
+                                  <span class="block text-2xl font-bold text-gray-400 dark:text-white">23</span>
                                 </div>
                               </div>
-                              <div>
-                                <span class="mb-1 block text-theme-sm font-medium text-gray-700 dark:text-gray-400">General Meeting</span>
-                                <span class="text-theme-xs text-gray-500 dark:text-gray-400">Posta, Makongeni Thika</span>
+                              <div class="w-px bg-gray-200 h-11 dark:bg-gray-800"></div>
+                              <div class="order-3 xl:order-2">
+                                <h4 class="mb-2 text-center text-sm font-semibold text-gray-600 xl:text-left dark:text-white/90">
+                                  Christmas Holiday Break
+                                </h4>
+                                <div class="flex flex-col items-center gap-1 text-center xl:flex-row xl:gap-3 xl:text-left">
+                                  <p class="text-sm text-gray-500 dark:text-gray-400">
+                                    12:00 PM
+                                  </p>
+                                  <div class="hidden h-3.5 w-px bg-gray-300 xl:block dark:bg-gray-700"></div>
+                                  <p class="text-sm text-gray-500 dark:text-gray-400">
+                                    SSS 7, Makongeni Thika.
+                                  </p>
+                                </div>
                               </div>
                             </div>
-                            <div x-data="{checked: false}" @click="checked = !checked" class="flex cursor-pointer items-center gap-9 rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-white/[0.03]">
+                            <div x-data="{checked: false}" @click="checked = !checked"
+                                 class="flex cursor-pointer items-center gap-6 rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-white/[0.03]">
                               <div class="flex items-start gap-3">
-                                <div>
-                                  <span class="mb-0.5 block text-theme-xs text-gray-500 dark:text-gray-400">November, 2025</span>
-                                  <span class="text-theme-sm font-medium text-gray-700 dark:text-gray-400">14:00</span>
+                                <div class="text-center min-w-[60px]">
+                                  <span class="block text-xs text-gray-500 dark:text-gray-400">Wed</span>
+                                  <span class="block text-2xl font-bold text-gray-400 dark:text-white">28</span>
                                 </div>
                               </div>
-                              <div>
-                                <span class="mb-1 block text-theme-sm font-medium text-gray-700 dark:text-gray-400">General Meeting</span>
-                                <span class="text-theme-xs text-gray-500 dark:text-gray-400">Posta, Makongeni Thika</span>
+                              <div class="w-px bg-gray-200 h-11 dark:bg-gray-800"></div>
+                              <div class="order-3 xl:order-2">
+                                <h4 class="mb-2 text-center text-sm font-semibold text-gray-600 xl:text-left dark:text-white/90">
+                                  Annual General Meeting
+                                </h4>
+                                <div class="flex flex-col items-center gap-1 text-center xl:flex-row xl:gap-3 xl:text-left">
+                                  <p class="text-sm text-gray-500 dark:text-gray-400">
+                                    02:30 PM
+                                  </p>
+                                  <div class="hidden h-3.5 w-px bg-gray-300 xl:block dark:bg-gray-700"></div>
+                                  <p class="text-sm text-gray-500 dark:text-gray-400">
+                                    SSS 7, Makongeni Thika.
+                                  </p>
+                                </div>
                               </div>
                             </div>
-                            <div x-data="{checked: false}" @click="checked = !checked" class="flex cursor-pointer items-center gap-9 rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-white/[0.03]">
+                            <div x-data="{checked: false}" @click="checked = !checked"
+                                 class="flex cursor-pointer items-center gap-6 rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-white/[0.03]">
                               <div class="flex items-start gap-3">
-                                <div>
-                                  <span class="mb-0.5 block text-theme-xs text-gray-500 dark:text-gray-400">November, 2025</span>
-                                  <span class="text-theme-sm font-medium text-gray-700 dark:text-gray-400">14:00</span>
+                                <div class="text-center min-w-[60px]">
+                                  <span class="block text-xs text-gray-500 dark:text-gray-400">Wed</span>
+                                  <span class="block text-2xl font-bold text-gray-400 dark:text-white">28</span>
                                 </div>
                               </div>
-                              <div>
-                                <span class="mb-1 block text-theme-sm font-medium text-gray-700 dark:text-gray-400">General Meeting</span>
-                                <span class="text-theme-xs text-gray-500 dark:text-gray-400">Posta, Makongeni Thika</span>
+                              <div class="w-px bg-gray-200 h-11 dark:bg-gray-800"></div>
+                              <div class="order-3 xl:order-2">
+                                <h4 class="mb-2 text-center text-sm font-semibold text-gray-600 xl:text-left dark:text-white/90">
+                                  Annual General Meeting
+                                </h4>
+                                <div class="flex flex-col items-center gap-1 text-center xl:flex-row xl:gap-3 xl:text-left">
+                                  <p class="text-sm text-gray-500 dark:text-gray-400">
+                                    02:30 PM
+                                  </p>
+                                  <div class="hidden h-3.5 w-px bg-gray-300 xl:block dark:bg-gray-700"></div>
+                                  <p class="text-sm text-gray-500 dark:text-gray-400">
+                                    SSS 7, Makongeni Thika.
+                                  </p>
+                                </div>
                               </div>
                             </div>
-                            <div x-data="{checked: false}" @click="checked = !checked" class="flex cursor-pointer items-center gap-9 rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-white/[0.03]">
+                            <div x-data="{checked: false}" @click="checked = !checked"
+                                 class="flex cursor-pointer items-center gap-6 rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-white/[0.03]">
                               <div class="flex items-start gap-3">
-                                <div>
-                                  <span class="mb-0.5 block text-theme-xs text-gray-500 dark:text-gray-400">November, 2025</span>
-                                  <span class="text-theme-sm font-medium text-gray-700 dark:text-gray-400">14:00</span>
+                                <div class="text-center min-w-[60px]">
+                                  <span class="block text-xs text-gray-500 dark:text-gray-400">Wed</span>
+                                  <span class="block text-2xl font-bold text-gray-400 dark:text-white">28</span>
                                 </div>
                               </div>
-                              <div>
-                                <span class="mb-1 block text-theme-sm font-medium text-gray-700 dark:text-gray-400">General Meeting</span>
-                                <span class="text-theme-xs text-gray-500 dark:text-gray-400">Posta, Makongeni Thika</span>
+                              <div class="w-px bg-gray-200 h-11 dark:bg-gray-800"></div>
+                              <div class="order-3 xl:order-2">
+                                <h4 class="mb-2 text-center text-sm font-semibold text-gray-600 xl:text-left dark:text-white/90">
+                                  Annual General Meeting
+                                </h4>
+                                <div class="flex flex-col items-center gap-1 text-center xl:flex-row xl:gap-3 xl:text-left">
+                                  <p class="text-sm text-gray-500 dark:text-gray-400">
+                                    02:30 PM
+                                  </p>
+                                  <div class="hidden h-3.5 w-px bg-gray-300 xl:block dark:bg-gray-700"></div>
+                                  <p class="text-sm text-gray-500 dark:text-gray-400">
+                                    SSS 7, Makongeni Thika.
+                                  </p>
+                                </div>
                               </div>
                             </div>
-                            <div x-data="{checked: false}" @click="checked = !checked" class="flex cursor-pointer items-center gap-9 rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-white/[0.03]">
+                            <div x-data="{checked: false}" @click="checked = !checked"
+                                 class="flex cursor-pointer items-center gap-6 rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-white/[0.03]">
                               <div class="flex items-start gap-3">
-                                <div>
-                                  <span class="mb-0.5 block text-theme-xs text-gray-500 dark:text-gray-400">November, 2025</span>
-                                  <span class="text-theme-sm font-medium text-gray-700 dark:text-gray-400">14:00</span>
+                                <div class="text-center min-w-[60px]">
+                                  <span class="block text-xs text-gray-500 dark:text-gray-400">Wed</span>
+                                  <span class="block text-2xl font-bold text-gray-400 dark:text-white">28</span>
                                 </div>
                               </div>
-                              <div>
-                                <span class="mb-1 block text-theme-sm font-medium text-gray-700 dark:text-gray-400">General Meeting</span>
-                                <span class="text-theme-xs text-gray-500 dark:text-gray-400">Posta, Makongeni Thika</span>
+                              <div class="w-px bg-gray-200 h-11 dark:bg-gray-800"></div>
+                              <div class="order-3 xl:order-2">
+                                <h4 class="mb-2 text-center text-sm font-semibold text-gray-600 xl:text-left dark:text-white/90">
+                                  Annual General Meeting
+                                </h4>
+                                <div class="flex flex-col items-center gap-1 text-center xl:flex-row xl:gap-3 xl:text-left">
+                                  <p class="text-sm text-gray-500 dark:text-gray-400">
+                                    02:30 PM
+                                  </p>
+                                  <div class="hidden h-3.5 w-px bg-gray-300 xl:block dark:bg-gray-700"></div>
+                                  <p class="text-sm text-gray-500 dark:text-gray-400">
+                                    SSS 7, Makongeni Thika.
+                                  </p>
+                                </div>
                               </div>
                             </div>
                           </div>
