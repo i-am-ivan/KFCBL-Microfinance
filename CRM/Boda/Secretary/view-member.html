@@ -587,96 +587,244 @@
             <div class="rounded-2xl border border-gray-200 bg-white p-5 lg:p-6 dark:border-gray-800 dark:bg-white/[0.03]">
               <h3 class="mb-5 text-lg font-semibold text-gray-800 lg:mb-7 dark:text-white/90">View Member</h3>
 
-              <div class="border-t border-gray-100 p-4 sm:p-6 dark:border-gray-800">
-                <div class="rounded-xl border border-gray-200 p-6 dark:border-gray-800"
-                     x-data="{
-                   activeStep: 1,
-                   totalSteps: 7,
-                   next() { if (this.activeStep < this.totalSteps) this.activeStep++ },
-                   prev() { if (this.activeStep > 1) this.activeStep-- }
-                 }">
-
-                  <!-- Top: Progress Bar + Step Titles -->
-                  <div class="mb-8">
-                    <!-- Progress Bar -->
-                    <div class="w-full bg-gray-200 rounded-full h-2 dark:bg-gray-700 mb-4">
-                      <div class="bg-brand-500 h-2 rounded-full transition-all duration-500"
-                           :style="{ width: `${(activeStep / totalSteps) * 100}%` }"></div>
+              <div class="mb-6 rounded-2xl border border-gray-200 p-5 lg:p-6 dark:border-gray-800">
+                <div class="flex flex-col gap-5 xl:flex-row xl:items-center xl:justify-between">
+                  <div class="flex w-full flex-col items-center gap-6 xl:flex-row">
+                    <div class="h-20 w-20 overflow-hidden rounded-full border border-gray-200 dark:border-gray-800">
+                      <img src="../../assets/src/images/user/owner.jpg" alt="user">
+                    </div>
+                    <div class="order-3 xl:order-2">
+                      <h4 class="mb-2 text-center text-lg font-semibold text-gray-800 xl:text-left dark:text-white/90">
+                        James Mwangi
+                      </h4>
+                      <div class="flex flex-col items-center gap-1 text-center xl:flex-row xl:gap-3 xl:text-left">
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Rider: #RD001</p>
+                        <div class="hidden h-3.5 w-px bg-gray-300 xl:block dark:bg-gray-700"></div>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Active since December 09, 2025 15:24</p>
+                      </div>
                     </div>
 
-                    <!-- Step Labels (highlight current & completed) -->
-                    <div class="flex justify-between text-xs sm:text-sm text-gray-500 dark:text-gray-400 overflow-x-auto">
-                      <span :class="activeStep >= 1 ? 'text-brand-500 font-medium' : ''">Personal Info</span>
-                      <span :class="activeStep >= 2 ? 'text-brand-500 font-medium' : ''">Addresses</span>
-                      <span :class="activeStep >= 3 ? 'text-brand-500 font-medium' : ''">Contact Info</span>
-                      <span :class="activeStep >= 4 ? 'text-brand-500 font-medium' : ''">Next of Kin</span>
-                      <span :class="activeStep >= 5 ? 'text-brand-500 font-medium' : ''">Guarantors</span>
-                      <span :class="activeStep >= 6 ? 'text-brand-500 font-medium' : ''">Vehicles</span>
-                      <span :class="activeStep >= 7 ? 'text-brand-500 font-medium' : ''">Preview</span>
-                    </div>
+                  </div>
+                  <button onclick="window.location.href='Edit-Member-Details.html'" class="shadow-theme-xs flex w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-white px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-800 lg:inline-flex lg:w-auto dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03] dark:hover:text-gray-200">
+                    <svg class="fill-current" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M15.0911 2.78206C14.2125 1.90338 12.7878 1.90338 11.9092 2.78206L4.57524 10.116C4.26682 10.4244 4.0547 10.8158 3.96468 11.2426L3.31231 14.3352C3.25997 14.5833 3.33653 14.841 3.51583 15.0203C3.69512 15.1996 3.95286 15.2761 4.20096 15.2238L7.29355 14.5714C7.72031 14.4814 8.11172 14.2693 8.42013 13.9609L15.7541 6.62695C16.6327 5.74827 16.6327 4.32365 15.7541 3.44497L15.0911 2.78206ZM12.9698 3.84272C13.2627 3.54982 13.7376 3.54982 14.0305 3.84272L14.6934 4.50563C14.9863 4.79852 14.9863 5.2734 14.6934 5.56629L14.044 6.21573L12.3204 4.49215L12.9698 3.84272ZM11.2597 5.55281L5.6359 11.1766C5.53309 11.2794 5.46238 11.4099 5.43238 11.5522L5.01758 13.5185L6.98394 13.1037C7.1262 13.0737 7.25666 13.003 7.35947 12.9002L12.9833 7.27639L11.2597 5.55281Z" fill=""></path>
+                    </svg>
+                    Edit
+                  </button>
+                </div>
+              </div>
+
+              <div class="rounded-xl border border-gray-200 p-6 dark:border-gray-800" x-data="{ activeTab: 'personal' }">
+                <div class="flex flex-col gap-6 sm:flex-row sm:gap-8">
+                  <!-- Left Sidebar Menu – Vertical on desktop, horizontal scroll on mobile -->
+                  <div class="overflow-x-auto pb-2 sm:w-[280px] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-100 dark:[&::-webkit-scrollbar-thumb]:bg-gray-600 [&::-webkit-scrollbar-track]:bg-white dark:[&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar]:h-1.5">
+                    <nav class="flex w-full flex-row sm:flex-col sm:space-y-2">
+                      <button @click="activeTab = 'personal'"
+                              :class="activeTab === 'personal' ? 'bg-brand-50 text-brand-600 dark:bg-brand-500/10 dark:text-brand-400' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700'"
+                              class="inline-flex items-center gap-3 whitespace-nowrap rounded-lg px-3 py-2.5 text-sm font-medium transition-colors duration-200 ease-in-out sm:p-3">
+                        <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                        </svg>
+                        Personal Information
+                      </button>
+
+                      <button @click="activeTab = 'addresses'"
+                              :class="activeTab === 'addresses' ? 'bg-brand-50 text-brand-600 dark:bg-brand-500/10 dark:text-brand-400' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700'"
+                              class="inline-flex items-center gap-3 whitespace-nowrap rounded-lg px-3 py-2.5 text-sm font-medium transition-colors duration-200 ease-in-out sm:p-3">
+                        <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                        </svg>
+                        Addresses
+                      </button>
+
+                      <button @click="activeTab = 'contact'"
+                              :class="activeTab === 'contact' ? 'bg-brand-50 text-brand-600 dark:bg-brand-500/10 dark:text-brand-400' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700'"
+                              class="inline-flex items-center gap-3 whitespace-nowrap rounded-lg px-3 py-2.5 text-sm font-medium transition-colors duration-200 ease-in-out sm:p-3">
+                        <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                        Contact Information
+                      </button>
+
+                      <button @click="activeTab = 'next-of-kin'"
+                              :class="activeTab === 'next-of-kin' ? 'bg-brand-50 text-brand-600 dark:bg-brand-500/10 dark:text-brand-400' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700'"
+                              class="inline-flex items-center gap-3 whitespace-nowrap rounded-lg px-3 py-2.5 text-sm font-medium transition-colors duration-200 ease-in-out sm:p-3">
+                        <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+                        </svg>
+                        Next of Kin
+                      </button>
+
+                      <button @click="activeTab = 'guarantors'"
+                              :class="activeTab === 'guarantors' ? 'bg-brand-50 text-brand-600 dark:bg-brand-500/10 dark:text-brand-400' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700'"
+                              class="inline-flex items-center gap-3 whitespace-nowrap rounded-lg px-3 py-2.5 text-sm font-medium transition-colors duration-200 ease-in-out sm:p-3">
+                        <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                        Guarantors
+                      </button>
+
+                      <button @click="activeTab = 'vehicles'"
+                              :class="activeTab === 'vehicles' ? 'bg-brand-50 text-brand-600 dark:bg-brand-500/10 dark:text-brand-400' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700'"
+                              class="inline-flex items-center gap-3 whitespace-nowrap rounded-lg px-3 py-2.5 text-sm font-medium transition-colors duration-200 ease-in-out sm:p-3">
+                        <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                        Vehicles
+                      </button>
+
+                      <button @click="activeTab = 'financials'"
+                              :class="activeTab === 'financials' ? 'bg-brand-50 text-brand-600 dark:bg-brand-500/10 dark:text-brand-400' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700'"
+                              class="inline-flex items-center gap-3 whitespace-nowrap rounded-lg px-3 py-2.5 text-sm font-medium transition-colors duration-200 ease-in-out sm:p-3">
+                        <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v1m0 0v1m0 0v1m0 0v1m0 0v1m0 0v1m0 0v1m0 0v1m0 0v1m0 0v1m0 0v1m0 0v1m0 0v1m0 0v1m0 0v1m0 0v1"/>
+                        </svg>
+                        Financials
+                      </button>
+
+                      <button @click="activeTab = 'settings'"
+                              :class="activeTab === 'settings' ? 'bg-brand-50 text-brand-600 dark:bg-brand-500/10 dark:text-brand-400' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700'"
+                              class="inline-flex items-center gap-3 whitespace-nowrap rounded-lg px-3 py-2.5 text-sm font-medium transition-colors duration-200 ease-in-out sm:p-3">
+                        <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        </svg>
+                        Settings
+                      </button>
+                    </nav>
                   </div>
 
-                  <!-- Tab Content -->
-                  <div class="pt-4 min-h-[300px]">
-                    <div x-show="activeStep === 1">
-                      <h3 class="mb-4 text-xl font-medium text-gray-800 dark:text-white/90">Personal Information</h3>
-                      <p class="text-sm text-gray-500 dark:text-gray-400">Enter personal details here...</p>
+                  <!-- Right Content Area -->
+                  <div class="flex-1">
+                    <div class="">
+                      <div x-show="activeTab === 'personal'">
+                        <div class="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
+                          <div>
+                            <h4 class="text-lg font-semibold text-gray-800 lg:mb-6 dark:text-white/90">Personal Information</h4>
+
+                            <div class="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-7 2xl:gap-x-32">
+                              <div>
+                                <p class="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">First Name</p>
+                                <p class="text-sm font-medium text-gray-800 dark:text-white/90">James</p>
+                              </div>
+
+                              <div>
+                                <p class="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">Last Name</p>
+                                <p class="text-sm font-medium text-gray-800 dark:text-white/90"> Mwangi</p>
+                              </div>
+
+                              <div>
+                                <p class="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">Gender</p>
+                                <p class="text-sm font-medium text-gray-800 dark:text-white/90">Male</p>
+                              </div>
+
+                              <div>
+                                <p class="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">DoB</p>
+                                <p class="text-sm font-medium text-gray-800 dark:text-white/90">20 Feb 1985</p>
+                              </div>
+
+                              <div>
+                                <p class="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">Role</p>
+                                <p class="text-sm font-medium text-gray-800 dark:text-white/90">Rider</p>
+                              </div>
+
+                              <div>
+                                <p class="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">Account Status</p>
+                                <p class="text-sm font-medium text-gray-800 dark:text-white/90">Active</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div x-show="activeTab === 'addresses'">
+                        <h3 class="mb-1 text-xl font-medium text-gray-800 dark:text-white/90">
+                          Addresses
+                        </h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">
+                          Addresses content goes here...
+                        </p>
+                      </div>
+
+                      <div x-show="activeTab === 'contact'">
+                        <div class="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
+                          <div>
+                            <h4 class="text-lg font-semibold text-gray-800 lg:mb-6 dark:text-white/90">Contact Information</h4>
+
+                            <div class="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-7 2xl:gap-x-32">
+                              <div>
+                                <p class="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">Primary Phone</p>
+                                <p class="text-sm font-medium text-gray-800 dark:text-white/90">+254723000000</p>
+                              </div>
+
+                              <div>
+                                <p class="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">Secondary Phone</p>
+                                <p class="text-sm font-medium text-gray-800 dark:text-white/90">+254725000000</p>
+                              </div>
+
+                              <div>
+                                <p class="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">Email address</p>
+                                <p class="text-sm font-medium text-gray-800 dark:text-white/90">
+                                  randomuser@pimjo.com
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div x-show="activeTab === 'next-of-kin'">
+                        <h3 class="mb-1 text-xl font-medium text-gray-800 dark:text-white/90">
+                          Next of Kin
+                        </h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">
+                          Next of kin content goes here...
+                        </p>
+                      </div>
+
+                      <div x-show="activeTab === 'guarantors'">
+                        <h3 class="mb-1 text-xl font-medium text-gray-800 dark:text-white/90">
+                          Guarantors
+                        </h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">
+                          Guarantors content goes here...
+                        </p>
+                      </div>
+
+                      <div x-show="activeTab === 'vehicles'">
+                        <h3 class="mb-1 text-xl font-medium text-gray-800 dark:text-white/90">
+                          Vehicles
+                        </h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">
+                          Vehicles content goes here...
+                        </p>
+                      </div>
+
+                      <div x-show="activeTab === 'financials'">
+                        <h3 class="mb-1 text-xl font-medium text-gray-800 dark:text-white/90">
+                          Financials
+                        </h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">
+                          Financials content goes here...
+                        </p>
+                      </div>
+
+                      <div x-show="activeTab === 'settings'">
+                        <h3 class="mb-1 text-xl font-medium text-gray-800 dark:text-white/90">
+                          Settings
+                        </h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">
+                          Settings content goes here...
+                        </p>
+                      </div>
                     </div>
-
-                    <div x-show="activeStep === 2">
-                      <h3 class="mb-4 text-xl font-medium text-gray-800 dark:text-white/90">Addresses</h3>
-                      <p class="text-sm text-gray-500 dark:text-gray-400">Add addresses here...</p>
-                    </div>
-
-                    <div x-show="activeStep === 3">
-                      <h3 class="mb-4 text-xl font-medium text-gray-800 dark:text-white/90">Contact Info</h3>
-                      <p class="text-sm text-gray-500 dark:text-gray-400">Provide contact details...</p>
-                    </div>
-
-                    <div x-show="activeStep === 4">
-                      <h3 class="mb-4 text-xl font-medium text-gray-800 dark:text-white/90">Next of Kin</h3>
-                      <p class="text-sm text-gray-500 dark:text-gray-400">Next of kin information...</p>
-                    </div>
-
-                    <div x-show="activeStep === 5">
-                      <h3 class="mb-4 text-xl font-medium text-gray-800 dark:text-white/90">Guarantors</h3>
-                      <p class="text-sm text-gray-500 dark:text-gray-400">Guarantor details...</p>
-                    </div>
-
-                    <div x-show="activeStep === 6">
-                      <h3 class="mb-4 text-xl font-medium text-gray-800 dark:text-white/90">Vehicles</h3>
-                      <p class="text-sm text-gray-500 dark:text-gray-400">Register vehicle(s)...</p>
-                    </div>
-
-                    <div x-show="activeStep === 7">
-                      <h3 class="mb-4 text-xl font-medium text-gray-800 dark:text-white/90">Profile Preview</h3>
-                      <p class="text-sm text-gray-500 dark:text-gray-400">Review all information...</p>
-                    </div>
-                  </div>
-
-                  <!-- Bottom: Navigation Buttons -->
-                  <div class="mt-8 flex justify-between items-center border-t border-gray-200 pt-6 dark:border-gray-700">
-                    <span x-show="activeStep === 1" class="text-gray-400">Step 1 of 7</span>
-
-                    <button x-show="activeStep > 1" @click="prev"
-                            class="px-6 py-2 bg-gray-200 text-gray-700 rounded-lg font-medium hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600">
-                      Previous
-                    </button>
-
-                    <button x-show="activeStep < totalSteps" @click="next"
-                            class="px-6 py-2 bg-brand-500 text-white rounded-lg font-medium hover:bg-brand-600">
-                      Next
-                    </button>
-
-                    <button x-show="activeStep === totalSteps"
-                            class="px-8 py-2 bg-brand-600 text-white rounded-lg font-semibold hover:bg-brand-700">
-                      Submit Application
-                    </button>
-
                   </div>
                 </div>
               </div>
+
             </div>
+
+
+
           </div>
         </main>
         <!-- ===== Main Content End ===== -->
