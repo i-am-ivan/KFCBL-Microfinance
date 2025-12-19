@@ -690,17 +690,23 @@
 
                   <!-- Right Content Area -->
                   <div class="flex-1">
-                    <!-- Personal Information (already complete) -->
-                    <div x-show="activeTab === 'personal'" class="flex-1">
-                      <div class="mb-6 flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
-                        <button onclick="window.location.href='Edit-Member-Details.html'" class="shadow-theme-xs flex w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-white px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-800 lg:inline-flex lg:w-auto dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03] dark:hover:text-gray-200">
+                    <!-- Personal Information -->
+                    <div x-show="activeTab === 'personal'">
+                      <!-- Header: Title Left + Edit Button Right -->
+                      <div class="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
+                        <h3 class="text-2xl font-semibold text-gray-800 dark:text-white/90">
+                          Personal Information
+                        </h3>
+                        <button onclick="window.location.href='Edit-Member-Details.html'"
+                                class="shadow-theme-xs flex w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-white px-6 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-800 sm:w-auto dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03] dark:hover:text-gray-200">
                           <svg class="fill-current" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M15.0911 2.78206C14.2125 1.90338 12.7878 1.90338 11.9092 2.78206L4.57524 10.116C4.26682 10.4244 4.0547 10.8158 3.96468 11.2426L3.31231 14.3352C3.25997 14.5833 3.33653 14.841 3.51583 15.0203C3.69512 15.1996 3.95286 15.2761 4.20096 15.2238L7.29355 14.5714C7.72031 14.4814 8.11172 14.2693 8.42013 13.9609L15.7541 6.62695C16.6327 5.74827 16.6327 4.32365 15.7541 3.44497L15.0911 2.78206ZM12.9698 3.84272C13.2627 3.54982 13.7376 3.54982 14.0305 3.84272L14.6934 4.50563C14.9863 4.79852 14.9863 5.2734 14.6934 5.56629L14.044 6.21573L12.3204 4.49215L12.9698 3.84272ZM11.2597 5.55281L5.6359 11.1766C5.53309 11.2794 5.46238 11.4099 5.43238 11.5522L5.01758 13.5185L6.98394 13.1037C7.1262 13.0737 7.25666 13.003 7.35947 12.9002L12.9833 7.27639L11.2597 5.55281Z" fill=""></path>
                           </svg>
                           Edit
                         </button>
                       </div>
-                      <h3 class="mb-4 text-xl font-medium text-gray-800 dark:text-white/90">Personal Information</h3>
+
+                      <!-- Details Grid Below -->
                       <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
                         <div>
                           <p class="mb-1 text-xs text-gray-500 dark:text-gray-400">Full Name</p>
@@ -729,9 +735,23 @@
                       </div>
                     </div>
 
-                    <!-- Addresses (already complete) -->
+                    <!-- Addresses -->
                     <div x-show="activeTab === 'addresses'">
-                      <h3 class="mb-4 text-xl font-medium text-gray-800 dark:text-white/90">Addresses</h3>
+                      <!-- Header: Title Left + Edit Button Right -->
+                      <div class="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
+                        <h3 class="text-2xl font-semibold text-gray-800 dark:text-white/90">
+                          Addresses
+                        </h3>
+                        <button onclick="window.location.href='Edit-Member-Addresses.html'"
+                                class="shadow-theme-xs flex w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-white px-6 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-800 sm:w-auto dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03] dark:hover:text-gray-200">
+                          <svg class="fill-current" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M15.0911 2.78206C14.2125 1.90338 12.7878 1.90338 11.9092 2.78206L4.57524 10.116C4.26682 10.4244 4.0547 10.8158 3.96468 11.2426L3.31231 14.3352C3.25997 14.5833 3.33653 14.841 3.51583 15.0203C3.69512 15.1996 3.95286 15.2761 4.20096 15.2238L7.29355 14.5714C7.72031 14.4814 8.11172 14.2693 8.42013 13.9609L15.7541 6.62695C16.6327 5.74827 16.6327 4.32365 15.7541 3.44497L15.0911 2.78206ZM12.9698 3.84272C13.2627 3.54982 13.7376 3.54982 14.0305 3.84272L14.6934 4.50563C14.9863 4.79852 14.9863 5.2734 14.6934 5.56629L14.044 6.21573L12.3204 4.49215L12.9698 3.84272ZM11.2597 5.55281L5.6359 11.1766C5.53309 11.2794 5.46238 11.4099 5.43238 11.5522L5.01758 13.5185L6.98394 13.1037C7.1262 13.0737 7.25666 13.003 7.35947 12.9002L12.9833 7.27639L11.2597 5.55281Z" fill=""></path>
+                          </svg>
+                          Edit
+                        </button>
+                      </div>
+
+                      <!-- Details Grid Below -->
                       <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
                         <div>
                           <p class="mb-1 text-xs text-gray-500 dark:text-gray-400">Country</p>
@@ -752,9 +772,23 @@
                       </div>
                     </div>
 
-                    <!-- Contact Information (already complete) -->
+                    <!-- Contact Information -->
                     <div x-show="activeTab === 'contact'">
-                      <h3 class="mb-4 text-xl font-medium text-gray-800 dark:text-white/90">Contact Information</h3>
+                      <!-- Header: Title Left + Edit Button Right -->
+                      <div class="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
+                        <h3 class="text-2xl font-semibold text-gray-800 dark:text-white/90">
+                          Contact Information
+                        </h3>
+                        <button onclick="window.location.href='Edit-Member-Contact.html'"
+                                class="shadow-theme-xs flex w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-white px-6 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-800 sm:w-auto dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03] dark:hover:text-gray-200">
+                          <svg class="fill-current" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M15.0911 2.78206C14.2125 1.90338 12.7878 1.90338 11.9092 2.78206L4.57524 10.116C4.26682 10.4244 4.0547 10.8158 3.96468 11.2426L3.31231 14.3352C3.25997 14.5833 3.33653 14.841 3.51583 15.0203C3.69512 15.1996 3.95286 15.2761 4.20096 15.2238L7.29355 14.5714C7.72031 14.4814 8.11172 14.2693 8.42013 13.9609L15.7541 6.62695C16.6327 5.74827 16.6327 4.32365 15.7541 3.44497L15.0911 2.78206ZM12.9698 3.84272C13.2627 3.54982 13.7376 3.54982 14.0305 3.84272L14.6934 4.50563C14.9863 4.79852 14.9863 5.2734 14.6934 5.56629L14.044 6.21573L12.3204 4.49215L12.9698 3.84272ZM11.2597 5.55281L5.6359 11.1766C5.53309 11.2794 5.46238 11.4099 5.43238 11.5522L5.01758 13.5185L6.98394 13.1037C7.1262 13.0737 7.25666 13.003 7.35947 12.9002L12.9833 7.27639L11.2597 5.55281Z" fill=""></path>
+                          </svg>
+                          Edit
+                        </button>
+                      </div>
+
+                      <!-- Details Grid Below -->
                       <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
                         <div>
                           <p class="mb-1 text-xs text-gray-500 dark:text-gray-400">Primary Phone</p>
@@ -771,36 +805,109 @@
                       </div>
                     </div>
 
-                    <!-- Next of Kin Table (already complete) -->
+                    <!-- Next of Kin Table -->
                     <div x-show="activeTab === 'next-of-kin'">
-                      <h3 class="mb-4 text-xl font-medium text-gray-800 dark:text-white/90">Next of Kin</h3>
-                      <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                        <thead class="bg-gray-50 dark:bg-gray-800">
-                        <tr>
-                          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400">Name</th>
-                          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400">Address</th>
-                          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400">Phone</th>
-                          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400">Relationship</th>
-                          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400">Status</th>
-                        </tr>
-                        </thead>
-                        <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
-                        <tr>
-                          <td class="px-6 py-4">
-                            <div>
-                              <p class="text-sm font-medium text-gray-900 dark:text-white">Tony Wamuthende</p>
-                              <p class="text-xs text-gray-500 dark:text-gray-400">tony.wamuthende@gmail.com</p>
-                            </div>
-                          </td>
-                          <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">Makongeni, Thika</td>
-                          <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">+254 785 000 200</td>
-                          <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">Brother</td>
-                          <td class="px-6 py-4">
-                            <span class="bg-success-50 text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 text-xs font-medium">Active</span>
-                          </td>
-                        </tr>
-                        </tbody>
-                      </table>
+                      <!-- Header: Title Left + Buttons Right -->
+                      <div class="mb-6 flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
+                        <h3 class="text-2xl font-semibold text-gray-800 dark:text-white/90">
+                          Next of Kin
+                        </h3>
+                        <div class="flex flex-col gap-3 sm:flex-row">
+                          <button class="flex items-center justify-center gap-2 rounded-lg bg-brand-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-brand-700">
+                            <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                            </svg>
+                            Add Next of Kin
+                          </button>
+                          <button class="flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700">
+                            <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/>
+                            </svg>
+                            Print
+                          </button>
+                        </div>
+                      </div>
+
+                      <!-- Search + Tab Filter -->
+                      <div class="mb-4 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                        <div class="flex gap-3">
+                          <div class="relative">
+                            <input type="text" placeholder="Search next of kin..." class="w-full rounded-lg border border-gray-300 pl-10 pr-4 py-2 text-sm focus:border-brand-500 focus:ring-brand-500 dark:bg-gray-800 dark:border-gray-700" />
+                            <svg class="absolute left-3 top-2.5 size-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="flex gap-2">
+                          <button class="rounded-lg bg-brand-50 px-4 py-2 text-sm font-medium text-brand-600 dark:bg-brand-500/10 dark:text-brand-400">All</button>
+                          <button class="rounded-lg px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">Contributions</button>
+                          <button class="rounded-lg px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">Fines</button>
+                          <button class="rounded-lg px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">Loan</button>
+                        </div>
+                      </div>
+
+                      <!-- Table with Action Column -->
+                      <div class="overflow-x-auto">
+                        <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                          <thead class="bg-gray-50 dark:bg-gray-800">
+                          <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400">Name</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400">Address</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400">Phone</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400">Relationship</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400">Status</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400">Actions</th>
+                          </tr>
+                          </thead>
+                          <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                          <tr>
+                            <td class="px-6 py-4">
+                              <div>
+                                <p class="text-sm font-medium text-gray-900 dark:text-white">Tony Wamuthende</p>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">tony.wamuthende@gmail.com</p>
+                              </div>
+                            </td>
+                            <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">Makongeni, Thika</td>
+                            <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">+254 785 000 200</td>
+                            <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">Brother</td>
+                            <td class="px-6 py-4">
+                              <span class="bg-success-50 text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 text-xs font-medium">Active</span>
+                            </td>
+                            <td class="px-6 py-4">
+                              <div class="flex items-center gap-3">
+                                <button class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                                  <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                                  </svg>
+                                </button>
+                                <button class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                                  <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                                  </svg>
+                                </button>
+                              </div>
+                            </td>
+                          </tr>
+                          <!-- Add more rows as needed -->
+                          </tbody>
+                        </table>
+                      </div>
+
+                      <!-- Pagination (Bottom Right) -->
+                      <div class="mt-6 flex justify-end">
+                        <nav class="flex items-center gap-2">
+                          <button class="rounded-lg border border-gray-300 px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-700">
+                            Previous
+                          </button>
+                          <button class="rounded-lg bg-brand-600 px-4 py-2 text-sm font-medium text-white">1</button>
+                          <button class="rounded-lg border border-gray-300 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-700">2</button>
+                          <button class="rounded-lg border border-gray-300 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-700">3</button>
+                          <button class="rounded-lg border border-gray-300 px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-700">
+                            Next
+                          </button>
+                        </nav>
+                      </div>
                     </div>
 
                     <!-- Guarantors Table (already complete) -->
