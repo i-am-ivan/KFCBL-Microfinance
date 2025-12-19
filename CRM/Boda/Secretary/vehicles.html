@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-  <title>Vehicles | KFBCL - Mircofinance</title>
+  <title>Appointments | KFBCL - Mircofinance</title>
 
   <link rel="icon" href="../../assets/favicon.ico">
   <link href="../../assets/style.css" rel="stylesheet">
@@ -38,14 +38,11 @@
          class="sidebar-header flex items-center gap-2 pt-8 pb-7">
       <a href="index.html">
             <span class="logo" :class="sidebarToggle ? 'hidden' : ''">
-              <img class="dark:hidden" src="../../assets/src/images/logo/logo.svg" alt="Logo" />
-              <img class="hidden dark:block" src="../../assets/src/images/logo/logo-dark.svg" alt="Logo"/>
+              <img class="dark:hidden" src="../../assets/src/images/logo/KFCBL-Logo-transparent.png" alt="Logo" />
+              <img class="hidden dark:block" src="../../assets/src/images/logo/KFCBL-Logo-transparent.png" alt="Logo"/>
             </span>
 
-        <img class="logo-icon"
-             :class="sidebarToggle ? 'xl:block' : 'hidden'"
-             src="../../assets/src/images/logo/logo-icon.svg"
-             alt="Logo"/>
+        <img class="logo-icon" :class="sidebarToggle ? 'xl:block' : 'hidden'" src="../../assets/src/images/logo/logo-icon.svg" alt="Logo"/>
       </a>
     </div>
     <!-- SIDEBAR HEADER -->
@@ -58,7 +55,7 @@
           <h3 class="mb-4 text-xs leading-[20px] text-gray-400 uppercase">
                 <span class="menu-group-title"
                       :class="sidebarToggle ? 'xl:hidden' : ''">
-                  MENU
+                  DASHBOARD
                 </span>
             <svg
                     :class="sidebarToggle ? 'xl:block hidden' : 'hidden'"
@@ -102,13 +99,13 @@
             <!-- Menu Item Task -->
             <li>
               <a href="events.html" @click="selected = (selected === 'Events' ? '':'Events')" class="menu-item group"
-                 :class=" (selected === 'Events') || (page === 'events' || page === 'events') ? 'menu-item-active' : 'menu-item-inactive'">
+                 :class=" (selected === 'Events') || (page === 'events') ? 'menu-item-active' : 'menu-item-inactive'">
                 <svg :class="(selected === 'Calendar') &amp;&amp; (page === 'calendar') ? 'menu-item-icon-active'  :'menu-item-icon-inactive'" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="menu-item-icon-inactive">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M8 2C8.41421 2 8.75 2.33579 8.75 2.75V3.75H15.25V2.75C15.25 2.33579 15.5858 2 16 2C16.4142 2 16.75 2.33579 16.75 2.75V3.75H18.5C19.7426 3.75 20.75 4.75736 20.75 6V9V19C20.75 20.2426 19.7426 21.25 18.5 21.25H5.5C4.25736 21.25 3.25 20.2426 3.25 19V9V6C3.25 4.75736 4.25736 3.75 5.5 3.75H7.25V2.75C7.25 2.33579 7.58579 2 8 2ZM8 5.25H5.5C5.08579 5.25 4.75 5.58579 4.75 6V8.25H19.25V6C19.25 5.58579 18.9142 5.25 18.5 5.25H16H8ZM19.25 9.75H4.75V19C4.75 19.4142 5.08579 19.75 5.5 19.75H18.5C18.9142 19.75 19.25 19.4142 19.25 19V9.75Z" fill="currentColor"></path>
                 </svg>
 
                 <span class="menu-item-text"
-                      :class="sidebarToggle ? 'xl:hidden' : ''">Events</span>
+                      :class="sidebarToggle ? 'xl:hidden' : ''">Calendar</span>
               </a>
             </li>
             <!-- Menu Item Task -->
@@ -119,7 +116,7 @@
         <div>
           <h3 class="mb-4 text-xs leading-[20px] text-gray-400 uppercase">
                 <span class="menu-group-title"
-                      :class="sidebarToggle ? 'xl:hidden' : ''">My Wallet</span>
+                      :class="sidebarToggle ? 'xl:hidden' : ''">MANAGE</span>
 
             <svg
                     :class="sidebarToggle ? 'xl:block hidden' : 'hidden'"
@@ -142,24 +139,20 @@
           <ul class="mb-6 flex flex-col gap-1">
             <!-- Menu Item Chat -->
             <li>
-              <a href="bodaboda.html" @click="selected = (selected === 'Accounts' ? '':'Accounts')" class="menu-item group"
-                 :class=" (selected === 'Accounts') && (page === 'accounts') ? 'menu-item-active' : 'menu-item-inactive'">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                     fill="none"
-                     stroke="#787878"
-                     stroke-width="1.25"
-                     stroke-linecap="round"
-                     stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-wallet">
+              <a href="bodaboda.html" @click="selected = (selected === 'Bodaboda' ? '':'Bodaboda')" class="menu-item group"
+                 :class=" (selected === 'Bodaboda') || (page === 'bodaboda') ? 'menu-item-active' : 'menu-item-inactive'">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#787878" stroke-width="1.5"
+                     stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-motorbike">
                   <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                  <path d="M17 8v-3a1 1 0 0 0 -1 -1h-10a2 2 0 0 0 0 4h12a1 1 0 0 1 1 1v3m0 4v3a1 1 0 0 1 -1 1h-12a2 2 0 0 1 -2 -2v-12" />
-                  <path d="M20 12v4h-4a2 2 0 0 1 0 -4h4" />
+                  <path d="M5 16m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M19 16m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M7.5 14h5l4 -4h-10.5m1.5 4l4 -4" /><path d="M13 6h2l1.5 3l2 4" />
                 </svg>
 
                 <span
                         class="menu-item-text"
                         :class="sidebarToggle ? 'xl:hidden' : ''"
                 >
-                      Accounts
+                      Bodaboda
                     </span>
               </a>
             </li>
@@ -168,7 +161,7 @@
             <!-- Menu Item Tables -->
             <li>
               <a href="loans.html" @click="selected = (selected === 'Loans' ? '':'Loans')" class="menu-item group"
-                 :class="(selected === 'Loans') || (page === 'loans' || page === 'loans') ? 'menu-item-active' : 'menu-item-inactive'">
+                 :class="(selected === 'Loans') || (page === 'loans') ? 'menu-item-active' : 'menu-item-inactive'">
                 <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
@@ -191,11 +184,19 @@
 
                 <span class="menu-item-text"
                       :class="sidebarToggle ? 'xl:hidden' : ''">Loans</span>
-                <span :class="sidebarToggle ? 'xl:hidden' : ''"
-                      class="absolute right-10 flex items-center gap-1">
-                      <span class="menu-dropdown-badge"
-                            :class="page === 'products' ? 'menu-dropdown-badge-active' : 'menu-dropdown-badge-inactive'">Good</span>
-                    </span>
+              </a>
+
+            </li>
+            <!-- Menu Item Tables -->
+            <!-- Menu Item Lands -->
+            <li>
+              <a href="real-estate.html" @click="selected = (selected === 'Real Estate' ? '':'Real Estate')" class="menu-item group"
+                 :class="(selected === 'Real Estate') || (page === 'real estate') ? 'menu-item-active' : 'menu-item-inactive'">
+                <svg class="w-[21px] h-[21px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-width="1.1" d="M3 21h18M4 18h16M6 10v8m4-8v8m4-8v8m4-8v8M4 9.5v-.955a1 1 0 0 1 .458-.84l7-4.52a1 1 0 0 1 1.084 0l7 4.52a1 1 0 0 1 .458.84V9.5a.5.5 0 0 1-.5.5h-15a.5.5 0 0 1-.5-.5Z"/>
+                </svg>
+                <span class="menu-item-text"
+                      :class="sidebarToggle ? 'xl:hidden' : ''">Real Estate</span>
               </a>
 
             </li>
@@ -207,7 +208,7 @@
         <div>
           <h3 class="mb-4 text-xs leading-[20px] text-gray-400 uppercase">
                 <span class="menu-group-title"
-                      :class="sidebarToggle ? 'xl:hidden' : ''">My Assets</span>
+                      :class="sidebarToggle ? 'xl:hidden' : ''">Appointments</span>
 
             <svg
                     :class="sidebarToggle ? 'xl:block hidden' : 'hidden'"
@@ -231,13 +232,15 @@
             <!-- Menu Item Charts -->
             <li>
               <a href="vehicles.html" @click="selected = (selected === 'Vehicles' ? '':'Vehicles')" class="menu-item group"
-                 :class="(selected === 'Vehicles') || (page === 'vehicles' || page === 'vehicles' || page === 'vehicle') ? 'menu-item-active' : 'menu-item-inactive'"
+                 :class="(selected === 'Vehicles') || (page === 'vehicles') ? 'menu-item-active' : 'menu-item-inactive'"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#787878" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-motorbike"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 16m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M19 16m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M7.5 14h5l4 -4h-10.5m1.5 4l4 -4" /><path d="M13 6h2l1.5 3l2 4" />
+                <svg class="w-[21px] h-[21px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.1" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-6 7 2 2 4-4m-5-9v4h4V3h-4Z"/>
                 </svg>
 
+
                 <span class="menu-item-text"
-                      :class="sidebarToggle ? 'xl:hidden' : ''">Vehicles</span>
+                      :class="sidebarToggle ? 'xl:hidden' : ''">Appointments</span>
               </a>
             </li>
             <!-- Menu Item Charts -->
@@ -327,7 +330,6 @@
       <!-- Sidebar Menu -->
     </div>
   </aside>
-
   <!-- ===== Sidebar End ===== -->
 
   <!-- ===== Content Area Start ===== -->
@@ -518,9 +520,9 @@
     <main>
       <div class="mx-auto max-w-(--breakpoint-2xl) p-4 pb-20 md:p-6 md:pb-6">
         <!-- Content Start -->
-        <div x-data="{ pageName: `Vehicles` }">
+        <div x-data="{ pageName: `Appointments` }">
           <div class="flex flex-wrap items-center justify-between gap-3 pb-6">
-            <h2 class="text-xl font-semibold text-gray-800 dark:text-white/90" x-text="pageName">My Vehicles</h2>
+            <h2 class="text-xl font-semibold text-gray-800 dark:text-white/90" x-text="pageName">Appoints</h2>
             <nav>
               <ol class="flex items-center gap-1.5">
                 <li>
@@ -531,7 +533,7 @@
                     </svg>
                   </a>
                 </li>
-                <li class="text-sm text-gray-800 dark:text-white/90" x-text="pageName">Vehicles</li>
+                <li class="text-sm text-gray-800 dark:text-white/90" x-text="pageName">Appointments</li>
               </ol>
             </nav>
           </div>
@@ -542,7 +544,7 @@
           <div class="flex flex-col justify-between gap-5 border-b border-gray-200 px-5 py-4 sm:flex-row lg:items-center dark:border-gray-800">
             <div>
               <h3 class="text-lg font-semibold text-gray-800 dark:text-white/90">
-                Vehicles
+                Appointments
               </h3>
               <p class="text-sm text-gray-500 dark:text-gray-400">
                 Your most recent vehicles' list
@@ -554,9 +556,9 @@
                 <select
                         class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-white px-4 py-2.5 pr-11 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30"
                 >
-                  <option>All Vehicles</option>
-                  <option>Motorcycles</option>
-                  <option>TukTuk</option>
+                  <option>All Appointments</option>
+                  <option>Pending</option>
+                  <option>Cancelled</option>
                 </select>
               </div>
               <div>
@@ -597,7 +599,7 @@
                             fill=""
                     />
                   </svg>
-                  Add Vehicle</button>
+                   Schedule Appointment</button>
               </div>
             </div>
           </div>

@@ -190,8 +190,8 @@
                 <!-- Menu Item Tables -->
                 <!-- Menu Item Lands -->
                 <li>
-                  <a href="loans.html" @click="selected = (selected === 'Loans' ? '':'Loans')" class="menu-item group"
-                     :class="(selected === 'Loans') || (page === 'loans') ? 'menu-item-active' : 'menu-item-inactive'">
+                  <a href="real-estate.html" @click="selected = (selected === 'Real Estate' ? '':'Real Estate')" class="menu-item group"
+                     :class="(selected === 'Real Estate') || (page === 'real estate') ? 'menu-item-active' : 'menu-item-inactive'">
                     <svg class="w-[21px] h-[21px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                       <path stroke="currentColor" stroke-linecap="round" stroke-width="1.1" d="M3 21h18M4 18h16M6 10v8m4-8v8m4-8v8m4-8v8M4 9.5v-.955a1 1 0 0 1 .458-.84l7-4.52a1 1 0 0 1 1.084 0l7 4.52a1 1 0 0 1 .458.84V9.5a.5.5 0 0 1-.5.5h-15a.5.5 0 0 1-.5-.5Z"/>
                     </svg>
@@ -606,12 +606,12 @@
 
                     <!-- Step Labels (highlight current & completed) -->
                     <div class="flex justify-between text-xs sm:text-sm text-gray-500 dark:text-gray-400 overflow-x-auto">
-                      <span :class="activeStep >= 1 ? 'text-brand-500 font-medium' : ''">Personal Info</span>
-                      <span :class="activeStep >= 2 ? 'text-brand-500 font-medium' : ''">Addresses</span>
-                      <span :class="activeStep >= 3 ? 'text-brand-500 font-medium' : ''">Contact Info</span>
-                      <span :class="activeStep >= 4 ? 'text-brand-500 font-medium' : ''">Next of Kin</span>
-                      <span :class="activeStep >= 5 ? 'text-brand-500 font-medium' : ''">Guarantors</span>
-                      <span :class="activeStep >= 6 ? 'text-brand-500 font-medium' : ''">Vehicles</span>
+                      <span :class="activeStep >= 1 ? 'text-brand-500 font-lg' : ''">1. Personal Info</span>
+                      <span :class="activeStep >= 2 ? 'text-brand-500 font-medium' : ''">2. Addresses</span>
+                      <span :class="activeStep >= 3 ? 'text-brand-500 font-medium' : ''">3. Contact Info</span>
+                      <span :class="activeStep >= 4 ? 'text-brand-500 font-medium' : ''">4. Next of Kin</span>
+                      <span :class="activeStep >= 5 ? 'text-brand-500 font-medium' : ''">5. Guarantors</span>
+                      <span :class="activeStep >= 6 ? 'text-brand-500 font-medium' : ''">6. Vehicles</span>
                       <span :class="activeStep >= 7 ? 'text-brand-500 font-medium' : ''">Preview</span>
                     </div>
                   </div>
@@ -619,13 +619,256 @@
                   <!-- Tab Content -->
                   <div class="pt-4 min-h-[300px]">
                     <div x-show="activeStep === 1">
-                      <h3 class="mb-4 text-xl font-medium text-gray-800 dark:text-white/90">Personal Information</h3>
-                      <p class="text-sm text-gray-500 dark:text-gray-400">Enter personal details here...</p>
+                      <!-- Header -->
+                      <div class="mb-8">
+                        <h3 class="text-2xl font-semibold text-gray-800 dark:text-white/90">
+                          Step 1. Personal Information
+                        </h3>
+                        <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">
+                          Provide accurate personal details to complete registration
+                        </p>
+                      </div>
+
+                      <!-- Form Rows -->
+                      <div class="space-y-4">
+                        <hr class="border-gray-200 dark:border-gray-700">
+                        <!-- Title Row -->
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 items-start">
+                          <label class="text-right text-sm font-medium text-gray-700 dark:text-gray-300 sm:col-span-1 pt-3">
+                            Title
+                          </label>
+                          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <select
+                                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 z-20 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 text-gray-500 dark:text-gray-400"
+                                    :class="isOptionSelected &amp;&amp; 'text-gray-500 dark:text-gray-400'"
+                                    @change="isOptionSelected = true">
+                              <option value="" class="text-gray-500 dark:bg-gray-900 dark:text-gray-400">
+                                Mr.
+                              </option>
+                              <option value="" class="text-gray-500 dark:bg-gray-900 dark:text-gray-400">
+                                Mrs.
+                              </option>
+                              <option value="" class="text-gray-500 dark:bg-gray-900 dark:text-gray-400">
+                                Master
+                              </option>
+                              <option value="" class="text-gray-500 dark:bg-gray-900 dark:text-gray-400">
+                                Miss
+                              </option>
+                            </select>
+                          </div>
+                        </div>
+                        <!-- Name Row -->
+                        <div class="space-y-4">
+                          <!-- Fullname Row -->
+                          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 items-start">
+                            <label class="text-right text-sm font-medium text-gray-700 dark:text-gray-300 sm:col-span-1 pt-3">
+                              Fullname
+                            </label>
+                            <div class="w-full sm:w-3/4 flex flex-col gap-6">
+                              <div class="flex flex-col sm:flex-row gap-4">
+                                <!-- First Name -->
+                                <input type="text"
+                                       placeholder="Enter first name"
+                                       class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 flex-1 rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" />
+
+                                <!-- Middle Name -->
+                                <input type="text"
+                                       placeholder="Enter Middle name"
+                                       class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 flex-1 rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" />
+
+                                <!-- Last Name -->
+                                <input type="text"
+                                       placeholder="Enter Last Name"
+                                       class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 flex-1 rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <hr class="border-gray-200 dark:border-gray-700">
+
+                        <!-- Date of Birth Row -->
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 items-start">
+                          <label class="text-right text-sm font-medium text-gray-700 dark:text-gray-300 sm:col-span-1 pt-3">
+                            Date of Birth
+                          </label>
+                          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="relative">
+                              <div class="flatpickr-wrapper"><input type="text" placeholder="Select date" class="dark:bg-dark-900 datepickerTwo shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 pr-11 pl-4 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 flatpickr-input" readonly="readonly"><div class="flatpickr-calendar animate static null arrowLeft arrowTop" tabindex="-1"><div class="flatpickr-months"><span class="flatpickr-prev-month"><svg class="stroke-current" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.25 6L9 12.25L15.25 18.5" stroke="" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><div class="flatpickr-month"><div class="flatpickr-current-month"><span class="cur-month">December </span><div class="numInputWrapper"><input class="numInput cur-year" type="number" tabindex="-1" aria-label="Year"><span class="arrowUp"></span><span class="arrowDown"></span></div></div></div><span class="flatpickr-next-month"><svg class="stroke-current" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="httpwww.w3.org/2000/svg"><path d="M8.75 19L15 12.75L8.75 6.5" stroke="" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></div><div class="flatpickr-innerContainer"><div class="flatpickr-rContainer"><div class="flatpickr-weekdays"><div class="flatpickr-weekdaycontainer">
+                              </div></div><div class="flatpickr-days" tabindex="-1"><div class="dayContainer"><span class="flatpickr-day prevMonthDay" aria-label="November 30, 2025" tabindex="-1">30</span><span class="flatpickr-day" aria-label="December 1, 2025" tabindex="-1">1</span><span class="flatpickr-day" aria-label="December 2, 2025" tabindex="-1">2</span><span class="flatpickr-day" aria-label="December 3, 2025" tabindex="-1">3</span><span class="flatpickr-day" aria-label="December 4, 2025" tabindex="-1">4</span><span class="flatpickr-day" aria-label="December 5, 2025" tabindex="-1">5</span><span class="flatpickr-day" aria-label="December 6, 2025" tabindex="-1">6</span><span class="flatpickr-day" aria-label="December 7, 2025" tabindex="-1">7</span><span class="flatpickr-day" aria-label="December 8, 2025" tabindex="-1">8</span><span class="flatpickr-day" aria-label="December 9, 2025" tabindex="-1">9</span><span class="flatpickr-day" aria-label="December 10, 2025" tabindex="-1">10</span><span class="flatpickr-day" aria-label="December 11, 2025" tabindex="-1">11</span><span class="flatpickr-day" aria-label="December 12, 2025" tabindex="-1">12</span><span class="flatpickr-day" aria-label="December 13, 2025" tabindex="-1">13</span><span class="flatpickr-day" aria-label="December 14, 2025" tabindex="-1">14</span><span class="flatpickr-day" aria-label="December 15, 2025" tabindex="-1">15</span><span class="flatpickr-day" aria-label="December 16, 2025" tabindex="-1">16</span><span class="flatpickr-day" aria-label="December 17, 2025" tabindex="-1">17</span><span class="flatpickr-day" aria-label="December 18, 2025" tabindex="-1">18</span><span class="flatpickr-day today" aria-label="December 19, 2025" aria-current="date" tabindex="-1">19</span><span class="flatpickr-day" aria-label="December 20, 2025" tabindex="-1">20</span><span class="flatpickr-day" aria-label="December 21, 2025" tabindex="-1">21</span><span class="flatpickr-day" aria-label="December 22, 2025" tabindex="-1">22</span><span class="flatpickr-day" aria-label="December 23, 2025" tabindex="-1">23</span><span class="flatpickr-day" aria-label="December 24, 2025" tabindex="-1">24</span><span class="flatpickr-day" aria-label="December 25, 2025" tabindex="-1">25</span><span class="flatpickr-day" aria-label="December 26, 2025" tabindex="-1">26</span><span class="flatpickr-day" aria-label="December 27, 2025" tabindex="-1">27</span><span class="flatpickr-day" aria-label="December 28, 2025" tabindex="-1">28</span><span class="flatpickr-day" aria-label="December 29, 2025" tabindex="-1">29</span><span class="flatpickr-day" aria-label="December 30, 2025" tabindex="-1">30</span><span class="flatpickr-day" aria-label="December 31, 2025" tabindex="-1">31</span><span class="flatpickr-day nextMonthDay" aria-label="January 1, 2026" tabindex="-1">1</span><span class="flatpickr-day nextMonthDay" aria-label="January 2, 2026" tabindex="-1">2</span><span class="flatpickr-day nextMonthDay" aria-label="January 3, 2026" tabindex="-1">3</span><span class="flatpickr-day nextMonthDay" aria-label="January 4, 2026" tabindex="-1">4</span><span class="flatpickr-day nextMonthDay" aria-label="January 5, 2026" tabindex="-1">5</span><span class="flatpickr-day nextMonthDay" aria-label="January 6, 2026" tabindex="-1">6</span><span class="flatpickr-day nextMonthDay" aria-label="January 7, 2026" tabindex="-1">7</span><span class="flatpickr-day nextMonthDay" aria-label="January 8, 2026" tabindex="-1">8</span><span class="flatpickr-day nextMonthDay" aria-label="January 9, 2026" tabindex="-1">9</span><span class="flatpickr-day nextMonthDay" aria-label="January 10, 2026" tabindex="-1">10</span></div></div></div></div></div></div>
+                              <span class="pointer-events-none absolute top-1/2 right-3 -translate-y-1/2 text-gray-500 dark:text-gray-400">
+                          <svg class="fill-current" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M6.66659 1.5415C7.0808 1.5415 7.41658 1.87729 7.41658 2.2915V2.99984H12.5833V2.2915C12.5833 1.87729 12.919 1.5415 13.3333 1.5415C13.7475 1.5415 14.0833 1.87729 14.0833 2.2915V2.99984L15.4166 2.99984C16.5212 2.99984 17.4166 3.89527 17.4166 4.99984V7.49984V15.8332C17.4166 16.9377 16.5212 17.8332 15.4166 17.8332H4.58325C3.47868 17.8332 2.58325 16.9377 2.58325 15.8332V7.49984V4.99984C2.58325 3.89527 3.47868 2.99984 4.58325 2.99984L5.91659 2.99984V2.2915C5.91659 1.87729 6.25237 1.5415 6.66659 1.5415ZM6.66659 4.49984H4.58325C4.30711 4.49984 4.08325 4.7237 4.08325 4.99984V6.74984H15.9166V4.99984C15.9166 4.7237 15.6927 4.49984 15.4166 4.49984H13.3333H6.66659ZM15.9166 8.24984H4.08325V15.8332C4.08325 16.1093 4.30711 16.3332 4.58325 16.3332H15.4166C15.6927 16.3332 15.9166 16.1093 15.9166 15.8332V8.24984Z" fill=""></path>
+                          </svg>
+                        </span>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Gender Row -->
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 items-start">
+                          <label class="text-right text-sm font-medium text-gray-700 dark:text-gray-300 sm:col-span-1">
+                            Gender
+                          </label>
+                          <div class="sm:col-span-2 flex items-center gap-8">
+                            <label class="flex items-center gap-2 cursor-pointer">
+                              <input type="radio" name="gender" value="Male" class="text-brand-600 focus:ring-brand-500" required />
+                              <span class="text-sm text-gray-700 dark:text-gray-300">Male</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                              <input type="radio" name="gender" value="Female" class="text-brand-600 focus:ring-brand-500" />
+                              <span class="text-sm text-gray-700 dark:text-gray-300">Female</span>
+                            </label>
+                          </div>
+                        </div>
+                        <hr class="border-gray-200 dark:border-gray-700">
+
+                        <!-- Marital Status Row -->
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 items-start">
+                          <label class="text-right text-sm font-medium text-gray-700 dark:text-gray-300 sm:col-span-1 pt-3">
+                            Marital Status
+                          </label>
+                          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <select
+                                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 z-20 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 text-gray-500 dark:text-gray-400"
+                                    :class="isOptionSelected &amp;&amp; 'text-gray-500 dark:text-gray-400'"
+                                    @change="isOptionSelected = true">
+                              <option selected>Single</option>
+                              <option>Married</option>
+                              <option>Divorced</option>
+                              <option>Widowed</option>
+                            </select>
+                          </div>
+                        </div>
+                        <hr class="border-gray-200 dark:border-gray-700">
+
+                        <!-- Role Row -->
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 items-start">
+                          <label class="text-right text-sm font-medium text-gray-700 dark:text-gray-300 sm:col-span-1 pt-3">
+                            Role
+                          </label>
+                          <div class="grid grid-cols-1 md:grid-cols-1 gap-8">
+                            <p class="text-sm font-medium text-gray-800 dark:text-white/90">
+                              Rider
+                              <span class="text-xs text-gray-500 dark:text-gray-400 mt-1">Contact Administration for changes</span>
+                            </p>
+                          </div>
+                        </div>
+
+                        <!-- Joined Row -->
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 items-start">
+                          <label class="text-right text-sm font-medium text-gray-700 dark:text-gray-300 sm:col-span-1 pt-3">
+                            Joined
+                          </label>
+                          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <p class="text-sm font-medium text-gray-800 dark:text-white/90">
+                              Date Time
+                              <span class="text-xs text-gray-500 dark:text-gray-400 mt-1">Auto-set by system</span>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
                     </div>
 
                     <div x-show="activeStep === 2">
-                      <h3 class="mb-4 text-xl font-medium text-gray-800 dark:text-white/90">Addresses</h3>
-                      <p class="text-sm text-gray-500 dark:text-gray-400">Add addresses here...</p>
+                      <!-- Header -->
+                      <div class="mb-8">
+                        <h3 class="text-2xl font-semibold text-gray-800 dark:text-white/90">
+                          Step 2. Addresses
+                        </h3>
+                        <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">
+                          Provide accurate personal details to complete registration
+                        </p>
+                      </div>
+
+                      <div class="space-y-4">
+                        <hr class="border-gray-200 dark:border-gray-700">
+                        <!-- Address Section -->
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 items-start">
+                          <label class="text-right text-sm font-medium text-gray-700 dark:text-gray-300 sm:col-span-1 pt-3">
+                            Primary Address
+                          </label>
+
+                          <div class="grid grid-cols-1 md:grid-cols-2 gap-9">
+                            <!-- Primary Address -->
+                            <div class="space-y-4">
+
+                              <div class="space-y-4">
+                                <!-- Street Address -->
+                                <input type="text"
+                                       placeholder="Enter street address"
+                                       class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" />
+
+                                <!-- Estate and Town Row -->
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                  <!-- Estate -->
+                                  <input type="text"
+                                         placeholder="Estate"
+                                         class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" />
+
+                                  <!-- Town -->
+                                  <input type="text"
+                                         placeholder="Town"
+                                         class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" />
+                                </div>
+
+                                <!-- County and Country Dropdowns Row -->
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                  <!-- County Dropdown -->
+                                  <select class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
+                                    <option value="">Select County</option>
+                                    <option value="nairobi">Nairobi</option>
+                                    <option value="mombasa">Mombasa</option>
+                                    <option value="kisumu">Kisumu</option>
+                                    <option value="nakuru">Nakuru</option>
+                                    <option value="kiambu">Kiambu</option>
+                                  </select>
+
+                                  <!-- Country Dropdown -->
+                                  <select class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
+                                    <option value="">Select Country</option>
+                                    <option value="kenya">Kenya</option>
+                                    <option value="uganda">Uganda</option>
+                                    <option value="tanzania">Tanzania</option>
+                                    <option value="rwanda">Rwanda</option>
+                                    <option value="ethiopia">Ethiopia</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Form Rows -->
+                      <div class="space-y-4">
+                        <hr class="border-gray-200 dark:border-gray-700">
+                        <!-- Title Row -->
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 items-start">
+                          <label class="text-right text-sm font-medium text-gray-700 dark:text-gray-300 sm:col-span-1 pt-3">
+                            Title
+                          </label>
+                          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <select
+                                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 z-20 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 text-gray-500 dark:text-gray-400"
+                                    :class="isOptionSelected &amp;&amp; 'text-gray-500 dark:text-gray-400'"
+                                    @change="isOptionSelected = true">
+                              <option value="" class="text-gray-500 dark:bg-gray-900 dark:text-gray-400">
+                                Mr.
+                              </option>
+                              <option value="" class="text-gray-500 dark:bg-gray-900 dark:text-gray-400">
+                                Mrs.
+                              </option>
+                              <option value="" class="text-gray-500 dark:bg-gray-900 dark:text-gray-400">
+                                Master
+                              </option>
+                              <option value="" class="text-gray-500 dark:bg-gray-900 dark:text-gray-400">
+                                Miss
+                              </option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
                     </div>
 
                     <div x-show="activeStep === 3">
