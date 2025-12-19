@@ -585,7 +585,7 @@
             <!-- Breadcrumb End -->
 
             <div class="rounded-2xl border border-gray-200 bg-white p-5 lg:p-6 dark:border-gray-800 dark:bg-white/[0.03]">
-              <h3 class="mb-5 text-lg font-semibold text-gray-800 lg:mb-7 dark:text-white/90">View Member</h3>
+              <h3 class="mb-5 text-lg font-semibold text-gray-800 lg:mb-7 dark:text-white/90">Member: #RD001</h3>
 
               <div class="mb-6 rounded-2xl border border-gray-200 p-5 lg:p-6 dark:border-gray-800">
                 <div class="flex flex-col gap-5 xl:flex-row xl:items-center xl:justify-between">
@@ -616,7 +616,7 @@
 
               <div class="rounded-xl border border-gray-200 p-6 dark:border-gray-800" x-data="{ activeTab: 'personal' }">
                 <div class="flex flex-col gap-6 sm:flex-row sm:gap-8">
-                  <!-- Left Sidebar Menu – Vertical on desktop, horizontal scroll on mobile -->
+                  <!-- Left Sidebar Menu -->
                   <div class="overflow-x-auto pb-2 sm:w-[280px] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-100 dark:[&::-webkit-scrollbar-thumb]:bg-gray-600 [&::-webkit-scrollbar-track]:bg-white dark:[&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar]:h-1.5">
                     <nav class="flex w-full flex-row sm:flex-col sm:space-y-2">
                       <button @click="activeTab = 'personal'"
@@ -686,7 +686,8 @@
                               :class="activeTab === 'settings' ? 'bg-brand-50 text-brand-600 dark:bg-brand-500/10 dark:text-brand-400' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700'"
                               class="inline-flex items-center gap-3 whitespace-nowrap rounded-lg px-3 py-2.5 text-sm font-medium transition-colors duration-200 ease-in-out sm:p-3">
                         <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
                         </svg>
                         Settings
                       </button>
@@ -695,126 +696,291 @@
 
                   <!-- Right Content Area -->
                   <div class="flex-1">
-                    <div class="">
-                      <div x-show="activeTab === 'personal'">
-                        <div class="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
-                          <div>
-                            <h4 class="text-lg font-semibold text-gray-800 lg:mb-6 dark:text-white/90">Personal Information</h4>
+                    <!-- Personal Information (already complete) -->
+                    <div x-show="activeTab === 'personal'">
+                      <h3 class="mb-4 text-xl font-medium text-gray-800 dark:text-white/90">Personal Information</h3>
+                      <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+                        <div>
+                          <p class="mb-1 text-xs text-gray-500 dark:text-gray-400">Full Name</p>
+                          <p class="text-sm font-medium text-gray-800 dark:text-white/90">James Mwangi</p>
+                        </div>
+                        <div>
+                          <p class="mb-1 text-xs text-gray-500 dark:text-gray-400">Email</p>
+                          <p class="text-sm font-medium text-gray-800 dark:text-white/90">james.mwangi@gmail.com</p>
+                        </div>
+                        <div>
+                          <p class="mb-1 text-xs text-gray-500 dark:text-gray-400">Phone</p>
+                          <p class="text-sm font-medium text-gray-800 dark:text-white/90">+254 722 123 456</p>
+                        </div>
+                        <div>
+                          <p class="mb-1 text-xs text-gray-500 dark:text-gray-400">Date of Birth</p>
+                          <p class="text-sm font-medium text-gray-800 dark:text-white/90">20 Feb 1985</p>
+                        </div>
+                        <div>
+                          <p class="mb-1 text-xs text-gray-500 dark:text-gray-400">Gender</p>
+                          <p class="text-sm font-medium text-gray-800 dark:text-white/90">Male</p>
+                        </div>
+                        <div>
+                          <p class="mb-1 text-xs text-gray-500 dark:text-gray-400">Role</p>
+                          <p class="text-sm font-medium text-gray-800 dark:text-white/90">Rider</p>
+                        </div>
+                      </div>
+                    </div>
 
-                            <div class="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-7 2xl:gap-x-32">
-                              <div>
-                                <p class="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">First Name</p>
-                                <p class="text-sm font-medium text-gray-800 dark:text-white/90">James</p>
-                              </div>
+                    <!-- Addresses (already complete) -->
+                    <div x-show="activeTab === 'addresses'">
+                      <h3 class="mb-4 text-xl font-medium text-gray-800 dark:text-white/90">Addresses</h3>
+                      <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+                        <div>
+                          <p class="mb-1 text-xs text-gray-500 dark:text-gray-400">Country</p>
+                          <p class="text-sm font-medium text-gray-800 dark:text-white/90">Kenya</p>
+                        </div>
+                        <div>
+                          <p class="mb-1 text-xs text-gray-500 dark:text-gray-400">County</p>
+                          <p class="text-sm font-medium text-gray-800 dark:text-white/90">Kiambu</p>
+                        </div>
+                        <div>
+                          <p class="mb-1 text-xs text-gray-500 dark:text-gray-400">Street</p>
+                          <p class="text-sm font-medium text-gray-800 dark:text-white/90">Plot 205, SSS 4, Makongeni</p>
+                        </div>
+                        <div>
+                          <p class="mb-1 text-xs text-gray-500 dark:text-gray-400">Postal Code</p>
+                          <p class="text-sm font-medium text-gray-800 dark:text-white/90">01000</p>
+                        </div>
+                      </div>
+                    </div>
 
-                              <div>
-                                <p class="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">Last Name</p>
-                                <p class="text-sm font-medium text-gray-800 dark:text-white/90"> Mwangi</p>
-                              </div>
+                    <!-- Contact Information (already complete) -->
+                    <div x-show="activeTab === 'contact'">
+                      <h3 class="mb-4 text-xl font-medium text-gray-800 dark:text-white/90">Contact Information</h3>
+                      <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+                        <div>
+                          <p class="mb-1 text-xs text-gray-500 dark:text-gray-400">Primary Phone</p>
+                          <p class="text-sm font-medium text-gray-800 dark:text-white/90">+254 723 000 000</p>
+                        </div>
+                        <div>
+                          <p class="mb-1 text-xs text-gray-500 dark:text-gray-400">Secondary Phone</p>
+                          <p class="text-sm font-medium text-gray-800 dark:text-white/90">+254 725 000 000</p>
+                        </div>
+                        <div>
+                          <p class="mb-1 text-xs text-gray-500 dark:text-gray-400">Email</p>
+                          <p class="text-sm font-medium text-gray-800 dark:text-white/90">randomuser@pimjo.com</p>
+                        </div>
+                      </div>
+                    </div>
 
-                              <div>
-                                <p class="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">Gender</p>
-                                <p class="text-sm font-medium text-gray-800 dark:text-white/90">Male</p>
-                              </div>
+                    <!-- Next of Kin Table (already complete) -->
+                    <div x-show="activeTab === 'next-of-kin'">
+                      <h3 class="mb-4 text-xl font-medium text-gray-800 dark:text-white/90">Next of Kin</h3>
+                      <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                        <thead class="bg-gray-50 dark:bg-gray-800">
+                        <tr>
+                          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400">Name</th>
+                          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400">Address</th>
+                          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400">Phone</th>
+                          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400">Relationship</th>
+                          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400">Status</th>
+                        </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                        <tr>
+                          <td class="px-6 py-4">
+                            <div>
+                              <p class="text-sm font-medium text-gray-900 dark:text-white">Tony Wamuthende</p>
+                              <p class="text-xs text-gray-500 dark:text-gray-400">tony.wamuthende@gmail.com</p>
+                            </div>
+                          </td>
+                          <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">Makongeni, Thika</td>
+                          <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">+254 785 000 200</td>
+                          <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">Brother</td>
+                          <td class="px-6 py-4">
+                            <span class="bg-success-50 text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 text-xs font-medium">Active</span>
+                          </td>
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
 
-                              <div>
-                                <p class="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">DoB</p>
-                                <p class="text-sm font-medium text-gray-800 dark:text-white/90">20 Feb 1985</p>
-                              </div>
+                    <!-- Guarantors Table (already complete) -->
+                    <div x-show="activeTab === 'guarantors'">
+                      <h3 class="mb-4 text-xl font-medium text-gray-800 dark:text-white/90">Guarantors</h3>
+                      <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                        <thead class="bg-gray-50 dark:bg-gray-800">
+                        <tr>
+                          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400">Name</th>
+                          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400">Address</th>
+                          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400">Phone</th>
+                          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400">Relationship</th>
+                          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400">Status</th>
+                        </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                        <tr>
+                          <td class="px-6 py-4">
+                            <div>
+                              <p class="text-sm font-medium text-gray-900 dark:text-white">Mary Wanjiku</p>
+                              <p class="text-xs text-gray-500 dark:text-gray-400">mary.wanjiku@gmail.com</p>
+                            </div>
+                          </td>
+                          <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">Thika Town</td>
+                          <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">+254 722 987 654</td>
+                          <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">Sister</td>
+                          <td class="px-6 py-4">
+                            <span class="bg-success-50 text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 text-xs font-medium">Active</span>
+                          </td>
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
 
-                              <div>
-                                <p class="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">Role</p>
-                                <p class="text-sm font-medium text-gray-800 dark:text-white/90">Rider</p>
-                              </div>
+                    <!-- Vehicles Table (already complete) -->
+                    <div x-show="activeTab === 'vehicles'">
+                      <h3 class="mb-4 text-xl font-medium text-gray-800 dark:text-white/90">Vehicles</h3>
+                      <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                        <thead class="bg-gray-50 dark:bg-gray-800">
+                        <tr>
+                          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400">Type</th>
+                          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400">Make</th>
+                          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400">Model</th>
+                          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400">Brand</th>
+                          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400">YoM</th>
+                          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400">CC</th>
+                          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400">Fuel</th>
+                          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400">Plate Number</th>
+                          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400">NTSA Compliant</th>
+                          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400">Status</th>
+                        </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                        <tr>
+                          <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">Motorcycle</td>
+                          <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">Honda</td>
+                          <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">CG 125</td>
+                          <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">Honda</td>
+                          <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">2018</td>
+                          <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">125cc</td>
+                          <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">Petrol</td>
+                          <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">KBC 123X</td>
+                          <td class="px-6 py-4">
+                            <span class="bg-success-50 text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 text-xs font-medium">Yes</span>
+                          </td>
+                          <td class="px-6 py-4">
+                            <span class="bg-success-50 text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 text-xs font-medium">Active</span>
+                          </td>
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
 
-                              <div>
-                                <p class="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">Account Status</p>
-                                <p class="text-sm font-medium text-gray-800 dark:text-white/90">Active</p>
-                              </div>
+                    <!-- Financials Table -->
+                    <div x-show="activeTab === 'financials'">
+                      <h3 class="mb-4 text-xl font-medium text-gray-800 dark:text-white/90">Financials</h3>
+                      <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                        <thead class="bg-gray-50 dark:bg-gray-800">
+                        <tr>
+                          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400">#TransactionID</th>
+                          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400">Type</th>
+                          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400">Date</th>
+                          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400">Amount</th>
+                          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400">Payment</th>
+                          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400">Status</th>
+                        </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                        <tr>
+                          <td class="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">#TRX001</td>
+                          <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">Contribution</td>
+                          <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">15 Dec 2025</td>
+                          <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">KES 2,000</td>
+                          <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">M-Pesa</td>
+                          <td class="px-6 py-4">
+                            <span class="bg-success-50 text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 text-xs font-medium">Completed</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">#TRX002</td>
+                          <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">Loan Disbursement</td>
+                          <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">10 Dec 2025</td>
+                          <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">KES 50,000</td>
+                          <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">Bank Transfer</td>
+                          <td class="px-6 py-4">
+                            <span class="bg-warning-50 text-warning-600 dark:bg-warning-500/15 dark:text-warning-500 rounded-full px-2 py-0.5 text-xs font-medium">Pending</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">#TRX003</td>
+                          <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">Withdrawal</td>
+                          <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">05 Dec 2025</td>
+                          <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">KES 5,000</td>
+                          <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">Cash</td>
+                          <td class="px-6 py-4">
+                            <span class="bg-success-50 text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 text-xs font-medium">Completed</span>
+                          </td>
+                        </tr>
+                        <!-- Add more rows as needed -->
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <!-- Settings (Notification toggles & preferences) -->
+                    <div x-show="activeTab === 'settings'">
+                      <h3 class="mb-4 text-xl font-medium text-gray-800 dark:text-white/90">Settings</h3>
+                      <div class="space-y-8">
+                        <!-- Notifications -->
+                        <div>
+                          <h4 class="text-lg font-medium mb-4">Notifications</h4>
+                          <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                              <span class="text-sm text-gray-700 dark:text-gray-300">Email Notifications</span>
+                              <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" checked class="sr-only peer" />
+                                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-brand-300 dark:peer-focus:ring-brand-800 rounded-full peer dark:bg-gray-700 peer-checked:bg-brand-600"></div>
+                              </label>
+                            </div>
+                            <div class="flex items-center justify-between">
+                              <span class="text-sm text-gray-700 dark:text-gray-300">SMS Notifications</span>
+                              <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" class="sr-only peer" />
+                                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-brand-300 dark:peer-focus:ring-brand-800 rounded-full peer dark:bg-gray-700 peer-checked:bg-brand-600"></div>
+                              </label>
+                            </div>
+                            <div class="flex items-center justify-between">
+                              <span class="text-sm text-gray-700 dark:text-gray-300">Push Notifications</span>
+                              <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" checked class="sr-only peer" />
+                                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-brand-300 dark:peer-focus:ring-brand-800 rounded-full peer dark:bg-gray-700 peer-checked:bg-brand-600"></div>
+                              </label>
                             </div>
                           </div>
                         </div>
-                      </div>
 
-                      <div x-show="activeTab === 'addresses'">
-                        <h3 class="mb-1 text-xl font-medium text-gray-800 dark:text-white/90">
-                          Addresses
-                        </h3>
-                        <p class="text-sm text-gray-500 dark:text-gray-400">
-                          Addresses content goes here...
-                        </p>
-                      </div>
-
-                      <div x-show="activeTab === 'contact'">
-                        <div class="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
-                          <div>
-                            <h4 class="text-lg font-semibold text-gray-800 lg:mb-6 dark:text-white/90">Contact Information</h4>
-
-                            <div class="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-7 2xl:gap-x-32">
-                              <div>
-                                <p class="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">Primary Phone</p>
-                                <p class="text-sm font-medium text-gray-800 dark:text-white/90">+254723000000</p>
-                              </div>
-
-                              <div>
-                                <p class="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">Secondary Phone</p>
-                                <p class="text-sm font-medium text-gray-800 dark:text-white/90">+254725000000</p>
-                              </div>
-
-                              <div>
-                                <p class="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">Email address</p>
-                                <p class="text-sm font-medium text-gray-800 dark:text-white/90">
-                                  randomuser@pimjo.com
-                                </p>
-                              </div>
+                        <!-- Other Settings -->
+                        <div>
+                          <h4 class="text-lg font-medium mb-4">Other Preferences</h4>
+                          <div class="space-y-4">
+                            <div>
+                              <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Language</label>
+                              <select class="block w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-brand-500 focus:ring-brand-500">
+                                <option>English</option>
+                                <option>Swahili</option>
+                              </select>
+                            </div>
+                            <div>
+                              <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Time Zone</label>
+                              <select class="block w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-brand-500 focus:ring-brand-500">
+                                <option>East Africa Time (EAT)</option>
+                                <option>UTC</option>
+                              </select>
+                            </div>
+                            <div class="flex items-center justify-between">
+                              <span class="text-sm text-gray-700 dark:text-gray-300">Dark Mode</span>
+                              <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" class="sr-only peer" />
+                                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-brand-300 dark:peer-focus:ring-brand-800 rounded-full peer dark:bg-gray-700 peer-checked:bg-brand-600"></div>
+                              </label>
                             </div>
                           </div>
                         </div>
-                      </div>
-
-                      <div x-show="activeTab === 'next-of-kin'">
-                        <h3 class="mb-1 text-xl font-medium text-gray-800 dark:text-white/90">
-                          Next of Kin
-                        </h3>
-                        <p class="text-sm text-gray-500 dark:text-gray-400">
-                          Next of kin content goes here...
-                        </p>
-                      </div>
-
-                      <div x-show="activeTab === 'guarantors'">
-                        <h3 class="mb-1 text-xl font-medium text-gray-800 dark:text-white/90">
-                          Guarantors
-                        </h3>
-                        <p class="text-sm text-gray-500 dark:text-gray-400">
-                          Guarantors content goes here...
-                        </p>
-                      </div>
-
-                      <div x-show="activeTab === 'vehicles'">
-                        <h3 class="mb-1 text-xl font-medium text-gray-800 dark:text-white/90">
-                          Vehicles
-                        </h3>
-                        <p class="text-sm text-gray-500 dark:text-gray-400">
-                          Vehicles content goes here...
-                        </p>
-                      </div>
-
-                      <div x-show="activeTab === 'financials'">
-                        <h3 class="mb-1 text-xl font-medium text-gray-800 dark:text-white/90">
-                          Financials
-                        </h3>
-                        <p class="text-sm text-gray-500 dark:text-gray-400">
-                          Financials content goes here...
-                        </p>
-                      </div>
-
-                      <div x-show="activeTab === 'settings'">
-                        <h3 class="mb-1 text-xl font-medium text-gray-800 dark:text-white/90">
-                          Settings
-                        </h3>
-                        <p class="text-sm text-gray-500 dark:text-gray-400">
-                          Settings content goes here...
-                        </p>
                       </div>
                     </div>
                   </div>
