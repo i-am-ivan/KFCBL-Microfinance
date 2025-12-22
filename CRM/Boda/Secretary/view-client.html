@@ -8,7 +8,7 @@
       <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
       <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-      <title>View Member | KFBCL - Mircofinance</title>
+      <title>View Client | KFBCL - Mircofinance</title>
 
       <link rel="icon" href="../../assets/favicon.ico">
       <link href="../../assets/style.css" rel="stylesheet">
@@ -190,8 +190,8 @@
                 <!-- Menu Item Tables -->
                 <!-- Menu Item Lands -->
                 <li>
-                  <a href="loans.html" @click="selected = (selected === 'Loans' ? '':'Loans')" class="menu-item group"
-                     :class="(selected === 'Loans') || (page === 'loans') ? 'menu-item-active' : 'menu-item-inactive'">
+                  <a href="real-estate.html" @click="selected = (selected === 'Real Estate' ? '':'Real Estate')" class="menu-item group"
+                     :class="(selected === 'Real Estate') || (page === 'real estate') ? 'menu-item-active' : 'menu-item-inactive'">
                     <svg class="w-[21px] h-[21px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                       <path stroke="currentColor" stroke-linecap="round" stroke-width="1.1" d="M3 21h18M4 18h16M6 10v8m4-8v8m4-8v8m4-8v8M4 9.5v-.955a1 1 0 0 1 .458-.84l7-4.52a1 1 0 0 1 1.084 0l7 4.52a1 1 0 0 1 .458.84V9.5a.5.5 0 0 1-.5.5h-15a.5.5 0 0 1-.5-.5Z"/>
                     </svg>
@@ -552,27 +552,27 @@
         <main>
           <div class="mx-auto max-w-(--breakpoint-2xl) p-4 pb-20 md:p-6 md:pb-6">
             <!-- Breadcrumb Start -->
-            <div x-data="{ pageName: `View Member`}">
+            <div x-data="{ pageName: `Loan Applicant`}">
               <div class="flex flex-wrap items-center justify-between gap-3 pb-6">
                 <h2 class="text-xl font-semibold text-gray-800 dark:text-white/90" x-text="pageName"></h2>
                 <nav>
                   <ol class="flex items-center gap-1.5">
                     <li>
-                      <a class="inline-flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400" href="bodaboda.html">Bodaboda List
+                      <a class="inline-flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400" href="loans.html">Loans Dashboard
                         <svg
-                          class="stroke-current"
-                          width="17"
-                          height="16"
-                          viewBox="0 0 17 16"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
+                                class="stroke-current"
+                                width="17"
+                                height="16"
+                                viewBox="0 0 17 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
                         >
                           <path
-                            d="M6.0765 12.667L10.2432 8.50033L6.0765 4.33366"
-                            stroke=""
-                            stroke-width="1.2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                                  d="M6.0765 12.667L10.2432 8.50033L6.0765 4.33366"
+                                  stroke=""
+                                  stroke-width="1.2"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
                           />
                         </svg>
                       </a>
@@ -585,7 +585,7 @@
             <!-- Breadcrumb End -->
 
             <div class="rounded-2xl border border-gray-200 bg-white p-5 lg:p-6 dark:border-gray-800 dark:bg-white/[0.03]">
-              <h3 class="mb-5 text-lg font-semibold text-gray-800 lg:mb-7 dark:text-white/90">Member: #RD001</h3>
+              <h3 class="mb-5 text-lg font-semibold text-gray-800 lg:mb-7 dark:text-white/90">Client: #LA001</h3>
 
               <div class="mb-6 rounded-2xl border border-gray-200 p-5 lg:p-6 dark:border-gray-800">
                 <div class="flex flex-col gap-5 xl:flex-row xl:items-center xl:justify-between">
@@ -598,9 +598,12 @@
                         James Mwangi
                       </h4>
                       <div class="flex flex-col items-center gap-1 text-center xl:flex-row xl:gap-3 xl:text-left">
-                        <p class="text-sm text-gray-500 dark:text-gray-400">Rider: #RD001</p>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Client: #LA001</p>
                         <div class="hidden h-3.5 w-px bg-gray-300 xl:block dark:bg-gray-700"></div>
-                        <p class="text-sm text-gray-500 dark:text-gray-400"><span class="bg-success-50 text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 text-xs font-medium">Active</span> since December 09, 2025 15:24</p>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">
+                          <span class="bg-success-50 text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 text-xs font-medium">Active</span>
+                          Client since December 09, 2025 15:24
+                        </p>
                       </div>
                     </div>
 
@@ -664,7 +667,7 @@
                         <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
                         </svg>
-                        Vehicles
+                        Assets
                       </button>
 
                       <button @click="activeTab = 'financials'"
@@ -1000,12 +1003,12 @@
                       </div>
                     </div>
 
-                    <!-- Vehicles Table (already complete) -->
+                    <!-- Assets Table (already complete) -->
                     <div x-show="activeTab === 'vehicles'">
                       <!-- Header: Title Left + Buttons Right -->
                       <div class="mb-6 flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
                         <h3 class="text-2xl font-semibold text-gray-800 dark:text-white/90">
-                          Vehicles
+                          Assets
                         </h3>
 
                         <div class="flex flex-col gap-3 sm:flex-row">
@@ -1014,7 +1017,7 @@
                             <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
                             </svg>
-                            Add Vehicle
+                            Add Assets
                           </button>
                           <button class="flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700">
                             <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1029,10 +1032,10 @@
 
                         <div class="w-full">
                           <h3 class="text-lg font-semibold text-gray-800 dark:text-white/90">
-                            Statistics
+                            Assets Statistics
                           </h3>
                           <p class="mt-1 text-gray-500 text-theme-sm dark:text-gray-400">
-                            Target you’ve set for each month
+                            Manage and review client loan assets
                           </p>
                         </div>
 
@@ -1150,7 +1153,7 @@
                             <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 18h14M5 18v3h14v-3M5 18l1-9h12l1 9M16 6v3m-4-3v3m-2-6h8v3h-8V3Zm-1 9h.01v.01H9V12Zm3 0h.01v.01H12V12Zm3 0h.01v.01H15V12Zm-6 3h.01v.01H9V15Zm3 0h.01v.01H12V15Zm3 0h.01v.01H15V15Z"/>
                             </svg>
-                            Make Deposit
+                            Make Payment
                           </button>
                           <button onclick="window.location.href='request-loan.html'"
                                   class="flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700">

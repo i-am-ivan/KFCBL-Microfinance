@@ -8,7 +8,7 @@
       <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
       <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-      <title>New Member | KFBCL - Mircofinance</title>
+      <title>New Client | KFBCL - Mircofinance</title>
 
       <link rel="icon" href="../../assets/favicon.ico">
       <link href="../../assets/style.css" rel="stylesheet">
@@ -552,13 +552,13 @@
         <main>
           <div class="mx-auto max-w-(--breakpoint-2xl) p-4 pb-20 md:p-6 md:pb-6">
             <!-- Breadcrumb Start -->
-            <div x-data="{ pageName: `New Member`}">
+            <div x-data="{ pageName: `New Loan Applicant`}">
               <div class="flex flex-wrap items-center justify-between gap-3 pb-6">
                 <h2 class="text-xl font-semibold text-gray-800 dark:text-white/90" x-text="pageName"></h2>
                 <nav>
                   <ol class="flex items-center gap-1.5">
                     <li>
-                      <a class="inline-flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400" href="bodaboda.html">Bodaboda List
+                      <a class="inline-flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400" href="loans.html">Loans Dashboard
                         <svg
                           class="stroke-current"
                           width="17"
@@ -585,7 +585,7 @@
             <!-- Breadcrumb End -->
 
             <div class="rounded-2xl border border-gray-200 bg-white p-5 lg:p-6 dark:border-gray-800 dark:bg-white/[0.03]">
-              <h3 class="mb-5 text-lg font-semibold text-gray-800 lg:mb-7 dark:text-white/90">New Member Information</h3>
+              <h3 class="mb-5 text-lg font-semibold text-gray-800 lg:mb-7 dark:text-white/90">New Loan Applicant</h3>
 
               <div class="border-t border-gray-100 p-4 sm:p-6 dark:border-gray-800">
                 <div x-data="{
@@ -1042,6 +1042,7 @@
                                 </div>
                               </div>
                             </div>
+
                             <!-- Navigation Buttons -->
                             <div class="flex items-center justify-between px-4 pt-6 border-t border-gray-200 dark:border-gray-700">
                               <!-- Previous Button -->
@@ -1129,7 +1130,7 @@
           </div>
 
           <h4 class="mb-2 text-2xl font-semibold text-gray-800 dark:text-white/90 sm:text-title-sm">
-            New Bodaboda member registered.
+            New Loan Applicant Added!
           </h4>
           <div class="space-y-6">
             <!-- Preview Sections -->
@@ -1158,7 +1159,7 @@
           <div class="flex items-center justify-center w-full gap-3 mt-7">
             <button
                     @click="isModalOpen = false"
-                    onclick="window.location.href='view-member.html'"
+                    onclick="window.location.href='loans.html'"
                     type="button"
                     class="flex justify-center w-full px-4 py-3 text-sm font-medium text-white rounded-lg bg-success-500 shadow-theme-xs hover:bg-success-600 sm:w-auto">
               Ok
