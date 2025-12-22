@@ -8,7 +8,7 @@
       <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
       <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-      <title>View Member | KFBCL - Mircofinance</title>
+      <title>View Landowner | KFBCL - Mircofinance</title>
 
       <link rel="icon" href="../../assets/favicon.ico">
       <link href="../../assets/style.css" rel="stylesheet">
@@ -190,8 +190,8 @@
                 <!-- Menu Item Tables -->
                 <!-- Menu Item Lands -->
                 <li>
-                  <a href="loans.html" @click="selected = (selected === 'Loans' ? '':'Loans')" class="menu-item group"
-                     :class="(selected === 'Loans') || (page === 'loans') ? 'menu-item-active' : 'menu-item-inactive'">
+                  <a href="real-estate.html" @click="selected = (selected === 'Real Estate' ? '':'Real Estate')" class="menu-item group"
+                     :class="(selected === 'Real Estate') || (page === 'real estate') ? 'menu-item-active' : 'menu-item-inactive'">
                     <svg class="w-[21px] h-[21px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                       <path stroke="currentColor" stroke-linecap="round" stroke-width="1.1" d="M3 21h18M4 18h16M6 10v8m4-8v8m4-8v8m4-8v8M4 9.5v-.955a1 1 0 0 1 .458-.84l7-4.52a1 1 0 0 1 1.084 0l7 4.52a1 1 0 0 1 .458.84V9.5a.5.5 0 0 1-.5.5h-15a.5.5 0 0 1-.5-.5Z"/>
                     </svg>
@@ -552,13 +552,13 @@
         <main>
           <div class="mx-auto max-w-(--breakpoint-2xl) p-4 pb-20 md:p-6 md:pb-6">
             <!-- Breadcrumb Start -->
-            <div x-data="{ pageName: `View Member`}">
+            <div x-data="{ pageName: `Landowner`}">
               <div class="flex flex-wrap items-center justify-between gap-3 pb-6">
                 <h2 class="text-xl font-semibold text-gray-800 dark:text-white/90" x-text="pageName"></h2>
                 <nav>
                   <ol class="flex items-center gap-1.5">
                     <li>
-                      <a class="inline-flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400" href="bodaboda.html">Bodaboda List
+                      <a class="inline-flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400" href="real-estate.html">Real Estate Dashboard
                         <svg
                           class="stroke-current"
                           width="17"
@@ -585,7 +585,7 @@
             <!-- Breadcrumb End -->
 
             <div class="rounded-2xl border border-gray-200 bg-white p-5 lg:p-6 dark:border-gray-800 dark:bg-white/[0.03]">
-              <h3 class="mb-5 text-lg font-semibold text-gray-800 lg:mb-7 dark:text-white/90">Member: #RD001</h3>
+              <h3 class="mb-5 text-lg font-semibold text-gray-800 lg:mb-7 dark:text-white/90">Landowner: #LO001</h3>
 
               <div class="mb-6 rounded-2xl border border-gray-200 p-5 lg:p-6 dark:border-gray-800">
                 <div class="flex flex-col gap-5 xl:flex-row xl:items-center xl:justify-between">
@@ -598,7 +598,7 @@
                         James Mwangi
                       </h4>
                       <div class="flex flex-col items-center gap-1 text-center xl:flex-row xl:gap-3 xl:text-left">
-                        <p class="text-sm text-gray-500 dark:text-gray-400">Rider: #RD001</p>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Landowner: #LO001</p>
                         <div class="hidden h-3.5 w-px bg-gray-300 xl:block dark:bg-gray-700"></div>
                         <p class="text-sm text-gray-500 dark:text-gray-400"><span class="bg-success-50 text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 text-xs font-medium">Active</span> since December 09, 2025 15:24</p>
                       </div>
@@ -661,10 +661,11 @@
                       <button @click="activeTab = 'vehicles'"
                               :class="activeTab === 'vehicles' ? 'bg-brand-50 text-brand-600 dark:bg-brand-500/10 dark:text-brand-400' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700'"
                               class="inline-flex items-center gap-3 whitespace-nowrap rounded-lg px-3 py-2.5 text-sm font-medium transition-colors duration-200 ease-in-out sm:p-3">
-                        <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        <svg class="w-[20px] h-[20px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M6 4h12M6 4v16M6 4H5m13 0v16m0-16h1m-1 16H6m12 0h1M6 20H5M9 7h1v1H9V7Zm5 0h1v1h-1V7Zm-5 4h1v1H9v-1Zm5 0h1v1h-1v-1Zm-3 4h2a1 1 0 0 1 1 1v4h-4v-4a1 1 0 0 1 1-1Z"/>
                         </svg>
-                        Vehicles
+
+                        Real Estate
                       </button>
 
                       <button @click="activeTab = 'financials'"
@@ -1000,22 +1001,15 @@
                       </div>
                     </div>
 
-                    <!-- Vehicles Table (already complete) -->
+                    <!-- Assets Table (already complete) -->
                     <div x-show="activeTab === 'vehicles'">
                       <!-- Header: Title Left + Buttons Right -->
                       <div class="mb-6 flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
                         <h3 class="text-2xl font-semibold text-gray-800 dark:text-white/90">
-                          Vehicles
+                          Real Estate Assets
                         </h3>
 
                         <div class="flex flex-col gap-3 sm:flex-row">
-                          <button @click="isProfileAddVehicleModal = true"
-                                  class="inline-flex items-center gap-2 px-4 py-3 text-sm font-medium text-white transition rounded-lg bg-brand-500 shadow-theme-xs hover:bg-brand-600">
-                            <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
-                            </svg>
-                            Add Vehicle
-                          </button>
                           <button class="flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700">
                             <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/>
@@ -1037,18 +1031,6 @@
                         </div>
 
                         <div class="flex items-start w-full gap-3 sm:justify-end">
-                          <div x-data="{selected: 'overview'}" class="inline-flex w-fit items-center gap-0.5 rounded-lg bg-gray-100 p-0.5 dark:bg-gray-900">
-                            <button @click="selected = 'overview'" :class="selected === 'overview' ? 'shadow-theme-xs text-gray-900 dark:text-white bg-white dark:bg-gray-800' : 'text-gray-500 dark:text-gray-400'" class="px-3 py-2 font-medium rounded-md text-theme-sm hover:text-gray-900 dark:hover:text-white text-gray-500 dark:text-gray-400 shadow-theme-xs text-gray-900 dark:text-white bg-white dark:bg-gray-800">
-                              All
-                            </button>
-                            <button @click="selected = 'sales'" :class="selected === 'sales' ? 'shadow-theme-xs text-gray-900 dark:text-white bg-white dark:bg-gray-800' : 'text-gray-500 dark:text-gray-400'" class="px-3 py-2 font-medium rounded-md text-theme-sm hover:text-gray-900 dark:hover:text-white text-gray-500 dark:text-gray-400">
-                              Motorcycle
-                            </button>
-                            <button @click="selected = 'revenue'" :class="selected === 'revenue' ? 'shadow-theme-xs text-gray-900 dark:text-white bg-white dark:bg-gray-800' : 'text-gray-500 dark:text-gray-400'" class="px-3 py-2 font-medium rounded-md text-theme-sm hover:text-gray-900 dark:hover:text-white text-gray-500 dark:text-gray-400">
-                              TukTuk
-                            </button>
-                          </div>
-
                           <div>
                             <form>
                               <div class="relative">
@@ -1060,30 +1042,6 @@
                                 <input type="text" placeholder="Search..." class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-10 w-full rounded-lg border border-gray-300 bg-transparent py-2.5 pr-4 pl-[42px] text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden xl:w-[300px] dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
                               </div>
                             </form>
-                          </div>
-
-                          <div class="relative w-fit">
-                            <div class="flatpickr-wrapper"><div class="flatpickr-wrapper"><input class="datepicker h-10 w-full max-w-11 rounded-lg border border-gray-200 bg-white py-2.5 pl-[34px] pr-4 text-theme-sm font-medium text-gray-700 shadow-theme-xs focus:outline-hidden focus:ring-0 focus-visible:outline-hidden dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 xl:max-w-fit xl:pl-11 flatpickr-input" placeholder="Select dates" data-class="flatpickr-right" readonly="readonly" type="text"><div class="flatpickr-calendar rangeMode animate static flatpickr-right" tabindex="-1"><div class="flatpickr-months"><span class="flatpickr-prev-month"><svg class="stroke-current" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.25 6L9 12.25L15.25 18.5" stroke="" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><div class="flatpickr-month"><div class="flatpickr-current-month"><span class="cur-month">December </span><div class="numInputWrapper"><input class="numInput cur-year" type="number" tabindex="-1" aria-label="Year"><span class="arrowUp"></span><span class="arrowDown"></span></div></div></div><span class="flatpickr-next-month"><svg class="stroke-current" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.75 19L15 12.75L8.75 6.5" stroke="" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></div><div class="flatpickr-innerContainer"><div class="flatpickr-rContainer"><div class="flatpickr-weekdays"><div class="flatpickr-weekdaycontainer">
-      <span class="flatpickr-weekday">
-        Sun</span><span class="flatpickr-weekday">Mon</span><span class="flatpickr-weekday">Tue</span><span class="flatpickr-weekday">Wed</span><span class="flatpickr-weekday">Thu</span><span class="flatpickr-weekday">Fri</span><span class="flatpickr-weekday">Sat
-      </span>
-                            </div></div><div class="flatpickr-days" tabindex="-1"><div class="dayContainer"><span class="flatpickr-day prevMonthDay" aria-label="November 30, 2025" tabindex="-1">30</span><span class="flatpickr-day" aria-label="December 1, 2025" tabindex="-1">1</span><span class="flatpickr-day" aria-label="December 2, 2025" tabindex="-1">2</span><span class="flatpickr-day" aria-label="December 3, 2025" tabindex="-1">3</span><span class="flatpickr-day" aria-label="December 4, 2025" tabindex="-1">4</span><span class="flatpickr-day" aria-label="December 5, 2025" tabindex="-1">5</span><span class="flatpickr-day" aria-label="December 6, 2025" tabindex="-1">6</span><span class="flatpickr-day" aria-label="December 7, 2025" tabindex="-1">7</span><span class="flatpickr-day" aria-label="December 8, 2025" tabindex="-1">8</span><span class="flatpickr-day" aria-label="December 9, 2025" tabindex="-1">9</span><span class="flatpickr-day" aria-label="December 10, 2025" tabindex="-1">10</span><span class="flatpickr-day" aria-label="December 11, 2025" tabindex="-1">11</span><span class="flatpickr-day" aria-label="December 12, 2025" tabindex="-1">12</span><span class="flatpickr-day selected startRange" aria-label="December 13, 2025" tabindex="-1">13</span><span class="flatpickr-day inRange" aria-label="December 14, 2025" tabindex="-1">14</span><span class="flatpickr-day inRange" aria-label="December 15, 2025" tabindex="-1">15</span><span class="flatpickr-day inRange" aria-label="December 16, 2025" tabindex="-1">16</span><span class="flatpickr-day inRange" aria-label="December 17, 2025" tabindex="-1">17</span><span class="flatpickr-day inRange" aria-label="December 18, 2025" tabindex="-1">18</span><span class="flatpickr-day today selected endRange" aria-label="December 19, 2025" aria-current="date" tabindex="-1">19</span><span class="flatpickr-day" aria-label="December 20, 2025" tabindex="-1">20</span><span class="flatpickr-day" aria-label="December 21, 2025" tabindex="-1">21</span><span class="flatpickr-day" aria-label="December 22, 2025" tabindex="-1">22</span><span class="flatpickr-day" aria-label="December 23, 2025" tabindex="-1">23</span><span class="flatpickr-day" aria-label="December 24, 2025" tabindex="-1">24</span><span class="flatpickr-day" aria-label="December 25, 2025" tabindex="-1">25</span><span class="flatpickr-day" aria-label="December 26, 2025" tabindex="-1">26</span><span class="flatpickr-day" aria-label="December 27, 2025" tabindex="-1">27</span><span class="flatpickr-day" aria-label="December 28, 2025" tabindex="-1">28</span><span class="flatpickr-day" aria-label="December 29, 2025" tabindex="-1">29</span><span class="flatpickr-day" aria-label="December 30, 2025" tabindex="-1">30</span><span class="flatpickr-day" aria-label="December 31, 2025" tabindex="-1">31</span><span class="flatpickr-day nextMonthDay" aria-label="January 1, 2026" tabindex="-1">1</span><span class="flatpickr-day nextMonthDay" aria-label="January 2, 2026" tabindex="-1">2</span><span class="flatpickr-day nextMonthDay" aria-label="January 3, 2026" tabindex="-1">3</span><span class="flatpickr-day nextMonthDay" aria-label="January 4, 2026" tabindex="-1">4</span><span class="flatpickr-day nextMonthDay" aria-label="January 5, 2026" tabindex="-1">5</span><span class="flatpickr-day nextMonthDay" aria-label="January 6, 2026" tabindex="-1">6</span><span class="flatpickr-day nextMonthDay" aria-label="January 7, 2026" tabindex="-1">7</span><span class="flatpickr-day nextMonthDay" aria-label="January 8, 2026" tabindex="-1">8</span><span class="flatpickr-day nextMonthDay" aria-label="January 9, 2026" tabindex="-1">9</span><span class="flatpickr-day nextMonthDay" aria-label="January 10, 2026" tabindex="-1">10</span></div></div></div></div></div></div><div class="flatpickr-calendar rangeMode animate static flatpickr-right" tabindex="-1"><div class="flatpickr-months"><span class="flatpickr-prev-month"><svg class="stroke-current" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.25 6L9 12.25L15.25 18.5" stroke="" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><div class="flatpickr-month"><div class="flatpickr-current-month"><span class="cur-month">December </span><div class="numInputWrapper"><input class="numInput cur-year" type="number" tabindex="-1" aria-label="Year"><span class="arrowUp"></span><span class="arrowDown"></span></div></div></div><span class="flatpickr-next-month"><svg class="stroke-current" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.75 19L15 12.75L8.75 6.5" stroke="" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></div><div class="flatpickr-innerContainer"><div class="flatpickr-rContainer"><div class="flatpickr-weekdays"><div class="flatpickr-weekdaycontainer">
-                            </div>
-                            </div>
-                              <div class="flatpickr-days" tabindex="-1">
-                                <div class="dayContainer">
-                                  <span class="flatpickr-day prevMonthDay" aria-label="November 30, 2025" tabindex="-1">30</span><span class="flatpickr-day" aria-label="December 1, 2025" tabindex="-1">1</span><span class="flatpickr-day" aria-label="December 2, 2025" tabindex="-1">2</span><span class="flatpickr-day" aria-label="December 3, 2025" tabindex="-1">3</span><span class="flatpickr-day" aria-label="December 4, 2025" tabindex="-1">4</span><span class="flatpickr-day" aria-label="December 5, 2025" tabindex="-1">5</span><span class="flatpickr-day" aria-label="December 6, 2025" tabindex="-1">6</span><span class="flatpickr-day" aria-label="December 7, 2025" tabindex="-1">7</span><span class="flatpickr-day" aria-label="December 8, 2025" tabindex="-1">8</span><span class="flatpickr-day" aria-label="December 9, 2025" tabindex="-1">9</span><span class="flatpickr-day" aria-label="December 10, 2025" tabindex="-1">10</span><span class="flatpickr-day" aria-label="December 11, 2025" tabindex="-1">11</span><span class="flatpickr-day" aria-label="December 12, 2025" tabindex="-1">12</span><span class="flatpickr-day selected startRange" aria-label="December 13, 2025" tabindex="-1">13</span><span class="flatpickr-day inRange" aria-label="December 14, 2025" tabindex="-1">14</span><span class="flatpickr-day inRange" aria-label="December 15, 2025" tabindex="-1">15</span><span class="flatpickr-day inRange" aria-label="December 16, 2025" tabindex="-1">16</span><span class="flatpickr-day inRange" aria-label="December 17, 2025" tabindex="-1">17</span><span class="flatpickr-day inRange" aria-label="December 18, 2025" tabindex="-1">18</span><span class="flatpickr-day today selected endRange" aria-label="December 19, 2025" aria-current="date" tabindex="-1">19</span><span class="flatpickr-day" aria-label="December 20, 2025" tabindex="-1">20</span><span class="flatpickr-day" aria-label="December 21, 2025" tabindex="-1">21</span><span class="flatpickr-day" aria-label="December 22, 2025" tabindex="-1">22</span><span class="flatpickr-day" aria-label="December 23, 2025" tabindex="-1">23</span><span class="flatpickr-day" aria-label="December 24, 2025" tabindex="-1">24</span><span class="flatpickr-day" aria-label="December 25, 2025" tabindex="-1">25</span><span class="flatpickr-day" aria-label="December 26, 2025" tabindex="-1">26</span><span class="flatpickr-day" aria-label="December 27, 2025" tabindex="-1">27</span><span class="flatpickr-day" aria-label="December 28, 2025" tabindex="-1">28</span><span class="flatpickr-day" aria-label="December 29, 2025" tabindex="-1">29</span><span class="flatpickr-day" aria-label="December 30, 2025" tabindex="-1">30</span><span class="flatpickr-day" aria-label="December 31, 2025" tabindex="-1">31</span><span class="flatpickr-day nextMonthDay" aria-label="January 1, 2026" tabindex="-1">1</span><span class="flatpickr-day nextMonthDay" aria-label="January 2, 2026" tabindex="-1">2</span><span class="flatpickr-day nextMonthDay" aria-label="January 3, 2026" tabindex="-1">3</span><span class="flatpickr-day nextMonthDay" aria-label="January 4, 2026" tabindex="-1">4</span><span class="flatpickr-day nextMonthDay" aria-label="January 5, 2026" tabindex="-1">5</span><span class="flatpickr-day nextMonthDay" aria-label="January 6, 2026" tabindex="-1">6</span><span class="flatpickr-day nextMonthDay" aria-label="January 7, 2026" tabindex="-1">7</span><span class="flatpickr-day nextMonthDay" aria-label="January 8, 2026" tabindex="-1">8</span><span class="flatpickr-day nextMonthDay" aria-label="January 9, 2026" tabindex="-1">9</span><span class="flatpickr-day nextMonthDay" aria-label="January 10, 2026" tabindex="-1">10</span>
-                                </div>
-                              </div>
-                            </div>
-                            </div>
-                            </div>
-                            </div>
-                            <div class="absolute inset-0 right-auto flex items-center pointer-events-none left-4">
-                              <svg class="fill-gray-700 dark:fill-gray-400" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M6.66683 1.54199C7.08104 1.54199 7.41683 1.87778 7.41683 2.29199V3.00033H12.5835V2.29199C12.5835 1.87778 12.9193 1.54199 13.3335 1.54199C13.7477 1.54199 14.0835 1.87778 14.0835 2.29199V3.00033L15.4168 3.00033C16.5214 3.00033 17.4168 3.89576 17.4168 5.00033V7.50033V15.8337C17.4168 16.9382 16.5214 17.8337 15.4168 17.8337H4.5835C3.47893 17.8337 2.5835 16.9382 2.5835 15.8337V7.50033V5.00033C2.5835 3.89576 3.47893 3.00033 4.5835 3.00033L5.91683 3.00033V2.29199C5.91683 1.87778 6.25262 1.54199 6.66683 1.54199ZM6.66683 4.50033H4.5835C4.30735 4.50033 4.0835 4.72418 4.0835 5.00033V6.75033H15.9168V5.00033C15.9168 4.72418 15.693 4.50033 15.4168 4.50033H13.3335H6.66683ZM15.9168 8.25033H4.0835V15.8337C4.0835 16.1098 4.30735 16.3337 4.5835 16.3337H15.4168C15.693 16.3337 15.9168 16.1098 15.9168 15.8337V8.25033Z" fill=""></path>
-                              </svg>
-                            </div>
                           </div>
                         </div>
 
@@ -1150,15 +1108,7 @@
                             <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 18h14M5 18v3h14v-3M5 18l1-9h12l1 9M16 6v3m-4-3v3m-2-6h8v3h-8V3Zm-1 9h.01v.01H9V12Zm3 0h.01v.01H12V12Zm3 0h.01v.01H15V12Zm-6 3h.01v.01H9V15Zm3 0h.01v.01H12V15Zm3 0h.01v.01H15V15Z"/>
                             </svg>
-                            Make Deposit
-                          </button>
-                          <button onclick="window.location.href='request-loan.html'"
-                                  class="flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M15.3086 2C15.7228 2 16.0586 2.33579 16.0586 2.75V2.91898C16.807 3.10815 17.3609 3.78601 17.3609 4.59323C17.3609 5.00744 17.0251 5.34323 16.6109 5.34323C16.1967 5.34323 15.8609 5.00744 15.8609 4.59323C15.8609 4.46796 15.7594 4.36641 15.6341 4.36641H15.2391C14.9724 4.36641 14.7563 4.58257 14.7563 4.84921C14.7563 5.05046 14.8811 5.2306 15.0695 5.30127L16.0744 5.67811C16.8482 5.96833 17.3609 6.70814 17.3609 7.53464C17.3609 8.39065 16.8185 9.11996 16.0586 9.39759V9.63372C16.0586 10.0479 15.7228 10.3837 15.3086 10.3837C14.8944 10.3837 14.5586 10.0479 14.5586 9.63372V9.46488C13.8101 9.2757 13.2563 8.59785 13.2563 7.79062C13.2563 7.37641 13.5921 7.04062 14.0063 7.04062C14.4205 7.04062 14.7563 7.37641 14.7563 7.79062C14.7563 7.91589 14.8578 8.01744 14.9831 8.01744H15.3781C15.6448 8.01744 15.8609 7.80129 15.8609 7.53464C15.8609 7.3334 15.7361 7.15326 15.5477 7.08259L14.5428 6.70575C13.7689 6.41552 13.2563 5.67571 13.2563 4.84921C13.2563 3.99321 13.7987 3.2639 14.5586 2.98626V2.75C14.5586 2.33579 14.8944 2 15.3086 2Z" fill="#323544"/>
-                              <path fill-rule="evenodd" clip-rule="evenodd" d="M19.4266 11.0844C20.0839 10.5513 21.0447 10.6316 21.6044 11.2664C22.1114 11.8415 22.1317 12.6979 21.6525 13.2964L17.7859 18.125C17.4104 18.5938 16.8423 18.8667 16.2417 18.8667H10.0685C9.8825 18.8667 9.70317 18.9358 9.56527 19.0606L9.04042 19.5355C9.14503 19.864 9.01125 20.2324 8.7004 20.4119L6.1238 21.8995C5.76508 22.1066 5.30638 21.9837 5.09928 21.625L2.10061 16.4311C1.8935 16.0724 2.01641 15.6137 2.37513 15.4066L4.95173 13.919C5.18986 13.7815 5.47206 13.7895 5.69546 13.9153L7.38764 12.5626C7.94114 12.1201 8.64057 11.8151 9.41278 11.8116C10.2262 11.8079 11.5119 11.8799 12.6754 12.3045H15.2732C15.9345 12.3045 16.512 12.6637 16.8212 13.1975L19.4266 11.0844ZM8.55886 17.9483L8.2864 18.1948L6.53627 15.1635L8.32425 13.7342C8.66549 13.4614 9.04628 13.3133 9.41955 13.3116C10.1887 13.3081 11.296 13.3834 12.222 13.7363C12.3365 13.7799 12.4613 13.8045 12.5912 13.8045H15.2732C15.432 13.8045 15.5608 13.9333 15.5608 14.0922C15.5608 14.1589 15.5381 14.2203 15.5 14.2691L15.4269 14.3284C15.4184 14.3352 15.4102 14.3422 15.4021 14.3494C15.3633 14.3688 15.3195 14.3798 15.2732 14.3798H12.5383C12.1241 14.3798 11.7883 14.7156 11.7883 15.1298C11.7883 15.544 12.1241 15.8798 12.5383 15.8798H15.2732C15.7583 15.8798 16.1984 15.6865 16.5205 15.3728L20.3715 12.2494C20.404 12.223 20.4515 12.227 20.4792 12.2584C20.5043 12.2868 20.5053 12.3292 20.4816 12.3588L16.615 17.1874C16.5242 17.3007 16.3869 17.3667 16.2417 17.3667H10.0685C9.51056 17.3667 8.97255 17.574 8.55886 17.9483ZM3.77464 16.3307L6.02332 20.2255L7.30088 19.4879L5.05221 15.5931L3.77464 16.3307Z" fill="#323544"/>
-                            </svg>
-                            Request Loan
+                            Make Payment
                           </button>
                           <button class="flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700">
                             <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1186,17 +1136,39 @@
                               All
                             </button>
                             <button @click="selected = 'sales'" :class="selected === 'sales' ? 'shadow-theme-xs text-gray-900 dark:text-white bg-white dark:bg-gray-800' : 'text-gray-500 dark:text-gray-400'" class="px-3 py-2 font-medium rounded-md text-theme-sm hover:text-gray-900 dark:hover:text-white text-gray-500 dark:text-gray-400">
-                              Contributions
+                              Complete
                             </button>
                             <button @click="selected = 'revenue'" :class="selected === 'revenue' ? 'shadow-theme-xs text-gray-900 dark:text-white bg-white dark:bg-gray-800' : 'text-gray-500 dark:text-gray-400'" class="px-3 py-2 font-medium rounded-md text-theme-sm hover:text-gray-900 dark:hover:text-white text-gray-500 dark:text-gray-400">
-                              Loans
+                              Pending
                             </button>
                           </div>
 
                           <div class="relative w-fit">
                             <div class="flatpickr-wrapper">
                               <div class="flatpickr-wrapper">
-                                <input class="datepicker h-10 w-full max-w-11 rounded-lg border border-gray-200 bg-white py-2.5 pl-[34px] pr-4 text-theme-sm font-medium text-gray-700 shadow-theme-xs focus:outline-hidden focus:ring-0 focus-visible:outline-hidden dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 xl:max-w-fit xl:pl-11 flatpickr-input" placeholder="Select dates" data-class="flatpickr-right" readonly="readonly" type="text"><div class="flatpickr-calendar rangeMode animate static flatpickr-right" tabindex="-1"><div class="flatpickr-months"><span class="flatpickr-prev-month"><svg class="stroke-current" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.25 6L9 12.25L15.25 18.5" stroke="" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><div class="flatpickr-month"><div class="flatpickr-current-month"><span class="cur-month">December </span><div class="numInputWrapper"><input class="numInput cur-year" type="number" tabindex="-1" aria-label="Year"><span class="arrowUp"></span><span class="arrowDown"></span></div></div></div><span class="flatpickr-next-month"><svg class="stroke-current" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.75 19L15 12.75L8.75 6.5" stroke="" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></div><div class="flatpickr-innerContainer"><div class="flatpickr-rContainer"><div class="flatpickr-weekdays"><div class="flatpickr-weekdaycontainer">
+                                <input class="datepicker h-10 w-full max-w-11 rounded-lg border border-gray-200 bg-white py-2.5 pl-[34px] pr-4 text-theme-sm font-medium text-gray-700 shadow-theme-xs focus:outline-hidden focus:ring-0 focus-visible:outline-hidden dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 xl:max-w-fit xl:pl-11 flatpickr-input"
+                                       placeholder="Select dates"
+                                       data-class="flatpickr-right"
+                                       readonly="readonly"
+                                       type="text">
+                                <div class="flatpickr-calendar rangeMode animate static flatpickr-right" tabindex="-1">
+                                  <div class="flatpickr-months">
+                                    <span class="flatpickr-prev-month">
+                                      <svg class="stroke-current" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M15.25 6L9 12.25L15.25 18.5" stroke="" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                      </svg>
+                                    </span>
+                                    <div class="flatpickr-month">
+                                      <div class="flatpickr-current-month">
+                                        <div class="numInputWrapper">
+                                          <input class="numInput cur-year" type="number" tabindex="-1" aria-label="Year">
+                                          <span class="arrowUp"></span>
+                                          <span class="arrowDown"></span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <span class="flatpickr-next-month">
+                                      <svg class="stroke-current" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.75 19L15 12.75L8.75 6.5" stroke="" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></div><div class="flatpickr-innerContainer"><div class="flatpickr-rContainer"><div class="flatpickr-weekdays"><div class="flatpickr-weekdaycontainer">
                                 <span class="flatpickr-weekday">
                                   Sun</span><span class="flatpickr-weekday">Mon</span><span class="flatpickr-weekday">Tue</span><span class="flatpickr-weekday">Wed</span><span class="flatpickr-weekday">Thu</span><span class="flatpickr-weekday">Fri</span><span class="flatpickr-weekday">Sat
                                 </span>
