@@ -727,80 +727,34 @@
 
                       <!-- a) Personal Information -->
                       <div class="mb-8">
-                        <h4 class="text-lg font-medium text-gray-800 dark:text-white/90 mb-4">Personal Information</h4>
-
-                        <div class="space-y-4">
-                          <!-- Applicant Name - Single Full Name -->
-                          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 items-start">
-                            <label class="text-right text-sm font-medium text-gray-700 dark:text-gray-300 sm:col-span-1 pt-3">
-                              Applicant Name
-                            </label>
-                            <div class="w-full sm:col-span-2">
-                              <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4">
-                                <p class="text-sm font-medium text-gray-800 dark:text-white/90">John Michael Doe</p>
-                              </div>
-                            </div>
-                          </div>
-
-                          <!-- Contact Information -->
-                          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 items-start">
-                            <label class="text-right text-sm font-medium text-gray-700 dark:text-gray-300 sm:col-span-1 pt-3">
-                              Contact Information
-                            </label>
-                            <div class="w-full sm:col-span-2">
-                              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4">
-                                  <p class="text-sm text-gray-500 dark:text-gray-400 mb-1">Email Address</p>
-                                  <p class="text-sm font-medium text-gray-800 dark:text-white/90">john.doe@example.com</p>
-                                </div>
-                                <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4">
-                                  <p class="text-sm text-gray-500 dark:text-gray-400 mb-1">Phone Number</p>
-                                  <p class="text-sm font-medium text-gray-800 dark:text-white/90">+254 712 345 678</p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-
-                          <!-- Credit Status -->
-                          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 items-start">
-                            <label class="text-right text-sm font-medium text-gray-700 dark:text-gray-300 sm:col-span-1 pt-3">
-                              Credit Status
-                            </label>
-                            <div class="w-full sm:col-span-2">
-                              <div class="max-w-xs">
-                                <div class="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-4">
-                                  <div class="flex items-center gap-2">
-                                    <div class="h-3 w-3 rounded-full bg-green-500"></div>
-                                    <p class="text-sm font-medium text-green-700 dark:text-green-400">Good</p>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
-                        <hr class="my-6 border-gray-200 dark:border-gray-700">
-
-                        <!-- Additional Personal Details -->
+                        <h5 class="text-lg font-medium text-gray-800 dark:text-white/90 mb-4 border-b pb-2 border-gray-200 dark:border-gray-700">Applicant Summary</h5>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                          <div class="space-y-4">
-                            <div class="flex items-center justify-between">
-                              <p class="text-sm text-gray-500 dark:text-gray-400">Gender</p>
-                              <p class="text-sm font-medium text-gray-800 dark:text-white/90">Male</p>
+                          <div class="space-y-3">
+                            <div class="flex justify-between">
+                              <span class="text-sm text-gray-500 dark:text-gray-400">Full Name:</span>
+                              <span class="text-sm font-medium text-gray-800 dark:text-white/90">John Michael Doe</span>
                             </div>
-                            <div class="flex items-center justify-between">
-                              <p class="text-sm text-gray-500 dark:text-gray-400">Marital Status</p>
-                              <p class="text-sm font-medium text-gray-800 dark:text-white/90">Married</p>
+                            <div class="flex justify-between">
+                              <span class="text-sm text-gray-500 dark:text-gray-400">Email:</span>
+                              <span class="text-sm font-medium text-gray-800 dark:text-white/90">john.doe@example.com</span>
+                            </div>
+                            <div class="flex justify-between">
+                              <span class="text-sm text-gray-500 dark:text-gray-400">Credit Status:</span>
+                              <span class="text-sm font-medium text-green-600 dark:text-green-400">Good</span>
                             </div>
                           </div>
-                          <div class="space-y-4">
-                            <div class="flex items-center justify-between">
-                              <p class="text-sm text-gray-500 dark:text-gray-400">Employment Status</p>
-                              <p class="text-sm font-medium text-gray-800 dark:text-white/90">Employed</p>
+                          <div class="space-y-3">
+                            <div class="flex justify-between">
+                              <span class="text-sm text-gray-500 dark:text-gray-400">Phone:</span>
+                              <span class="text-sm font-medium text-gray-800 dark:text-white/90">+254 712 345 678</span>
                             </div>
-                            <div class="flex items-center justify-between">
-                              <p class="text-sm text-gray-500 dark:text-gray-400">Date of Birth</p>
-                              <p class="text-sm font-medium text-gray-800 dark:text-white/90">15/05/1985</p>
+                            <div class="flex justify-between">
+                              <span class="text-sm text-gray-500 dark:text-gray-400">Employment:</span>
+                              <span class="text-sm font-medium text-gray-800 dark:text-white/90">Employed</span>
+                            </div>
+                            <div class="flex justify-between">
+                              <span class="text-sm text-gray-500 dark:text-gray-400">Guarantors:</span>
+                              <span class="text-sm font-medium text-gray-800 dark:text-white/90">1 Verified</span>
                             </div>
                           </div>
                         </div>
@@ -888,9 +842,9 @@
                               <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">Business Partner</td>
                               <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400 truncate max-w-[200px]">4321 Business Ave, Westlands</td>
                               <td class="px-4 py-3 whitespace-nowrap">
-                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">
-                      Verified
-                    </span>
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">
+                                  Verified
+                                </span>
                               </td>
                             </tr>
                             </tbody>
@@ -1265,76 +1219,123 @@
                             </div>
                           </div>
 
-                          <!-- Loan Terms Summary -->
+                          <!-- Loan Summary Table Report -->
                           <div class="mb-8">
-                            <h5 class="text-lg font-medium text-gray-800 dark:text-white/90 mb-4 border-b pb-2 border-gray-200 dark:border-gray-700">Loan Terms Summary</h5>
-                            <div class="bg-gray-50 dark:bg-gray-900 rounded-lg p-6">
-                              <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                <div class="space-y-4">
-                                  <div class="flex justify-between items-center">
-                                    <span class="text-sm text-gray-500 dark:text-gray-400">Loan Type:</span>
-                                    <span class="text-sm font-medium text-gray-800 dark:text-white/90" x-text="loanType ? loanType.charAt(0).toUpperCase() + loanType.slice(1) + ' Loan' : 'Not Selected'"></span>
-                                  </div>
-                                  <div class="flex justify-between items-center">
-                                    <span class="text-sm text-gray-500 dark:text-gray-400">Loan Amount:</span>
-                                    <span class="text-lg font-semibold text-brand-500" x-text="loanAmount ? 'KES ' + parseFloat(loanAmount).toLocaleString('en-KE', {minimumFractionDigits: 2, maximumFractionDigits: 2}) : 'KES 0.00'"></span>
-                                  </div>
-                                </div>
-                                <div class="space-y-4">
-                                  <div class="flex justify-between items-center">
-                                    <span class="text-sm text-gray-500 dark:text-gray-400">Interest Rate:</span>
-                                    <span class="text-sm font-medium text-gray-800 dark:text-white/90" x-text="interestRate + '%'"></span>
-                                  </div>
-                                  <div class="flex justify-between items-center">
-                                    <span class="text-sm text-gray-500 dark:text-gray-400">Repayment Period:</span>
-                                    <span class="text-sm font-medium text-gray-800 dark:text-white/90" x-text="repaymentType ? repaymentType.replace('-', ' ') : 'Not Selected'"></span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
+                            <h5 class="text-lg font-medium text-gray-800 dark:text-white/90 mb-4 border-b pb-2 border-gray-200 dark:border-gray-700">
+                              Loan Summary Report
+                            </h5>
 
-                          <!-- Financial Summary -->
-                          <div class="w-full px-2.5">
-                            <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
-                              Estimated monthly payment
-                            </label>
-                            <div x-data="{ isOptionSelected: false }" class="relative z-20 bg-transparent bg-gray-100 dark:border-gray-800">
-                              <div class="flex items-center gap-6">
-                                <div>
-                                  <p class="text-lg font-semibold text-center text-gray-600 dark:text-white/90"
-                                     x-text="loanAmount ? 'KES ' + parseFloat(loanAmount).toLocaleString('en-KE', {minimumFractionDigits: 2, maximumFractionDigits: 2}) : 'KES 0.00'">KES 25,000.00</p>
-                                  <p class="text-theme-xs mt-0.5 text-center text-gray-500 dark:text-gray-400">
-                                    Principal Amount
-                                  </p>
-                                </div>
-
-                                <div class="w-px bg-gray-200 h-11 dark:bg-gray-800"></div>
-
-                                <div>
-                                  <p class="text-lg font-semibold text-center text-gray-600 dark:text-white/90"
-                                     x-text="'KES ' + totalInterest.toLocaleString('en-KE', {minimumFractionDigits: 2, maximumFractionDigits: 2})"
-                                  >
-                                    KES 0.00
-                                  </p>
-                                  <p class="text-theme-xs mt-0.5 text-center text-gray-500 dark:text-gray-400">
-                                    Total interest
-                                  </p>
-                                </div>
-
-                                <div class="w-px bg-gray-200 h-11 dark:bg-gray-600"></div>
-
-                                <div>
-                                  <p class="text-lg font-semibold text-center text-gray-600 dark:text-white/90"
-                                     x-text="'KES ' + totalLoanAmount.toLocaleString('en-KE', {minimumFractionDigits: 2, maximumFractionDigits: 2})"
-                                  >
-                                    0.00
-                                  </p>
-                                  <p class="text-theme-xs mt-0.5 text-center text-gray-500 dark:text-gray-400">
-                                    Total Payable
-                                  </p>
-                                </div>
-                              </div>
+                            <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
+                              <table class="w-full">
+                                <thead>
+                                <tr class="bg-gray-50 dark:bg-gray-700/50">
+                                  <th class="px-6 py-3 text-left">
+                                    <p class="font-medium text-gray-700 text-sm dark:text-gray-300">
+                                      Loan Type
+                                    </p>
+                                  </th>
+                                  <th class="px-6 py-3 text-left">
+                                    <p class="font-medium text-gray-700 text-sm dark:text-gray-300">
+                                      Loan Date
+                                    </p>
+                                  </th>
+                                  <th class="px-6 py-3 text-left">
+                                    <p class="font-medium text-gray-700 text-sm dark:text-gray-300">
+                                      First Payment
+                                    </p>
+                                  </th>
+                                  <th class="px-6 py-3 text-left">
+                                    <p class="font-medium text-gray-700 text-sm dark:text-gray-300">
+                                      Loan Amount
+                                    </p>
+                                  </th>
+                                  <th class="px-6 py-3 text-left">
+                                    <p class="font-medium text-gray-700 text-sm dark:text-gray-300">
+                                      Interest Rate
+                                    </p>
+                                  </th>
+                                  <th class="px-6 py-3 text-left">
+                                    <p class="font-medium text-gray-700 text-sm dark:text-gray-300">
+                                      Period
+                                    </p>
+                                  </th>
+                                  <th class="px-6 py-3 text-left">
+                                    <p class="font-medium text-gray-700 text-sm dark:text-gray-300">
+                                      Total Interest
+                                    </p>
+                                  </th>
+                                  <th class="px-6 py-3 text-left">
+                                    <p class="font-medium text-gray-700 text-sm dark:text-gray-300">
+                                      Total Payable
+                                    </p>
+                                  </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="border-t border-gray-200 dark:border-gray-700">
+                                  <td class="px-6 py-4">
+                                    <p class="text-sm font-medium text-gray-800 dark:text-white/90">
+          <span x-text="loanType ? loanType.charAt(0).toUpperCase() + loanType.slice(1) + ' Loan' : 'Not Selected'">
+            Personal Loan
+          </span>
+                                    </p>
+                                  </td>
+                                  <td class="px-6 py-4">
+                                    <p class="text-sm text-gray-700 dark:text-gray-300">
+          <span x-text="new Date().toLocaleDateString('en-KE', {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric'
+          })">
+            <!-- Today's date will be auto-populated -->
+          </span>
+                                    </p>
+                                  </td>
+                                  <td class="px-6 py-4">
+                                    <p class="text-sm font-medium text-blue-600 dark:text-blue-400">
+          <span x-text="getFirstPaymentDate()">
+            <!-- First payment date will be calculated -->
+          </span>
+                                    </p>
+                                  </td>
+                                  <td class="px-6 py-4">
+                                    <p class="text-sm font-semibold text-brand-500">
+          <span x-text="loanAmount ? 'KES ' + parseFloat(loanAmount).toLocaleString('en-KE', {minimumFractionDigits: 2, maximumFractionDigits: 2}) : 'KES 0.00'">
+            KES 25,000.00
+          </span>
+                                    </p>
+                                  </td>
+                                  <td class="px-6 py-4">
+                                    <p class="text-sm font-medium text-gray-800 dark:text-white/90">
+          <span x-text="interestRate ? parseFloat(interestRate).toFixed(2) + '%' : '0.00%'">
+            12.00%
+          </span>
+                                    </p>
+                                  </td>
+                                  <td class="px-6 py-4">
+                                    <p class="text-sm text-gray-700 dark:text-gray-300">
+          <span x-text="repaymentType ? repaymentType.replace('-', ' ') : 'Not Selected'">
+            12 months
+          </span>
+                                    </p>
+                                  </td>
+                                  <td class="px-6 py-4">
+                                    <p class="text-sm font-semibold text-gray-800 dark:text-white/90">
+          <span x-text="'KES ' + totalInterest.toLocaleString('en-KE', {minimumFractionDigits: 2, maximumFractionDigits: 2})">
+            KES 2,748.23
+          </span>
+                                    </p>
+                                  </td>
+                                  <td class="px-6 py-4">
+                                    <p class="text-sm font-bold text-green-600 dark:text-green-400">
+          <span x-text="'KES ' + totalLoanAmount.toLocaleString('en-KE', {minimumFractionDigits: 2, maximumFractionDigits: 2})">
+            KES 27,748.23
+          </span>
+                                    </p>
+                                  </td>
+                                </tr>
+                                </tbody>
+                              </table>
                             </div>
                           </div>
                         </div>
@@ -1799,6 +1800,53 @@
         return (parseFloat(this.subtotal) + parseFloat(this.vat)).toFixed(2);
       },
     };
+  }
+
+  // More robust version that handles month/year rollover correctly
+  function getFirstPaymentDate() {
+    // Get current date
+    const today = new Date();
+
+    // Calculate first payment date (5th of next month)
+    // Handle month rollover (e.g., December -> January)
+    let nextMonth = today.getMonth() + 1;
+    let year = today.getFullYear();
+
+    if (nextMonth > 11) { // December is 11 (0-indexed)
+      nextMonth = 0;    // January
+      year += 1;        // Next year
+    }
+
+    // Create the first payment date (5th of next month)
+    const firstPaymentDate = new Date(year, nextMonth, 5);
+
+    // Format as "5-Jan-2026"
+    const day = firstPaymentDate.getDate();
+    const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const month = monthNames[firstPaymentDate.getMonth()];
+
+    return `${day}-${month}-${year}`;
+  }
+
+  // Function to test the date calculation
+  function testFirstPaymentDate() {
+    const testDates = [
+      new Date(2024, 0, 15),   // 15-Jan-2024 -> 5-Feb-2024
+      new Date(2024, 11, 20),  // 20-Dec-2024 -> 5-Jan-2025
+      new Date(2024, 11, 31),  // 31-Dec-2024 -> 5-Jan-2025
+      new Date(2024, 1, 28),   // 28-Feb-2024 -> 5-Mar-2024 (leap year)
+      new Date(2023, 1, 28)    // 28-Feb-2023 -> 5-Mar-2023
+    ];
+
+    console.log('First Payment Date Tests:');
+    testDates.forEach((date, index) => {
+      const originalDate = date.toLocaleDateString();
+      // Temporarily override global Date for testing
+      const originalNow = Date.now;
+      Date.now = () => date.getTime();
+      console.log(`${index + 1}. Today: ${originalDate} -> First Payment: ${getFirstPaymentDate()}`);
+      Date.now = originalNow;
+    });
   }
 
 </script>
