@@ -595,600 +595,802 @@
                 <h2 class="text-xl font-medium text-gray-800 dark:text-white">Request Loan
                 </h2>
               </div>
-              <div class="border-b border-gray-200 p-4 sm:p-8 dark:border-gray-800">
-                <div x-data="{
-    currentStep: 1,
-    steps: [
-      { id: 1, title: 'Personal Information', completed: false },
-      { id: 2, title: 'Address', completed: false },
-      { id: 3, title: 'Contact Information', completed: false },
-      { id: 4, title: 'Next of Kin', completed: false },
-      { id: 5, title: 'Guarantors', completed: false },
-      { id: 6, title: 'Documents', completed: false },
-      { id: 7, title: 'Preview', completed: false }
-    ],
-    goToStep(step) {
-      if (step >= 1 && step <= this.steps.length) {
-        this.currentStep = step;
-      }
-    },
-    nextStep() {
-      if (this.currentStep < this.steps.length) {
-        this.currentStep++;
-        this.steps[this.currentStep - 2].completed = true;
-      }
-    },
-    prevStep() {
-      if (this.currentStep > 1) {
-        this.currentStep--;
-      }
-    }
-  }">
+              <div class="border-t border-gray-100 p-4 sm:p-6 dark:border-gray-800">
+                <div class="rounded-xl border border-gray-200 p-6 dark:border-gray-800"
+                     x-data="{
+         activeStep: 1,
+         totalSteps: 3,
+         loanType: '',
+         loanAmount: '',
+         repaymentType: '',
+         interestRate: 0,
+         totalInterest: 0,
+         totalLoanAmount: 0,
+         calculateLoan() {
+           const amount = parseFloat(this.loanAmount) || 0;
+           let rate = 0;
 
-                  <!-- Progress Bar -->
-                  <div class="mb-8">
-                    <div class="flex items-center justify-between">
-                      <div class="flex-1">
-                        <div class="flex items-center">
-                          <!-- Progress Line -->
-                          <div class="relative w-full">
-                            <div class="absolute h-1 w-full bg-gray-200 dark:bg-gray-700"></div>
-                            <div class="absolute h-1 bg-blue-500 dark:bg-blue-600 transition-all duration-300"
-                                 :style="'width:' + ((currentStep - 1) / (steps.length - 1) * 100) + '%'"></div>
-                          </div>
-                        </div>
+           switch(this.loanType) {
+             case 'personal': rate = 0.12; break;
+             case 'business': rate = 0.15; break;
+             case 'emergency': rate = 0.18; break;
+             case 'education': rate = 0.10; break;
+             case 'vehicle': rate = 0.14; break;
+             default: rate = 0.12;
+           }
 
-                        <!-- Step Indicators -->
-                        <div class="flex justify-between mt-4">
-                          <template x-for="step in steps" :key="step.id">
-                            <button @click="goToStep(step.id)"
-                                    class="flex flex-col items-center cursor-pointer focus:outline-hidden"
-                                    :class="{ 'pointer-events-none': step.id > currentStep }">
-                              <div class="relative">
-                                <!-- Step Circle -->
-                                <div class="h-10 w-10 rounded-full border-2 flex items-center justify-center transition-all duration-300"
-                                     :class="step.id === currentStep
-                         ? 'border-blue-500 dark:border-blue-600 bg-blue-50 dark:bg-blue-900/30'
-                         : step.id < currentStep || step.completed
-                         ? 'border-blue-500 dark:border-blue-600 bg-blue-500 dark:bg-blue-600'
-                         : 'border-gray-300 dark:border-gray-600'">
+           this.interestRate = rate * 100;
 
-                                  <!-- Step Number/Checkmark -->
-                                  <template x-if="step.id < currentStep || step.completed">
-                                    <svg class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                    </svg>
-                                  </template>
-                                  <template x-if="!(step.id < currentStep || step.completed)">
-                      <span class="text-sm font-medium"
-                            :class="step.id === currentStep
-                              ? 'text-blue-600 dark:text-blue-400'
-                              : 'text-gray-500 dark:text-gray-400'">
-                        <span x-text="step.id"></span>
-                      </span>
-                                  </template>
-                                </div>
+           let multiplier = 1;
+           switch(this.repaymentType) {
+             case '1-week': multiplier = 0.02; break;
+             case '2-week': multiplier = 0.04; break;
+             case '1-month': multiplier = 0.10; break;
+             case '3-months': multiplier = 0.30; break;
+             case '6-months': multiplier = 0.60; break;
+             case '9-months': multiplier = 0.90; break;
+             case '12-months': multiplier = 1.20; break;
+             case '24-months': multiplier = 2.40; break;
+             case '36-months': multiplier = 3.60; break;
+           }
 
-                                <!-- Active Step Indicator -->
-                                <div x-show="step.id === currentStep"
-                                     class="absolute -bottom-1 left-1/2 h-2 w-2 -translate-x-1/2 rounded-full bg-blue-500 dark:bg-blue-600"></div>
-                              </div>
+           this.totalInterest = amount * rate * multiplier;
+           this.totalLoanAmount = amount + this.totalInterest;
+         }
+       }">
 
-                              <!-- Step Title -->
-                              <span class="mt-2 text-xs font-medium whitespace-nowrap"
-                                    :class="step.id === currentStep
-                        ? 'text-blue-600 dark:text-blue-400'
-                        : step.id < currentStep || step.completed
-                        ? 'text-blue-500 dark:text-blue-400'
-                        : 'text-gray-500 dark:text-gray-400'">
-                  <span x-text="step.title"></span>
-                </span>
-                            </button>
+                  <!-- Progress Bar - Clean Design -->
+                  <div class="mb-10">
+                    <div class="flex items-center justify-between relative">
+                      <!-- Connecting Line (Background) -->
+                      <div class="absolute left-8 right-8 top-1/2 h-0.5 bg-gray-200 dark:bg-gray-700 -translate-y-1/2"></div>
+
+                      <!-- Active Line (Progress) -->
+                      <div class="absolute left-8 h-0.5 bg-brand-500 transition-all duration-300 top-1/2 -translate-y-1/2"
+                           :style="'width:' + ((activeStep - 1) / (totalSteps - 1) * 100) + '%'"></div>
+
+                      <!-- Step 1 -->
+                      <div class="relative z-10 flex flex-col items-center">
+                        <div class="h-10 w-10 rounded-full flex items-center justify-center transition-all duration-300 mb-2"
+                             :class="activeStep >= 1
+                 ? 'bg-brand-500 border-4 border-white dark:border-gray-800 shadow-lg'
+                 : 'bg-white border-2 border-gray-300 dark:bg-gray-800 dark:border-gray-600 shadow-sm'">
+                          <template x-if="activeStep > 1">
+                            <svg class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                          </template>
+                          <template x-if="activeStep <= 1">
+                            <span class="text-sm font-semibold" :class="activeStep >= 1 ? 'text-white' : 'text-gray-500 dark:text-gray-400'">1</span>
                           </template>
                         </div>
+                        <span class="text-xs font-medium" :class="activeStep >= 1 ? 'text-brand-500' : 'text-gray-500 dark:text-gray-400'">
+            Applicant Details
+          </span>
+                      </div>
+
+                      <!-- Step 2 -->
+                      <div class="relative z-10 flex flex-col items-center">
+                        <div class="h-10 w-10 rounded-full flex items-center justify-center transition-all duration-300 mb-2"
+                             :class="activeStep >= 2
+                 ? 'bg-brand-500 border-4 border-white dark:border-gray-800 shadow-lg'
+                 : 'bg-white border-2 border-gray-300 dark:bg-gray-800 dark:border-gray-600 shadow-sm'">
+                          <template x-if="activeStep > 2">
+                            <svg class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                          </template>
+                          <template x-if="activeStep <= 2">
+                            <span class="text-sm font-semibold" :class="activeStep >= 2 ? 'text-white' : 'text-gray-500 dark:text-gray-400'">2</span>
+                          </template>
+                        </div>
+                        <span class="text-xs font-medium" :class="activeStep >= 2 ? 'text-brand-500' : 'text-gray-500 dark:text-gray-400'">
+            Loan Details
+          </span>
+                      </div>
+
+                      <!-- Step 3 -->
+                      <div class="relative z-10 flex flex-col items-center">
+                        <div class="h-10 w-10 rounded-full flex items-center justify-center transition-all duration-300 mb-2"
+                             :class="activeStep >= 3
+                 ? 'bg-brand-500 border-4 border-white dark:border-gray-800 shadow-lg'
+                 : 'bg-white border-2 border-gray-300 dark:bg-gray-800 dark:border-gray-600 shadow-sm'">
+                          <template x-if="activeStep >= 3">
+                            <svg class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                          </template>
+                          <template x-if="activeStep < 3">
+                            <span class="text-sm font-semibold" :class="activeStep >= 3 ? 'text-white' : 'text-gray-500 dark:text-gray-400'">3</span>
+                          </template>
+                        </div>
+                        <span class="text-xs font-medium" :class="activeStep >= 3 ? 'text-brand-500' : 'text-gray-500 dark:text-gray-400'">
+            Preview
+          </span>
                       </div>
                     </div>
                   </div>
 
-                  <!-- Wizard Form -->
-                  <form class="space-y-8" action="loans.html" method="POST">
-
-                    <!-- Step 1: Personal Information -->
-                    <div x-show="currentStep === 1" class="space-y-8">
-                      <div class="space-y-4">
-                        <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Personal Information</h3>
-                        <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
-                          <!-- First name -->
-                          <div>
-                            <label for="first-name" class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">First name</label>
-                            <input type="text" id="first-name" class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" placeholder="John" required />
-                          </div>
-
-                          <!-- Last name -->
-                          <div>
-                            <label for="last-name" class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">Last name</label>
-                            <input type="text" id="last-name" class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" placeholder="Doe" required />
-                          </div>
-
-                          <!-- National ID -->
-                          <div>
-                            <label for="national-id" class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">National ID no</label>
-                            <input type="text" id="national-id" class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" placeholder="123456789" required />
-                          </div>
-
-                          <!-- Gender -->
-                          <div>
-                            <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">Gender</label>
-                            <div x-data="{ isOptionSelected: false }" class="relative z-20 bg-transparent">
-                              <select class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 pr-11 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" :class="isOptionSelected && 'text-gray-800 dark:text-white/90'" @change="isOptionSelected = true" required>
-                                <option value="" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Select Gender</option>
-                                <option value="male" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Male</option>
-                                <option value="female" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Female</option>
-                                <option value="other" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Other</option>
-                                <option value="prefer-not-to-say" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Prefer not to say</option>
-                              </select>
-                              <span class="pointer-events-none absolute top-1/2 right-4 z-30 -translate-y-1/2 text-gray-700 dark:text-gray-400">
-                  <svg class="stroke-current" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4.79175 7.396L10.0001 12.6043L15.2084 7.396" stroke="" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                </span>
-                            </div>
-                          </div>
-
-                          <!-- Date of Birth -->
-                          <div>
-                            <label for="date-of-birth" class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">Date of Birth</label>
-                            <div class="relative">
-                              <input type="date" id="date-of-birth" class="dark:bg-dark-900 datepickerTwo shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 pr-11 pl-4 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" required />
-                              <span class="pointer-events-none absolute top-1/2 right-3 -translate-y-1/2 text-gray-500 dark:text-gray-400">
-                  <svg class="fill-current" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M6.66659 1.5415C7.0808 1.5415 7.41658 1.87729 7.41658 2.2915V2.99984H12.5833V2.2915C12.5833 1.87729 12.919 1.5415 13.3333 1.5415C13.7475 1.5415 14.0833 1.87729 14.0833 2.2915V2.99984L15.4166 2.99984C16.5212 2.99984 17.4166 3.89527 17.4166 4.99984V7.49984V15.8332C17.4166 16.9377 16.5212 17.8332 15.4166 17.8332H4.58325C3.47868 17.8332 2.58325 16.9377 2.58325 15.8332V7.49984V4.99984C2.58325 3.89527 3.47868 2.99984 4.58325 2.99984L5.91659 2.99984V2.2915C5.91659 1.87729 6.25237 1.5415 6.66659 1.5415ZM6.66659 4.49984H4.58325C4.30711 4.49984 4.08325 4.7237 4.08325 4.99984V6.74984H15.9166V4.99984C15.9166 4.7237 15.6927 4.49984 15.4166 4.49984H13.3333H6.66659ZM15.9166 8.24984H4.08325V15.8332C4.08325 16.1093 4.30711 16.3332 4.58325 16.3332H15.4166C15.6927 16.3332 15.9166 16.1093 15.9166 15.8332V8.24984Z" fill="" />
-                  </svg>
-                </span>
-                            </div>
-                          </div>
-
-                          <!-- Nationality -->
-                          <div>
-                            <label for="nationality" class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">Nationality</label>
-                            <input type="text" id="nationality" class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" placeholder="e.g., Kenyan" required />
-                          </div>
-                        </div>
+                  <!-- Rest of the form remains the same -->
+                  <div class="pt-4 min-h-[300px]">
+                    <!-- Step 1: Loan Applicant Details -->
+                    <div x-show="activeStep === 1">
+                      <!-- Header -->
+                      <div class="mb-8">
+                        <h3 class="text-2xl font-semibold text-gray-800 dark:text-white/90">
+                          Step 1. Loan Applicant Details
+                        </h3>
+                        <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">
+                          Review applicant information and supporting details
+                        </p>
                       </div>
-                    </div>
 
-                    <!-- Step 2: Address -->
-                    <div x-show="currentStep === 2" class="space-y-8">
-                      <div class="space-y-4">
-                        <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Address Information</h3>
-                        <!-- Address section from previous implementation -->
-                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 items-start">
-                          <label class="text-right text-sm font-medium text-gray-700 dark:text-gray-300 sm:col-span-1 pt-3">
-                            Address
-                          </label>
+                      <!-- a) Personal Information -->
+                      <div class="mb-8">
+                        <h4 class="text-lg font-medium text-gray-800 dark:text-white/90 mb-4">Personal Information</h4>
 
-                          <div class="w-full sm:col-span-2 space-y-8">
-                            <!-- Primary Address -->
-                            <div class="space-y-4">
-                              <div class="flex items-center gap-2">
-                                <div class="h-2 w-2 rounded-full bg-blue-500"></div>
-                                <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300">Primary Address</h3>
-                              </div>
-
-                              <div class="space-y-4">
-                                <!-- Street Address -->
-                                <input type="text"
-                                       placeholder="Enter street address"
-                                       class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" />
-
-                                <!-- Estate and Town Row -->
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                  <!-- Estate -->
-                                  <input type="text"
-                                         placeholder="Estate"
-                                         class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" />
-
-                                  <!-- Town -->
-                                  <input type="text"
-                                         placeholder="Town"
-                                         class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" />
-                                </div>
-
-                                <!-- County and Country Dropdowns Row -->
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                  <!-- County Dropdown -->
-                                  <select class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
-                                    <option value="">Select County</option>
-                                    <option value="nairobi">Nairobi</option>
-                                    <option value="mombasa">Mombasa</option>
-                                    <option value="kisumu">Kisumu</option>
-                                    <option value="nakuru">Nakuru</option>
-                                    <option value="kiambu">Kiambu</option>
-                                  </select>
-
-                                  <!-- Country Dropdown -->
-                                  <select class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
-                                    <option value="">Select Country</option>
-                                    <option value="kenya">Kenya</option>
-                                    <option value="uganda">Uganda</option>
-                                    <option value="tanzania">Tanzania</option>
-                                    <option value="rwanda">Rwanda</option>
-                                    <option value="ethiopia">Ethiopia</option>
-                                  </select>
-                                </div>
+                        <div class="space-y-4">
+                          <!-- Applicant Name - Single Full Name -->
+                          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 items-start">
+                            <label class="text-right text-sm font-medium text-gray-700 dark:text-gray-300 sm:col-span-1 pt-3">
+                              Applicant Name
+                            </label>
+                            <div class="w-full sm:col-span-2">
+                              <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4">
+                                <p class="text-sm font-medium text-gray-800 dark:text-white/90">John Michael Doe</p>
                               </div>
                             </div>
+                          </div>
 
-                            <!-- Secondary Address -->
-                            <div class="space-y-4">
-                              <div class="flex items-center gap-2">
-                                <div class="h-2 w-2 rounded-full bg-gray-400 dark:bg-gray-500"></div>
-                                <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300">Secondary Address (Optional)</h3>
-                              </div>
-
-                              <div class="space-y-4">
-                                <!-- Street Address -->
-                                <input type="text"
-                                       placeholder="Enter street address"
-                                       class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" />
-
-                                <!-- Estate and Town Row -->
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                  <!-- Estate -->
-                                  <input type="text"
-                                         placeholder="Estate"
-                                         class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" />
-
-                                  <!-- Town -->
-                                  <input type="text"
-                                         placeholder="Town"
-                                         class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" />
+                          <!-- Contact Information -->
+                          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 items-start">
+                            <label class="text-right text-sm font-medium text-gray-700 dark:text-gray-300 sm:col-span-1 pt-3">
+                              Contact Information
+                            </label>
+                            <div class="w-full sm:col-span-2">
+                              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4">
+                                  <p class="text-sm text-gray-500 dark:text-gray-400 mb-1">Email Address</p>
+                                  <p class="text-sm font-medium text-gray-800 dark:text-white/90">john.doe@example.com</p>
                                 </div>
-
-                                <!-- County and Country Dropdowns Row -->
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                  <!-- County Dropdown -->
-                                  <select class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
-                                    <option value="">Select County</option>
-                                    <option value="nairobi">Nairobi</option>
-                                    <option value="mombasa">Mombasa</option>
-                                    <option value="kisumu">Kisumu</option>
-                                    <option value="nakuru">Nakuru</option>
-                                    <option value="kiambu">Kiambu</option>
-                                  </select>
-
-                                  <!-- Country Dropdown -->
-                                  <select class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
-                                    <option value="">Select Country</option>
-                                    <option value="kenya">Kenya</option>
-                                    <option value="uganda">Uganda</option>
-                                    <option value="tanzania">Tanzania</option>
-                                    <option value="rwanda">Rwanda</option>
-                                    <option value="ethiopia">Ethiopia</option>
-                                  </select>
+                                <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4">
+                                  <p class="text-sm text-gray-500 dark:text-gray-400 mb-1">Phone Number</p>
+                                  <p class="text-sm font-medium text-gray-800 dark:text-white/90">+254 712 345 678</p>
                                 </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                      </div>
-                    </div>
 
-                    <!-- Step 3: Contact Information -->
-                    <div x-show="currentStep === 3" class="space-y-8">
-                      <div class="space-y-4">
-                        <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Contact Information</h3>
-                        <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
-                          <div>
-                            <label for="primary-phone" class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">Primary Phone</label>
-                            <input type="tel" id="primary-phone" class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" placeholder="+254 712 345 678" required />
-                          </div>
-                          <div>
-                            <label for="secondary-phone" class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">Secondary Phone</label>
-                            <input type="tel" id="secondary-phone" class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" placeholder="+254 734 567 890" />
-                          </div>
-                          <div>
-                            <label for="email" class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">Email</label>
-                            <input type="email" id="email" class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" placeholder="john.doe@example.com" required />
-                          </div>
-                          <div>
-                            <label for="po-box" class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">PO Box</label>
-                            <input type="text" id="po-box" class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" placeholder="P.O. Box 1234" />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <!-- Step 4: Next of Kin -->
-                    <div x-show="currentStep === 4" class="space-y-8">
-                      <div class="space-y-4">
-                        <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Next of Kin Information</h3>
-                        <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
-                          <div>
-                            <label for="kin-first-name" class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">First name</label>
-                            <input type="text" id="kin-first-name" class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" placeholder="Jane" required />
-                          </div>
-                          <div>
-                            <label for="kin-last-name" class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">Last name</label>
-                            <input type="text" id="kin-last-name" class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" placeholder="Smith" required />
-                          </div>
-                          <div>
-                            <label for="kin-national-id" class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">National ID no</label>
-                            <input type="text" id="kin-national-id" class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" placeholder="987654321" required />
-                          </div>
-                          <div>
-                            <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">Relationship Type</label>
-                            <div x-data="{ isOptionSelected: false }" class="relative z-20 bg-transparent">
-                              <select class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 pr-11 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" :class="isOptionSelected && 'text-gray-800 dark:text-white/90'" @change="isOptionSelected = true" required>
-                                <option value="" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Select Relationship</option>
-                                <option value="spouse" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Spouse</option>
-                                <option value="parent" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Parent</option>
-                                <option value="sibling" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Sibling</option>
-                                <option value="child" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Child</option>
-                                <option value="relative" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Relative</option>
-                                <option value="other" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Other</option>
-                              </select>
-                              <span class="pointer-events-none absolute top-1/2 right-4 z-30 -translate-y-1/2 text-gray-700 dark:text-gray-400">
-                  <svg class="stroke-current" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4.79175 7.396L10.0001 12.6043L15.2084 7.396" stroke="" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                </span>
-                            </div>
-                          </div>
-                          <div>
-                            <label for="kin-primary-phone" class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">Primary Phone</label>
-                            <input type="tel" id="kin-primary-phone" class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" placeholder="+254 723 456 789" required />
-                          </div>
-                          <div>
-                            <label for="kin-email" class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">Email</label>
-                            <input type="email" id="kin-email" class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" placeholder="jane.smith@example.com" />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <!-- Step 5: Guarantors -->
-                    <div x-show="currentStep === 5" class="space-y-8">
-                      <!-- Guarantor Information Section from original -->
-                      <div class="space-y-4">
-                        <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Guarantor Information</h3>
-                        <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
-                          <!-- Guarantor form fields from original -->
-                          <div>
-                            <label for="guarantor-first-name" class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">First name</label>
-                            <input type="text" id="guarantor-first-name" class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" placeholder="Jane" required />
-                          </div>
-                          <div>
-                            <label for="guarantor-last-name" class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">Last name</label>
-                            <input type="text" id="guarantor-last-name" class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" placeholder="Smith" required />
-                          </div>
-                          <div>
-                            <label for="guarantor-national-id" class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">National ID no</label>
-                            <input type="text" id="guarantor-national-id" class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" placeholder="987654321" required />
-                          </div>
-                          <div>
-                            <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">Gender</label>
-                            <div x-data="{ isOptionSelected: false }" class="relative z-20 bg-transparent">
-                              <select class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 pr-11 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" :class="isOptionSelected && 'text-gray-800 dark:text-white/90'" @change="isOptionSelected = true" required>
-                                <option value="" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Select Gender</option>
-                                <option value="male" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Male</option>
-                                <option value="female" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Female</option>
-                                <option value="other" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Other</option>
-                                <option value="prefer-not-to-say" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Prefer not to say</option>
-                              </select>
-                              <span class="pointer-events-none absolute top-1/2 right-4 z-30 -translate-y-1/2 text-gray-700 dark:text-gray-400">
-                  <svg class="stroke-current" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4.79175 7.396L10.0001 12.6043L15.2084 7.396" stroke="" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                </span>
-                            </div>
-                          </div>
-                          <div>
-                            <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">Relationship Type</label>
-                            <div x-data="{ isOptionSelected: false }" class="relative z-20 bg-transparent">
-                              <select class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 pr-11 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" :class="isOptionSelected && 'text-gray-800 dark:text-white/90'" @change="isOptionSelected = true" required>
-                                <option value="" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Select Relationship</option>
-                                <option value="spouse" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Spouse</option>
-                                <option value="parent" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Parent</option>
-                                <option value="sibling" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Sibling</option>
-                                <option value="friend" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Friend</option>
-                                <option value="colleague" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Colleague</option>
-                                <option value="relative" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Relative</option>
-                                <option value="other" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Other</option>
-                              </select>
-                              <span class="pointer-events-none absolute top-1/2 right-4 z-30 -translate-y-1/2 text-gray-700 dark:text-gray-400">
-                  <svg class="stroke-current" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4.79175 7.396L10.0001 12.6043L15.2084 7.396" stroke="" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                </span>
-                            </div>
-                          </div>
-                          <div>
-                            <label for="guarantor-primary-phone" class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">Primary Phone</label>
-                            <input type="tel" id="guarantor-primary-phone" class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" placeholder="+254 712 345 678" required />
-                          </div>
-                          <div>
-                            <label for="guarantor-email" class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">Email</label>
-                            <input type="email" id="guarantor-email" class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" placeholder="jane.smith@example.com" required />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <!-- Step 6: Documents -->
-                    <div x-show="currentStep === 6" class="space-y-8">
-                      <div class="space-y-4">
-                        <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Required Documents</h3>
-                        <p class="text-sm text-gray-600 dark:text-gray-400">Please upload the following documents:</p>
-
-                        <div class="space-y-6">
-                          <!-- National ID Upload -->
-                          <div>
-                            <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-400">National ID (Front & Back)</label>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                              <div class="relative">
-                                <input type="file" id="national-id-front" class="hidden" accept="image/*,.pdf" />
-                                <label for="national-id-front" class="flex cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 p-6 hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:hover:bg-gray-700">
-                                  <div class="mb-2 text-gray-500 dark:text-gray-400">
-                                    <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-                                    </svg>
+                          <!-- Credit Status -->
+                          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 items-start">
+                            <label class="text-right text-sm font-medium text-gray-700 dark:text-gray-300 sm:col-span-1 pt-3">
+                              Credit Status
+                            </label>
+                            <div class="w-full sm:col-span-2">
+                              <div class="max-w-xs">
+                                <div class="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-4">
+                                  <div class="flex items-center gap-2">
+                                    <div class="h-3 w-3 rounded-full bg-green-500"></div>
+                                    <p class="text-sm font-medium text-green-700 dark:text-green-400">Good</p>
                                   </div>
-                                  <p class="text-sm text-gray-500 dark:text-gray-400">Front Side</p>
-                                </label>
-                              </div>
-                              <div class="relative">
-                                <input type="file" id="national-id-back" class="hidden" accept="image/*,.pdf" />
-                                <label for="national-id-back" class="flex cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 p-6 hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:hover:bg-gray-700">
-                                  <div class="mb-2 text-gray-500 dark:text-gray-400">
-                                    <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-                                    </svg>
-                                  </div>
-                                  <p class="text-sm text-gray-500 dark:text-gray-400">Back Side</p>
-                                </label>
+                                </div>
                               </div>
                             </div>
                           </div>
+                        </div>
 
-                          <!-- Proof of Income -->
-                          <div>
-                            <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-400">Proof of Income (Pay Slip/Bank Statement)</label>
-                            <div class="relative">
-                              <input type="file" id="proof-income" class="hidden" accept="image/*,.pdf" />
-                              <label for="proof-income" class="flex cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 p-8 hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:hover:bg-gray-700">
-                                <div class="mb-2 text-gray-500 dark:text-gray-400">
-                                  <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-                                  </svg>
-                                </div>
-                                <p class="text-sm text-gray-500 dark:text-gray-400">Click to upload or drag and drop</p>
-                                <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">PDF, PNG, JPG (MAX. 5MB)</p>
-                              </label>
+                        <hr class="my-6 border-gray-200 dark:border-gray-700">
+
+                        <!-- Additional Personal Details -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                          <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                              <p class="text-sm text-gray-500 dark:text-gray-400">Gender</p>
+                              <p class="text-sm font-medium text-gray-800 dark:text-white/90">Male</p>
                             </div>
+                            <div class="flex items-center justify-between">
+                              <p class="text-sm text-gray-500 dark:text-gray-400">Marital Status</p>
+                              <p class="text-sm font-medium text-gray-800 dark:text-white/90">Married</p>
+                            </div>
+                          </div>
+                          <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                              <p class="text-sm text-gray-500 dark:text-gray-400">Employment Status</p>
+                              <p class="text-sm font-medium text-gray-800 dark:text-white/90">Employed</p>
+                            </div>
+                            <div class="flex items-center justify-between">
+                              <p class="text-sm text-gray-500 dark:text-gray-400">Date of Birth</p>
+                              <p class="text-sm font-medium text-gray-800 dark:text-white/90">15/05/1985</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <hr class="my-6 border-gray-200 dark:border-gray-700">
+
+                      <!-- b) Addresses -->
+                      <div class="mb-8">
+                        <h4 class="text-lg font-medium text-gray-800 dark:text-white/90 mb-4">Address Information</h4>
+
+                        <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
+                          <div class="space-y-3">
+                            <div class="flex items-start">
+                              <span class="text-sm text-gray-500 dark:text-gray-400 w-32">Street Address:</span>
+                              <span class="text-sm font-medium text-gray-800 dark:text-white/90 flex-1">1234 Main Street, Westlands</span>
+                            </div>
+                            <div class="flex items-start">
+                              <span class="text-sm text-gray-500 dark:text-gray-400 w-32">P.O. Box:</span>
+                              <span class="text-sm font-medium text-gray-800 dark:text-white/90 flex-1">P.O. Box 12345-00100</span>
+                            </div>
+                            <div class="flex items-start">
+                              <span class="text-sm text-gray-500 dark:text-gray-400 w-32">Resident Town:</span>
+                              <span class="text-sm font-medium text-gray-800 dark:text-white/90 flex-1">Nairobi</span>
+                            </div>
+                            <div class="flex items-start">
+                              <span class="text-sm text-gray-500 dark:text-gray-400 w-32">County:</span>
+                              <span class="text-sm font-medium text-gray-800 dark:text-white/90 flex-1">Nairobi County</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <hr class="my-6 border-gray-200 dark:border-gray-700">
+
+                      <!-- c) Next of Kin Information - Active Only -->
+                      <div class="mb-8">
+                        <h4 class="text-lg font-medium text-gray-800 dark:text-white/90 mb-4">Next of Kin Information</h4>
+
+                        <div class="overflow-x-auto">
+                          <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                            <thead class="bg-gray-50 dark:bg-gray-800">
+                            <tr>
+                              <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Kin Name</th>
+                              <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Relation</th>
+                              <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Address</th>
+                              <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Status</th>
+                            </tr>
+                            </thead>
+                            <tbody class="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">
+                            <!-- Active Next of Kin Only -->
+                            <tr>
+                              <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-white/90">Jane Doe</td>
+                              <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">Spouse</td>
+                              <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400 truncate max-w-[200px]">1234 Main Street, Nairobi</td>
+                              <td class="px-4 py-3 whitespace-nowrap">
+                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">
+                      Active
+                    </span>
+                              </td>
+                            </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+
+                      <!-- d) Guarantors - Active Only -->
+                      <div>
+                        <h4 class="text-lg font-medium text-gray-800 dark:text-white/90 mb-4">Guarantor Information</h4>
+
+                        <div class="overflow-x-auto">
+                          <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                            <thead class="bg-gray-50 dark:bg-gray-800">
+                            <tr>
+                              <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Guarantor Name</th>
+                              <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Relation</th>
+                              <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Address</th>
+                              <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Status</th>
+                            </tr>
+                            </thead>
+                            <tbody class="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">
+                            <!-- Active Guarantor Only -->
+                            <tr>
+                              <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-white/90">Mary Johnson</td>
+                              <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">Business Partner</td>
+                              <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400 truncate max-w-[200px]">4321 Business Ave, Westlands</td>
+                              <td class="px-4 py-3 whitespace-nowrap">
+                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">
+                      Verified
+                    </span>
+                              </td>
+                            </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Step 2: Loan Application Details -->
+                    <div x-show="activeStep === 2">
+                      <!-- Header -->
+                      <div class="mb-8">
+                        <h3 class="text-2xl font-semibold text-gray-800 dark:text-white/90">
+                          Step 2. Loan Application Details
+                        </h3>
+                        <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">
+                          Configure your loan terms and view calculated amounts
+                        </p>
+                      </div>
+
+                      <div class="space-y-8">
+                        <div class="grid grid-cols-12 gap-4 md:gap-6">
+                          <div class="col-span-12 xl:col-span-5">
+                            <!-- ====== Map One Start -->
+                            <div class="rounded-2xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-white/[0.03] sm:p-6">
+                              <div class="flex justify-between">
+                                <div>
+                                  <h3 class="text-lg font-semibold text-gray-700 dark:text-white/90">
+                                    Loan Calculator
+                                  </h3>
+                                  <p class="mt-1 text-theme-sm text-gray-500 dark:text-gray-400">
+                                    Number of customer based on country
+                                  </p>
+                                </div>
+                              </div>
+                              <div class="space-y-5">
+                                <div class="space-y-6 border-t border-gray-100 p-5 sm:p-6 dark:border-gray-800">
+                                  <form>
+                                    <div class="-mx-2.5 flex flex-wrap gap-y-5">
+                                      <div class="w-full px-2.5">
+                                        <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                                          Loan Type
+                                        </label>
+                                        <div x-data="{ isOptionSelected: false }" class="relative z-20 bg-transparent">
+                                          <select x-model="loanType" @change="calculateLoan()" class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" :class="isOptionSelected &amp;&amp; 'text-gray-800 dark:text-white/90'">
+                                            <option value="" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Select Loan Type</option>
+                                            <option value="personal" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Personal Loan</option>
+                                            <option value="business" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Business Loan</option>
+                                            <option value="emergency" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Emergency Loan</option>
+                                            <option value="education" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Education Loan</option>
+                                            <option value="vehicle" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Vehicle Loan</option>
+                                          </select>
+                                          <span class="absolute top-1/2 right-4 z-30 -translate-y-1/2 text-gray-500 dark:text-gray-400">
+                                            <svg class="stroke-current" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                              <path d="M4.79175 7.396L10.0001 12.6043L15.2084 7.396" stroke="" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                            </svg>
+                                          </span>
+                                        </div>
+                                      </div>
+
+                                      <div class="w-full px-2.5 xl:w-1/2">
+                                        <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                                          Loan Amount
+                                        </label>
+                                        <input x-model="loanAmount" @input="calculateLoan()" type="number" min="1000" step="1000" placeholder="Enter loan amount" class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent pl-14 pr-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
+                                      </div>
+
+                                      <div class="w-full px-2.5 xl:w-1/2">
+                                        <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                                          Repayment Period
+                                        </label>
+                                        <select x-model="repaymentType" @change="calculateLoan()" class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" :class="isOptionSelected &amp;&amp; 'text-gray-800 dark:text-white/90'">
+                                          <option value="" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Select Repayment Period</option>
+                                          <option value="1-week" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">1 Week</option>
+                                          <option value="2-week" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">2 Weeks</option>
+                                          <option value="1-month" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">1 Month</option>
+                                          <option value="3-months" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">3 Months</option>
+                                          <option value="6-months" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">6 Months</option>
+                                          <option value="9-months" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">9 Months</option>
+                                          <option value="12-months" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">12 Months</option>
+                                          <option value="24-months" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">24 Months</option>
+                                          <option value="36-months" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">36 Months</option>
+                                        </select>
+                                      </div>
+
+                                      <div class="w-full px-2.5 xl:w-1/2">
+                                        <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                                          Interest Rate
+                                        </label>
+                                        <div class="text-xl font-semibold text-gray-500 dark:text-white/90"
+                                             x-text="interestRate ? parseFloat(interestRate).toFixed(2) + '%' : '0.00%'">
+                                          12.00%
+                                        </div>
+                                      </div>
+
+                                      <div class="w-full px-2.5">
+                                        <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                                          Estimated monthly payment
+                                        </label>
+                                        <div x-data="{ isOptionSelected: false }" class="relative z-20 bg-transparent bg-gray-100 dark:border-gray-800">
+                                          <div class="flex items-center gap-6">
+                                            <div>
+                                              <p class="text-lg font-semibold text-center text-gray-600 dark:text-white/90"
+                                                 x-text="loanAmount ? 'KES ' + parseFloat(loanAmount).toLocaleString('en-KE', {minimumFractionDigits: 2, maximumFractionDigits: 2}) : 'KES 0.00'">KES 25,000.00</p>
+                                              <p class="text-theme-xs mt-0.5 text-center text-gray-500 dark:text-gray-400">
+                                                Total loan amount paid
+                                              </p>
+                                            </div>
+
+                                            <div class="w-px bg-gray-200 h-11 dark:bg-gray-800"></div>
+
+                                            <div>
+                                              <p class="text-lg font-semibold text-center text-gray-600 dark:text-white/90"
+                                                 x-text="'KES ' + totalInterest.toLocaleString('en-KE', {minimumFractionDigits: 2, maximumFractionDigits: 2})"
+                                              >
+                                                KES 0.00
+                                              </p>
+                                              <p class="text-theme-xs mt-0.5 text-center text-gray-500 dark:text-gray-400">
+                                                Total interest paid
+                                              </p>
+                                            </div>
+
+                                            <div class="w-px bg-gray-200 h-11 dark:bg-gray-600"></div>
+
+                                            <div>
+                                              <p class="text-lg font-semibold text-center text-gray-600 dark:text-white/90"
+                                                 x-text="'KES ' + totalLoanAmount.toLocaleString('en-KE', {minimumFractionDigits: 2, maximumFractionDigits: 2})"
+                                              >
+                                                0.00
+                                              </p>
+                                              <p class="text-theme-xs mt-0.5 text-center text-gray-500 dark:text-gray-400">
+                                                Total cost of loan
+                                              </p>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+                            <!-- ====== Map One End -->
+                          </div>
+                          <div class="col-span-12 xl:col-span-7">
+                            <!-- Automated Repayment Schedule Start -->
+                            <div class="rounded-2xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-white/[0.03] sm:p-6">
+                              <div class="flex justify-between">
+                                <div>
+                                  <h3 class="text-lg font-semibold text-gray-700 dark:text-white/90">
+                                    Automated Repayment Schedule
+                                  </h3>
+                                  <p class="mt-1 text-theme-sm text-gray-500 dark:text-gray-400">
+                                    Detailed View of the Repayment Schedule
+                                  </p>
+                                </div>
+                                <div class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+                                  <div class="flex items-center gap-1">
+                                    <div class="h-2 w-2 rounded-full bg-brand-500"></div>
+                                    <span>First Payment: </span>
+                                    <span class="font-medium text-gray-700 dark:text-white/90" x-text="firstPaymentDate || '-'">-</span>
+                                  </div>
+                                  <div class="h-4 w-px bg-gray-300 dark:bg-gray-600"></div>
+                                  <div class="flex items-center gap-1">
+                                    <div class="h-2 w-2 rounded-full bg-gray-400"></div>
+                                    <span>Last Payment: </span>
+                                    <span class="font-medium text-gray-700 dark:text-white/90" x-text="lastPaymentDate || '-'">-</span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="space-y-5 mt-6">
+                                <div class="max-w-full overflow-x-auto custom-scrollbar">
+                                  <table class="w-full" id="repaymentScheduleTable">
+                                    <thead>
+                                    <tr class="border-t border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/50">
+                                      <th class="px-6 py-3 text-left">
+                                        <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
+                                          Date
+                                        </p>
+                                      </th>
+                                      <th class="px-6 py-3 text-left">
+                                        <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
+                                          Repayment
+                                        </p>
+                                      </th>
+                                      <th class="px-6 py-3 text-left">
+                                        <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
+                                          Principal Paid
+                                        </p>
+                                      </th>
+                                      <th class="px-6 py-3 text-left">
+                                        <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
+                                          Interest Paid
+                                        </p>
+                                      </th>
+                                      <th class="px-6 py-3 text-left">
+                                        <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
+                                          Total Interest paid
+                                        </p>
+                                      </th>
+                                      <th class="px-6 py-3 text-left">
+                                        <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
+                                          Balance
+                                        </p>
+                                      </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="repaymentScheduleBody">
+                                    <!-- Empty state - will be replaced by JavaScript -->
+                                    <tr class="border-t border-gray-100 dark:border-gray-800" id="emptyStateRow">
+                                      <td colspan="6" class="px-6 py-12 text-center">
+                                        <div class="flex flex-col items-center justify-center">
+                                          <svg class="h-12 w-12 text-gray-400 dark:text-gray-500 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z" />
+                                          </svg>
+                                          <p class="text-gray-500 dark:text-gray-400 text-sm">
+                                            Enter loan details to generate repayment schedule
+                                          </p>
+                                        </div>
+                                      </td>
+                                    </tr>
+                                    <!-- Payment rows will be inserted here by JavaScript -->
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                            </div>
+                            <!-- Automated Repayment Schedule End -->
                           </div>
                         </div>
                       </div>
                     </div>
 
-                    <!-- Step 7: Preview -->
-                    <div x-show="currentStep === 7" class="space-y-8">
-                      <div class="space-y-4">
-                        <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Application Preview</h3>
-                        <p class="text-sm text-gray-600 dark:text-gray-400">Please review all information before submitting.</p>
+                    <!-- Step 3: Preview -->
+                    <div x-show="activeStep === 3">
+                      <!-- Header -->
+                      <div class="mb-8">
+                        <h3 class="text-2xl font-semibold text-gray-800 dark:text-white/90">
+                          Step 3. Application Preview
+                        </h3>
+                        <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">
+                          Review and submit your loan application
+                        </p>
+                      </div>
 
-                        <!-- Preview sections would show summarized data from previous steps -->
-                        <div class="space-y-6 rounded-lg border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800/50">
-                          <!-- Personal Info Summary -->
-                          <div>
-                            <h4 class="mb-3 font-medium text-gray-700 dark:text-gray-300">Personal Information</h4>
-                            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                              <div>
-                                <p class="text-sm text-gray-500 dark:text-gray-400">Full Name</p>
-                                <p class="text-sm font-medium text-gray-800 dark:text-gray-200" id="preview-fullname">John Doe</p>
+                      <div class="space-y-8">
+                        <!-- Official Report Header -->
+                        <div class="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
+                          <div class="text-center mb-6">
+                            <h4 class="text-xl font-semibold text-gray-800 dark:text-white/90">LOAN APPLICATION REPORT</h4>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Generated on: <span x-text="new Date().toLocaleDateString('en-KE')"></span></p>
+                            <div class="mt-4 h-1 bg-gradient-to-r from-brand-500 to-purple-500"></div>
+                          </div>
+
+                          <!-- Applicant Summary -->
+                          <div class="mb-8">
+                            <h5 class="text-lg font-medium text-gray-800 dark:text-white/90 mb-4 border-b pb-2 border-gray-200 dark:border-gray-700">Applicant Summary</h5>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                              <div class="space-y-3">
+                                <div class="flex justify-between">
+                                  <span class="text-sm text-gray-500 dark:text-gray-400">Full Name:</span>
+                                  <span class="text-sm font-medium text-gray-800 dark:text-white/90">John Michael Doe</span>
+                                </div>
+                                <div class="flex justify-between">
+                                  <span class="text-sm text-gray-500 dark:text-gray-400">Email:</span>
+                                  <span class="text-sm font-medium text-gray-800 dark:text-white/90">john.doe@example.com</span>
+                                </div>
+                                <div class="flex justify-between">
+                                  <span class="text-sm text-gray-500 dark:text-gray-400">Credit Status:</span>
+                                  <span class="text-sm font-medium text-green-600 dark:text-green-400">Good</span>
+                                </div>
                               </div>
-                              <div>
-                                <p class="text-sm text-gray-500 dark:text-gray-400">National ID</p>
-                                <p class="text-sm font-medium text-gray-800 dark:text-gray-200" id="preview-national-id">123456789</p>
+                              <div class="space-y-3">
+                                <div class="flex justify-between">
+                                  <span class="text-sm text-gray-500 dark:text-gray-400">Phone:</span>
+                                  <span class="text-sm font-medium text-gray-800 dark:text-white/90">+254 712 345 678</span>
+                                </div>
+                                <div class="flex justify-between">
+                                  <span class="text-sm text-gray-500 dark:text-gray-400">Employment:</span>
+                                  <span class="text-sm font-medium text-gray-800 dark:text-white/90">Employed</span>
+                                </div>
+                                <div class="flex justify-between">
+                                  <span class="text-sm text-gray-500 dark:text-gray-400">Guarantors:</span>
+                                  <span class="text-sm font-medium text-gray-800 dark:text-white/90">1 Verified</span>
+                                </div>
                               </div>
                             </div>
                           </div>
 
-                          <!-- Contact Info Summary -->
-                          <div>
-                            <h4 class="mb-3 font-medium text-gray-700 dark:text-gray-300">Contact Information</h4>
-                            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                              <div>
-                                <p class="text-sm text-gray-500 dark:text-gray-400">Primary Phone</p>
-                                <p class="text-sm font-medium text-gray-800 dark:text-gray-200" id="preview-phone">+254 712 345 678</p>
-                              </div>
-                              <div>
-                                <p class="text-sm text-gray-500 dark:text-gray-400">Email</p>
-                                <p class="text-sm font-medium text-gray-800 dark:text-gray-200" id="preview-email">john.doe@example.com</p>
+                          <div class="mb-8">
+                            <h4 class="text-lg font-medium text-gray-800 dark:text-white/90 mb-4">Address Information</h4>
+
+                            <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
+                              <div class="space-y-3">
+                                <div class="flex items-start">
+                                  <span class="text-sm text-gray-500 dark:text-gray-400 w-32">Street Address:</span>
+                                  <span class="text-sm font-medium text-gray-800 dark:text-white/90 flex-1">1234 Main Street, Westlands</span>
+                                </div>
+                                <div class="flex items-start">
+                                  <span class="text-sm text-gray-500 dark:text-gray-400 w-32">P.O. Box:</span>
+                                  <span class="text-sm font-medium text-gray-800 dark:text-white/90 flex-1">P.O. Box 12345-00100</span>
+                                </div>
+                                <div class="flex items-start">
+                                  <span class="text-sm text-gray-500 dark:text-gray-400 w-32">Resident Town:</span>
+                                  <span class="text-sm font-medium text-gray-800 dark:text-white/90 flex-1">Nairobi</span>
+                                </div>
+                                <div class="flex items-start">
+                                  <span class="text-sm text-gray-500 dark:text-gray-400 w-32">County:</span>
+                                  <span class="text-sm font-medium text-gray-800 dark:text-white/90 flex-1">Nairobi County</span>
+                                </div>
                               </div>
                             </div>
                           </div>
 
-                          <!-- Loan Info Summary -->
-                          <div>
-                            <h4 class="mb-3 font-medium text-gray-700 dark:text-gray-300">Loan Information</h4>
-                            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                              <div>
-                                <p class="text-sm text-gray-500 dark:text-gray-400">Loan Type</p>
-                                <p class="text-sm font-medium text-gray-800 dark:text-gray-200" id="preview-loan-type">Personal Loan</p>
+                          <div class="mb-8">
+                            <h4 class="text-lg font-medium text-gray-800 dark:text-white/90 mb-4">Next of Kin Information</h4>
+
+                            <div class="overflow-x-auto">
+                              <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                                <thead class="bg-gray-50 dark:bg-gray-800">
+                                <tr>
+                                  <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Kin Name</th>
+                                  <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Relation</th>
+                                  <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Address</th>
+                                  <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Status</th>
+                                </tr>
+                                </thead>
+                                <tbody class="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">
+                                <!-- Active Next of Kin Only -->
+                                <tr>
+                                  <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-white/90">Jane Doe</td>
+                                  <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">Spouse</td>
+                                  <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400 truncate max-w-[200px]">1234 Main Street, Nairobi</td>
+                                  <td class="px-4 py-3 whitespace-nowrap">
+                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">
+                      Active
+                    </span>
+                                  </td>
+                                </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+
+                          <div class="mb-8">
+                            <h4 class="text-lg font-medium text-gray-800 dark:text-white/90 mb-4">Guarantor Information</h4>
+
+                            <div class="overflow-x-auto">
+                              <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                                <thead class="bg-gray-50 dark:bg-gray-800">
+                                <tr>
+                                  <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Guarantor Name</th>
+                                  <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Relation</th>
+                                  <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Address</th>
+                                  <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Status</th>
+                                </tr>
+                                </thead>
+                                <tbody class="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">
+                                <!-- Active Guarantor Only -->
+                                <tr>
+                                  <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-white/90">Mary Johnson</td>
+                                  <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">Business Partner</td>
+                                  <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400 truncate max-w-[200px]">4321 Business Ave, Westlands</td>
+                                  <td class="px-4 py-3 whitespace-nowrap">
+                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">
+                      Verified
+                    </span>
+                                  </td>
+                                </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+
+                          <!-- Loan Terms Summary -->
+                          <div class="mb-8">
+                            <h5 class="text-lg font-medium text-gray-800 dark:text-white/90 mb-4 border-b pb-2 border-gray-200 dark:border-gray-700">Loan Terms Summary</h5>
+                            <div class="bg-gray-50 dark:bg-gray-900 rounded-lg p-6">
+                              <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                <div class="space-y-4">
+                                  <div class="flex justify-between items-center">
+                                    <span class="text-sm text-gray-500 dark:text-gray-400">Loan Type:</span>
+                                    <span class="text-sm font-medium text-gray-800 dark:text-white/90" x-text="loanType ? loanType.charAt(0).toUpperCase() + loanType.slice(1) + ' Loan' : 'Not Selected'"></span>
+                                  </div>
+                                  <div class="flex justify-between items-center">
+                                    <span class="text-sm text-gray-500 dark:text-gray-400">Loan Amount:</span>
+                                    <span class="text-lg font-semibold text-brand-500" x-text="loanAmount ? 'KES ' + parseFloat(loanAmount).toLocaleString('en-KE', {minimumFractionDigits: 2, maximumFractionDigits: 2}) : 'KES 0.00'"></span>
+                                  </div>
+                                </div>
+                                <div class="space-y-4">
+                                  <div class="flex justify-between items-center">
+                                    <span class="text-sm text-gray-500 dark:text-gray-400">Interest Rate:</span>
+                                    <span class="text-sm font-medium text-gray-800 dark:text-white/90" x-text="interestRate + '%'"></span>
+                                  </div>
+                                  <div class="flex justify-between items-center">
+                                    <span class="text-sm text-gray-500 dark:text-gray-400">Repayment Period:</span>
+                                    <span class="text-sm font-medium text-gray-800 dark:text-white/90" x-text="repaymentType ? repaymentType.replace('-', ' ') : 'Not Selected'"></span>
+                                  </div>
+                                </div>
                               </div>
-                              <div>
-                                <p class="text-sm text-gray-500 dark:text-gray-400">Amount</p>
-                                <p class="text-sm font-medium text-gray-800 dark:text-gray-200" id="preview-amount">5,000.00</p>
+                            </div>
+                          </div>
+
+                          <!-- Financial Summary -->
+                          <div class="w-full px-2.5">
+                            <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                              Estimated monthly payment
+                            </label>
+                            <div x-data="{ isOptionSelected: false }" class="relative z-20 bg-transparent bg-gray-100 dark:border-gray-800">
+                              <div class="flex items-center gap-6">
+                                <div>
+                                  <p class="text-lg font-semibold text-center text-gray-600 dark:text-white/90"
+                                     x-text="loanAmount ? 'KES ' + parseFloat(loanAmount).toLocaleString('en-KE', {minimumFractionDigits: 2, maximumFractionDigits: 2}) : 'KES 0.00'">KES 25,000.00</p>
+                                  <p class="text-theme-xs mt-0.5 text-center text-gray-500 dark:text-gray-400">
+                                    Principal Amount
+                                  </p>
+                                </div>
+
+                                <div class="w-px bg-gray-200 h-11 dark:bg-gray-800"></div>
+
+                                <div>
+                                  <p class="text-lg font-semibold text-center text-gray-600 dark:text-white/90"
+                                     x-text="'KES ' + totalInterest.toLocaleString('en-KE', {minimumFractionDigits: 2, maximumFractionDigits: 2})"
+                                  >
+                                    KES 0.00
+                                  </p>
+                                  <p class="text-theme-xs mt-0.5 text-center text-gray-500 dark:text-gray-400">
+                                    Total interest
+                                  </p>
+                                </div>
+
+                                <div class="w-px bg-gray-200 h-11 dark:bg-gray-600"></div>
+
+                                <div>
+                                  <p class="text-lg font-semibold text-center text-gray-600 dark:text-white/90"
+                                     x-text="'KES ' + totalLoanAmount.toLocaleString('en-KE', {minimumFractionDigits: 2, maximumFractionDigits: 2})"
+                                  >
+                                    0.00
+                                  </p>
+                                  <p class="text-theme-xs mt-0.5 text-center text-gray-500 dark:text-gray-400">
+                                    Total Payable
+                                  </p>
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
 
                         <!-- Agreement Section -->
-                        <div class="space-y-4 border-t border-gray-200 pt-6 dark:border-gray-700">
-                          <div class="flex items-start">
-                            <div class="flex h-5 items-center">
-                              <input id="terms-agreement" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-brand-500 focus:ring-brand-500 dark:border-gray-600 dark:bg-gray-800 dark:focus:ring-brand-500" required />
+                        <div class="bg-yellow-50 dark:bg-yellow-900/10 border border-yellow-200 dark:border-yellow-800 rounded-lg p-6">
+                          <div class="flex items-start space-x-3">
+                            <div class="flex-shrink-0">
+                              <svg class="h-6 w-6 text-yellow-600 dark:text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.998-.833-2.732 0L4.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
+                              </svg>
                             </div>
-                            <div class="ml-3 text-sm">
-                              <label for="terms-agreement" class="font-medium text-gray-700 dark:text-gray-300">
-                                I agree to the <a href="#" class="text-brand-500 hover:text-brand-600 dark:text-brand-400 dark:hover:text-brand-300">loans terms and conditions</a>
-                              </label>
-                            </div>
-                          </div>
-                          <div class="flex items-start">
-                            <div class="flex h-5 items-center">
-                              <input id="accuracy-agreement" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-brand-500 focus:ring-brand-500 dark:border-gray-600 dark:bg-gray-800 dark:focus:ring-brand-500" required />
-                            </div>
-                            <div class="ml-3 text-sm">
-                              <label for="accuracy-agreement" class="font-medium text-gray-700 dark:text-gray-300">
-                                I agree the information provided is correct and accurate
-                              </label>
+                            <div>
+                              <h4 class="text-sm font-medium text-yellow-800 dark:text-yellow-300">Important Notice</h4>
+                              <p class="mt-1 text-sm text-yellow-700 dark:text-yellow-400">
+                                By submitting this application, you agree to the loan terms and conditions. Please review all information carefully before submission. The calculated amounts are estimates and may be subject to final verification.
+                              </p>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
+                  </div>
 
-                    <!-- Navigation Buttons -->
-                    <div class="flex items-center justify-between pt-8 border-t border-gray-200 dark:border-gray-700">
-                      <!-- Previous Button -->
-                      <button type="button"
-                              @click="prevStep()"
-                              x-show="currentStep > 1"
-                              class="shadow-theme-xs inline-flex items-center justify-center gap-2 rounded-lg bg-white px-6 py-3 text-sm font-medium text-gray-700 ring-1 ring-gray-300 transition hover:bg-gray-50 dark:bg-gray-800 dark:text-gray-400 dark:ring-gray-700 dark:hover:bg-white/[0.03]">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                          <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
-                        </svg>
-                        Previous
-                      </button>
+                  <!-- Bottom: Navigation Buttons -->
+                  <div class="mt-8 flex items-center justify-between pt-6 border-t border-gray-200 dark:border-gray-700">
+                    <!-- Previous Button -->
+                    <button x-show="activeStep > 1" @click="activeStep--"
+                            class="flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-6 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03]">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                      </svg>
+                      Previous
+                    </button>
 
-                      <!-- Spacer for when Previous button is hidden -->
-                      <div x-show="currentStep === 1" class="flex-1"></div>
+                    <!-- Spacer for when Previous button is hidden -->
+                    <div x-show="activeStep === 1" class="flex-1"></div>
 
-                      <!-- Next/Submit Button -->
-                      <button type="button"
-                              x-show="currentStep < 7"
-                              @click="nextStep()"
-                              class="bg-brand-500 shadow-theme-xs hover:bg-brand-600 inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-medium text-white transition">
-                        Next
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                          <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
-                        </svg>
-                      </button>
+                    <!-- Next Button -->
+                    <button x-show="activeStep < totalSteps" @click="activeStep++"
+                            class="bg-brand-500 hover:bg-brand-600 flex items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-medium text-white">
+                      Next
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                      </svg>
+                    </button>
 
-                      <!-- Submit Button on last step -->
-                      <button type="submit"
-                              x-show="currentStep === 7"
-                              class="bg-brand-500 shadow-theme-xs hover:bg-brand-600 inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-medium text-white transition">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                          <path d="M13.333 16.6666V12.9166C13.333 12.2262 12.7734 11.6666 12.083 11.6666L7.91634 11.6666C7.22599 11.6666 6.66634 12.2262 6.66634 12.9166L6.66635 16.6666M9.99967 5.83325H6.66634M15.4163 16.6666H4.58301C3.89265 16.6666 3.33301 16.1069 3.33301 15.4166V4.58325C3.33301 3.8929 3.89265 3.33325 4.58301 3.33325H12.8171C13.1483 3.33325 13.4659 3.46468 13.7003 3.69869L16.2995 6.29384C16.5343 6.52832 16.6662 6.84655 16.6662 7.17841L16.6663 15.4166C16.6663 16.1069 16.1066 16.6666 15.4163 16.6666Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                        Submit Application
-                      </button>
-                    </div>
-                  </form>
+                    <!-- Submit Button -->
+                    <button x-show="activeStep === totalSteps"
+                            class="bg-brand-500 hover:bg-brand-600 flex items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-medium text-white">
+                      <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                      </svg>
+                      Submit Application
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1528,10 +1730,10 @@
         </div>
       </div>
     </div>
-  <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script defer src="../../assets/bundle.js"></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"67f7a278e3374824ae6dd92295d38f77","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+  <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script defer src="../../assets/bundle.js"></script>
 </body>
 
-<!-- Mirrored from demo.tailadmin.com/create-invoice by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 11 Dec 2025 07:02:32 GMT -->
 </html>
 <script>
   function invoiceProducts() {
@@ -1598,4 +1800,5 @@
       },
     };
   }
+
 </script>
