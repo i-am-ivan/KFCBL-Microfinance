@@ -1,0 +1,1852 @@
+<!doctype html>
+<html lang="en">
+
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+  <title>Request Loan - KFBCL | Mircofinance</title>
+
+  <link rel="icon" href="../../assets/favicon.ico">
+  <link href="../../assets/style.css" rel="stylesheet">
+
+</head>
+
+<body x-data="{ page: 'profile', 'loaded': true, 'darkMode': false, 'stickyMenu': false, 'sidebarToggle': false, 'scrollTop': false, 'withdrawModal': false}"
+      x-init="
+         darkMode = JSON.parse(localStorage.getItem('darkMode'));
+         $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))"
+      :class="{'dark bg-gray-900': darkMode === true}">
+<!-- ===== Preloader Start ===== -->
+<div x-show="loaded"
+     x-init="window.addEventListener('DOMContentLoaded', () => {setTimeout(() => loaded = false, 500)})"
+     class="fixed left-0 top-0 z-999999 flex h-screen w-screen items-center justify-center bg-white dark:bg-black">
+  <div class="h-16 w-16 animate-spin rounded-full border-4 border-solid border-brand-500 border-t-transparent"></div>
+</div>
+<!-- ===== Preloader End ===== -->
+
+<!-- ===== Page Wrapper Start ===== -->
+<div class="flex h-screen overflow-hidden">
+  <!-- ===== Sidebar Start ===== -->
+  <aside :class="sidebarToggle ? 'translate-x-0 xl:w-[90px]' : '-translate-x-full'"
+         class="sidebar fixed top-0 left-0 z-9999 flex h-screen w-[290px] flex-col overflow-y-auto border-r border-gray-200 bg-white px-5 transition-all duration-300 xl:static xl:translate-x-0 dark:border-gray-800 dark:bg-black"
+         @click.outside="sidebarToggle = false">
+    <!-- SIDEBAR HEADER -->
+    <div :class="sidebarToggle ? 'justify-center' : 'justify-between'"
+         class="sidebar-header flex items-center gap-2 pt-8 pb-7">
+      <a href="index.html">
+            <span class="logo" :class="sidebarToggle ? 'hidden' : ''">
+              <img class="dark:hidden" src="../../assets/src/images/logo/KFCBL-Logo-transparent.png" alt="Logo" />
+              <img class="hidden dark:block" src="../../assets/src/images/logo/KFCBL-Logo-transparent.png" alt="Logo"/>
+            </span>
+
+        <img class="logo-icon" :class="sidebarToggle ? 'xl:block' : 'hidden'" src="../../assets/src/images/logo/logo-icon.svg" alt="Logo"/>
+      </a>
+    </div>
+    <!-- SIDEBAR HEADER -->
+
+    <div class="no-scrollbar flex flex-col overflow-y-auto duration-300 ease-linear">
+      <!-- Sidebar Menu -->
+      <nav x-data="{selected: $persist('Dashboard')}">
+        <!-- Menu Group -->
+        <div>
+          <h3 class="mb-4 text-xs leading-[20px] text-gray-400 uppercase">
+                <span class="menu-group-title"
+                      :class="sidebarToggle ? 'xl:hidden' : ''">
+                  DASHBOARD
+                </span>
+            <svg
+                    :class="sidebarToggle ? 'xl:block hidden' : 'hidden'"
+                    class="menu-group-icon mx-auto fill-current"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M5.99915 10.2451C6.96564 10.2451 7.74915 11.0286 7.74915 11.9951V12.0051C7.74915 12.9716 6.96564 13.7551 5.99915 13.7551C5.03265 13.7551 4.24915 12.9716 4.24915 12.0051V11.9951C4.24915 11.0286 5.03265 10.2451 5.99915 10.2451ZM17.9991 10.2451C18.9656 10.2451 19.7491 11.0286 19.7491 11.9951V12.0051C19.7491 12.9716 18.9656 13.7551 17.9991 13.7551C17.0326 13.7551 16.2491 12.9716 16.2491 12.0051V11.9951C16.2491 11.0286 17.0326 10.2451 17.9991 10.2451ZM13.7491 11.9951C13.7491 11.0286 12.9656 10.2451 11.9991 10.2451C11.0326 10.2451 10.2491 11.0286 10.2491 11.9951V12.0051C10.2491 12.9716 11.0326 13.7551 11.9991 13.7551C12.9656 13.7551 13.7491 12.9716 13.7491 12.0051V11.9951Z"
+                      fill="currentColor"
+              />
+            </svg>
+          </h3>
+
+          <ul class="mb-6 flex flex-col gap-1">
+            <!-- Menu Item Dashboard -->
+            <li>
+              <a href="index.html" @click="selected = (selected === 'Dashboard' ? '':'Dashboard')" class="menu-item group"
+                 :class=" (selected === 'Dashboard') || (page === 'dashboard') ? 'menu-item-active' : 'menu-item-inactive'">
+                <svg :class="(selected === 'Dashboard') || (page === 'dashboard') ? 'menu-item-icon-active'  :'menu-item-icon-inactive'"
+                     width="24"
+                     height="24"
+                     viewBox="0 0 24 24"
+                     fill="none"
+                     xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M5.5 3.25C4.25736 3.25 3.25 4.25736 3.25 5.5V8.99998C3.25 10.2426 4.25736 11.25 5.5 11.25H9C10.2426 11.25 11.25 10.2426 11.25 8.99998V5.5C11.25 4.25736 10.2426 3.25 9 3.25H5.5ZM4.75 5.5C4.75 5.08579 5.08579 4.75 5.5 4.75H9C9.41421 4.75 9.75 5.08579 9.75 5.5V8.99998C9.75 9.41419 9.41421 9.74998 9 9.74998H5.5C5.08579 9.74998 4.75 9.41419 4.75 8.99998V5.5ZM5.5 12.75C4.25736 12.75 3.25 13.7574 3.25 15V18.5C3.25 19.7426 4.25736 20.75 5.5 20.75H9C10.2426 20.75 11.25 19.7427 11.25 18.5V15C11.25 13.7574 10.2426 12.75 9 12.75H5.5ZM4.75 15C4.75 14.5858 5.08579 14.25 5.5 14.25H9C9.41421 14.25 9.75 14.5858 9.75 15V18.5C9.75 18.9142 9.41421 19.25 9 19.25H5.5C5.08579 19.25 4.75 18.9142 4.75 18.5V15ZM12.75 5.5C12.75 4.25736 13.7574 3.25 15 3.25H18.5C19.7426 3.25 20.75 4.25736 20.75 5.5V8.99998C20.75 10.2426 19.7426 11.25 18.5 11.25H15C13.7574 11.25 12.75 10.2426 12.75 8.99998V5.5ZM15 4.75C14.5858 4.75 14.25 5.08579 14.25 5.5V8.99998C14.25 9.41419 14.5858 9.74998 15 9.74998H18.5C18.9142 9.74998 19.25 9.41419 19.25 8.99998V5.5C19.25 5.08579 18.9142 4.75 18.5 4.75H15ZM15 12.75C13.7574 12.75 12.75 13.7574 12.75 15V18.5C12.75 19.7426 13.7574 20.75 15 20.75H18.5C19.7426 20.75 20.75 19.7427 20.75 18.5V15C20.75 13.7574 19.7426 12.75 18.5 12.75H15ZM14.25 15C14.25 14.5858 14.5858 14.25 15 14.25H18.5C18.9142 14.25 19.25 14.5858 19.25 15V18.5C19.25 18.9142 18.9142 19.25 18.5 19.25H15C14.5858 19.25 14.25 18.9142 14.25 18.5V15Z"
+                        fill="currentColor"/>
+                </svg>
+
+                <span class="menu-item-text"
+                      :class="sidebarToggle ? 'xl:hidden' : ''">Dashboard</span>
+              </a>
+            </li>
+
+            <!-- Menu Item Task -->
+            <li>
+              <a href="events.html" @click="selected = (selected === 'Events' ? '':'Events')" class="menu-item group"
+                 :class=" (selected === 'Events') || (page === 'events') ? 'menu-item-active' : 'menu-item-inactive'">
+                <svg :class="(selected === 'Calendar') &amp;&amp; (page === 'calendar') ? 'menu-item-icon-active'  :'menu-item-icon-inactive'" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="menu-item-icon-inactive">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M8 2C8.41421 2 8.75 2.33579 8.75 2.75V3.75H15.25V2.75C15.25 2.33579 15.5858 2 16 2C16.4142 2 16.75 2.33579 16.75 2.75V3.75H18.5C19.7426 3.75 20.75 4.75736 20.75 6V9V19C20.75 20.2426 19.7426 21.25 18.5 21.25H5.5C4.25736 21.25 3.25 20.2426 3.25 19V9V6C3.25 4.75736 4.25736 3.75 5.5 3.75H7.25V2.75C7.25 2.33579 7.58579 2 8 2ZM8 5.25H5.5C5.08579 5.25 4.75 5.58579 4.75 6V8.25H19.25V6C19.25 5.58579 18.9142 5.25 18.5 5.25H16H8ZM19.25 9.75H4.75V19C4.75 19.4142 5.08579 19.75 5.5 19.75H18.5C18.9142 19.75 19.25 19.4142 19.25 19V9.75Z" fill="currentColor"></path>
+                </svg>
+
+                <span class="menu-item-text"
+                      :class="sidebarToggle ? 'xl:hidden' : ''">Calendar</span>
+              </a>
+            </li>
+            <!-- Menu Item Task -->
+          </ul>
+        </div>
+
+        <!-- Support Group -->
+        <div>
+          <h3 class="mb-4 text-xs leading-[20px] text-gray-400 uppercase">
+                <span class="menu-group-title"
+                      :class="sidebarToggle ? 'xl:hidden' : ''">MANAGE</span>
+
+            <svg
+                    :class="sidebarToggle ? 'xl:block hidden' : 'hidden'"
+                    class="menu-group-icon mx-auto fill-current"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M5.99915 10.2451C6.96564 10.2451 7.74915 11.0286 7.74915 11.9951V12.0051C7.74915 12.9716 6.96564 13.7551 5.99915 13.7551C5.03265 13.7551 4.24915 12.9716 4.24915 12.0051V11.9951C4.24915 11.0286 5.03265 10.2451 5.99915 10.2451ZM17.9991 10.2451C18.9656 10.2451 19.7491 11.0286 19.7491 11.9951V12.0051C19.7491 12.9716 18.9656 13.7551 17.9991 13.7551C17.0326 13.7551 16.2491 12.9716 16.2491 12.0051V11.9951C16.2491 11.0286 17.0326 10.2451 17.9991 10.2451ZM13.7491 11.9951C13.7491 11.0286 12.9656 10.2451 11.9991 10.2451C11.0326 10.2451 10.2491 11.0286 10.2491 11.9951V12.0051C10.2491 12.9716 11.0326 13.7551 11.9991 13.7551C12.9656 13.7551 13.7491 12.9716 13.7491 12.0051V11.9951Z"
+                      fill="currentColor"
+              />
+            </svg>
+          </h3>
+
+          <ul class="mb-6 flex flex-col gap-1">
+            <!-- Menu Item Chat -->
+            <li>
+              <a href="bodaboda.html" @click="selected = (selected === 'Bodaboda' ? '':'Bodaboda')" class="menu-item group"
+                 :class=" (selected === 'Bodaboda') || (page === 'bodaboda') ? 'menu-item-active' : 'menu-item-inactive'">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#787878" stroke-width="1.5"
+                     stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-motorbike">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                  <path d="M5 16m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M19 16m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M7.5 14h5l4 -4h-10.5m1.5 4l4 -4" /><path d="M13 6h2l1.5 3l2 4" />
+                </svg>
+
+                <span
+                        class="menu-item-text"
+                        :class="sidebarToggle ? 'xl:hidden' : ''"
+                >
+                      Bodaboda
+                    </span>
+              </a>
+            </li>
+            <!-- Menu Item Chat -->
+
+            <!-- Menu Item Tables -->
+            <li>
+              <a href="loans.html" @click="selected = (selected === 'Loans' ? '':'Loans')" class="menu-item group"
+                 :class="(selected === 'Loans') || (page === 'loans') ? 'menu-item-active' : 'menu-item-inactive'">
+                <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="#787878"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="icon icon-tabler icons-tabler-outline icon-tabler-credit-card"
+                        :class="(selected === 'Loans') && (page === 'loans') ? 'menu-item-icon-active'  :'menu-item-icon-inactive'"
+                >
+                  <path fill="currentColor"/>
+                  <path d="M3 5m0 3a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v8a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3z" />
+                  <path d="M3 10l18 0" />
+                  <path d="M7 15l.01 0" />
+                  <path d="M11 15l2 0" />
+                </svg>
+
+                <span class="menu-item-text"
+                      :class="sidebarToggle ? 'xl:hidden' : ''">Loans</span>
+              </a>
+
+            </li>
+            <!-- Menu Item Tables -->
+            <!-- Menu Item Lands -->
+            <li>
+              <a href="real-estate.html" @click="selected = (selected === 'Real Estate' ? '':'Real Estate')" class="menu-item group"
+                 :class="(selected === 'Real Estate') || (page === 'real estate') ? 'menu-item-active' : 'menu-item-inactive'">
+                <svg class="w-[21px] h-[21px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-width="1.1" d="M3 21h18M4 18h16M6 10v8m4-8v8m4-8v8m4-8v8M4 9.5v-.955a1 1 0 0 1 .458-.84l7-4.52a1 1 0 0 1 1.084 0l7 4.52a1 1 0 0 1 .458.84V9.5a.5.5 0 0 1-.5.5h-15a.5.5 0 0 1-.5-.5Z"/>
+                </svg>
+                <span class="menu-item-text"
+                      :class="sidebarToggle ? 'xl:hidden' : ''">Real Estate</span>
+              </a>
+
+            </li>
+            <!-- Menu Item Tables -->
+          </ul>
+        </div>
+
+        <!-- Others Group -->
+        <div>
+          <h3 class="mb-4 text-xs leading-[20px] text-gray-400 uppercase">
+                <span class="menu-group-title"
+                      :class="sidebarToggle ? 'xl:hidden' : ''">Appointments</span>
+
+            <svg
+                    :class="sidebarToggle ? 'xl:block hidden' : 'hidden'"
+                    class="menu-group-icon mx-auto fill-current"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M5.99915 10.2451C6.96564 10.2451 7.74915 11.0286 7.74915 11.9951V12.0051C7.74915 12.9716 6.96564 13.7551 5.99915 13.7551C5.03265 13.7551 4.24915 12.9716 4.24915 12.0051V11.9951C4.24915 11.0286 5.03265 10.2451 5.99915 10.2451ZM17.9991 10.2451C18.9656 10.2451 19.7491 11.0286 19.7491 11.9951V12.0051C19.7491 12.9716 18.9656 13.7551 17.9991 13.7551C17.0326 13.7551 16.2491 12.9716 16.2491 12.0051V11.9951C16.2491 11.0286 17.0326 10.2451 17.9991 10.2451ZM13.7491 11.9951C13.7491 11.0286 12.9656 10.2451 11.9991 10.2451C11.0326 10.2451 10.2491 11.0286 10.2491 11.9951V12.0051C10.2491 12.9716 11.0326 13.7551 11.9991 13.7551C12.9656 13.7551 13.7491 12.9716 13.7491 12.0051V11.9951Z"
+                      fill="currentColor"
+              />
+            </svg>
+          </h3>
+
+          <ul class="mb-6 flex flex-col gap-1">
+            <!-- Menu Item Charts -->
+            <li>
+              <a href="appointments.html" @click="selected = (selected === 'Vehicles' ? '':'Vehicles')" class="menu-item group"
+                 :class="(selected === 'Vehicles') || (page === 'vehicles') ? 'menu-item-active' : 'menu-item-inactive'"
+              >
+                <svg class="w-[21px] h-[21px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.1" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-6 7 2 2 4-4m-5-9v4h4V3h-4Z"/>
+                </svg>
+
+
+                <span class="menu-item-text"
+                      :class="sidebarToggle ? 'xl:hidden' : ''">Appointments</span>
+              </a>
+            </li>
+            <!-- Menu Item Charts -->
+          </ul>
+        </div>
+
+        <!-- Others Group -->
+        <div>
+          <h3 class="mb-4 text-xs leading-[20px] text-gray-400 uppercase">
+                <span class="menu-group-title"
+                      :class="sidebarToggle ? 'xl:hidden' : ''">Settings
+                </span>
+
+            <svg
+                    :class="sidebarToggle ? 'xl:block hidden' : 'hidden'"
+                    class="menu-group-icon mx-auto fill-current"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M5.99915 10.2451C6.96564 10.2451 7.74915 11.0286 7.74915 11.9951V12.0051C7.74915 12.9716 6.96564 13.7551 5.99915 13.7551C5.03265 13.7551 4.24915 12.9716 4.24915 12.0051V11.9951C4.24915 11.0286 5.03265 10.2451 5.99915 10.2451ZM17.9991 10.2451C18.9656 10.2451 19.7491 11.0286 19.7491 11.9951V12.0051C19.7491 12.9716 18.9656 13.7551 17.9991 13.7551C17.0326 13.7551 16.2491 12.9716 16.2491 12.0051V11.9951C16.2491 11.0286 17.0326 10.2451 17.9991 10.2451ZM13.7491 11.9951C13.7491 11.0286 12.9656 10.2451 11.9991 10.2451C11.0326 10.2451 10.2491 11.0286 10.2491 11.9951V12.0051C10.2491 12.9716 11.0326 13.7551 11.9991 13.7551C12.9656 13.7551 13.7491 12.9716 13.7491 12.0051V11.9951Z"
+                      fill="currentColor"
+              />
+            </svg>
+          </h3>
+
+          <ul class="mb-6 flex flex-col gap-1">
+            <!-- Menu Item Profile -->
+            <li>
+              <a href="profile.html" @click="selected = (selected === 'Profile' ? '':'Profile')"
+                 class="menu-item group"
+                 :class=" (selected === 'Profile') && (page === 'profile') ? 'menu-item-active' : 'menu-item-inactive'">
+                <svg
+                        :class="(selected === 'Profile') && (page === 'profile') ?  'menu-item-icon-active'  :'menu-item-icon-inactive'"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M12 3.5C7.30558 3.5 3.5 7.30558 3.5 12C3.5 14.1526 4.3002 16.1184 5.61936 17.616C6.17279 15.3096 8.24852 13.5955 10.7246 13.5955H13.2746C15.7509 13.5955 17.8268 15.31 18.38 17.6167C19.6996 16.119 20.5 14.153 20.5 12C20.5 7.30558 16.6944 3.5 12 3.5ZM17.0246 18.8566V18.8455C17.0246 16.7744 15.3457 15.0955 13.2746 15.0955H10.7246C8.65354 15.0955 6.97461 16.7744 6.97461 18.8455V18.856C8.38223 19.8895 10.1198 20.5 12 20.5C13.8798 20.5 15.6171 19.8898 17.0246 18.8566ZM2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12ZM11.9991 7.25C10.8847 7.25 9.98126 8.15342 9.98126 9.26784C9.98126 10.3823 10.8847 11.2857 11.9991 11.2857C13.1135 11.2857 14.0169 10.3823 14.0169 9.26784C14.0169 8.15342 13.1135 7.25 11.9991 7.25ZM8.48126 9.26784C8.48126 7.32499 10.0563 5.75 11.9991 5.75C13.9419 5.75 15.5169 7.32499 15.5169 9.26784C15.5169 11.2107 13.9419 12.7857 11.9991 12.7857C10.0563 12.7857 8.48126 11.2107 8.48126 9.26784Z"
+                          fill="currentColor"
+                  />
+                </svg>
+
+                <span class="menu-item-text"
+                      :class="sidebarToggle ? 'xl:hidden' : ''">User Profile</span>
+              </a>
+            </li>
+            <!-- Menu Item Profile -->
+            <!-- Menu Item Charts -->
+            <li>
+              <a href="support.html" @click="selected = (selected === 'Support' ? '':'Support')" class="menu-item group"
+                 :class="(selected === 'Support') || (page === 'support') ? 'menu-item-active' : 'menu-item-inactive'">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#787878" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-help"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /><path d="M12 17l0 .01" /><path d="M12 13.5a1.5 1.5 0 0 1 1 -1.5a2.6 2.6 0 1 0 -3 -4" /></svg>
+
+                <span
+                        class="menu-item-text"
+                        :class="sidebarToggle ? 'xl:hidden' : ''"
+                >
+                      Support
+                    </span>
+              </a>
+            </li>
+            <!-- Menu Item Charts -->
+            <!-- Menu Item Charts -->
+            <li>
+              <a href="../../System/index.html" @click="selected = (selected === 'Charts' ? '':'Charts')" class="menu-item group"
+                 :class="(selected === 'Charts') || (page === 'lineChart' || page === 'barChart' || page === 'pieChart') ? 'menu-item-active' : 'menu-item-inactive'">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#787878" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-logout-2"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 8v-2a2 2 0 0 1 2 -2h7a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-7a2 2 0 0 1 -2 -2v-2" /><path d="M15 12h-12l3 -3" /><path d="M6 15l-3 -3" /></svg>
+
+                <span class="menu-item-text" :class="sidebarToggle ? 'xl:hidden' : ''">Logout</span>
+              </a>
+            </li>
+            <!-- Menu Item Charts -->
+          </ul>
+        </div>
+      </nav>
+      <!-- Sidebar Menu -->
+    </div>
+  </aside>
+  <!-- ===== Sidebar End ===== -->
+
+  <!-- ===== Content Area Start ===== -->
+  <div class="relative flex flex-1 flex-col overflow-x-hidden overflow-y-auto">
+    <!-- Small Device Overlay Start -->
+    <div :class="sidebarToggle ? 'block xl:hidden' : 'hidden'"
+         class="fixed z-50 h-screen w-full bg-gray-900/50">
+    </div>
+    <!-- Small Device Overlay End -->
+
+    <!-- ===== Header Start ===== -->
+    <header x-data="{menuToggle: false}"
+            class="sticky top-0 z-99999 flex w-full border-gray-200 bg-white xl:border-b dark:border-gray-800 dark:bg-gray-900">
+      <div class="flex grow flex-col items-center justify-between xl:flex-row xl:px-6">
+        <div class="flex w-full items-center justify-between gap-2 border-b border-gray-200 px-3 py-3 sm:gap-4 lg:py-4 xl:justify-normal xl:border-b-0 xl:px-0 dark:border-gray-800">
+          <!-- Hamburger Toggle BTN -->
+          <button :class="sidebarToggle ? 'xl:bg-transparent dark:xl:bg-transparent bg-gray-100 dark:bg-gray-800' : ''"
+                  class="z-99999 flex h-10 w-10 items-center justify-center rounded-lg border-gray-200 text-gray-500 xl:h-11 xl:w-11 xl:border dark:border-gray-800 dark:text-gray-400"
+                  @click.stop="sidebarToggle = !sidebarToggle">
+            <svg
+                    class="hidden fill-current xl:block"
+                    width="16"
+                    height="12"
+                    viewBox="0 0 16 12"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M0.583252 1C0.583252 0.585788 0.919038 0.25 1.33325 0.25H14.6666C15.0808 0.25 15.4166 0.585786 15.4166 1C15.4166 1.41421 15.0808 1.75 14.6666 1.75L1.33325 1.75C0.919038 1.75 0.583252 1.41422 0.583252 1ZM0.583252 11C0.583252 10.5858 0.919038 10.25 1.33325 10.25L14.6666 10.25C15.0808 10.25 15.4166 10.5858 15.4166 11C15.4166 11.4142 15.0808 11.75 14.6666 11.75L1.33325 11.75C0.919038 11.75 0.583252 11.4142 0.583252 11ZM1.33325 5.25C0.919038 5.25 0.583252 5.58579 0.583252 6C0.583252 6.41421 0.919038 6.75 1.33325 6.75L7.99992 6.75C8.41413 6.75 8.74992 6.41421 8.74992 6C8.74992 5.58579 8.41413 5.25 7.99992 5.25L1.33325 5.25Z"
+                      fill=""
+              />
+            </svg>
+
+            <svg
+                    :class="sidebarToggle ? 'hidden' : 'block xl:hidden'"
+                    class="fill-current xl:hidden"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M3.25 6C3.25 5.58579 3.58579 5.25 4 5.25L20 5.25C20.4142 5.25 20.75 5.58579 20.75 6C20.75 6.41421 20.4142 6.75 20 6.75L4 6.75C3.58579 6.75 3.25 6.41422 3.25 6ZM3.25 18C3.25 17.5858 3.58579 17.25 4 17.25L20 17.25C20.4142 17.25 20.75 17.5858 20.75 18C20.75 18.4142 20.4142 18.75 20 18.75L4 18.75C3.58579 18.75 3.25 18.4142 3.25 18ZM4 11.25C3.58579 11.25 3.25 11.5858 3.25 12C3.25 12.4142 3.58579 12.75 4 12.75L12 12.75C12.4142 12.75 12.75 12.4142 12.75 12C12.75 11.5858 12.4142 11.25 12 11.25L4 11.25Z"
+                      fill=""
+              />
+            </svg>
+
+            <!-- cross icon -->
+            <svg
+                    :class="sidebarToggle ? 'block xl:hidden' : 'hidden'"
+                    class="fill-current"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M6.21967 7.28131C5.92678 6.98841 5.92678 6.51354 6.21967 6.22065C6.51256 5.92775 6.98744 5.92775 7.28033 6.22065L11.999 10.9393L16.7176 6.22078C17.0105 5.92789 17.4854 5.92788 17.7782 6.22078C18.0711 6.51367 18.0711 6.98855 17.7782 7.28144L13.0597 12L17.7782 16.7186C18.0711 17.0115 18.0711 17.4863 17.7782 17.7792C17.4854 18.0721 17.0105 18.0721 16.7176 17.7792L11.999 13.0607L7.28033 17.7794C6.98744 18.0722 6.51256 18.0722 6.21967 17.7794C5.92678 17.4865 5.92678 17.0116 6.21967 16.7187L10.9384 12L6.21967 7.28131Z"
+                      fill=""
+              />
+            </svg>
+          </button>
+          <!-- Hamburger Toggle BTN -->
+
+          <a href="../../../../index.html" class="xl:hidden">
+            <img class="dark:hidden" src="../../assets/src/images/logo/logo.svg" alt="Logo" />
+            <img class="hidden dark:block" src="../../assets/src/images/logo/logo-dark.svg" alt="Logo"/>
+          </a>
+
+          <!-- Application nav menu button -->
+          <button class="z-99999 flex h-10 w-10 items-center justify-center rounded-lg text-gray-700 hover:bg-gray-100 xl:hidden dark:text-gray-400 dark:hover:bg-gray-800"
+                  :class="menuToggle ? 'bg-gray-100 dark:bg-gray-800' : ''"
+                  @click.stop="menuToggle = !menuToggle">
+            <svg
+                    class="fill-current"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M5.99902 10.4951C6.82745 10.4951 7.49902 11.1667 7.49902 11.9951V12.0051C7.49902 12.8335 6.82745 13.5051 5.99902 13.5051C5.1706 13.5051 4.49902 12.8335 4.49902 12.0051V11.9951C4.49902 11.1667 5.1706 10.4951 5.99902 10.4951ZM17.999 10.4951C18.8275 10.4951 19.499 11.1667 19.499 11.9951V12.0051C19.499 12.8335 18.8275 13.5051 17.999 13.5051C17.1706 13.5051 16.499 12.8335 16.499 12.0051V11.9951C16.499 11.1667 17.1706 10.4951 17.999 10.4951ZM13.499 11.9951C13.499 11.1667 12.8275 10.4951 11.999 10.4951C11.1706 10.4951 10.499 11.1667 10.499 11.9951V12.0051C10.499 12.8335 11.1706 13.5051 11.999 13.5051C12.8275 13.5051 13.499 12.8335 13.499 12.0051V11.9951Z"
+                      fill=""
+              />
+            </svg>
+          </button>
+          <!-- Application nav menu button -->
+
+        </div>
+
+        <div :class="menuToggle ? 'flex' : 'hidden'"
+             class="shadow-theme-md w-full items-center justify-between gap-4 px-5 py-4 xl:flex xl:justify-end xl:px-0 xl:shadow-none">
+          <div class="2xsm:gap-3 flex items-center gap-2">
+          </div>
+
+          <!-- User Area -->
+          <div
+                  class="relative"
+                  x-data="{ dropdownOpen: false }"
+                  @click.outside="dropdownOpen = false"
+          >
+            <a
+                    class="flex items-center text-gray-700 dark:text-gray-400"
+                    href="#"
+                    @click.prevent="dropdownOpen = ! dropdownOpen"
+            >
+                    <span class="mr-3 h-11 w-11 overflow-hidden rounded-full">
+                      <img src="../../assets/src/images/user/owner.png" alt="User" />
+                    </span>
+
+              <span class="text-theme-sm mr-1 block font-medium"> Kamau Njunge </span>
+
+              <svg
+                      :class="dropdownOpen && 'rotate-180'"
+                      class="stroke-gray-500 dark:stroke-gray-400"
+                      width="18"
+                      height="20"
+                      viewBox="0 0 18 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                        d="M4.3125 8.65625L9 13.3437L13.6875 8.65625"
+                        stroke=""
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+
+            <!-- Dropdown Start -->
+            <div x-show="dropdownOpen"
+                 class="shadow-theme-lg dark:bg-gray-dark absolute right-0 mt-[17px] flex w-[260px] flex-col rounded-2xl border border-gray-200 bg-white p-3 dark:border-gray-800">
+              <div>
+                      <span
+                              class="text-theme-sm block font-medium text-gray-700 dark:text-gray-400"
+                      >
+                        Kamau Njunge
+                      </span>
+                <span
+                        class="text-theme-xs mt-0.5 block text-gray-500 dark:text-gray-400"
+                >
+                        <a href="../../cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="8ffdeee1ebe0e2fafceafdcfffe6e2e5e0a1ece0e2">[email&#160;protected]</a>
+                      </span>
+              </div>
+
+              <ul
+                      class="flex flex-col gap-1 border-b border-gray-200 pt-4 pb-3 dark:border-gray-800"
+              >
+                <li>
+                  <a
+                          href="profile.html"
+                          class="group text-theme-sm flex items-center gap-3 rounded-lg px-3 py-2 font-medium text-gray-700 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300"
+                  >
+                    <svg
+                            class="fill-gray-500 group-hover:fill-gray-700 dark:fill-gray-400 dark:group-hover:fill-gray-300"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                              fill-rule="evenodd"
+                              clip-rule="evenodd"
+                              d="M12 3.5C7.30558 3.5 3.5 7.30558 3.5 12C3.5 14.1526 4.3002 16.1184 5.61936 17.616C6.17279 15.3096 8.24852 13.5955 10.7246 13.5955H13.2746C15.7509 13.5955 17.8268 15.31 18.38 17.6167C19.6996 16.119 20.5 14.153 20.5 12C20.5 7.30558 16.6944 3.5 12 3.5ZM17.0246 18.8566V18.8455C17.0246 16.7744 15.3457 15.0955 13.2746 15.0955H10.7246C8.65354 15.0955 6.97461 16.7744 6.97461 18.8455V18.856C8.38223 19.8895 10.1198 20.5 12 20.5C13.8798 20.5 15.6171 19.8898 17.0246 18.8566ZM2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12ZM11.9991 7.25C10.8847 7.25 9.98126 8.15342 9.98126 9.26784C9.98126 10.3823 10.8847 11.2857 11.9991 11.2857C13.1135 11.2857 14.0169 10.3823 14.0169 9.26784C14.0169 8.15342 13.1135 7.25 11.9991 7.25ZM8.48126 9.26784C8.48126 7.32499 10.0563 5.75 11.9991 5.75C13.9419 5.75 15.5169 7.32499 15.5169 9.26784C15.5169 11.2107 13.9419 12.7857 11.9991 12.7857C10.0563 12.7857 8.48126 11.2107 8.48126 9.26784Z"
+                              fill=""
+                      />
+                    </svg>
+                    Profile
+                  </a>
+                </li>
+              </ul>
+              <button
+                      class="group text-theme-sm mt-3 flex items-center gap-3 rounded-lg px-3 py-2 font-medium text-gray-700 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300"
+              >
+                <svg
+                        class="fill-gray-500 group-hover:fill-gray-700 dark:group-hover:fill-gray-300"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M15.1007 19.247C14.6865 19.247 14.3507 18.9112 14.3507 18.497L14.3507 14.245H12.8507V18.497C12.8507 19.7396 13.8581 20.747 15.1007 20.747H18.5007C19.7434 20.747 20.7507 19.7396 20.7507 18.497L20.7507 5.49609C20.7507 4.25345 19.7433 3.24609 18.5007 3.24609H15.1007C13.8581 3.24609 12.8507 4.25345 12.8507 5.49609V9.74501L14.3507 9.74501V5.49609C14.3507 5.08188 14.6865 4.74609 15.1007 4.74609L18.5007 4.74609C18.9149 4.74609 19.2507 5.08188 19.2507 5.49609L19.2507 18.497C19.2507 18.9112 18.9149 19.247 18.5007 19.247H15.1007ZM3.25073 11.9984C3.25073 12.2144 3.34204 12.4091 3.48817 12.546L8.09483 17.1556C8.38763 17.4485 8.86251 17.4487 9.15549 17.1559C9.44848 16.8631 9.44863 16.3882 9.15583 16.0952L5.81116 12.7484L16.0007 12.7484C16.4149 12.7484 16.7507 12.4127 16.7507 11.9984C16.7507 11.5842 16.4149 11.2484 16.0007 11.2484L5.81528 11.2484L9.15585 7.90554C9.44864 7.61255 9.44847 7.13767 9.15547 6.84488C8.86248 6.55209 8.3876 6.55226 8.09481 6.84525L3.52309 11.4202C3.35673 11.5577 3.25073 11.7657 3.25073 11.9984Z"
+                          fill=""
+                  />
+                </svg>
+
+                Sign out
+              </button>
+            </div>
+            <!-- Dropdown End -->
+          </div>
+          <!-- User Area -->
+        </div>
+      </div>
+    </header>
+    <!-- ===== Header End ===== -->
+
+
+    <!-- ===== Main Content Start ===== -->
+        <main>
+          <div class="mx-auto max-w-(--breakpoint-2xl) p-4 pb-20 md:p-6 md:pb-6">
+            <!-- Breadcrumb Start -->
+            <div x-data="{ pageName: `Request Loan` }">
+              <div class="flex flex-wrap items-center justify-between gap-3 pb-6">
+                <h2 class="text-xl font-semibold text-gray-800 dark:text-white/90"
+                  x-text="pageName"></h2>
+                <nav>
+                  <ol class="flex items-center gap-1.5">
+                    <li>
+                      <a class="inline-flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400"
+                        href="loans.html">
+                        Loan Dashboard
+                        <svg
+                          class="stroke-current"
+                          width="17"
+                          height="16"
+                          viewBox="0 0 17 16"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M6.0765 12.667L10.2432 8.50033L6.0765 4.33366"
+                            stroke=""
+                            stroke-width="1.2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </a>
+                    </li>
+                    <li
+                      class="text-sm text-gray-800 dark:text-white/90"
+                      x-text="pageName"
+                    ></li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+            <!-- Breadcrumb End -->
+
+            <!-- Content Start -->
+            <div class="rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03]">
+              <div class="border-b border-gray-200 px-6 py-4 dark:border-gray-800">
+                <h2 class="text-xl font-medium text-gray-800 dark:text-white">Request Loan
+                </h2>
+              </div>
+              <div class="border-t border-gray-100 p-4 sm:p-6 dark:border-gray-800">
+                <div class="rounded-xl border border-gray-200 p-6 dark:border-gray-800"
+                     x-data="{
+         activeStep: 1,
+         totalSteps: 3,
+         loanType: '',
+         loanAmount: '',
+         repaymentType: '',
+         interestRate: 0,
+         totalInterest: 0,
+         totalLoanAmount: 0,
+         calculateLoan() {
+           const amount = parseFloat(this.loanAmount) || 0;
+           let rate = 0;
+
+           switch(this.loanType) {
+             case 'personal': rate = 0.12; break;
+             case 'business': rate = 0.15; break;
+             case 'emergency': rate = 0.18; break;
+             case 'education': rate = 0.10; break;
+             case 'vehicle': rate = 0.14; break;
+             default: rate = 0.12;
+           }
+
+           this.interestRate = rate * 100;
+
+           let multiplier = 1;
+           switch(this.repaymentType) {
+             case '1-week': multiplier = 0.02; break;
+             case '2-week': multiplier = 0.04; break;
+             case '1-month': multiplier = 0.10; break;
+             case '3-months': multiplier = 0.30; break;
+             case '6-months': multiplier = 0.60; break;
+             case '9-months': multiplier = 0.90; break;
+             case '12-months': multiplier = 1.20; break;
+             case '24-months': multiplier = 2.40; break;
+             case '36-months': multiplier = 3.60; break;
+           }
+
+           this.totalInterest = amount * rate * multiplier;
+           this.totalLoanAmount = amount + this.totalInterest;
+         }
+       }">
+
+                  <!-- Progress Bar - Clean Design -->
+                  <div class="mb-10">
+                    <div class="flex items-center justify-between relative">
+                      <!-- Connecting Line (Background) -->
+                      <div class="absolute left-8 right-8 top-1/2 h-0.5 bg-gray-200 dark:bg-gray-700 -translate-y-1/2"></div>
+
+                      <!-- Active Line (Progress) -->
+                      <div class="absolute left-8 h-0.5 bg-brand-500 transition-all duration-300 top-1/2 -translate-y-1/2"
+                           :style="'width:' + ((activeStep - 1) / (totalSteps - 1) * 100) + '%'"></div>
+
+                      <!-- Step 1 -->
+                      <div class="relative z-10 flex flex-col items-center">
+                        <div class="h-10 w-10 rounded-full flex items-center justify-center transition-all duration-300 mb-2"
+                             :class="activeStep >= 1
+                 ? 'bg-brand-500 border-4 border-white dark:border-gray-800 shadow-lg'
+                 : 'bg-white border-2 border-gray-300 dark:bg-gray-800 dark:border-gray-600 shadow-sm'">
+                          <template x-if="activeStep > 1">
+                            <svg class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                          </template>
+                          <template x-if="activeStep <= 1">
+                            <span class="text-sm font-semibold" :class="activeStep >= 1 ? 'text-white' : 'text-gray-500 dark:text-gray-400'">1</span>
+                          </template>
+                        </div>
+                        <span class="text-xs font-medium" :class="activeStep >= 1 ? 'text-brand-500' : 'text-gray-500 dark:text-gray-400'">
+            Applicant Details
+          </span>
+                      </div>
+
+                      <!-- Step 2 -->
+                      <div class="relative z-10 flex flex-col items-center">
+                        <div class="h-10 w-10 rounded-full flex items-center justify-center transition-all duration-300 mb-2"
+                             :class="activeStep >= 2
+                 ? 'bg-brand-500 border-4 border-white dark:border-gray-800 shadow-lg'
+                 : 'bg-white border-2 border-gray-300 dark:bg-gray-800 dark:border-gray-600 shadow-sm'">
+                          <template x-if="activeStep > 2">
+                            <svg class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                          </template>
+                          <template x-if="activeStep <= 2">
+                            <span class="text-sm font-semibold" :class="activeStep >= 2 ? 'text-white' : 'text-gray-500 dark:text-gray-400'">2</span>
+                          </template>
+                        </div>
+                        <span class="text-xs font-medium" :class="activeStep >= 2 ? 'text-brand-500' : 'text-gray-500 dark:text-gray-400'">
+            Loan Details
+          </span>
+                      </div>
+
+                      <!-- Step 3 -->
+                      <div class="relative z-10 flex flex-col items-center">
+                        <div class="h-10 w-10 rounded-full flex items-center justify-center transition-all duration-300 mb-2"
+                             :class="activeStep >= 3
+                 ? 'bg-brand-500 border-4 border-white dark:border-gray-800 shadow-lg'
+                 : 'bg-white border-2 border-gray-300 dark:bg-gray-800 dark:border-gray-600 shadow-sm'">
+                          <template x-if="activeStep >= 3">
+                            <svg class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                          </template>
+                          <template x-if="activeStep < 3">
+                            <span class="text-sm font-semibold" :class="activeStep >= 3 ? 'text-white' : 'text-gray-500 dark:text-gray-400'">3</span>
+                          </template>
+                        </div>
+                        <span class="text-xs font-medium" :class="activeStep >= 3 ? 'text-brand-500' : 'text-gray-500 dark:text-gray-400'">
+            Preview
+          </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Rest of the form remains the same -->
+                  <div class="pt-4 min-h-[300px]">
+                    <!-- Step 1: Loan Applicant Details -->
+                    <div x-show="activeStep === 1">
+                      <!-- Header -->
+                      <div class="mb-8">
+                        <h3 class="text-2xl font-semibold text-gray-800 dark:text-white/90">
+                          Step 1. Loan Applicant Details
+                        </h3>
+                        <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">
+                          Review applicant information and supporting details
+                        </p>
+                      </div>
+
+                      <!-- a) Personal Information -->
+                      <div class="mb-8">
+                        <h5 class="text-lg font-medium text-gray-800 dark:text-white/90 mb-4 border-b pb-2 border-gray-200 dark:border-gray-700">Applicant Summary</h5>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                          <div class="space-y-3">
+                            <div class="flex justify-between">
+                              <span class="text-sm text-gray-500 dark:text-gray-400">Full Name:</span>
+                              <span class="text-sm font-medium text-gray-800 dark:text-white/90">John Michael Doe</span>
+                            </div>
+                            <div class="flex justify-between">
+                              <span class="text-sm text-gray-500 dark:text-gray-400">Email:</span>
+                              <span class="text-sm font-medium text-gray-800 dark:text-white/90">john.doe@example.com</span>
+                            </div>
+                            <div class="flex justify-between">
+                              <span class="text-sm text-gray-500 dark:text-gray-400">Credit Status:</span>
+                              <span class="text-sm font-medium text-green-600 dark:text-green-400">Good</span>
+                            </div>
+                          </div>
+                          <div class="space-y-3">
+                            <div class="flex justify-between">
+                              <span class="text-sm text-gray-500 dark:text-gray-400">Phone:</span>
+                              <span class="text-sm font-medium text-gray-800 dark:text-white/90">+254 712 345 678</span>
+                            </div>
+                            <div class="flex justify-between">
+                              <span class="text-sm text-gray-500 dark:text-gray-400">Employment:</span>
+                              <span class="text-sm font-medium text-gray-800 dark:text-white/90">Employed</span>
+                            </div>
+                            <div class="flex justify-between">
+                              <span class="text-sm text-gray-500 dark:text-gray-400">Guarantors:</span>
+                              <span class="text-sm font-medium text-gray-800 dark:text-white/90">1 Verified</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <hr class="my-6 border-gray-200 dark:border-gray-700">
+
+                      <!-- b) Addresses -->
+                      <div class="mb-8">
+                        <h4 class="text-lg font-medium text-gray-800 dark:text-white/90 mb-4">Address Information</h4>
+
+                        <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
+                          <div class="space-y-3">
+                            <div class="flex items-start">
+                              <span class="text-sm text-gray-500 dark:text-gray-400 w-32">Street Address:</span>
+                              <span class="text-sm font-medium text-gray-800 dark:text-white/90 flex-1">1234 Main Street, Westlands</span>
+                            </div>
+                            <div class="flex items-start">
+                              <span class="text-sm text-gray-500 dark:text-gray-400 w-32">P.O. Box:</span>
+                              <span class="text-sm font-medium text-gray-800 dark:text-white/90 flex-1">P.O. Box 12345-00100</span>
+                            </div>
+                            <div class="flex items-start">
+                              <span class="text-sm text-gray-500 dark:text-gray-400 w-32">Resident Town:</span>
+                              <span class="text-sm font-medium text-gray-800 dark:text-white/90 flex-1">Nairobi</span>
+                            </div>
+                            <div class="flex items-start">
+                              <span class="text-sm text-gray-500 dark:text-gray-400 w-32">County:</span>
+                              <span class="text-sm font-medium text-gray-800 dark:text-white/90 flex-1">Nairobi County</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <hr class="my-6 border-gray-200 dark:border-gray-700">
+
+                      <!-- c) Next of Kin Information - Active Only -->
+                      <div class="mb-8">
+                        <h4 class="text-lg font-medium text-gray-800 dark:text-white/90 mb-4">Next of Kin Information</h4>
+
+                        <div class="overflow-x-auto">
+                          <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                            <thead class="bg-gray-50 dark:bg-gray-800">
+                            <tr>
+                              <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Kin Name</th>
+                              <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Relation</th>
+                              <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Address</th>
+                              <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Status</th>
+                            </tr>
+                            </thead>
+                            <tbody class="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">
+                            <!-- Active Next of Kin Only -->
+                            <tr>
+                              <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-white/90">Jane Doe</td>
+                              <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">Spouse</td>
+                              <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400 truncate max-w-[200px]">1234 Main Street, Nairobi</td>
+                              <td class="px-4 py-3 whitespace-nowrap">
+                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">
+                      Active
+                    </span>
+                              </td>
+                            </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+
+                      <!-- d) Guarantors - Active Only -->
+                      <div>
+                        <h4 class="text-lg font-medium text-gray-800 dark:text-white/90 mb-4">Guarantor Information</h4>
+
+                        <div class="overflow-x-auto">
+                          <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                            <thead class="bg-gray-50 dark:bg-gray-800">
+                            <tr>
+                              <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Guarantor Name</th>
+                              <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Relation</th>
+                              <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Address</th>
+                              <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Status</th>
+                            </tr>
+                            </thead>
+                            <tbody class="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">
+                            <!-- Active Guarantor Only -->
+                            <tr>
+                              <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-white/90">Mary Johnson</td>
+                              <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">Business Partner</td>
+                              <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400 truncate max-w-[200px]">4321 Business Ave, Westlands</td>
+                              <td class="px-4 py-3 whitespace-nowrap">
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">
+                                  Verified
+                                </span>
+                              </td>
+                            </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Step 2: Loan Application Details -->
+                    <div x-show="activeStep === 2">
+                      <!-- Header -->
+                      <div class="mb-8">
+                        <h3 class="text-2xl font-semibold text-gray-800 dark:text-white/90">
+                          Step 2. Loan Application Details
+                        </h3>
+                        <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">
+                          Configure your loan terms and view calculated amounts
+                        </p>
+                      </div>
+
+                      <div class="space-y-8">
+                        <div class="grid grid-cols-12 gap-4 md:gap-6">
+                          <div class="col-span-12 xl:col-span-5">
+                            <!-- ====== Map One Start -->
+                            <div class="rounded-2xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-white/[0.03] sm:p-6">
+                              <div class="flex justify-between">
+                                <div>
+                                  <h3 class="text-lg font-semibold text-gray-700 dark:text-white/90">
+                                    Loan Calculator
+                                  </h3>
+                                  <p class="mt-1 text-theme-sm text-gray-500 dark:text-gray-400">
+                                    Number of customer based on country
+                                  </p>
+                                </div>
+                              </div>
+                              <div class="space-y-5">
+                                <div class="space-y-6 border-t border-gray-100 p-5 sm:p-6 dark:border-gray-800">
+                                  <form>
+                                    <div class="-mx-2.5 flex flex-wrap gap-y-5">
+                                      <div class="w-full px-2.5">
+                                        <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                                          Loan Type
+                                        </label>
+                                        <div x-data="{ isOptionSelected: false }" class="relative z-20 bg-transparent">
+                                          <select x-model="loanType" @change="calculateLoan()" class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" :class="isOptionSelected &amp;&amp; 'text-gray-800 dark:text-white/90'">
+                                            <option value="" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Select Loan Type</option>
+                                            <option value="personal" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Personal Loan</option>
+                                            <option value="business" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Business Loan</option>
+                                            <option value="emergency" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Emergency Loan</option>
+                                            <option value="education" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Education Loan</option>
+                                            <option value="vehicle" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Vehicle Loan</option>
+                                          </select>
+                                          <span class="absolute top-1/2 right-4 z-30 -translate-y-1/2 text-gray-500 dark:text-gray-400">
+                                            <svg class="stroke-current" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                              <path d="M4.79175 7.396L10.0001 12.6043L15.2084 7.396" stroke="" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                            </svg>
+                                          </span>
+                                        </div>
+                                      </div>
+
+                                      <div class="w-full px-2.5 xl:w-1/2">
+                                        <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                                          Loan Amount
+                                        </label>
+                                        <input x-model="loanAmount" @input="calculateLoan()" type="number" min="1000" step="1000" placeholder="Enter loan amount" class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent pl-14 pr-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
+                                      </div>
+
+                                      <div class="w-full px-2.5 xl:w-1/2">
+                                        <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                                          Repayment Period
+                                        </label>
+                                        <select x-model="repaymentType" @change="calculateLoan()" class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" :class="isOptionSelected &amp;&amp; 'text-gray-800 dark:text-white/90'">
+                                          <option value="" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Select Repayment Period</option>
+                                          <option value="1-week" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">1 Week</option>
+                                          <option value="2-week" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">2 Weeks</option>
+                                          <option value="1-month" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">1 Month</option>
+                                          <option value="3-months" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">3 Months</option>
+                                          <option value="6-months" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">6 Months</option>
+                                          <option value="9-months" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">9 Months</option>
+                                          <option value="12-months" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">12 Months</option>
+                                          <option value="24-months" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">24 Months</option>
+                                          <option value="36-months" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">36 Months</option>
+                                        </select>
+                                      </div>
+
+                                      <div class="w-full px-2.5 xl:w-1/2">
+                                        <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                                          Interest Rate
+                                        </label>
+                                        <div class="text-xl font-semibold text-gray-500 dark:text-white/90"
+                                             x-text="interestRate ? parseFloat(interestRate).toFixed(2) + '%' : '0.00%'">
+                                          12.00%
+                                        </div>
+                                      </div>
+
+                                      <div class="w-full px-2.5">
+                                        <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                                          Estimated monthly payment
+                                        </label>
+                                        <div x-data="{ isOptionSelected: false }" class="relative z-20 bg-transparent bg-gray-100 dark:border-gray-800">
+                                          <div class="flex items-center gap-6">
+                                            <div>
+                                              <p class="text-lg font-semibold text-center text-gray-600 dark:text-white/90"
+                                                 x-text="loanAmount ? 'KES ' + parseFloat(loanAmount).toLocaleString('en-KE', {minimumFractionDigits: 2, maximumFractionDigits: 2}) : 'KES 0.00'">KES 25,000.00</p>
+                                              <p class="text-theme-xs mt-0.5 text-center text-gray-500 dark:text-gray-400">
+                                                Total loan amount paid
+                                              </p>
+                                            </div>
+
+                                            <div class="w-px bg-gray-200 h-11 dark:bg-gray-800"></div>
+
+                                            <div>
+                                              <p class="text-lg font-semibold text-center text-gray-600 dark:text-white/90"
+                                                 x-text="'KES ' + totalInterest.toLocaleString('en-KE', {minimumFractionDigits: 2, maximumFractionDigits: 2})"
+                                              >
+                                                KES 0.00
+                                              </p>
+                                              <p class="text-theme-xs mt-0.5 text-center text-gray-500 dark:text-gray-400">
+                                                Total interest paid
+                                              </p>
+                                            </div>
+
+                                            <div class="w-px bg-gray-200 h-11 dark:bg-gray-600"></div>
+
+                                            <div>
+                                              <p class="text-lg font-semibold text-center text-gray-600 dark:text-white/90"
+                                                 x-text="'KES ' + totalLoanAmount.toLocaleString('en-KE', {minimumFractionDigits: 2, maximumFractionDigits: 2})"
+                                              >
+                                                0.00
+                                              </p>
+                                              <p class="text-theme-xs mt-0.5 text-center text-gray-500 dark:text-gray-400">
+                                                Total cost of loan
+                                              </p>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+                            <!-- ====== Map One End -->
+                          </div>
+                          <div class="col-span-12 xl:col-span-7">
+                            <!-- Automated Repayment Schedule Start -->
+                            <div class="rounded-2xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-white/[0.03] sm:p-6">
+                              <div class="flex justify-between">
+                                <div>
+                                  <h3 class="text-lg font-semibold text-gray-700 dark:text-white/90">
+                                    Automated Repayment Schedule
+                                  </h3>
+                                  <p class="mt-1 text-theme-sm text-gray-500 dark:text-gray-400">
+                                    Detailed View of the Repayment Schedule
+                                  </p>
+                                </div>
+                                <div class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+                                  <div class="flex items-center gap-1">
+                                    <div class="h-2 w-2 rounded-full bg-brand-500"></div>
+                                    <span>First Payment: </span>
+                                    <span class="font-medium text-gray-700 dark:text-white/90" x-text="firstPaymentDate || '-'">-</span>
+                                  </div>
+                                  <div class="h-4 w-px bg-gray-300 dark:bg-gray-600"></div>
+                                  <div class="flex items-center gap-1">
+                                    <div class="h-2 w-2 rounded-full bg-gray-400"></div>
+                                    <span>Last Payment: </span>
+                                    <span class="font-medium text-gray-700 dark:text-white/90" x-text="lastPaymentDate || '-'">-</span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="space-y-5 mt-6">
+                                <div class="max-w-full overflow-x-auto custom-scrollbar">
+                                  <table class="w-full" id="repaymentScheduleTable">
+                                    <thead>
+                                    <tr class="border-t border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/50">
+                                      <th class="px-6 py-3 text-left">
+                                        <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
+                                          Date
+                                        </p>
+                                      </th>
+                                      <th class="px-6 py-3 text-left">
+                                        <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
+                                          Repayment
+                                        </p>
+                                      </th>
+                                      <th class="px-6 py-3 text-left">
+                                        <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
+                                          Principal Paid
+                                        </p>
+                                      </th>
+                                      <th class="px-6 py-3 text-left">
+                                        <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
+                                          Interest Paid
+                                        </p>
+                                      </th>
+                                      <th class="px-6 py-3 text-left">
+                                        <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
+                                          Total Interest paid
+                                        </p>
+                                      </th>
+                                      <th class="px-6 py-3 text-left">
+                                        <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
+                                          Balance
+                                        </p>
+                                      </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="repaymentScheduleBody">
+                                    <!-- Empty state - will be replaced by JavaScript -->
+                                    <tr class="border-t border-gray-100 dark:border-gray-800" id="emptyStateRow">
+                                      <td colspan="6" class="px-6 py-12 text-center">
+                                        <div class="flex flex-col items-center justify-center">
+                                          <svg class="h-12 w-12 text-gray-400 dark:text-gray-500 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z" />
+                                          </svg>
+                                          <p class="text-gray-500 dark:text-gray-400 text-sm">
+                                            Enter loan details to generate repayment schedule
+                                          </p>
+                                        </div>
+                                      </td>
+                                    </tr>
+                                    <!-- Payment rows will be inserted here by JavaScript -->
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                            </div>
+                            <!-- Automated Repayment Schedule End -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Step 3: Preview -->
+                    <div x-show="activeStep === 3">
+                      <!-- Header -->
+                      <div class="mb-8">
+                        <h3 class="text-2xl font-semibold text-gray-800 dark:text-white/90">
+                          Step 3. Application Preview
+                        </h3>
+                        <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">
+                          Review and submit your loan application
+                        </p>
+                      </div>
+
+                      <div class="space-y-8">
+                        <!-- Official Report Header -->
+                        <div class="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
+                          <div class="text-center mb-6">
+                            <h4 class="text-xl font-semibold text-gray-800 dark:text-white/90">LOAN APPLICATION REPORT</h4>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Generated on: <span x-text="new Date().toLocaleDateString('en-KE')"></span></p>
+                            <div class="mt-4 h-1 bg-gradient-to-r from-brand-500 to-purple-500"></div>
+                          </div>
+
+                          <!-- Applicant Summary -->
+                          <div class="mb-8">
+                            <h5 class="text-lg font-medium text-gray-800 dark:text-white/90 mb-4 border-b pb-2 border-gray-200 dark:border-gray-700">Applicant Summary</h5>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                              <div class="space-y-3">
+                                <div class="flex justify-between">
+                                  <span class="text-sm text-gray-500 dark:text-gray-400">Full Name:</span>
+                                  <span class="text-sm font-medium text-gray-800 dark:text-white/90">John Michael Doe</span>
+                                </div>
+                                <div class="flex justify-between">
+                                  <span class="text-sm text-gray-500 dark:text-gray-400">Email:</span>
+                                  <span class="text-sm font-medium text-gray-800 dark:text-white/90">john.doe@example.com</span>
+                                </div>
+                                <div class="flex justify-between">
+                                  <span class="text-sm text-gray-500 dark:text-gray-400">Credit Status:</span>
+                                  <span class="text-sm font-medium text-green-600 dark:text-green-400">Good</span>
+                                </div>
+                              </div>
+                              <div class="space-y-3">
+                                <div class="flex justify-between">
+                                  <span class="text-sm text-gray-500 dark:text-gray-400">Phone:</span>
+                                  <span class="text-sm font-medium text-gray-800 dark:text-white/90">+254 712 345 678</span>
+                                </div>
+                                <div class="flex justify-between">
+                                  <span class="text-sm text-gray-500 dark:text-gray-400">Employment:</span>
+                                  <span class="text-sm font-medium text-gray-800 dark:text-white/90">Employed</span>
+                                </div>
+                                <div class="flex justify-between">
+                                  <span class="text-sm text-gray-500 dark:text-gray-400">Guarantors:</span>
+                                  <span class="text-sm font-medium text-gray-800 dark:text-white/90">1 Verified</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="mb-8">
+                            <h4 class="text-lg font-medium text-gray-800 dark:text-white/90 mb-4">Address Information</h4>
+
+                            <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
+                              <div class="space-y-3">
+                                <div class="flex items-start">
+                                  <span class="text-sm text-gray-500 dark:text-gray-400 w-32">Street Address:</span>
+                                  <span class="text-sm font-medium text-gray-800 dark:text-white/90 flex-1">1234 Main Street, Westlands</span>
+                                </div>
+                                <div class="flex items-start">
+                                  <span class="text-sm text-gray-500 dark:text-gray-400 w-32">P.O. Box:</span>
+                                  <span class="text-sm font-medium text-gray-800 dark:text-white/90 flex-1">P.O. Box 12345-00100</span>
+                                </div>
+                                <div class="flex items-start">
+                                  <span class="text-sm text-gray-500 dark:text-gray-400 w-32">Resident Town:</span>
+                                  <span class="text-sm font-medium text-gray-800 dark:text-white/90 flex-1">Nairobi</span>
+                                </div>
+                                <div class="flex items-start">
+                                  <span class="text-sm text-gray-500 dark:text-gray-400 w-32">County:</span>
+                                  <span class="text-sm font-medium text-gray-800 dark:text-white/90 flex-1">Nairobi County</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="mb-8">
+                            <h4 class="text-lg font-medium text-gray-800 dark:text-white/90 mb-4">Next of Kin Information</h4>
+
+                            <div class="overflow-x-auto">
+                              <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                                <thead class="bg-gray-50 dark:bg-gray-800">
+                                <tr>
+                                  <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Kin Name</th>
+                                  <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Relation</th>
+                                  <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Address</th>
+                                  <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Status</th>
+                                </tr>
+                                </thead>
+                                <tbody class="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">
+                                <!-- Active Next of Kin Only -->
+                                <tr>
+                                  <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-white/90">Jane Doe</td>
+                                  <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">Spouse</td>
+                                  <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400 truncate max-w-[200px]">1234 Main Street, Nairobi</td>
+                                  <td class="px-4 py-3 whitespace-nowrap">
+                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">
+                      Active
+                    </span>
+                                  </td>
+                                </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+
+                          <div class="mb-8">
+                            <h4 class="text-lg font-medium text-gray-800 dark:text-white/90 mb-4">Guarantor Information</h4>
+
+                            <div class="overflow-x-auto">
+                              <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                                <thead class="bg-gray-50 dark:bg-gray-800">
+                                <tr>
+                                  <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Guarantor Name</th>
+                                  <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Relation</th>
+                                  <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Address</th>
+                                  <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Status</th>
+                                </tr>
+                                </thead>
+                                <tbody class="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">
+                                <!-- Active Guarantor Only -->
+                                <tr>
+                                  <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-white/90">Mary Johnson</td>
+                                  <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">Business Partner</td>
+                                  <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400 truncate max-w-[200px]">4321 Business Ave, Westlands</td>
+                                  <td class="px-4 py-3 whitespace-nowrap">
+                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">
+                      Verified
+                    </span>
+                                  </td>
+                                </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+
+                          <!-- Loan Summary Table Report -->
+                          <div class="mb-8">
+                            <h5 class="text-lg font-medium text-gray-800 dark:text-white/90 mb-4 border-b pb-2 border-gray-200 dark:border-gray-700">
+                              Loan Summary Report
+                            </h5>
+
+                            <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
+                              <table class="w-full">
+                                <thead>
+                                <tr class="bg-gray-50 dark:bg-gray-700/50">
+                                  <th class="px-6 py-3 text-left">
+                                    <p class="font-medium text-gray-700 text-sm dark:text-gray-300">
+                                      Loan Type
+                                    </p>
+                                  </th>
+                                  <th class="px-6 py-3 text-left">
+                                    <p class="font-medium text-gray-700 text-sm dark:text-gray-300">
+                                      Loan Date
+                                    </p>
+                                  </th>
+                                  <th class="px-6 py-3 text-left">
+                                    <p class="font-medium text-gray-700 text-sm dark:text-gray-300">
+                                      First Payment
+                                    </p>
+                                  </th>
+                                  <th class="px-6 py-3 text-left">
+                                    <p class="font-medium text-gray-700 text-sm dark:text-gray-300">
+                                      Loan Amount
+                                    </p>
+                                  </th>
+                                  <th class="px-6 py-3 text-left">
+                                    <p class="font-medium text-gray-700 text-sm dark:text-gray-300">
+                                      Interest Rate
+                                    </p>
+                                  </th>
+                                  <th class="px-6 py-3 text-left">
+                                    <p class="font-medium text-gray-700 text-sm dark:text-gray-300">
+                                      Period
+                                    </p>
+                                  </th>
+                                  <th class="px-6 py-3 text-left">
+                                    <p class="font-medium text-gray-700 text-sm dark:text-gray-300">
+                                      Total Interest
+                                    </p>
+                                  </th>
+                                  <th class="px-6 py-3 text-left">
+                                    <p class="font-medium text-gray-700 text-sm dark:text-gray-300">
+                                      Total Payable
+                                    </p>
+                                  </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="border-t border-gray-200 dark:border-gray-700">
+                                  <td class="px-6 py-4">
+                                    <p class="text-sm font-medium text-gray-800 dark:text-white/90">
+          <span x-text="loanType ? loanType.charAt(0).toUpperCase() + loanType.slice(1) + ' Loan' : 'Not Selected'">
+            Personal Loan
+          </span>
+                                    </p>
+                                  </td>
+                                  <td class="px-6 py-4">
+                                    <p class="text-sm text-gray-700 dark:text-gray-300">
+          <span x-text="new Date().toLocaleDateString('en-KE', {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric'
+          })">
+            <!-- Today's date will be auto-populated -->
+          </span>
+                                    </p>
+                                  </td>
+                                  <td class="px-6 py-4">
+                                    <p class="text-sm font-medium text-blue-600 dark:text-blue-400">
+          <span x-text="getFirstPaymentDate()">
+            <!-- First payment date will be calculated -->
+          </span>
+                                    </p>
+                                  </td>
+                                  <td class="px-6 py-4">
+                                    <p class="text-sm font-semibold text-brand-500">
+          <span x-text="loanAmount ? 'KES ' + parseFloat(loanAmount).toLocaleString('en-KE', {minimumFractionDigits: 2, maximumFractionDigits: 2}) : 'KES 0.00'">
+            KES 25,000.00
+          </span>
+                                    </p>
+                                  </td>
+                                  <td class="px-6 py-4">
+                                    <p class="text-sm font-medium text-gray-800 dark:text-white/90">
+          <span x-text="interestRate ? parseFloat(interestRate).toFixed(2) + '%' : '0.00%'">
+            12.00%
+          </span>
+                                    </p>
+                                  </td>
+                                  <td class="px-6 py-4">
+                                    <p class="text-sm text-gray-700 dark:text-gray-300">
+          <span x-text="repaymentType ? repaymentType.replace('-', ' ') : 'Not Selected'">
+            12 months
+          </span>
+                                    </p>
+                                  </td>
+                                  <td class="px-6 py-4">
+                                    <p class="text-sm font-semibold text-gray-800 dark:text-white/90">
+          <span x-text="'KES ' + totalInterest.toLocaleString('en-KE', {minimumFractionDigits: 2, maximumFractionDigits: 2})">
+            KES 2,748.23
+          </span>
+                                    </p>
+                                  </td>
+                                  <td class="px-6 py-4">
+                                    <p class="text-sm font-bold text-green-600 dark:text-green-400">
+          <span x-text="'KES ' + totalLoanAmount.toLocaleString('en-KE', {minimumFractionDigits: 2, maximumFractionDigits: 2})">
+            KES 27,748.23
+          </span>
+                                    </p>
+                                  </td>
+                                </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Agreement Section -->
+                        <div class="bg-yellow-50 dark:bg-yellow-900/10 border border-yellow-200 dark:border-yellow-800 rounded-lg p-6">
+                          <div class="flex items-start space-x-3">
+                            <div class="flex-shrink-0">
+                              <svg class="h-6 w-6 text-yellow-600 dark:text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.998-.833-2.732 0L4.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
+                              </svg>
+                            </div>
+                            <div>
+                              <h4 class="text-sm font-medium text-yellow-800 dark:text-yellow-300">Important Notice</h4>
+                              <p class="mt-1 text-sm text-yellow-700 dark:text-yellow-400">
+                                By submitting this application, you agree to the loan terms and conditions. Please review all information carefully before submission. The calculated amounts are estimates and may be subject to final verification.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Bottom: Navigation Buttons -->
+                  <div class="mt-8 flex items-center justify-between pt-6 border-t border-gray-200 dark:border-gray-700">
+                    <!-- Previous Button -->
+                    <button x-show="activeStep > 1" @click="activeStep--"
+                            class="flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-6 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03]">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                      </svg>
+                      Previous
+                    </button>
+
+                    <!-- Spacer for when Previous button is hidden -->
+                    <div x-show="activeStep === 1" class="flex-1"></div>
+
+                    <!-- Next Button -->
+                    <button x-show="activeStep < totalSteps" @click="activeStep++"
+                            class="bg-brand-500 hover:bg-brand-600 flex items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-medium text-white">
+                      Next
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                      </svg>
+                    </button>
+
+                    <!-- Submit Button -->
+                    <button x-show="activeStep === totalSteps"
+                            class="bg-brand-500 hover:bg-brand-600 flex items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-medium text-white">
+                      <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                      </svg>
+                      Submit Application
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Content End -->
+          </div>
+        </main>
+        <!-- ===== Main Content End ===== -->
+      </div>
+      <!-- ===== Content Area End ===== -->
+    </div>
+    <!-- ===== Page Wrapper End ===== -->
+
+    <div>
+      <div
+        x-show="isModalOpen"
+        class="modal fixed inset-0 z-99999 flex items-center justify-center overflow-y-auto p-5"
+      >
+        <div
+          class="modal-close-btn fixed inset-0 h-full w-full bg-gray-400/50 backdrop-blur-[32px]"
+        ></div>
+        <div class="no-scrollbar flex flex-col overflow-y-auto px-4 py-4">
+          <div
+            @click.outside="isModalOpen = false"
+            class="relative w-full max-w-[720px] rounded-3xl bg-white dark:bg-gray-900"
+          >
+            <div class="flex items-center justify-between px-6 py-4">
+              <h3 class="text-lg text-gray-700 dark:text-gray-500">
+                Invoice: #34834
+              </h3>
+              <!-- close btn -->
+              <button
+                @click="isModalOpen = false"
+                class="z-999 flex h-9.5 w-9.5 items-center justify-center rounded-full bg-gray-100 text-gray-400 transition-colors hover:bg-gray-200 hover:text-gray-700 sm:top-6 sm:right-6 sm:h-11 sm:w-11 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+              >
+                <svg
+                  class="fill-current"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M6.04289 16.5413C5.65237 16.9318 5.65237 17.565 6.04289 17.9555C6.43342 18.346 7.06658 18.346 7.45711 17.9555L11.9987 13.4139L16.5408 17.956C16.9313 18.3466 17.5645 18.3466 17.955 17.956C18.3455 17.5655 18.3455 16.9323 17.955 16.5418L13.4129 11.9997L17.955 7.4576C18.3455 7.06707 18.3455 6.43391 17.955 6.04338C17.5645 5.65286 16.9313 5.65286 16.5408 6.04338L11.9987 10.5855L7.45711 6.0439C7.06658 5.65338 6.43342 5.65338 6.04289 6.0439C5.65237 6.43442 5.65237 7.06759 6.04289 7.45811L10.5845 11.9997L6.04289 16.5413Z"
+                    fill=""
+                  />
+                </svg>
+              </button>
+            </div>
+            <div class="max-h-[598px] overflow-y-auto p-4 sm:p-6">
+              <div
+                class="mb-9 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between"
+              >
+                <div>
+                  <span
+                    class="mb-1 block text-sm font-medium text-gray-700 dark:text-gray-400"
+                  >
+                    From
+                  </span>
+
+                  <h5
+                    class="mb-2 text-base font-semibold text-gray-800 dark:text-white/90"
+                  >
+                    Pimjo LLC
+                  </h5>
+
+                  <p class="mb-4 text-sm text-gray-500 dark:text-gray-400">
+                    1280, Clair Street, <br />
+                    Massachusetts, New York - 02543
+                  </p>
+
+                  <span
+                    class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400"
+                  >
+                    Issued On:
+                  </span>
+
+                  <span class="block text-sm text-gray-500 dark:text-gray-400">
+                    11 March, 2027
+                  </span>
+                </div>
+
+                <div
+                  class="h-px w-full bg-gray-200 sm:h-[158px] sm:w-px dark:bg-gray-800"
+                ></div>
+
+                <div class="sm:text-right">
+                  <span
+                    class="mb-1 block text-sm font-medium text-gray-700 dark:text-gray-400"
+                  >
+                    To
+                  </span>
+
+                  <h5
+                    class="mb-2 text-base font-semibold text-gray-800 dark:text-white/90"
+                  >
+                    Albert Ward
+                  </h5>
+
+                  <p class="mb-4 text-sm text-gray-500 dark:text-gray-400">
+                    355, Shobe Lane <br />
+                    Colorado, Fort Collins - 80543
+                  </p>
+
+                  <span
+                    class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400"
+                  >
+                    Due On:
+                  </span>
+
+                  <span class="block text-sm text-gray-500 dark:text-gray-400">
+                    16 March, 2027
+                  </span>
+                </div>
+              </div>
+
+              <!-- Invoice Table Start -->
+              <div
+                class="overflow-x-auto rounded-xl border border-gray-100 dark:border-gray-800"
+              >
+                <table
+                  class="min-w-full text-left text-gray-700 dark:text-gray-400"
+                >
+                  <thead class="bg-gray-50 dark:bg-gray-900">
+                    <tr class="border-b border-gray-100 dark:border-gray-800">
+                      <th
+                        class="px-5 py-3 text-sm font-medium whitespace-nowrap text-gray-700 dark:text-gray-400"
+                      >
+                        S.No.#
+                      </th>
+                      <th
+                        class="px-5 py-3 text-xs font-medium whitespace-nowrap text-gray-500 dark:text-gray-400"
+                      >
+                        Products
+                      </th>
+                      <th
+                        class="px-5 py-3 text-center text-sm font-medium whitespace-nowrap text-gray-700 dark:text-gray-400"
+                      >
+                        Quantity
+                      </th>
+                      <th
+                        class="px-5 py-3 text-center text-sm font-medium whitespace-nowrap text-gray-700 dark:text-gray-400"
+                      >
+                        Unit Cost
+                      </th>
+                      <th
+                        class="px-5 py-3 text-center text-sm font-medium whitespace-nowrap text-gray-700 dark:text-gray-400"
+                      >
+                        Discount
+                      </th>
+                      <th
+                        class="px-5 py-3 text-right text-sm font-medium whitespace-nowrap text-gray-700 dark:text-gray-400"
+                      >
+                        Total
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-gray-100 dark:divide-gray-800">
+                    <tr>
+                      <td
+                        class="px-5 py-3 text-sm text-gray-500 dark:text-gray-400"
+                      >
+                        1
+                      </td>
+                      <td
+                        class="px-5 py-3 text-sm font-medium text-gray-800 dark:text-white/90"
+                      >
+                        Macbook pro 13”
+                      </td>
+                      <td
+                        class="px-5 py-3 text-center text-sm text-gray-500 dark:text-gray-400"
+                      >
+                        1
+                      </td>
+                      <td
+                        class="px-5 py-3 text-center text-sm text-gray-500 dark:text-gray-400"
+                      >
+                        $48
+                      </td>
+                      <td
+                        class="px-5 py-3 text-center text-sm text-gray-500 dark:text-gray-400"
+                      >
+                        0%
+                      </td>
+                      <td
+                        class="px-5 py-3 text-right text-sm text-gray-500 dark:text-gray-400"
+                      >
+                        $1,200
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="px-5 py-3 text-sm text-gray-500 dark:text-gray-400"
+                      >
+                        2
+                      </td>
+                      <td
+                        class="px-5 py-3 text-sm font-medium text-gray-800 dark:text-white/90"
+                      >
+                        Apple Watch Ultra
+                      </td>
+                      <td
+                        class="px-5 py-3 text-center text-sm text-gray-500 dark:text-gray-400"
+                      >
+                        1
+                      </td>
+                      <td
+                        class="px-5 py-3 text-center text-sm text-gray-500 dark:text-gray-400"
+                      >
+                        $300
+                      </td>
+                      <td
+                        class="px-5 py-3 text-center text-sm text-gray-500 dark:text-gray-400"
+                      >
+                        50%
+                      </td>
+                      <td
+                        class="px-5 py-3 text-right text-sm text-gray-500 dark:text-gray-400"
+                      >
+                        $150
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="px-5 py-3 text-sm text-gray-500 dark:text-gray-400"
+                      >
+                        3
+                      </td>
+                      <td
+                        class="px-5 py-3 text-sm font-medium text-gray-800 dark:text-white/90"
+                      >
+                        iPhone 15 Pro Max
+                      </td>
+                      <td
+                        class="px-5 py-3 text-center text-sm text-gray-500 dark:text-gray-400"
+                      >
+                        3
+                      </td>
+                      <td
+                        class="px-5 py-3 text-center text-sm text-gray-500 dark:text-gray-400"
+                      >
+                        $800
+                      </td>
+                      <td
+                        class="px-5 py-3 text-center text-sm text-gray-500 dark:text-gray-400"
+                      >
+                        0%
+                      </td>
+                      <td
+                        class="px-5 py-3 text-right text-sm text-gray-500 dark:text-gray-400"
+                      >
+                        $1,600
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="px-5 py-3 text-sm text-gray-500 dark:text-gray-400"
+                      >
+                        4
+                      </td>
+                      <td
+                        class="px-5 py-3 text-sm font-medium text-gray-800 dark:text-white/90"
+                      >
+                        iPad Pro 3rd Gen
+                      </td>
+                      <td
+                        class="px-5 py-3 text-center text-sm text-gray-500 dark:text-gray-400"
+                      >
+                        1
+                      </td>
+                      <td
+                        class="px-5 py-3 text-center text-sm text-gray-500 dark:text-gray-400"
+                      >
+                        $900
+                      </td>
+                      <td
+                        class="px-5 py-3 text-center text-sm text-gray-500 dark:text-gray-400"
+                      >
+                        0%
+                      </td>
+                      <td
+                        class="px-5 py-3 text-right text-sm text-gray-500 dark:text-gray-400"
+                      >
+                        $900
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- Invoice Table End -->
+
+              <div class="my-6 flex justify-end pb-6 text-right">
+                <div class="w-[220px]">
+                  <p
+                    class="mb-4 text-left text-sm font-medium text-gray-800 dark:text-white/90"
+                  >
+                    Order summary
+                  </p>
+                  <ul class="space-y-2">
+                    <li class="flex justify-between gap-5">
+                      <span class="text-sm text-gray-500 dark:text-gray-400">
+                        Sub Total
+                      </span>
+                      <span
+                        class="text-sm font-medium text-gray-700 dark:text-gray-400"
+                        >$3,850</span
+                      >
+                    </li>
+                    <li class="flex items-center justify-between">
+                      <span class="text-sm text-gray-500 dark:text-gray-400">
+                        Vat (10%):
+                      </span>
+                      <span
+                        class="text-sm font-medium text-gray-700 dark:text-gray-400"
+                        >$385</span
+                      >
+                    </li>
+                    <li class="flex items-center justify-between">
+                      <span
+                        class="font-medium text-gray-700 dark:text-gray-400"
+                      >
+                        Total
+                      </span>
+                      <span
+                        class="text-lg font-semibold text-gray-800 dark:text-white/90"
+                        >$4,235</span
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script defer src="../../assets/bundle.js"></script>
+</body>
+
+</html>
+<script>
+  function invoiceProducts() {
+    return {
+      products: [
+        {
+          name: "Macbook pro 13”",
+          price: 1200,
+          quantity: 1,
+          discount: 0,
+          total: (1200 * 1).toFixed(2),
+        },
+        {
+          name: "Apple Watch Ultra",
+          price: 300,
+          quantity: 1,
+          discount: 50,
+          total: (300 * 1 * 0.5).toFixed(2),
+        },
+        {
+          name: "iPhone 15 Pro Max",
+          price: 800,
+          quantity: 2,
+          discount: 0,
+          total: (800 * 2).toFixed(2),
+        },
+        {
+          name: "iPad Pro 3rd Gen",
+          price: 900,
+          quantity: 1,
+          discount: 0,
+          total: (900 * 1).toFixed(2),
+        },
+      ],
+      form: { name: "", price: 0, quantity: 1, discount: 0 },
+      addProduct() {
+        if (!this.form.name || this.form.price <= 0 || this.form.quantity <= 0)
+          return;
+        const discountAmount =
+          this.form.price * this.form.quantity * (this.form.discount / 100);
+        const total = this.form.price * this.form.quantity - discountAmount;
+        this.products.push({
+          name: this.form.name,
+          price: this.form.price,
+          quantity: this.form.quantity,
+          discount: this.form.discount,
+          total: total.toFixed(2),
+        });
+        this.resetForm();
+      },
+      resetForm() {
+        this.form = { name: "", price: 0, quantity: 1, discount: 0 };
+      },
+      get subtotal() {
+        return this.products
+          .reduce((sum, p) => sum + parseFloat(p.total), 0)
+          .toFixed(2);
+      },
+      get vat() {
+        return (this.subtotal * 0.1).toFixed(2);
+      },
+      get total() {
+        return (parseFloat(this.subtotal) + parseFloat(this.vat)).toFixed(2);
+      },
+    };
+  }
+
+  // More robust version that handles month/year rollover correctly
+  function getFirstPaymentDate() {
+    // Get current date
+    const today = new Date();
+
+    // Calculate first payment date (5th of next month)
+    // Handle month rollover (e.g., December -> January)
+    let nextMonth = today.getMonth() + 1;
+    let year = today.getFullYear();
+
+    if (nextMonth > 11) { // December is 11 (0-indexed)
+      nextMonth = 0;    // January
+      year += 1;        // Next year
+    }
+
+    // Create the first payment date (5th of next month)
+    const firstPaymentDate = new Date(year, nextMonth, 5);
+
+    // Format as "5-Jan-2026"
+    const day = firstPaymentDate.getDate();
+    const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const month = monthNames[firstPaymentDate.getMonth()];
+
+    return `${day}-${month}-${year}`;
+  }
+
+  // Function to test the date calculation
+  function testFirstPaymentDate() {
+    const testDates = [
+      new Date(2024, 0, 15),   // 15-Jan-2024 -> 5-Feb-2024
+      new Date(2024, 11, 20),  // 20-Dec-2024 -> 5-Jan-2025
+      new Date(2024, 11, 31),  // 31-Dec-2024 -> 5-Jan-2025
+      new Date(2024, 1, 28),   // 28-Feb-2024 -> 5-Mar-2024 (leap year)
+      new Date(2023, 1, 28)    // 28-Feb-2023 -> 5-Mar-2023
+    ];
+
+    console.log('First Payment Date Tests:');
+    testDates.forEach((date, index) => {
+      const originalDate = date.toLocaleDateString();
+      // Temporarily override global Date for testing
+      const originalNow = Date.now;
+      Date.now = () => date.getTime();
+      console.log(`${index + 1}. Today: ${originalDate} -> First Payment: ${getFirstPaymentDate()}`);
+      Date.now = originalNow;
+    });
+  }
+
+</script>
