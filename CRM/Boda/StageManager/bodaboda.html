@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-  <title>Bodaboda - KFBCL | Mircofinance</title>
+  <title>Bodaboda Riders - KFBCL | Mircofinance</title>
 
   <link rel="icon" href="../../assets/favicon.ico">
   <link href="../../assets/style.css" rel="stylesheet">
@@ -141,7 +141,10 @@
                      width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#787878" stroke-width="1.5"
                      stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-motorbike">
                   <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                  <path d="M5 16m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M19 16m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M7.5 14h5l4 -4h-10.5m1.5 4l4 -4" /><path d="M13 6h2l1.5 3l2 4" />
+                  <path d="M5 16m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+                  <path d="M19 16m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+                  <path d="M7.5 14h5l4 -4h-10.5m1.5 4l4 -4" />
+                  <path d="M13 6h2l1.5 3l2 4" />
                 </svg>
                 <span class="menu-item-text" :class="sidebarToggle ? 'xl:hidden' : ''">
             Bodaboda
@@ -664,10 +667,10 @@
                 <div class="flex flex-col gap-4 border-b border-gray-200 px-4 py-4 sm:px-5 lg:flex-row lg:items-center lg:justify-between dark:border-gray-800">
                   <div class="flex-shrink-0">
                     <h3 class="text-lg font-semibold text-gray-800 dark:text-white/90">
-                     Bodaboda Members
+                     Bodaboda Riders
                     </h3>
                     <p class="text-sm text-gray-500 dark:text-gray-400">
-                      Easily manage bodaboda members
+                      Manage your bodaboda riders
                     </p>
                   </div>
 
@@ -683,12 +686,12 @@
                       <button @click="selected = 'delivered'"
                         :class="selected === 'delivered' ? 'shadow-theme-xs text-gray-900 dark:text-white bg-white dark:bg-gray-800' : 'text-gray-500 dark:text-gray-400'"
                         class="h-10 flex-1 rounded-md px-2 py-2 text-xs font-medium hover:text-gray-900 sm:px-3 sm:text-sm lg:flex-initial dark:hover:text-white">
-                        Riders
+                        Active
                       </button>
                       <button @click="selected = 'in-transit'"
                         :class="selected === 'in-transit' ? 'shadow-theme-xs text-gray-900 dark:text-white bg-white dark:bg-gray-800' : 'text-gray-500 dark:text-gray-400'"
                         class="h-10 flex-1 rounded-md px-2 py-2 text-xs font-medium hover:text-gray-900 sm:px-3 sm:text-sm lg:flex-initial dark:hover:text-white">
-                        Stage Managers
+                        Stage
                       </button>
                     </div>
                     <div class="relative">
@@ -699,25 +702,6 @@
                       </span>
 
                       <input type="text" placeholder="Search..." class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent py-2.5 pr-4 pl-11 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden xl:w-[300px] dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
-                    </div>
-
-                    <div>
-                      <button class="text-theme-sm shadow-theme-xs inline-flex items-center gap-2 rounded-lg border border-gray-300 bg-white px-4 py-2.5 font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-800 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03] dark:hover:text-gray-200">
-                        <svg class="w-[23px] h-[23px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                          <path stroke="currentColor" stroke-linejoin="round" stroke-width="1.1" d="M16.444 18H19a1 1 0 0 0 1-1v-5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h2.556M17 11V5a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v6h10ZM7 15h10v4a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1v-4Z"/>
-                        </svg>
-
-                        Print
-                      </button>
-                    </div>
-                    <div>
-                      <button onclick="window.location.href='new-member.html'"
-                              class="bg-brand-500 shadow-theme-xs hover:bg-brand-600 inline-flex items-center justify-center gap-2 rounded-lg px-4 py-3 text-sm font-medium text-white transition">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                          <path d="M5 10.0002H15.0006M10.0002 5V15.0006" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                        </svg>
-                        Add Member
-                      </button>
                     </div>
                   </div>
                 </div>
