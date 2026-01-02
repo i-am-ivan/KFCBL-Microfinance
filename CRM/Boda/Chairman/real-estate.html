@@ -588,72 +588,67 @@
 
             <div class="space-y-6">
               <div class="col-span-12">
-                <div class="col-span-12">
+                <div class="gap-5 space-y-5 sm:gap-6 sm:space-y-6 xl:grid xl:grid-cols-12 xl:space-y-0">
                   <!-- Metric Group Three -->
-                  <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6 xl:grid-cols-3">
+                  <div class="xl:col-span-7 2xl:col-span-8">
                     <!-- Metric Item Start -->
-                    <div class="rounded-2xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-white/[0.03] md:p-6">
-                      <div class="mb-6 flex h-[52px] w-[52px] items-center justify-center rounded-xl bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-400">
-                        <svg class="fill-current" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path fill-rule="evenodd" clip-rule="evenodd" d="M20.3662 1.11216C20.6592 0.8193 21.134 0.819349 21.4269 1.11227C21.7198 1.4052 21.7197 1.88007 21.4268 2.17293L17.0308 6.56803C16.7379 6.8609 16.263 6.86085 15.9701 6.56792C15.6773 6.275 15.6773 5.80013 15.9702 5.50726L20.3662 1.11216ZM16.6592 2.696C16.952 2.40308 16.952 1.9282 16.659 1.63534C16.3661 1.34248 15.8913 1.34253 15.5984 1.63545L14.0987 3.13545C13.8058 3.42837 13.8059 3.90325 14.0988 4.19611C14.3917 4.48897 14.8666 4.48892 15.1595 4.196L16.6592 2.696ZM11.8343 3.45488C11.7079 3.19888 11.4472 3.0368 11.1617 3.0368C10.8762 3.0368 10.6155 3.19888 10.4892 3.45488L8.06431 8.36817L2.64217 9.15605C2.35966 9.19711 2.12495 9.39499 2.03673 9.6665C1.94851 9.93801 2.02208 10.2361 2.22651 10.4353L6.15001 14.2598L5.2238 19.66C5.17554 19.9414 5.29121 20.2258 5.52216 20.3936C5.75312 20.5614 6.05932 20.5835 6.31201 20.4506L11.1617 17.901L16.0114 20.4506C16.2641 20.5835 16.5703 20.5614 16.8013 20.3936C17.0322 20.2258 17.1479 19.9414 17.0996 19.66L16.1734 14.2598L20.0969 10.4353C20.3014 10.2361 20.3749 9.93801 20.2867 9.6665C20.1985 9.39499 19.9638 9.19711 19.6813 9.15605L14.2591 8.36817L11.8343 3.45488ZM9.23491 9.3856L11.1617 5.48147L13.0885 9.3856C13.1978 9.60696 13.4089 9.76039 13.6532 9.79588L17.9617 10.4219L14.8441 13.4609C14.6673 13.6332 14.5866 13.8814 14.6284 14.1247L15.3643 18.4158L11.5107 16.3898C11.2922 16.275 11.0312 16.275 10.8127 16.3898L6.9591 18.4158L7.69508 14.1247C7.7368 13.8814 7.65614 13.6332 7.47938 13.4609L4.36174 10.4219L8.67021 9.79588C8.91449 9.76039 9.12567 9.60696 9.23491 9.3856ZM21.6514 5.12825C21.9443 5.42111 21.9444 5.89598 21.6515 6.18891L20.1518 7.68891C19.8589 7.98183 19.3841 7.98188 19.0912 7.68901C18.7982 7.39615 18.7982 6.92128 19.091 6.62836L20.5907 5.12836C20.8836 4.83543 21.3585 4.83538 21.6514 5.12825Z" fill=""></path>
-                        </svg>
-                      </div>
-
-                      <p class="text-theme-sm text-gray-500 dark:text-gray-400">
-                        Land Parcels Sold
-                      </p>
-
-                      <div class="mt-3 flex items-end justify-between">
+                    <div class="overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-white/[0.03]">
+                      <div class="mb-6 flex justify-between">
                         <div>
-                          <h4 class="text-title-sm font-bold text-gray-800 dark:text-white/90">
-                            237
-                          </h4>
+                          <h3 class="text-lg font-semibold text-gray-800 dark:text-white/90">
+                            Units Stats
+                          </h3>
+                          <p class="text-theme-sm mt-1 text-gray-500 dark:text-gray-400">
+                            Current unit available.
+                          </p>
                         </div>
+                      </div>
+                      <div class="flex justify-between">
+                        <div>
+                          <h3 class="text-title-xs font-semibold text-gray-800 dark:text-white/90">
+                            123
+                          </h3>
+                          <p class="text-theme-xs mt-1 text-gray-500 dark:text-gray-400">
+                            <span class="text-error-500 mr-1 inline-block">0.31%</span>
+                            than last year.
+                          </p>
+                        </div>
+                        <div class="max-w-full">
+                          <div class="grid grid-cols-2 justify-between gap-10 divide-x divide-gray-100 rounded-xl bg-white py-4 dark:divide-gray-800 dark:border-gray-800 dark:bg-gray-800/[0.03]">
+                            <div class="px-5">
+                              <span class="block text-sm text-gray-500 dark:text-gray-400">Total Sold</span>
+                              <div class="mt-1 flex items-center gap-2">
+                                <span class="bg-success-50 dark:bg-success-500/15 text-success-600 inline-flex size-5 items-center justify-center rounded-full">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.56462 1.62411C5.70194 1.47091 5.90136 1.37451 6.12329 1.37451C6.1236 1.37451 6.1239 1.37451 6.12421 1.37451C6.3163 1.37434 6.50845 1.4475 6.65505 1.594L9.65514 4.59199C9.94814 4.88478 9.94831 5.35966 9.65552 5.65265C9.36272 5.94565 8.88785 5.94581 8.59486 5.65302L6.87329 3.93267L6.87329 10.1252C6.87329 10.5394 6.53751 10.8752 6.12329 10.8752C5.70908 10.8752 5.37329 10.5394 5.37329 10.1252L5.37329 3.93597L3.65516 5.65301C3.36218 5.94581 2.8873 5.94566 2.5945 5.65267C2.3017 5.35968 2.30185 4.88481 2.59484 4.59201L5.56462 1.62411Z" fill="currentColor"></path>
+                                  </svg>
+                                </span>
+                                <h4 class="text-xl font-semibold text-gray-800 dark:text-white/90">
+                                  179
+                                </h4>
+                              </div>
+                            </div>
+                            <div class="px-5">
+                              <span class="block text-sm text-gray-500 dark:text-gray-400">All Units</span>
+                              <div class="mt-1 flex items-center gap-2">
+                                <span class="bg-gray-50 dark:bg-gray-500/15 text-gray-600 inline-flex size-5 items-center justify-center rounded-full">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.31462 10.3761C5.45194 10.5293 5.65136 10.6257 5.87329 10.6257C5.8736 10.6257 5.8739 10.6257 5.87421 10.6257C6.0663 10.6259 6.25845 10.5527 6.40505 10.4062L9.40514 7.4082C9.69814 7.11541 9.69831 6.64054 9.40552 6.34754C9.11273 6.05454 8.63785 6.05438 8.34486 6.34717L6.62329 8.06753L6.62329 1.875C6.62329 1.46079 6.28751 1.125 5.87329 1.125C5.45908 1.125 5.12329 1.46079 5.12329 1.875L5.12329 8.06422L3.40516 6.34719C3.11218 6.05439 2.6373 6.05454 2.3445 6.34752C2.0517 6.64051 2.05185 7.11538 2.34484 7.40818L5.31462 10.3761Z" fill="currentColor"></path>
+                                  </svg>
+                                </span>
+                                <h4 class="text-xl font-semibold text-gray-800 dark:text-white/90">
+                                  302
+                                </h4>
+                              </div>
+                            </div>
 
-                        <div class="flex items-center gap-1">
-                        <span class="flex items-center gap-1 rounded-full bg-success-50 px-2 py-0.5 text-theme-xs font-medium text-success-600 dark:bg-success-500/15 dark:text-success-500">
-                          +20%
-                        </span>
-                        <span class="text-theme-xs text-gray-500 dark:text-gray-400">
-                          Vs last year.
-                        </span>
+                          </div>
                         </div>
                       </div>
                     </div>
                     <!-- Metric Item End -->
-
-                    <!-- Metric Item Start -->
-                    <div class="rounded-2xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-white/[0.03] md:p-6">
-                      <div class="mb-6 flex h-[52px] w-[52px] items-center justify-center rounded-xl bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-400">
-                        <svg class="fill-current" width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path fill-rule="evenodd" clip-rule="evenodd" d="M9.13768 5.60156C7.92435 5.60156 6.94074 6.58517 6.94074 7.79851C6.94074 9.01185 7.92435 9.99545 9.13768 9.99545C10.351 9.99545 11.3346 9.01185 11.3346 7.79851C11.3346 6.58517 10.351 5.60156 9.13768 5.60156ZM5.44074 7.79851C5.44074 5.75674 7.09592 4.10156 9.13768 4.10156C11.1795 4.10156 12.8346 5.75674 12.8346 7.79851C12.8346 9.84027 11.1795 11.4955 9.13768 11.4955C7.09592 11.4955 5.44074 9.84027 5.44074 7.79851ZM5.19577 15.3208C4.42094 16.0881 4.03702 17.0608 3.8503 17.8611C3.81709 18.0034 3.85435 18.1175 3.94037 18.2112C4.03486 18.3141 4.19984 18.3987 4.40916 18.3987H13.7582C13.9675 18.3987 14.1325 18.3141 14.227 18.2112C14.313 18.1175 14.3503 18.0034 14.317 17.8611C14.1303 17.0608 13.7464 16.0881 12.9716 15.3208C12.2153 14.572 11.0231 13.955 9.08367 13.955C7.14421 13.955 5.95202 14.572 5.19577 15.3208ZM4.14036 14.2549C5.20488 13.2009 6.78928 12.455 9.08367 12.455C11.3781 12.455 12.9625 13.2009 14.027 14.2549C15.0729 15.2906 15.554 16.5607 15.7778 17.5202C16.0991 18.8971 14.9404 19.8987 13.7582 19.8987H4.40916C3.22695 19.8987 2.06829 18.8971 2.38953 17.5202C2.6134 16.5607 3.09442 15.2906 4.14036 14.2549ZM15.6375 11.4955C14.8034 11.4955 14.0339 11.2193 13.4153 10.7533C13.7074 10.3314 13.9387 9.86419 14.0964 9.36432C14.493 9.75463 15.0371 9.99545 15.6375 9.99545C16.8508 9.99545 17.8344 9.01185 17.8344 7.79851C17.8344 6.58517 16.8508 5.60156 15.6375 5.60156C15.0371 5.60156 14.493 5.84239 14.0964 6.23271C13.9387 5.73284 13.7074 5.26561 13.4153 4.84371C14.0338 4.37777 14.8034 4.10156 15.6375 4.10156C17.6792 4.10156 19.3344 5.75674 19.3344 7.79851C19.3344 9.84027 17.6792 11.4955 15.6375 11.4955ZM20.2581 19.8987H16.7233C17.0347 19.4736 17.2492 18.969 17.3159 18.3987H20.2581C20.4674 18.3987 20.6323 18.3141 20.7268 18.2112C20.8129 18.1175 20.8501 18.0034 20.8169 17.861C20.6302 17.0607 20.2463 16.088 19.4714 15.3208C18.7379 14.5945 17.5942 13.9921 15.7563 13.9566C15.5565 13.6945 15.3328 13.437 15.0824 13.1891C14.8476 12.9566 14.5952 12.7384 14.3249 12.5362C14.7185 12.4831 15.1376 12.4549 15.5835 12.4549C17.8779 12.4549 19.4623 13.2008 20.5269 14.2549C21.5728 15.2906 22.0538 16.5607 22.2777 17.5202C22.5989 18.8971 21.4403 19.8987 20.2581 19.8987Z" fill=""></path>
-                        </svg>
-                      </div>
-
-                      <p class="text-theme-sm text-gray-500 dark:text-gray-400">
-                        New Clients
-                      </p>
-
-                      <div class="mt-3 flex items-end justify-between">
-                        <div>
-                          <h4 class="text-title-sm font-bold text-gray-800 dark:text-white/90">
-                            50
-                          </h4>
-                        </div>
-
-                        <div class="flex items-center gap-1">
-                          <span class="flex items-center gap-1 rounded-full bg-gray-50 px-2 py-0.5 text-theme-xs font-medium text-gray-600 dark:bg-gray-500/15 dark:text-error-500">
-                            0.00%
-                          </span>
-
-                          <span class="text-theme-xs text-gray-500 dark:text-gray-400">
-                            Vs last year
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- Metric Item End -->
-
+                  </div>
+                  <div class="space-y-6 xl:col-span-5 2xl:col-span-4">
                     <!-- Metric Item Start -->
                     <div class="rounded-2xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-white/[0.03] md:p-6">
                       <div class="mb-6 flex h-[52px] w-[52px] items-center justify-center rounded-xl bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-400">
@@ -692,33 +687,27 @@
                 <div class="flex flex-col gap-4 border-b border-gray-200 px-4 py-4 sm:px-5 lg:flex-row lg:items-center lg:justify-between dark:border-gray-800">
                   <div class="flex-shrink-0">
                     <h3 class="text-lg font-semibold text-gray-800 dark:text-white/90">
-                     Client List
+                     Units
                     </h3>
                     <p class="text-sm text-gray-500 dark:text-gray-400">
-                      Easily manage Real Estate Customers effortlessly.
+                      Easily manage Real Estate units effortlessly.
                     </p>
                   </div>
 
                   <div class="flex flex-col gap-4 lg:flex-row lg:items-center">
                     <!-- Tab Navigation -->
-                    <div x-data="{selected: 'All'}"
-                      class="inline-flex h-11 w-full gap-0.5 overflow-x-auto rounded-lg bg-gray-100 p-0.5 sm:w-auto lg:min-w-fit dark:bg-gray-900">
-                      <button @click="selected = 'All'"
-                        :class="selected === 'All' ? 'shadow-theme-xs text-gray-900 dark:text-white bg-white dark:bg-gray-800' : 'text-gray-500 dark:text-gray-400'"
-                        class="h-10 flex-1 rounded-md px-2 py-2 text-xs font-medium hover:text-gray-900 sm:px-3 sm:text-sm lg:flex-initial dark:hover:text-white">
+                    <div x-data="{selected: 'All'}" class="inline-flex h-11 w-full gap-0.5 overflow-x-auto rounded-lg bg-gray-100 p-0.5 sm:w-auto lg:min-w-fit dark:bg-gray-900">
+                      <button @click="selected = 'All'" :class="selected === 'All' ? 'shadow-theme-xs text-gray-900 dark:text-white bg-white dark:bg-gray-800' : 'text-gray-500 dark:text-gray-400'" class="h-10 flex-1 rounded-md px-2 py-2 text-xs font-medium hover:text-gray-900 sm:px-3 sm:text-sm lg:flex-initial dark:hover:text-white shadow-theme-xs text-gray-900 dark:text-white bg-white dark:bg-gray-800">
                         All
                       </button>
-                      <button @click="selected = 'delivered'"
-                        :class="selected === 'delivered' ? 'shadow-theme-xs text-gray-900 dark:text-white bg-white dark:bg-gray-800' : 'text-gray-500 dark:text-gray-400'"
-                        class="h-10 flex-1 rounded-md px-2 py-2 text-xs font-medium hover:text-gray-900 sm:px-3 sm:text-sm lg:flex-initial dark:hover:text-white">
-                        Riders
+                      <button @click="selected = 'delivered'" :class="selected === 'delivered' ? 'shadow-theme-xs text-gray-900 dark:text-white bg-white dark:bg-gray-800' : 'text-gray-500 dark:text-gray-400'" class="h-10 flex-1 rounded-md px-2 py-2 text-xs font-medium hover:text-gray-900 sm:px-3 sm:text-sm lg:flex-initial dark:hover:text-white text-gray-500 dark:text-gray-400">
+                        Available
                       </button>
-                      <button @click="selected = 'in-transit'"
-                        :class="selected === 'in-transit' ? 'shadow-theme-xs text-gray-900 dark:text-white bg-white dark:bg-gray-800' : 'text-gray-500 dark:text-gray-400'"
-                        class="h-10 flex-1 rounded-md px-2 py-2 text-xs font-medium hover:text-gray-900 sm:px-3 sm:text-sm lg:flex-initial dark:hover:text-white">
-                        Stage Managers
+                      <button @click="selected = 'in-transit'" :class="selected === 'in-transit' ? 'shadow-theme-xs text-gray-900 dark:text-white bg-white dark:bg-gray-800' : 'text-gray-500 dark:text-gray-400'" class="h-10 flex-1 rounded-md px-2 py-2 text-xs font-medium hover:text-gray-900 sm:px-3 sm:text-sm lg:flex-initial dark:hover:text-white text-gray-500 dark:text-gray-400">
+                        Sold
                       </button>
                     </div>
+
                     <div class="relative">
                       <span class="absolute top-1/2 left-4 -translate-y-1/2 text-gray-500 dark:text-gray-400">
                         <svg class="fill-current" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -734,17 +723,7 @@
                         <svg class="w-[23px] h-[23px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                           <path stroke="currentColor" stroke-linejoin="round" stroke-width="1.1" d="M16.444 18H19a1 1 0 0 0 1-1v-5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h2.556M17 11V5a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v6h10ZM7 15h10v4a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1v-4Z"/>
                         </svg>
-
                         Print
-                      </button>
-                    </div>
-                    <div>
-                      <button onclick="window.location.href='new-lands-client.html'"
-                              class="bg-brand-500 shadow-theme-xs hover:bg-brand-600 inline-flex items-center justify-center gap-2 rounded-lg px-4 py-3 text-sm font-medium text-white transition">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                          <path d="M5 10.0002H15.0006M10.0002 5V15.0006" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                        </svg>
-                        Add Client
                       </button>
                     </div>
                   </div>
@@ -759,7 +738,7 @@
                           <div x-data="{checked: false}" class="flex items-center gap-3">
                             <div>
                               <span class="block font-medium text-gray-500 text-theme-xs dark:text-gray-400">
-                                #ClientID
+                                Unit No.#
                               </span>
                             </div>
                           </div>
@@ -768,28 +747,28 @@
                       <th class="px-6 py-3 whitespace-nowrap">
                         <div class="flex items-center">
                           <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
-                            Client
+                            Lot Number
                           </p>
                         </div>
                       </th>
                       <th class="px-6 py-3 whitespace-nowrap">
                         <div class="flex items-center">
                           <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
-                            Address
+                            Location
                           </p>
                         </div>
                       </th>
                       <th class="px-6 py-3 whitespace-nowrap">
                         <div class="flex items-center">
                           <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
-                            Role
+                            Acquired
                           </p>
                         </div>
                       </th>
                       <th class="px-6 py-3 whitespace-nowrap">
                         <div class="flex items-center">
                           <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
-                            Phone
+                            Unit Price
                           </p>
                         </div>
                       </th>
@@ -800,545 +779,358 @@
                           </p>
                         </div>
                       </th>
-                      <th class="px-6 py-3 whitespace-nowrap">
-                        <div class="flex items-center justify-center">
-                          <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
-                            Action
-                          </p>
-                        </div>
-                      </th>
                     </tr>
                     </thead>
                     <!-- table header end -->
                     <!-- table body start -->
                     <tbody class="divide-y divide-gray-100 dark:divide-gray-800">
+                    <!-- Row 1 - Most recent -->
                     <tr>
                       <td class="px-6 py-3 whitespace-nowrap">
-                    <span class="block font-medium text-gray-700 text-theme-sm dark:text-gray-400">
-                      CH0012025
-                    </span>
+      <span class="block font-medium text-gray-700 text-theme-sm dark:text-gray-400">
+        #LOT1010
+      </span>
                       </td>
                       <td class="px-6 py-3 whitespace-nowrap">
-                        <div class="flex items-center gap-3">
-                          <div class="flex items-center justify-center w-10 h-10 rounded-full bg-brand-100">
-                            <span class="text-xs font-semibold text-brand-500"> JM </span>
-                          </div>
-                          <div>
-            <span class="text-theme-sm mb-0.5 block font-medium text-gray-700 dark:text-gray-400">
-              James Mwangi
-            </span>
-                            <span class="text-gray-500 text-theme-sm dark:text-gray-400">
-              james.mwangi@gmail.com
-            </span>
-                          </div>
-                        </div>
+      <span class="block font-medium text-gray-700 text-theme-sm dark:text-gray-400">
+        245/7
+      </span>
                       </td>
                       <td class="px-6 py-3 whitespace-nowrap">
-                        <p class="text-gray-700 text-theme-sm dark:text-gray-400">
-                          Thika Town, Central Kenya
-                        </p>
+      <span class="block text-gray-700 text-theme-sm dark:text-gray-400">
+        Riverside Drive, Lavington<br>
+        <span class="text-gray-500 text-xs">Nairobi, Nairobi County, Kenya</span>
+      </span>
                       </td>
                       <td class="px-6 py-3 whitespace-nowrap">
-                        <p class="text-gray-700 text-theme-sm dark:text-gray-400">
-                          Chairman
-                        </p>
+      <span class="block text-gray-700 text-theme-sm dark:text-gray-400">
+        10-Jan-26 09:15
+      </span>
                       </td>
                       <td class="px-6 py-3 whitespace-nowrap">
-                        <p class="text-gray-700 text-theme-sm dark:text-gray-400">
-                          +254 722 123 456
-                        </p>
+      <span class="block text-gray-700 text-theme-sm dark:text-gray-400">
+        KES 1,250,000.00
+      </span>
                       </td>
                       <td class="px-6 py-3 whitespace-nowrap">
-                      <span class="bg-success-50 text-theme-xs text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 font-medium">
-                        Active
-                      </span>
-                      </td>
-                      <td class="px-6 py-3 whitespace-nowrap">
-                        <div class="flex justify-center">
-                          <button class="" onclick="window.location.href='view-landowner.html'">
-                            <svg class="w-[17px] h-[17px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                              <path stroke="currentColor" stroke-width="1" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
-                              <path stroke="currentColor" stroke-width="1" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
-                            </svg>
-                          </button>
-                        </div>
+      <span class="bg-success-50 text-theme-xs text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 font-medium">
+        Available
+      </span>
                       </td>
                     </tr>
 
+                    <!-- Row 2 -->
                     <tr>
                       <td class="px-6 py-3 whitespace-nowrap">
-        <span class="block font-medium text-gray-700 text-theme-sm dark:text-gray-400">
-          TR0022025
-        </span>
+      <span class="block font-medium text-gray-700 text-theme-sm dark:text-gray-400">
+        #LOT1009
+      </span>
                       </td>
                       <td class="px-6 py-3 whitespace-nowrap">
-                        <div class="flex items-center gap-3">
-                          <div class="flex items-center justify-center w-10 h-10 rounded-full bg-brand-100">
-                            <span class="text-xs font-semibold text-brand-500"> AK </span>
-                          </div>
-                          <div>
-            <span class="text-theme-sm mb-0.5 block font-medium text-gray-700 dark:text-gray-400">
-              Alice Kamau
-            </span>
-                            <span class="text-gray-500 text-theme-sm dark:text-gray-400">
-              alice.kamau@outlook.com
-            </span>
-                          </div>
-                        </div>
+      <span class="block font-medium text-gray-700 text-theme-sm dark:text-gray-400">
+        189/3
+      </span>
                       </td>
                       <td class="px-6 py-3 whitespace-nowrap">
-                        <p class="text-gray-700 text-theme-sm dark:text-gray-400">
-                          Makongeni, Thika
-                        </p>
+      <span class="block text-gray-700 text-theme-sm dark:text-gray-400">
+        Koinange Street<br>
+        <span class="text-gray-500 text-xs">Nairobi, Nairobi County, Kenya</span>
+      </span>
                       </td>
                       <td class="px-6 py-3 whitespace-nowrap">
-                        <p class="text-gray-700 text-theme-sm dark:text-gray-400">
-                          Treasurer
-                        </p>
+      <span class="block text-gray-700 text-theme-sm dark:text-gray-400">
+        09-Jan-26 14:20
+      </span>
                       </td>
                       <td class="px-6 py-3 whitespace-nowrap">
-                        <p class="text-gray-700 text-theme-sm dark:text-gray-400">
-                          +254 733 987 654
-                        </p>
+      <span class="block text-gray-700 text-theme-sm dark:text-gray-400">
+        KES 950,000.00
+      </span>
                       </td>
                       <td class="px-6 py-3 whitespace-nowrap">
-        <span class="bg-success-50 text-theme-xs text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 font-medium">
-          Active
-        </span>
-                      </td>
-                      <td class="px-6 py-3 whitespace-nowrap">
-                        <div class="flex justify-center">
-                          <button class="" onclick="window.location.href='view-landowner.html'">
-                            <svg class="w-[17px] h-[17px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                              <path stroke="currentColor" stroke-width="1" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
-                              <path stroke="currentColor" stroke-width="1" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
-                            </svg>
-                          </button>
-                        </div>
+      <span class="bg-error-50 text-theme-xs text-error-600 dark:bg-error-500/15 dark:text-error-500 rounded-full px-2 py-0.5 font-medium">
+        Sold
+      </span>
                       </td>
                     </tr>
 
+                    <!-- Row 3 -->
                     <tr>
                       <td class="px-6 py-3 whitespace-nowrap">
-        <span class="block font-medium text-gray-700 text-theme-sm dark:text-gray-400">
-          SG0032025
-        </span>
+      <span class="block font-medium text-gray-700 text-theme-sm dark:text-gray-400">
+        #LOT1008
+      </span>
                       </td>
                       <td class="px-6 py-3 whitespace-nowrap">
-                        <div class="flex items-center gap-3">
-                          <div class="flex items-center justify-center w-10 h-10 rounded-full bg-brand-100">
-                            <span class="text-xs font-semibold text-brand-500"> PM </span>
-                          </div>
-                          <div>
-            <span class="text-theme-sm mb-0.5 block font-medium text-gray-700 dark:text-gray-400">
-              Peter Mburu
-            </span>
-                            <span class="text-gray-500 text-theme-sm dark:text-gray-400">
-              peter.mburu@yahoo.com
-            </span>
-                          </div>
-                        </div>
+      <span class="block font-medium text-gray-700 text-theme-sm dark:text-gray-400">
+        156/2
+      </span>
                       </td>
                       <td class="px-6 py-3 whitespace-nowrap">
-                        <p class="text-gray-700 text-theme-sm dark:text-gray-400">
-                          Juja Road, Thika
-                        </p>
+      <span class="block text-gray-700 text-theme-sm dark:text-gray-400">
+        Moi Avenue, CBD<br>
+        <span class="text-gray-500 text-xs">Mombasa, Mombasa County, Kenya</span>
+      </span>
                       </td>
                       <td class="px-6 py-3 whitespace-nowrap">
-                        <p class="text-gray-700 text-theme-sm dark:text-gray-400">
-                          Secretary General
-                        </p>
+      <span class="block text-gray-700 text-theme-sm dark:text-gray-400">
+        08-Jan-26 11:45
+      </span>
                       </td>
                       <td class="px-6 py-3 whitespace-nowrap">
-                        <p class="text-gray-700 text-theme-sm dark:text-gray-400">
-                          +254 711 234 567
-                        </p>
+      <span class="block text-gray-700 text-theme-sm dark:text-gray-400">
+        KES 800,000.00
+      </span>
                       </td>
                       <td class="px-6 py-3 whitespace-nowrap">
-        <span class="bg-success-50 text-theme-xs text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 font-medium">
-          Active
-        </span>
-                      </td>
-                      <td class="px-6 py-3 whitespace-nowrap">
-                        <div class="flex justify-center">
-                          <button class="" onclick="window.location.href='view-landowner.html'">
-                            <svg class="w-[17px] h-[17px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                              <path stroke="currentColor" stroke-width="1" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
-                              <path stroke="currentColor" stroke-width="1" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
-                            </svg>
-                          </button>
-                        </div>
+      <span class="bg-success-50 text-theme-xs text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 font-medium">
+        Available
+      </span>
                       </td>
                     </tr>
 
+                    <!-- Row 4 -->
                     <tr>
                       <td class="px-6 py-3 whitespace-nowrap">
-        <span class="block font-medium text-gray-700 text-theme-sm dark:text-gray-400">
-          SM0042025
-        </span>
+      <span class="block font-medium text-gray-700 text-theme-sm dark:text-gray-400">
+        #LOT1007
+      </span>
                       </td>
                       <td class="px-6 py-3 whitespace-nowrap">
-                        <div class="flex items-center gap-3">
-                          <div class="flex items-center justify-center w-10 h-10 rounded-full bg-brand-100">
-                            <span class="text-xs font-semibold text-brand-500"> SK </span>
-                          </div>
-                          <div>
-            <span class="text-theme-sm mb-0.5 block font-medium text-gray-700 dark:text-gray-400">
-              Samuel Kariuki
-            </span>
-                            <span class="text-gray-500 text-theme-sm dark:text-gray-400">
-              samuel.kariuki@gmail.com
-            </span>
-                          </div>
-                        </div>
+      <span class="block font-medium text-gray-700 text-theme-sm dark:text-gray-400">
+        302/5
+      </span>
                       </td>
                       <td class="px-6 py-3 whitespace-nowrap">
-                        <p class="text-gray-700 text-theme-sm dark:text-gray-400">
-                          Stage 1, Makongeni
-                        </p>
+      <span class="block text-gray-700 text-theme-sm dark:text-gray-400">
+        Ngong Road, Karen<br>
+        <span class="text-gray-500 text-xs">Nairobi, Nairobi County, Kenya</span>
+      </span>
                       </td>
                       <td class="px-6 py-3 whitespace-nowrap">
-                        <p class="text-gray-700 text-theme-sm dark:text-gray-400">
-                          Stage Manager
-                        </p>
+      <span class="block text-gray-700 text-theme-sm dark:text-gray-400">
+        07-Jan-26 16:30
+      </span>
                       </td>
                       <td class="px-6 py-3 whitespace-nowrap">
-                        <p class="text-gray-700 text-theme-sm dark:text-gray-400">
-                          +254 722 345 678
-                        </p>
+      <span class="block text-gray-700 text-theme-sm dark:text-gray-400">
+        KES 1,500,000.00
+      </span>
                       </td>
                       <td class="px-6 py-3 whitespace-nowrap">
-        <span class="bg-success-50 text-theme-xs text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 font-medium">
-          Active
-        </span>
-                      </td>
-                      <td class="px-6 py-3 whitespace-nowrap">
-                        <div class="flex justify-center">
-                          <button class="" onclick="window.location.href='view-landowner.html'">
-                            <svg class="w-[17px] h-[17px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                              <path stroke="currentColor" stroke-width="1" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
-                              <path stroke="currentColor" stroke-width="1" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
-                            </svg>
-                          </button>
-                        </div>
+      <span class="bg-gray-100 text-theme-xs text-gray-600 dark:bg-gray-500/15 dark:text-gray-400 rounded-full px-2 py-0.5 font-medium">
+        Unavailable
+      </span>
                       </td>
                     </tr>
 
+                    <!-- Row 5 -->
                     <tr>
                       <td class="px-6 py-3 whitespace-nowrap">
-        <span class="block font-medium text-gray-700 text-theme-sm dark:text-gray-400">
-          OS0052025
-        </span>
+      <span class="block font-medium text-gray-700 text-theme-sm dark:text-gray-400">
+        #LOT1006
+      </span>
                       </td>
                       <td class="px-6 py-3 whitespace-nowrap">
-                        <div class="flex items-center gap-3">
-                          <div class="flex items-center justify-center w-10 h-10 rounded-full bg-brand-100">
-                            <span class="text-xs font-semibold text-brand-500"> MM </span>
-                          </div>
-                          <div>
-            <span class="text-theme-sm mb-0.5 block font-medium text-gray-700 dark:text-gray-400">
-              Mary Muthoni
-            </span>
-                            <span class="text-gray-500 text-theme-sm dark:text-gray-400">
-              mary.muthoni@hotmail.com
-            </span>
-                          </div>
-                        </div>
+      <span class="block font-medium text-gray-700 text-theme-sm dark:text-gray-400">
+        178/4
+      </span>
                       </td>
                       <td class="px-6 py-3 whitespace-nowrap">
-                        <p class="text-gray-700 text-theme-sm dark:text-gray-400">
-                          Office, Thika Town
-                        </p>
+      <span class="block text-gray-700 text-theme-sm dark:text-gray-400">
+        Thika Road, Roysambu<br>
+        <span class="text-gray-500 text-xs">Nairobi, Nairobi County, Kenya</span>
+      </span>
                       </td>
                       <td class="px-6 py-3 whitespace-nowrap">
-                        <p class="text-gray-700 text-theme-sm dark:text-gray-400">
-                          Office Secretary
-                        </p>
+      <span class="block text-gray-700 text-theme-sm dark:text-gray-400">
+        06-Jan-26 10:10
+      </span>
                       </td>
                       <td class="px-6 py-3 whitespace-nowrap">
-                        <p class="text-gray-700 text-theme-sm dark:text-gray-400">
-                          +254 733 456 789
-                        </p>
+      <span class="block text-gray-700 text-theme-sm dark:text-gray-400">
+        KES 750,000.00
+      </span>
                       </td>
                       <td class="px-6 py-3 whitespace-nowrap">
-        <span class="bg-success-50 text-theme-xs text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 font-medium">
-          Active
-        </span>
-                      </td>
-                      <td class="px-6 py-3 whitespace-nowrap">
-                        <div class="flex justify-center">
-                          <button class="" onclick="window.location.href='view-landowner.html'">
-                            <svg class="w-[17px] h-[17px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                              <path stroke="currentColor" stroke-width="1" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
-                              <path stroke="currentColor" stroke-width="1" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
-                            </svg>
-                          </button>
-                        </div>
+      <span class="bg-error-50 text-theme-xs text-error-600 dark:bg-error-500/15 dark:text-error-500 rounded-full px-2 py-0.5 font-medium">
+        Sold
+      </span>
                       </td>
                     </tr>
 
+                    <!-- Row 6 -->
                     <tr>
                       <td class="px-6 py-3 whitespace-nowrap">
-        <span class="block font-medium text-gray-700 text-theme-sm dark:text-gray-400">
-          RD0062025
-        </span>
+      <span class="block font-medium text-gray-700 text-theme-sm dark:text-gray-400">
+        #LOT1005
+      </span>
                       </td>
                       <td class="px-6 py-3 whitespace-nowrap">
-                        <div class="flex items-center gap-3">
-                          <div class="flex items-center justify-center w-10 h-10 rounded-full bg-brand-100">
-                            <span class="text-xs font-semibold text-brand-500"> WK </span>
-                          </div>
-                          <div>
-            <span class="text-theme-sm mb-0.5 block font-medium text-gray-700 dark:text-gray-400">
-              William Kimani
-            </span>
-                            <span class="text-gray-500 text-theme-sm dark:text-gray-400">
-              william.kimani@gmail.com
-            </span>
-                          </div>
-                        </div>
+      <span class="block font-medium text-gray-700 text-theme-sm dark:text-gray-400">
+        221/6
+      </span>
                       </td>
                       <td class="px-6 py-3 whitespace-nowrap">
-                        <p class="text-gray-700 text-theme-sm dark:text-gray-400">
-                          Stage 1, Makongeni
-                        </p>
+      <span class="block text-gray-700 text-theme-sm dark:text-gray-400">
+        Mombasa Road, Athi River<br>
+        <span class="text-gray-500 text-xs">Machakos, Machakos County, Kenya</span>
+      </span>
                       </td>
                       <td class="px-6 py-3 whitespace-nowrap">
-                        <p class="text-gray-700 text-theme-sm dark:text-gray-400">
-                          Rider
-                        </p>
+      <span class="block text-gray-700 text-theme-sm dark:text-gray-400">
+        05-Jan-26 13:25
+      </span>
                       </td>
                       <td class="px-6 py-3 whitespace-nowrap">
-                        <p class="text-gray-700 text-theme-sm dark:text-gray-400">
-                          +254 722 567 890
-                        </p>
+      <span class="block text-gray-700 text-theme-sm dark:text-gray-400">
+        KES 650,000.00
+      </span>
                       </td>
                       <td class="px-6 py-3 whitespace-nowrap">
-        <span class="bg-success-50 text-theme-xs text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 font-medium">
-          Active
-        </span>
-                      </td>
-                      <td class="px-6 py-3 whitespace-nowrap">
-                        <div class="flex justify-center">
-                          <button class="" onclick="window.location.href='view-landowner.html'">
-                            <svg class="w-[17px] h-[17px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                              <path stroke="currentColor" stroke-width="1" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
-                              <path stroke="currentColor" stroke-width="1" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
-                            </svg>
-                          </button>
-                        </div>
+      <span class="bg-success-50 text-theme-xs text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 font-medium">
+        Available
+      </span>
                       </td>
                     </tr>
 
+                    <!-- Row 7 -->
                     <tr>
                       <td class="px-6 py-3 whitespace-nowrap">
-        <span class="block font-medium text-gray-700 text-theme-sm dark:text-gray-400">
-          RD0072025
-        </span>
+      <span class="block font-medium text-gray-700 text-theme-sm dark:text-gray-400">
+        #LOT1004
+      </span>
                       </td>
                       <td class="px-6 py-3 whitespace-nowrap">
-                        <div class="flex items-center gap-3">
-                          <div class="flex items-center justify-center w-10 h-10 rounded-full bg-brand-100">
-                            <span class="text-xs font-semibold text-brand-500"> JK </span>
-                          </div>
-                          <div>
-            <span class="text-theme-sm mb-0.5 block font-medium text-gray-700 dark:text-gray-400">
-              Jane Kinyanjui
-            </span>
-                            <span class="text-gray-500 text-theme-sm dark:text-gray-400">
-              jane.kinyanjui@icloud.com
-            </span>
-                          </div>
-                        </div>
+      <span class="block font-medium text-gray-700 text-theme-sm dark:text-gray-400">
+        134/1
+      </span>
                       </td>
                       <td class="px-6 py-3 whitespace-nowrap">
-                        <p class="text-gray-700 text-theme-sm dark:text-gray-400">
-                          Stage 2, Thika
-                        </p>
+      <span class="block text-gray-700 text-theme-sm dark:text-gray-400">
+        Nyeri Road, Meru Town<br>
+        <span class="text-gray-500 text-xs">Meru, Meru County, Kenya</span>
+      </span>
                       </td>
                       <td class="px-6 py-3 whitespace-nowrap">
-                        <p class="text-gray-700 text-theme-sm dark:text-gray-400">
-                          Rider
-                        </p>
+      <span class="block text-gray-700 text-theme-sm dark:text-gray-400">
+        04-Jan-26 15:40
+      </span>
                       </td>
                       <td class="px-6 py-3 whitespace-nowrap">
-                        <p class="text-gray-700 text-theme-sm dark:text-gray-400">
-                          +254 733 678 901
-                        </p>
+      <span class="block text-gray-700 text-theme-sm dark:text-gray-400">
+        KES 550,000.00
+      </span>
                       </td>
                       <td class="px-6 py-3 whitespace-nowrap">
-        <span class="bg-success-50 text-theme-xs text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 font-medium">
-          Active
-        </span>
-                      </td>
-                      <td class="px-6 py-3 whitespace-nowrap">
-                        <div class="flex justify-center">
-                          <button class="" onclick="window.location.href='view-landowner.html'">
-                            <svg class="w-[17px] h-[17px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                              <path stroke="currentColor" stroke-width="1" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
-                              <path stroke="currentColor" stroke-width="1" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
-                            </svg>
-                          </button>
-                        </div>
+      <span class="bg-gray-100 text-theme-xs text-gray-600 dark:bg-gray-500/15 dark:text-gray-400 rounded-full px-2 py-0.5 font-medium">
+        Unavailable
+      </span>
                       </td>
                     </tr>
 
+                    <!-- Row 8 -->
                     <tr>
                       <td class="px-6 py-3 whitespace-nowrap">
-        <span class="block font-medium text-gray-700 text-theme-sm dark:text-gray-400">
-          RD0082025
-        </span>
+      <span class="block font-medium text-gray-700 text-theme-sm dark:text-gray-400">
+        #LOT1003
+      </span>
                       </td>
                       <td class="px-6 py-3 whitespace-nowrap">
-                        <div class="flex items-center gap-3">
-                          <div class="flex items-center justify-center w-10 h-10 rounded-full bg-brand-100">
-                            <span class="text-xs font-semibold text-brand-500"> PK </span>
-                          </div>
-                          <div>
-            <span class="text-theme-sm mb-0.5 block font-medium text-gray-700 dark:text-gray-400">
-              Patrick Kiptoo
-            </span>
-                            <span class="text-gray-500 text-theme-sm dark:text-gray-400">
-              patrick.kiptoo@gmail.com
-            </span>
-                          </div>
-                        </div>
+      <span class="block font-medium text-gray-700 text-theme-sm dark:text-gray-400">
+        267/8
+      </span>
                       </td>
                       <td class="px-6 py-3 whitespace-nowrap">
-                        <p class="text-gray-700 text-theme-sm dark:text-gray-400">
-                          Stage 1, Makongeni
-                        </p>
+      <span class="block text-gray-700 text-theme-sm dark:text-gray-400">
+        Kisumu Road, Nakuru<br>
+        <span class="text-gray-500 text-xs">Nakuru, Nakuru County, Kenya</span>
+      </span>
                       </td>
                       <td class="px-6 py-3 whitespace-nowrap">
-                        <p class="text-gray-700 text-theme-sm dark:text-gray-400">
-                          Rider
-                        </p>
+      <span class="block text-gray-700 text-theme-sm dark:text-gray-400">
+        03-Jan-26 12:55
+      </span>
                       </td>
                       <td class="px-6 py-3 whitespace-nowrap">
-                        <p class="text-gray-700 text-theme-sm dark:text-gray-400">
-                          +254 722 789 012
-                        </p>
+      <span class="block text-gray-700 text-theme-sm dark:text-gray-400">
+        KES 700,000.00
+      </span>
                       </td>
                       <td class="px-6 py-3 whitespace-nowrap">
-        <span class="bg-success-50 text-theme-xs text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 font-medium">
-          Active
-        </span>
-                      </td>
-                      <td class="px-6 py-3 whitespace-nowrap">
-                        <div class="flex justify-center">
-                          <button class="" onclick="window.location.href='view-landowner.html'">
-                            <svg class="w-[17px] h-[17px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                              <path stroke="currentColor" stroke-width="1" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
-                              <path stroke="currentColor" stroke-width="1" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
-                            </svg>
-                          </button>
-                        </div>
+      <span class="bg-error-50 text-theme-xs text-error-600 dark:bg-error-500/15 dark:text-error-500 rounded-full px-2 py-0.5 font-medium">
+        Sold
+      </span>
                       </td>
                     </tr>
 
+                    <!-- Row 9 -->
                     <tr>
                       <td class="px-6 py-3 whitespace-nowrap">
-        <span class="block font-medium text-gray-700 text-theme-sm dark:text-gray-400">
-          RD0092025
-        </span>
+      <span class="block font-medium text-gray-700 text-theme-sm dark:text-gray-400">
+        #LOT1002
+      </span>
                       </td>
                       <td class="px-6 py-3 whitespace-nowrap">
-                        <div class="flex items-center gap-3">
-                          <div class="flex items-center justify-center w-10 h-10 rounded-full bg-brand-100">
-                            <span class="text-xs font-semibold text-brand-500"> EN </span>
-                          </div>
-                          <div>
-            <span class="text-theme-sm mb-0.5 block font-medium text-gray-700 dark:text-gray-400">
-              Esther Njoroge
-            </span>
-                            <span class="text-gray-500 text-theme-sm dark:text-gray-400">
-              esther.njoroge@gmail.com
-            </span>
-                          </div>
-                        </div>
+      <span class="block font-medium text-gray-700 text-theme-sm dark:text-gray-400">
+        198/3
+      </span>
                       </td>
                       <td class="px-6 py-3 whitespace-nowrap">
-                        <p class="text-gray-700 text-theme-sm dark:text-gray-400">
-                          Stage 2, Thika
-                        </p>
+      <span class="block text-gray-700 text-theme-sm dark:text-gray-400">
+        Eldoret Road, Uasin Gishu<br>
+        <span class="text-gray-500 text-xs">Eldoret, Uasin Gishu County, Kenya</span>
+      </span>
                       </td>
                       <td class="px-6 py-3 whitespace-nowrap">
-                        <p class="text-gray-700 text-theme-sm dark:text-gray-400">
-                          Rider
-                        </p>
+      <span class="block text-gray-700 text-theme-sm dark:text-gray-400">
+        02-Jan-26 09:30
+      </span>
                       </td>
                       <td class="px-6 py-3 whitespace-nowrap">
-                        <p class="text-gray-700 text-theme-sm dark:text-gray-400">
-                          +254 733 890 123
-                        </p>
+      <span class="block text-gray-700 text-theme-sm dark:text-gray-400">
+        KES 600,000.00
+      </span>
                       </td>
                       <td class="px-6 py-3 whitespace-nowrap">
-        <span class="bg-success-50 text-theme-xs text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 font-medium">
-          Active
-        </span>
-                      </td>
-                      <td class="px-6 py-3 whitespace-nowrap">
-                        <div class="flex justify-center">
-                          <button class="" onclick="window.location.href='view-landowner.html'">
-                            <svg class="w-[17px] h-[17px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                              <path stroke="currentColor" stroke-width="1" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
-                              <path stroke="currentColor" stroke-width="1" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
-                            </svg>
-                          </button>
-                        </div>
+      <span class="bg-success-50 text-theme-xs text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 font-medium">
+        Available
+      </span>
                       </td>
                     </tr>
 
+                    <!-- Row 10 - Oldest -->
                     <tr>
                       <td class="px-6 py-3 whitespace-nowrap">
-        <span class="block font-medium text-gray-700 text-theme-sm dark:text-gray-400">
-          RD0102025
-        </span>
+      <span class="block font-medium text-gray-700 text-theme-sm dark:text-gray-400">
+        #LOT1001
+      </span>
                       </td>
                       <td class="px-6 py-3 whitespace-nowrap">
-                        <div class="flex items-center gap-3">
-                          <div class="flex items-center justify-center w-10 h-10 rounded-full bg-brand-100">
-                            <span class="text-xs font-semibold text-brand-500"> DN </span>
-                          </div>
-                          <div>
-            <span class="text-theme-sm mb-0.5 block font-medium text-gray-700 dark:text-gray-400">
-              David Njoroge
-            </span>
-                            <span class="text-gray-500 text-theme-sm dark:text-gray-400">
-              david.njoroge@gmail.com
-            </span>
-                          </div>
-                        </div>
+      <span class="block font-medium text-gray-700 text-theme-sm dark:text-gray-400">
+        123/1
+      </span>
                       </td>
                       <td class="px-6 py-3 whitespace-nowrap">
-                        <p class="text-gray-700 text-theme-sm dark:text-gray-400">
-                          Stage 1, Makongeni
-                        </p>
+      <span class="block text-gray-700 text-theme-sm dark:text-gray-400">
+        Kiambu Road, Thika<br>
+        <span class="text-gray-500 text-xs">Kiambu, Kiambu County, Kenya</span>
+      </span>
                       </td>
                       <td class="px-6 py-3 whitespace-nowrap">
-                        <p class="text-gray-700 text-theme-sm dark:text-gray-400">
-                          Rider
-                        </p>
+      <span class="block text-gray-700 text-theme-sm dark:text-gray-400">
+        01-Jan-26 08:00
+      </span>
                       </td>
                       <td class="px-6 py-3 whitespace-nowrap">
-                        <p class="text-gray-700 text-theme-sm dark:text-gray-400">
-                          +254 722 901 234
-                        </p>
+      <span class="block text-gray-700 text-theme-sm dark:text-gray-400">
+        KES 500,000.00
+      </span>
                       </td>
                       <td class="px-6 py-3 whitespace-nowrap">
-        <span class="bg-success-50 text-theme-xs text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 font-medium">
-          Active
-        </span>
-                      </td>
-                      <td class="px-6 py-3 whitespace-nowrap">
-                        <div class="flex justify-center">
-                          <button class="" onclick="window.location.href='view-landowner.html'">
-                            <svg class="w-[17px] h-[17px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                              <path stroke="currentColor" stroke-width="1" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
-                              <path stroke="currentColor" stroke-width="1" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
-                            </svg>
-                          </button>
-                        </div>
+      <span class="bg-success-50 text-theme-xs text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 font-medium">
+        Available
+      </span>
                       </td>
                     </tr>
                     </tbody>

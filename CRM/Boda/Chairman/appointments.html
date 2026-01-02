@@ -14,7 +14,7 @@
   <link href="../../assets/style.css" rel="stylesheet">
 </head>
 
-<body x-data="{ page: 'appointments', 'loaded': true, 'darkMode': false, 'stickyMenu': false, 'sidebarToggle': false, 'scrollTop': false,  'newVehicleModal': false, 'editVehicleModal': false, 'isProfileAddressModal': false }"
+<body x-data="{ page: 'appointments', 'loaded': true, 'darkMode': false, 'stickyMenu': false, 'sidebarToggle': false, 'scrollTop': false,  'editAppointmentModal': false, 'editVehicleModal': false, 'isProfileAddressModal': false }"
       x-init="
          darkMode = JSON.parse(localStorage.getItem('darkMode'));
          $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))"
@@ -522,7 +522,7 @@
         <!-- Content Start -->
         <div x-data="{ pageName: `Appointments` }">
           <div class="flex flex-wrap items-center justify-between gap-3 pb-6">
-            <h2 class="text-xl font-semibold text-gray-800 dark:text-white/90" x-text="pageName">Appoints</h2>
+            <h2 class="text-xl font-semibold text-gray-800 dark:text-white/90" x-text="pageName">Appointments</h2>
             <nav>
               <ol class="flex items-center gap-1.5">
                 <li>
@@ -562,44 +562,6 @@
                 </select>
               </div>
               <div>
-                <button class="hover:text-dark-900 shadow-theme-xs relative flex h-11 items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-4 py-3 whitespace-nowrap text-gray-700 transition-colors hover:bg-gray-100 hover:text-gray-700 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-white">
-                  <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="20"
-                          height="20"
-                          viewBox="0 0 20 20"
-                          fill="none"
-                  >
-                    <path
-                            d="M16.6661 13.3333V15.4166C16.6661 16.1069 16.1064 16.6666 15.4161 16.6666H4.58203C3.89168 16.6666 3.33203 16.1069 3.33203 15.4166V13.3333M10.0004 3.33325L10.0004 13.3333M6.14456 7.18708L9.9986 3.33549L13.8529 7.18708"
-                            stroke="currentColor"
-                            stroke-width="1.5"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                    />
-                  </svg>
-                  Print
-                </button>
-              </div>
-              <div>
-                <button type="button" @click="newVehicleModal = true"
-                        class="flex w-full justify-center rounded-lg bg-brand-500 px-4 py-2.5 text-sm font-medium text-white hover:bg-brand-600 sm:w-auto">
-                  <svg
-                          class="fill-current"
-                          width="18"
-                          height="18"
-                          viewBox="0 0 18 18"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
-                            d="M15.0911 2.78206C14.2125 1.90338 12.7878 1.90338 11.9092 2.78206L4.57524 10.116C4.26682 10.4244 4.0547 10.8158 3.96468 11.2426L3.31231 14.3352C3.25997 14.5833 3.33653 14.841 3.51583 15.0203C3.69512 15.1996 3.95286 15.2761 4.20096 15.2238L7.29355 14.5714C7.72031 14.4814 8.11172 14.2693 8.42013 13.9609L15.7541 6.62695C16.6327 5.74827 16.6327 4.32365 15.7541 3.44497L15.0911 2.78206ZM12.9698 3.84272C13.2627 3.54982 13.7376 3.54982 14.0305 3.84272L14.6934 4.50563C14.9863 4.79852 14.9863 5.2734 14.6934 5.56629L14.044 6.21573L12.3204 4.49215L12.9698 3.84272ZM11.2597 5.55281L5.6359 11.1766C5.53309 11.2794 5.46238 11.4099 5.43238 11.5522L5.01758 13.5185L6.98394 13.1037C7.1262 13.0737 7.25666 13.003 7.35947 12.9002L12.9833 7.27639L11.2597 5.55281Z"
-                            fill=""
-                    />
-                  </svg>
-                   Schedule Appointment</button>
               </div>
             </div>
           </div>
@@ -609,40 +571,8 @@
               <tr class="border-b border-gray-200 dark:divide-gray-800 dark:border-gray-800">
                 <th class="p-4 whitespace-nowrap">
                   <div class="flex w-full items-center gap-3">
-                    <label class="flex cursor-pointer items-center text-sm font-medium text-gray-700 select-none dark:text-gray-400">
-            <span class="relative">
-              <input
-                      type="checkbox"
-                      class="sr-only"
-                      x-model="selectAll"
-                      @change="toggleSelectAll()"
-              />
-              <span
-                      :class="selectAll ? 'border-brand-500 bg-brand-500' : 'bg-transparent border-gray-300 dark:border-gray-700'"
-                      class="flex h-4 w-4 items-center justify-center rounded-sm border-[1.25px]"
-              >
-                <span :class="selectAll ? '' : 'opacity-0'">
-                  <svg
-                          width="12"
-                          height="12"
-                          viewBox="0 0 12 12"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                            d="M10 3L4.5 8.5L2 6"
-                            stroke="white"
-                            stroke-width="1.6666"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                    />
-                  </svg>
-                </span>
-              </span>
-            </span>
-                    </label>
                     <p class="text-theme-xs font-medium text-gray-500 dark:text-gray-400">
-                      #ID
+                      #Appointment ID
                     </p>
                   </div>
                 </th>
@@ -652,25 +582,25 @@
                       Applicant
                     </p>
                     <span class="flex flex-col gap-0.5">
-            <svg
-                    :class="sort.key === 'applicantName' && sort.asc ? 'text-gray-800 dark:text-gray-400' : 'text-gray-300'"
-                    width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                      d="M4.40962 0.585167C4.21057 0.300808 3.78943 0.300807 3.59038 0.585166L1.05071 4.21327C0.81874 4.54466 1.05582 5 1.46033 5H6.53967C6.94418 5 7.18126 4.54466 6.94929 4.21327L4.40962 0.585167Z"
-                      fill="currentColor"
-              />
-            </svg>
-            <svg
-                    :class="sort.key === 'applicantName' && !sort.asc ? 'text-gray-800 dark:text-gray-400' : 'text-gray-300'"
-                    width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                      d="M4.40962 4.41483C4.21057 4.69919 3.78943 4.69919 3.59038 4.41483L1.05071 0.786732C0.81874 0.455343 1.05582 0 1.46033 0H6.53967C6.94418 0 7.18126 0.455342 6.94929 0.786731L4.40962 4.41483Z"
-                      fill="currentColor"
-              />
-            </svg>
-          </span>
+                      <svg
+                              :class="sort.key === 'applicantName' && sort.asc ? 'text-gray-800 dark:text-gray-400' : 'text-gray-300'"
+                              width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                                d="M4.40962 0.585167C4.21057 0.300808 3.78943 0.300807 3.59038 0.585166L1.05071 4.21327C0.81874 4.54466 1.05582 5 1.46033 5H6.53967C6.94418 5 7.18126 4.54466 6.94929 4.21327L4.40962 0.585167Z"
+                                fill="currentColor"
+                        />
+                      </svg>
+                      <svg
+                              :class="sort.key === 'applicantName' && !sort.asc ? 'text-gray-800 dark:text-gray-400' : 'text-gray-300'"
+                              width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                                d="M4.40962 4.41483C4.21057 4.69919 3.78943 4.69919 3.59038 4.41483L1.05071 0.786732C0.81874 0.455343 1.05582 0 1.46033 0H6.53967C6.94418 0 7.18126 0.455342 6.94929 0.786731L4.40962 4.41483Z"
+                                fill="currentColor"
+                        />
+                      </svg>
+                    </span>
                   </div>
                 </th>
                 <th class="p-4 text-left text-xs font-medium whitespace-nowrap text-gray-500 dark:text-gray-400">
@@ -679,25 +609,25 @@
                       Type
                     </p>
                     <span class="flex flex-col gap-0.5">
-            <svg
-                    :class="sort.key === 'appointmentType' && sort.asc ? 'text-gray-800 dark:text-gray-400' : 'text-gray-300'"
-                    width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                      d="M4.40962 0.585167C4.21057 0.300808 3.78943 0.300807 3.59038 0.585166L1.05071 4.21327C0.81874 4.54466 1.05582 5 1.46033 5H6.53967C6.94418 5 7.18126 4.54466 6.94929 4.21327L4.40962 0.585167Z"
-                      fill="currentColor"
-              />
-            </svg>
-            <svg
-                    :class="sort.key === 'appointmentType' && !sort.asc ? 'text-gray-800 dark:text-gray-400' : 'text-gray-300'"
-                    width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                      d="M4.40962 4.41483C4.21057 4.69919 3.78943 4.69919 3.59038 4.41483L1.05071 0.786732C0.81874 0.455343 1.05582 0 1.46033 0H6.53967C6.94418 0 7.18126 0.455342 6.94929 0.786731L4.40962 4.41483Z"
-                      fill="currentColor"
-              />
-            </svg>
-          </span>
+                      <svg
+                              :class="sort.key === 'appointmentType' && sort.asc ? 'text-gray-800 dark:text-gray-400' : 'text-gray-300'"
+                              width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                                d="M4.40962 0.585167C4.21057 0.300808 3.78943 0.300807 3.59038 0.585166L1.05071 4.21327C0.81874 4.54466 1.05582 5 1.46033 5H6.53967C6.94418 5 7.18126 4.54466 6.94929 4.21327L4.40962 0.585167Z"
+                                fill="currentColor"
+                        />
+                      </svg>
+                      <svg
+                              :class="sort.key === 'appointmentType' && !sort.asc ? 'text-gray-800 dark:text-gray-400' : 'text-gray-300'"
+                              width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                                d="M4.40962 4.41483C4.21057 4.69919 3.78943 4.69919 3.59038 4.41483L1.05071 0.786732C0.81874 0.455343 1.05582 0 1.46033 0H6.53967C6.94418 0 7.18126 0.455342 6.94929 0.786731L4.40962 4.41483Z"
+                                fill="currentColor"
+                        />
+                      </svg>
+                    </span>
                   </div>
                 </th>
                 <th class="p-4 text-left text-xs font-medium whitespace-nowrap text-gray-500 dark:text-gray-400">
@@ -706,25 +636,25 @@
                       Date & Time
                     </p>
                     <span class="flex flex-col gap-0.5">
-            <svg
-                    :class="sort.key === 'appointmentDate' && sort.asc ? 'text-gray-800 dark:text-gray-400' : 'text-gray-300'"
-                    width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                      d="M4.40962 0.585167C4.21057 0.300808 3.78943 0.300807 3.59038 0.585166L1.05071 4.21327C0.81874 4.54466 1.05582 5 1.46033 5H6.53967C6.94418 5 7.18126 4.54466 6.94929 4.21327L4.40962 0.585167Z"
-                      fill="currentColor"
-              />
-            </svg>
-            <svg
-                    :class="sort.key === 'appointmentDate' && !sort.asc ? 'text-gray-800 dark:text-gray-400' : 'text-gray-300'"
-                    width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                      d="M4.40962 4.41483C4.21057 4.69919 3.78943 4.69919 3.59038 4.41483L1.05071 0.786732C0.81874 0.455343 1.05582 0 1.46033 0H6.53967C6.94418 0 7.18126 0.455342 6.94929 0.786731L4.40962 4.41483Z"
-                      fill="currentColor"
-              />
-            </svg>
-          </span>
+                      <svg
+                              :class="sort.key === 'appointmentDate' && sort.asc ? 'text-gray-800 dark:text-gray-400' : 'text-gray-300'"
+                              width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                                d="M4.40962 0.585167C4.21057 0.300808 3.78943 0.300807 3.59038 0.585166L1.05071 4.21327C0.81874 4.54466 1.05582 5 1.46033 5H6.53967C6.94418 5 7.18126 4.54466 6.94929 4.21327L4.40962 0.585167Z"
+                                fill="currentColor"
+                        />
+                      </svg>
+                      <svg
+                              :class="sort.key === 'appointmentDate' && !sort.asc ? 'text-gray-800 dark:text-gray-400' : 'text-gray-300'"
+                              width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                                d="M4.40962 4.41483C4.21057 4.69919 3.78943 4.69919 3.59038 4.41483L1.05071 0.786732C0.81874 0.455343 1.05582 0 1.46033 0H6.53967C6.94418 0 7.18126 0.455342 6.94929 0.786731L4.40962 4.41483Z"
+                                fill="currentColor"
+                        />
+                      </svg>
+                    </span>
                   </div>
                 </th>
                 <th class="p-4 text-left text-xs font-medium whitespace-nowrap text-gray-500 dark:text-gray-400">
@@ -748,39 +678,6 @@
                 <tr class="transition hover:bg-gray-50 dark:hover:bg-gray-900">
                   <td class="p-4 whitespace-nowrap">
                     <div class="group flex items-center gap-3">
-                      <label class="flex cursor-pointer items-center text-sm font-medium text-gray-700 select-none dark:text-gray-400">
-              <span class="relative">
-                <input
-                        type="checkbox"
-                        class="sr-only"
-                        :value="row.id"
-                        x-model="selected"
-                        @change="updateSelectAll()"
-                />
-                <span
-                        :class="selected.includes(row.id) ? 'border-brand-500 bg-brand-500' : 'bg-transparent border-gray-300 dark:border-gray-700'"
-                        class="flex h-4 w-4 items-center justify-center rounded-sm border-[1.25px]"
-                >
-                  <span :class="selected.includes(row.id) ? '' : 'opacity-0'">
-                    <svg
-                            width="12"
-                            height="12"
-                            viewBox="0 0 12 12"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                              d="M10 3L4.5 8.5L2 6"
-                              stroke="white"
-                              stroke-width="1.6666"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                      />
-                    </svg>
-                  </span>
-                </span>
-              </span>
-                      </label>
                       <a
                               href="single-transaction.html"
                               class="text-theme-xs font-medium text-gray-700 group-hover:underline dark:text-gray-400"
@@ -807,7 +704,7 @@
                     <p class="text-sm text-gray-700 dark:text-gray-400 truncate max-w-[200px]" x-text="row.subject" :title="row.subject"></p>
                   </td>
                   <td class="p-4 whitespace-nowrap">
-          <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium"
+                      <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium"
                 :class="{
               'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400': row.priority === 'low',
               'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400': row.priority === 'normal',
@@ -818,7 +715,7 @@
           </span>
                   </td>
                   <td class="p-4 whitespace-nowrap">
-          <span
+                    <span
                   class="bg-success-50 dark:bg-success-500/15 text-success-700 dark:text-success-500 text-theme-xs rounded-full px-2 py-0.5 font-medium"
                   x-show="row.status === 'Confirmed'"
           >Confirmed</span>
@@ -863,10 +760,6 @@
                         <button @click="editAppointmentModal = true"
                                 class="text-theme-xs flex w-full rounded-lg px-3 py-2 text-left font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300">
                           View Details
-                        </button>
-                        <button
-                                class="text-theme-xs flex w-full rounded-lg px-3 py-2 text-left font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300">
-                          Reschedule
                         </button>
                         <button
                                 class="text-theme-xs flex w-full rounded-lg px-3 py-2 text-left font-medium text-red-500 hover:bg-red-50 hover:text-red-700 dark:text-red-400 dark:hover:bg-red-500/10 dark:hover:text-red-300">
@@ -1009,12 +902,12 @@
 <!-- ===== Page Wrapper End ===== -->
 
   <!-- BEGIN MODAL -->
-  <div x-show="newVehicleModal" class="fixed inset-0 flex items-center justify-center p-5 overflow-y-auto z-99999">
+  <div x-show="editAppointmentModal" class="fixed inset-0 flex items-center justify-center p-5 overflow-y-auto z-99999">
     <div class="modal-close-btn fixed inset-0 h-full w-full bg-gray-400/50 backdrop-blur-[32px]"></div>
-    <div @click.outside="newVehicleModal = false"
+    <div @click.outside="editAppointmentModal = false"
          class="no-scrollbar relative w-full max-w-[700px] overflow-y-auto rounded-3xl bg-white p-4 dark:bg-gray-900 lg:p-11">
       <!-- close btn -->
-      <button @click="newVehicleModal = false"
+      <button @click="editAppointmentModal = false"
               class="transition-color absolute right-5 top-5 z-999 flex h-11 w-11 items-center justify-center rounded-full bg-gray-100 text-gray-400 hover:bg-gray-200 hover:text-gray-600 dark:bg-gray-700 dark:bg-white/[0.05] dark:text-gray-400 dark:hover:bg-white/[0.07] dark:hover:text-gray-300">
         <svg
                 class="fill-current"
@@ -1041,318 +934,160 @@
         </p>
       </div>
 
-      <div x-data="appointmentWizard()" class="flex flex-col h-full">
-        <!-- Progress Bar -->
-        <div class="mb-8 px-4 sm:px-6">
-          <div class="flex items-center justify-between mb-2">
-            <div class="flex-1">
-              <div class="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                <div class="h-full bg-brand-500 transition-all duration-300"
-                     :style="`width: ${(currentStep / 3) * 100}%`"></div>
+      <div class="flex flex-col h-full">
+        <!-- Appointment Report Card -->
+        <div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6 mb-6">
+
+          <!-- Applicant Information Section -->
+          <div class="mb-8">
+            <div class="mb-4 md:mb-0">
+              <h4 class="text-normal font-bold text-gray-600 dark:text-white/90 mb-2"
+                  x-text="John Mwangi">
+                John Mwangi
+              </h4>
+              <div class="flex flex-col items-center gap-1 text-center xl:flex-row xl:gap-3 xl:text-left">
+                <p class="text-sm text-gray-500 dark:text-gray-400" x-text="john@example.com">
+                  john@example.com
+                </p>
+                <div class="hidden h-3.5 w-px bg-gray-300 xl:block dark:bg-gray-700"></div>
+                <p class="text-sm text-gray-500 dark:text-gray-400" x-text="+254 700 000 000">
+                  +254 700 000 000
+                </p>
               </div>
             </div>
-          </div>
-          <div class="flex justify-between text-sm text-gray-500 dark:text-gray-400">
-            <span :class="{'text-brand-600 dark:text-brand-400 font-medium': currentStep >= 1}">Applicant Information</span>
-            <span :class="{'text-brand-600 dark:text-brand-400 font-medium': currentStep >= 2}">Appointment Details</span>
-            <span :class="{'text-brand-600 dark:text-brand-400 font-medium': currentStep >= 3}">Preview & Schedule</span>
-          </div>
-        </div>
-
-        <!-- Step Indicator -->
-        <div class="px-6 pb-4">
-          <p class="text-sm text-gray-500 dark:text-gray-400">
-            Step <span x-text="currentStep"></span> of 3
-          </p>
-        </div>
-
-        <div class="custom-scrollbar flex-1 overflow-y-auto px-6">
-          <!-- Step 1: Applicant Information -->
-          <div x-show="currentStep === 1" x-cloak class="space-y-6">
-            <div>
-              <h5 class="text-lg font-medium text-gray-800 dark:text-white/90 mb-6">Applicant Information</h5>
-              <!-- Applicant Form -->
-              <div class="space-y-6">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                  <div>
-                    <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
-                      Full Name
-                    </label>
-                    <input type="text" placeholder="Enter your full name" x-model="applicant.name"
-                           class="dark:bg-dark-900 h-11 w-full rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-hidden focus:ring-3 focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800"
-                           required />
-                  </div>
-
-                  <div>
-                    <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
-                      Email Address
-                    </label>
-                    <input type="email" placeholder="Enter your email" x-model="applicant.email"
-                           class="dark:bg-dark-900 h-11 w-full rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-hidden focus:ring-3 focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800"
-                           required />
-                  </div>
-
-                  <div>
-                    <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
-                      Phone Number
-                    </label>
-                    <input type="tel" placeholder="+254 700 000 000" x-model="applicant.phone"
-                           class="dark:bg-dark-900 h-11 w-full rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-hidden focus:ring-3 focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800"
-                           required />
-                  </div>
-
-                  <div>
-                    <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
-                      Company / Organization
-                    </label>
-                    <input type="text" placeholder="Company name (optional)" x-model="applicant.company"
-                           class="dark:bg-dark-900 h-11 w-full rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-hidden focus:ring-3 focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800" />
-                  </div>
-                </div>
-              </div>
-            </div>
+            <hr class="mt-6 border-gray-200 dark:border-gray-700">
           </div>
 
-          <!-- Step 2: Appointment Details -->
-          <div x-show="currentStep === 2" x-cloak class="space-y-6">
-            <div>
-              <h5 class="text-lg font-medium text-gray-800 dark:text-white/90 mb-6">Appointment Details</h5>
-
-              <!-- Appointment Type Dropdown -->
-              <div class="mb-6">
-                <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
-                  Appointment Type
-                </label>
-                <div x-data="{ isOptionSelected: false }" class="relative z-20 bg-transparent">
-                  <select x-model="appointment.type" @change="isOptionSelected = true"
-                          class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 pr-11 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30"
-                          :class="isOptionSelected && 'text-gray-800 dark:text-white/90'" required>
-                    <option value="" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Select Appointment Type</option>
-                    <option value="consultation" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Consultation Meeting</option>
-                    <option value="review" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Document Review</option>
-                    <option value="signing" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Document Signing</option>
-                    <option value="interview" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Job Interview</option>
-                    <option value="training" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Training Session</option>
-                    <option value="presentation" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Client Presentation</option>
-                    <option value="followup" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Follow-up Meeting</option>
-                    <option value="other" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Other</option>
-                  </select>
-                  <span class="pointer-events-none absolute top-1/2 right-4 z-30 -translate-y-1/2 text-gray-700 dark:text-gray-400">
-                <svg class="stroke-current" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M4.79175 7.396L10.0001 12.6043L15.2084 7.396" stroke="" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              </span>
-                </div>
-              </div>
-
-              <!-- Date and Time Section -->
-              <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-                <!-- Date Input -->
+          <!-- Appointment Details Section -->
+          <div class="mb-8">
+            <div class="flex items-center gap-6">
+              <div>
                 <div>
-                  <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
-                    Appointment Date
-                  </label>
-                  <div class="relative">
-                    <div class="flatpickr-wrapper">
-                      <input type="text" placeholder="Select date" x-model="appointment.date"
-                             class="dark:bg-dark-900 datepickerTwo shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 pr-11 pl-4 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 flatpickr-input"
-                             readonly="readonly" required>
-                    </div>
-                    <span class="pointer-events-none absolute top-1/2 right-3 -translate-y-1/2 text-gray-500 dark:text-gray-400">
+                  <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">Appointment Type</p>
+                  <h3 class="font-medium text-gray-500 dark:text-white/90" x-text="14:30 PM">14:30 PM</h3>
+                </div>
+              </div>
+              <!-- Date & Time -->
+              <div class="w-px bg-gray-200 h-11 dark:bg-gray-800"></div>
+              <!-- Date & Time -->
+              <div>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">Scheduled for</p>
+                <div class="flex items-center gap-2">
+                  <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  <p class="font-medium text-gray-500 dark:text-white/90">
+                    <span x-text="15 Dec, 2024">15 Dec, 2024</span>
+                    <span x-show="appointment.time"> at <span x-text="10:30 AM">10:30 AM</span></span>
+                  </p>
+                </div>
+              </div>
+              <!-- Priority -->
+              <div class="w-px bg-gray-200 h-11 dark:bg-gray-800"></div>
+              <div>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">Priority </p>
+                <div class="flex items-center gap-3">
+                  <p class="font-medium text-gray-500 dark:text-white/90" x-text="Normal">
+                    Normal
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Company & Purpose (if available) -->
+          <template x-if="applicant.company || applicant.purpose">
+            <div class="border-t border-gray-200 dark:border-gray-700 pt-6">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <template x-if="applicant.company">
+                  <div>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">Company / Organization</p>
+                    <p class="font-medium text-gray-800 dark:text-white/90"
+                       x-text="applicant.company">
+                      ABC Corporation
+                    </p>
+                  </div>
+                </template>
+
+                <template x-if="applicant.purpose">
+                  <div>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">Purpose of Appointment</p>
+                    <p class="text-gray-700 dark:text-gray-300"
+                       x-text="applicant.purpose">
+                      To discuss business expansion financing options
+                    </p>
+                  </div>
+                </template>
+              </div>
+            </div>
+          </template>
+        </div>
+        <!-- Date and Time Section -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+          <!-- Date Input -->
+          <div>
+            <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+              Appointment Date
+            </label>
+            <div class="relative">
+              <div class="flatpickr-wrapper">
+                <input type="text" placeholder="Select date" x-model="appointment.date"
+                       class="dark:bg-dark-900 datepickerTwo shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 pr-11 pl-4 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 flatpickr-input"
+                       readonly="readonly" required>
+              </div>
+              <span class="pointer-events-none absolute top-1/2 right-3 -translate-y-1/2 text-gray-500 dark:text-gray-400">
                   <svg class="fill-current" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M6.66659 1.5415C7.0808 1.5415 7.41658 1.87729 7.41658 2.2915V2.99984H12.5833V2.2915C12.5833 1.87729 12.919 1.5415 13.3333 1.5415C13.7475 1.5415 14.0833 1.87729 14.0833 2.2915V2.99984L15.4166 2.99984C16.5212 2.99984 17.4166 3.89527 17.4166 4.99984V7.49984V15.8332C17.4166 16.9377 16.5212 17.8332 15.4166 17.8332H4.58325C3.47868 17.8332 2.58325 16.9377 2.58325 15.8332V7.49984V4.99984C2.58325 3.89527 3.47868 2.99984 4.58325 2.99984L5.91659 2.99984V2.2915C5.91659 1.87729 6.25237 1.5415 6.66659 1.5415ZM6.66659 4.49984H4.58325C4.30711 4.49984 4.08325 4.7237 4.08325 4.99984V6.74984H15.9166V4.99984C15.9166 4.7237 15.6927 4.49984 15.4166 4.49984H13.3333H6.66659ZM15.9166 8.24984H4.08325V15.8332C4.08325 16.1093 4.30711 16.3332 4.58325 16.3332H15.4166C15.6927 16.3332 15.9166 16.1093 15.9166 15.8332V8.24984Z" fill=""></path>
                 </svg>
                 </span>
-                  </div>
-                </div>
+            </div>
+          </div>
 
-                <!-- Time Input -->
-                <div>
-                  <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
-                    Appointment Time
-                  </label>
-                  <div class="relative">
-                    <input type="time" x-model="appointment.time"
-                           class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 pr-11 pl-4 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30"
-                           required>
-                    <span class="pointer-events-none absolute top-1/2 right-3 -translate-y-1/2 text-gray-500 dark:text-gray-400">
+          <!-- Time Input -->
+          <div>
+            <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+              Appointment Time
+            </label>
+            <div class="relative">
+              <input type="time" x-model="appointment.time"
+                     class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 pr-11 pl-4 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30"
+                     required>
+              <span class="pointer-events-none absolute top-1/2 right-3 -translate-y-1/2 text-gray-500 dark:text-gray-400">
                   <svg class="fill-current" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M10 2.5C6.13401 2.5 3 5.63401 3 9.5C3 13.366 6.13401 16.5 10 16.5C13.866 16.5 17 13.366 17 9.5C17 5.63401 13.866 2.5 10 2.5ZM1.5 9.5C1.5 4.80558 5.30558 1 10 1C14.6944 1 18.5 4.80558 18.5 9.5C18.5 14.1944 14.6944 18 10 18C5.30558 18 1.5 14.1944 1.5 9.5ZM10 4.5C10.2761 4.5 10.5 4.72386 10.5 5V9.5C10.5 9.77614 10.2761 10 10 10C9.72386 10 9.5 9.77614 9.5 9.5V5C9.5 4.72386 9.72386 4.5 10 4.5ZM14 9.5C14 9.22386 13.7761 9 13.5 9H10C9.72386 9 9.5 9.22386 9.5 9.5C9.5 9.77614 9.72386 10 10 10H13.5C13.7761 10 14 9.77614 14 9.5Z" fill=""></path>
                 </svg>
                 </span>
-                  </div>
-                </div>
-              </div>
+            </div>
+          </div>
 
-              <!-- Additional Information -->
-              <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-                <!-- Priority -->
-                <div>
-                  <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
-                    Priority Level
-                  </label>
-                  <div x-data="{ isOptionSelected: false }" class="relative z-20 bg-transparent">
-                    <select x-model="appointment.priority" @change="isOptionSelected = true"
-                            class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 pr-11 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30"
-                            :class="isOptionSelected && 'text-gray-800 dark:text-white/90'">
-                      <option value="" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Select Priority</option>
-                      <option value="low" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Low Priority</option>
-                      <option value="normal" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Normal Priority</option>
-                      <option value="high" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">High Priority</option>
-                      <option value="urgent" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Urgent</option>
-                    </select>
-                    <span class="pointer-events-none absolute top-1/2 right-4 z-30 -translate-y-1/2 text-gray-700 dark:text-gray-400">
+          <!-- Additional Information -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+            <!-- Priority -->
+            <div>
+              <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                Priority Level
+              </label>
+              <div x-data="{ isOptionSelected: false }" class="relative z-20 bg-transparent">
+                <select x-model="appointment.priority" @change="isOptionSelected = true"
+                        class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 pr-11 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30"
+                        :class="isOptionSelected && 'text-gray-800 dark:text-white/90'">
+                  <option value="" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Select Priority</option>
+                  <option value="low" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Low Priority</option>
+                  <option value="normal" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Normal Priority</option>
+                  <option value="high" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">High Priority</option>
+                  <option value="urgent" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Urgent</option>
+                </select>
+                <span class="pointer-events-none absolute top-1/2 right-4 z-30 -translate-y-1/2 text-gray-700 dark:text-gray-400">
                   <svg class="stroke-current" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M4.79175 7.396L10.0001 12.6043L15.2084 7.396" stroke="" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                   </svg>
                 </span>
-                  </div>
-                </div>
               </div>
             </div>
-          </div>
-
-          <!-- Step 3: Preview & Submit -->
-          <div x-show="currentStep === 3" x-cloak class="space-y-6">
-            <div>
-              <!-- Appointment Report Card -->
-              <div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6 mb-6">
-
-                <!-- Applicant Information Section -->
-                <div class="mb-8">
-                  <div class="mb-4 md:mb-0">
-                    <h4 class="text-normal font-bold text-gray-600 dark:text-white/90 mb-2"
-                        x-text="applicant.name || 'Applicant Name'">
-                      John Mwangi
-                    </h4>
-                    <div class="flex flex-col items-center gap-1 text-center xl:flex-row xl:gap-3 xl:text-left">
-                      <p class="text-sm text-gray-500 dark:text-gray-400" x-text="applicant.email || 'email@example.com'">
-                        john@example.com
-                      </p>
-                      <div class="hidden h-3.5 w-px bg-gray-300 xl:block dark:bg-gray-700"></div>
-                      <p class="text-sm text-gray-500 dark:text-gray-400" x-text="applicant.phone || '+254 700 000 000'">
-                        +254 700 000 000
-                      </p>
-                    </div>
-                  </div>
-                  <hr class="mt-6 border-gray-200 dark:border-gray-700">
-                </div>
-
-                <!-- Appointment Details Section -->
-                <div class="mb-8">
-                  <div class="flex items-center gap-6">
-                    <div>
-                      <div>
-                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">Appointment Type</p>
-                        <h3 class="font-medium text-gray-500 dark:text-white/90" x-text="getAppointmentTypeLabel(appointment.type)">Not specified</h3>
-                      </div>
-                    </div>
-                    <!-- Date & Time -->
-                    <div class="w-px bg-gray-200 h-11 dark:bg-gray-800"></div>
-                    <!-- Date & Time -->
-                    <div>
-                      <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">Scheduled for</p>
-                      <div class="flex items-center gap-2">
-                        <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                        </svg>
-                        <p class="font-medium text-gray-500 dark:text-white/90">
-                          <span x-text="appointment.date || 'Not selected'">15 Dec, 2024</span>
-                          <span x-show="appointment.time"> at <span x-text="appointment.time">10:30 AM</span></span>
-                        </p>
-                      </div>
-                    </div>
-                    <!-- Priority -->
-                    <div class="w-px bg-gray-200 h-11 dark:bg-gray-800"></div>
-                    <div>
-                      <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">Priority </p>
-                      <div class="flex items-center gap-3">
-                        <p class="font-medium text-gray-500 dark:text-white/90" :class="{
-                            'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400': appointment.priority === 'low',
-                            'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400': appointment.priority === 'normal',
-                            'bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-400': appointment.priority === 'high',
-                            'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400': appointment.priority === 'urgent',
-                            'bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-400': !appointment.priority
-                          }" x-text="appointment.priority ? appointment.priority.charAt(0).toUpperCase() + appointment.priority.slice(1) : 'Normal'">
-                          Normal
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Company & Purpose (if available) -->
-                <template x-if="applicant.company || applicant.purpose">
-                  <div class="border-t border-gray-200 dark:border-gray-700 pt-6">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <template x-if="applicant.company">
-                        <div>
-                          <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">Company / Organization</p>
-                          <p class="font-medium text-gray-800 dark:text-white/90"
-                             x-text="applicant.company">
-                            ABC Corporation
-                          </p>
-                        </div>
-                      </template>
-
-                      <template x-if="applicant.purpose">
-                        <div>
-                          <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">Purpose of Appointment</p>
-                          <p class="text-gray-700 dark:text-gray-300"
-                             x-text="applicant.purpose">
-                            To discuss business expansion financing options
-                          </p>
-                        </div>
-                      </template>
-                    </div>
-                  </div>
-                </template>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <!-- Navigation Buttons - FIXED LAYOUT -->
-        <div class="flex items-center justify-between px-6 pt-4 pb-6 border-t border-gray-200 dark:border-gray-700">
-          <!-- Bottom Left: Previous Button (only visible when not on step 1) -->
-          <div>
-            <button type="button" x-show="currentStep > 1" @click="previousStep()"
-                    class="flex items-center gap-2 rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03]">
-              <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-              </svg>
-              Previous
-            </button>
-          </div>
-
-          <!-- Bottom Right: Cancel and Action Buttons -->
-          <div class="flex items-center gap-3">
-            <!-- Cancel Button (always visible) -->
-            <button type="button" @click="newVehicleModal = false"
-                    class="rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03]">
-              Cancel
-            </button>
-
-            <!-- Next Button (for steps 1-2) -->
-            <button type="button" x-show="currentStep < 3" @click="nextStep()"
-                    class="flex items-center gap-2 rounded-lg bg-brand-500 px-4 py-2.5 text-sm font-medium text-white hover:bg-brand-600">
-              Next
-              <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-
-            <!-- Schedule Appointment Button (for step 3) -->
-            <button type="button" x-show="currentStep === 3" onclick="window.location.href='#'"
-                    class="rounded-lg bg-brand-500 px-4 py-2.5 text-sm font-medium text-white hover:bg-green-600">
-              Schedule Appointment
-            </button>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 
@@ -1572,368 +1307,308 @@
   <script defer src="../../assets/bundle.js"></script>
   <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
   <script>
-  function transactionTableFull() {
-    return {
-      rows: [
-        {
-          id: 1,
-          referenceId: "APT-2024-001",
-          applicantName: "John Mwangi",
-          applicantEmail: "john.m@example.com",
-          appointmentType: "Consultation Meeting",
-          appointmentDate: "15 Dec, 2024",
-          appointmentTime: "10:30 AM",
-          subject: "Business Loan Application Review",
-          priority: "high",
-          status: "Confirmed",
+    function transactionTableFull() {
+      return {
+        rows: [
+          {
+            id: 1,
+            referenceId: "APT-2024-001",
+            applicantName: "John Mwangi",
+            applicantEmail: "john.m@example.com",
+            appointmentType: "Consultation Meeting",
+            appointmentDate: "15 Dec, 2024",
+            appointmentTime: "10:30 AM",
+            subject: "Business Loan Application Review",
+            priority: "high",
+            status: "Confirmed",
+          },
+          {
+            id: 2,
+            referenceId: "APT-2024-002",
+            applicantName: "Sarah Kamau",
+            applicantEmail: "sarah.k@example.com",
+            appointmentType: "Document Signing",
+            appointmentDate: "16 Dec, 2024",
+            appointmentTime: "2:00 PM",
+            subject: "Vehicle Loan Agreement Finalization",
+            priority: "normal",
+            status: "Pending",
+          },
+          {
+            id: 3,
+            referenceId: "APT-2024-003",
+            applicantName: "David Ochieng",
+            applicantEmail: "david.o@example.com",
+            appointmentType: "Follow-up Meeting",
+            appointmentDate: "17 Dec, 2024",
+            appointmentTime: "11:00 AM",
+            subject: "Loan Repayment Schedule Discussion",
+            priority: "low",
+            status: "Completed",
+          },
+          {
+            id: 4,
+            referenceId: "APT-2024-004",
+            applicantName: "Grace Akinyi",
+            applicantEmail: "grace.a@example.com",
+            appointmentType: "Client Presentation",
+            appointmentDate: "18 Dec, 2024",
+            appointmentTime: "3:30 PM",
+            subject: "Investment Portfolio Review",
+            priority: "urgent",
+            status: "Confirmed",
+          },
+          {
+            id: 5,
+            referenceId: "APT-2024-005",
+            applicantName: "Michael Odhiambo",
+            applicantEmail: "michael.o@example.com",
+            appointmentType: "Training Session",
+            appointmentDate: "19 Dec, 2024",
+            appointmentTime: "9:00 AM",
+            subject: "Financial Management Workshop",
+            priority: "normal",
+            status: "Pending",
+          },
+          {
+            id: 6,
+            referenceId: "APT-2024-006",
+            applicantName: "Lucy Wanjiku",
+            applicantEmail: "lucy.w@example.com",
+            appointmentType: "Job Interview",
+            appointmentDate: "20 Dec, 2024",
+            appointmentTime: "1:30 PM",
+            subject: "Finance Manager Position",
+            priority: "high",
+            status: "Cancelled",
+          },
+          {
+            id: 7,
+            referenceId: "APT-2024-007",
+            applicantName: "Peter Njoroge",
+            applicantEmail: "peter.n@example.com",
+            appointmentType: "Document Review",
+            appointmentDate: "21 Dec, 2024",
+            appointmentTime: "10:00 AM",
+            subject: "Mortgage Application Documents",
+            priority: "normal",
+            status: "Confirmed",
+          },
+          {
+            id: 8,
+            referenceId: "APT-2024-008",
+            applicantName: "Esther Atieno",
+            applicantEmail: "esther.a@example.com",
+            appointmentType: "Consultation Meeting",
+            appointmentDate: "22 Dec, 2024",
+            appointmentTime: "4:00 PM",
+            subject: "Business Expansion Financing",
+            priority: "urgent",
+            status: "Pending",
+          },
+          {
+            id: 9,
+            referenceId: "APT-2024-009",
+            applicantName: "James Kariuki",
+            applicantEmail: "james.k@example.com",
+            appointmentType: "Follow-up Meeting",
+            appointmentDate: "23 Dec, 2024",
+            appointmentTime: "11:30 AM",
+            subject: "Loan Restructuring Options",
+            priority: "normal",
+            status: "Completed",
+          },
+          {
+            id: 10,
+            referenceId: "APT-2024-010",
+            applicantName: "Mary Wambui",
+            applicantEmail: "mary.w@example.com",
+            appointmentType: "Client Presentation",
+            appointmentDate: "24 Dec, 2024",
+            appointmentTime: "2:30 PM",
+            subject: "Annual Financial Report Review",
+            priority: "low",
+            status: "Confirmed",
+          },
+          {
+            id: 11,
+            referenceId: "APT-2024-011",
+            applicantName: "Robert Mwenda",
+            applicantEmail: "robert.m@example.com",
+            appointmentType: "Document Signing",
+            appointmentDate: "26 Dec, 2024",
+            appointmentTime: "10:00 AM",
+            subject: "Investment Agreement Signing",
+            priority: "high",
+            status: "Pending",
+          },
+          {
+            id: 12,
+            referenceId: "APT-2024-012",
+            applicantName: "Susan Chebet",
+            applicantEmail: "susan.c@example.com",
+            appointmentType: "Training Session",
+            appointmentDate: "27 Dec, 2024",
+            appointmentTime: "9:30 AM",
+            subject: "Digital Banking Training",
+            priority: "normal",
+            status: "Confirmed",
+          },
+          {
+            id: 13,
+            referenceId: "APT-2024-013",
+            applicantName: "Brian Onyango",
+            applicantEmail: "brian.o@example.com",
+            appointmentType: "Consultation Meeting",
+            appointmentDate: "28 Dec, 2024",
+            appointmentTime: "3:00 PM",
+            subject: "Personal Loan Application",
+            priority: "normal",
+            status: "Cancelled",
+          },
+          {
+            id: 14,
+            referenceId: "APT-2024-014",
+            applicantName: "Faith Auma",
+            applicantEmail: "faith.a@example.com",
+            appointmentType: "Follow-up Meeting",
+            appointmentDate: "29 Dec, 2024",
+            appointmentTime: "1:00 PM",
+            subject: "Credit Score Improvement Plan",
+            priority: "low",
+            status: "Completed",
+          },
+          {
+            id: 15,
+            referenceId: "APT-2024-015",
+            applicantName: "Samuel Gitau",
+            applicantEmail: "samuel.g@example.com",
+            appointmentType: "Job Interview",
+            appointmentDate: "30 Dec, 2024",
+            appointmentTime: "11:00 AM",
+            subject: "Loan Officer Position",
+            priority: "high",
+            status: "Pending",
+          },
+          {
+            id: 16,
+            referenceId: "APT-2024-016",
+            applicantName: "Joyce Njeri",
+            applicantEmail: "joyce.n@example.com",
+            appointmentType: "Document Review",
+            appointmentDate: "2 Jan, 2025",
+            appointmentTime: "10:30 AM",
+            subject: "Insurance Policy Documents",
+            priority: "normal",
+            status: "Confirmed",
+          },
+          {
+            id: 17,
+            referenceId: "APT-2024-017",
+            applicantName: "Daniel Omondi",
+            applicantEmail: "daniel.o@example.com",
+            appointmentType: "Client Presentation",
+            appointmentDate: "3 Jan, 2025",
+            appointmentTime: "2:00 PM",
+            subject: "Wealth Management Strategy",
+            priority: "urgent",
+            status: "Pending",
+          },
+          {
+            id: 18,
+            referenceId: "APT-2024-018",
+            applicantName: "Patricia Adhiambo",
+            applicantEmail: "patricia.a@example.com",
+            appointmentType: "Consultation Meeting",
+            appointmentDate: "4 Jan, 2025",
+            appointmentTime: "4:30 PM",
+            subject: "Education Loan Planning",
+            priority: "normal",
+            status: "Confirmed",
+          },
+          {
+            id: 19,
+            referenceId: "APT-2024-019",
+            applicantName: "Kevin Maina",
+            applicantEmail: "kevin.m@example.com",
+            appointmentType: "Document Signing",
+            appointmentDate: "5 Jan, 2025",
+            appointmentTime: "9:00 AM",
+            subject: "Business Partnership Agreement",
+            priority: "high",
+            status: "Completed",
+          },
+          {
+            id: 20,
+            referenceId: "APT-2024-020",
+            applicantName: "Naomi Wairimu",
+            applicantEmail: "naomi.w@example.com",
+            appointmentType: "Training Session",
+            appointmentDate: "6 Jan, 2025",
+            appointmentTime: "1:30 PM",
+            subject: "Risk Management Workshop",
+            priority: "normal",
+            status: "Confirmed",
+          },
+        ],
+        selected: [],
+        selectAll: false,
+        sort: { key: "appointmentDate", asc: true },
+        page: 1,
+        perPage: 10,
+        get totalPages() {
+          return Math.ceil(this.rows.length / this.perPage) || 1;
         },
-        {
-          id: 2,
-          referenceId: "APT-2024-002",
-          applicantName: "Sarah Kamau",
-          applicantEmail: "sarah.k@example.com",
-          appointmentType: "Document Signing",
-          appointmentDate: "16 Dec, 2024",
-          appointmentTime: "2:00 PM",
-          subject: "Vehicle Loan Agreement Finalization",
-          priority: "normal",
-          status: "Pending",
+        get paginatedRows() {
+          return this.sortedRows.slice(
+                  (this.page - 1) * this.perPage,
+                  this.page * this.perPage,
+          );
         },
-        {
-          id: 3,
-          referenceId: "APT-2024-003",
-          applicantName: "David Ochieng",
-          applicantEmail: "david.o@example.com",
-          appointmentType: "Follow-up Meeting",
-          appointmentDate: "17 Dec, 2024",
-          appointmentTime: "11:00 AM",
-          subject: "Loan Repayment Schedule Discussion",
-          priority: "low",
-          status: "Completed",
+        get sortedRows() {
+          return this.rows.slice().sort((a, b) => {
+            let valA = a[this.sort.key];
+            let valB = b[this.sort.key];
+            if (typeof valA === "string") valA = valA.toLowerCase();
+            if (typeof valB === "string") valB = valB.toLowerCase();
+            if (valA < valB) return this.sort.asc ? -1 : 1;
+            if (valA > valB) return this.sort.asc ? 1 : -1;
+            return 0;
+          });
         },
-        {
-          id: 4,
-          referenceId: "APT-2024-004",
-          applicantName: "Grace Akinyi",
-          applicantEmail: "grace.a@example.com",
-          appointmentType: "Client Presentation",
-          appointmentDate: "18 Dec, 2024",
-          appointmentTime: "3:30 PM",
-          subject: "Investment Portfolio Review",
-          priority: "urgent",
-          status: "Confirmed",
+        sortBy(key) {
+          if (this.sort.key === key) {
+            this.sort.asc = !this.sort.asc;
+          } else {
+            this.sort.key = key;
+            this.sort.asc = true;
+          }
+          this.page = 1;
         },
-        {
-          id: 5,
-          referenceId: "APT-2024-005",
-          applicantName: "Michael Odhiambo",
-          applicantEmail: "michael.o@example.com",
-          appointmentType: "Training Session",
-          appointmentDate: "19 Dec, 2024",
-          appointmentTime: "9:00 AM",
-          subject: "Financial Management Workshop",
-          priority: "normal",
-          status: "Pending",
-        },
-        {
-          id: 6,
-          referenceId: "APT-2024-006",
-          applicantName: "Lucy Wanjiku",
-          applicantEmail: "lucy.w@example.com",
-          appointmentType: "Job Interview",
-          appointmentDate: "20 Dec, 2024",
-          appointmentTime: "1:30 PM",
-          subject: "Finance Manager Position",
-          priority: "high",
-          status: "Cancelled",
-        },
-        {
-          id: 7,
-          referenceId: "APT-2024-007",
-          applicantName: "Peter Njoroge",
-          applicantEmail: "peter.n@example.com",
-          appointmentType: "Document Review",
-          appointmentDate: "21 Dec, 2024",
-          appointmentTime: "10:00 AM",
-          subject: "Mortgage Application Documents",
-          priority: "normal",
-          status: "Confirmed",
-        },
-        {
-          id: 8,
-          referenceId: "APT-2024-008",
-          applicantName: "Esther Atieno",
-          applicantEmail: "esther.a@example.com",
-          appointmentType: "Consultation Meeting",
-          appointmentDate: "22 Dec, 2024",
-          appointmentTime: "4:00 PM",
-          subject: "Business Expansion Financing",
-          priority: "urgent",
-          status: "Pending",
-        },
-        {
-          id: 9,
-          referenceId: "APT-2024-009",
-          applicantName: "James Kariuki",
-          applicantEmail: "james.k@example.com",
-          appointmentType: "Follow-up Meeting",
-          appointmentDate: "23 Dec, 2024",
-          appointmentTime: "11:30 AM",
-          subject: "Loan Restructuring Options",
-          priority: "normal",
-          status: "Completed",
-        },
-        {
-          id: 10,
-          referenceId: "APT-2024-010",
-          applicantName: "Mary Wambui",
-          applicantEmail: "mary.w@example.com",
-          appointmentType: "Client Presentation",
-          appointmentDate: "24 Dec, 2024",
-          appointmentTime: "2:30 PM",
-          subject: "Annual Financial Report Review",
-          priority: "low",
-          status: "Confirmed",
-        },
-        {
-          id: 11,
-          referenceId: "APT-2024-011",
-          applicantName: "Robert Mwenda",
-          applicantEmail: "robert.m@example.com",
-          appointmentType: "Document Signing",
-          appointmentDate: "26 Dec, 2024",
-          appointmentTime: "10:00 AM",
-          subject: "Investment Agreement Signing",
-          priority: "high",
-          status: "Pending",
-        },
-        {
-          id: 12,
-          referenceId: "APT-2024-012",
-          applicantName: "Susan Chebet",
-          applicantEmail: "susan.c@example.com",
-          appointmentType: "Training Session",
-          appointmentDate: "27 Dec, 2024",
-          appointmentTime: "9:30 AM",
-          subject: "Digital Banking Training",
-          priority: "normal",
-          status: "Confirmed",
-        },
-        {
-          id: 13,
-          referenceId: "APT-2024-013",
-          applicantName: "Brian Onyango",
-          applicantEmail: "brian.o@example.com",
-          appointmentType: "Consultation Meeting",
-          appointmentDate: "28 Dec, 2024",
-          appointmentTime: "3:00 PM",
-          subject: "Personal Loan Application",
-          priority: "normal",
-          status: "Cancelled",
-        },
-        {
-          id: 14,
-          referenceId: "APT-2024-014",
-          applicantName: "Faith Auma",
-          applicantEmail: "faith.a@example.com",
-          appointmentType: "Follow-up Meeting",
-          appointmentDate: "29 Dec, 2024",
-          appointmentTime: "1:00 PM",
-          subject: "Credit Score Improvement Plan",
-          priority: "low",
-          status: "Completed",
-        },
-        {
-          id: 15,
-          referenceId: "APT-2024-015",
-          applicantName: "Samuel Gitau",
-          applicantEmail: "samuel.g@example.com",
-          appointmentType: "Job Interview",
-          appointmentDate: "30 Dec, 2024",
-          appointmentTime: "11:00 AM",
-          subject: "Loan Officer Position",
-          priority: "high",
-          status: "Pending",
-        },
-        {
-          id: 16,
-          referenceId: "APT-2024-016",
-          applicantName: "Joyce Njeri",
-          applicantEmail: "joyce.n@example.com",
-          appointmentType: "Document Review",
-          appointmentDate: "2 Jan, 2025",
-          appointmentTime: "10:30 AM",
-          subject: "Insurance Policy Documents",
-          priority: "normal",
-          status: "Confirmed",
-        },
-        {
-          id: 17,
-          referenceId: "APT-2024-017",
-          applicantName: "Daniel Omondi",
-          applicantEmail: "daniel.o@example.com",
-          appointmentType: "Client Presentation",
-          appointmentDate: "3 Jan, 2025",
-          appointmentTime: "2:00 PM",
-          subject: "Wealth Management Strategy",
-          priority: "urgent",
-          status: "Pending",
-        },
-        {
-          id: 18,
-          referenceId: "APT-2024-018",
-          applicantName: "Patricia Adhiambo",
-          applicantEmail: "patricia.a@example.com",
-          appointmentType: "Consultation Meeting",
-          appointmentDate: "4 Jan, 2025",
-          appointmentTime: "4:30 PM",
-          subject: "Education Loan Planning",
-          priority: "normal",
-          status: "Confirmed",
-        },
-        {
-          id: 19,
-          referenceId: "APT-2024-019",
-          applicantName: "Kevin Maina",
-          applicantEmail: "kevin.m@example.com",
-          appointmentType: "Document Signing",
-          appointmentDate: "5 Jan, 2025",
-          appointmentTime: "9:00 AM",
-          subject: "Business Partnership Agreement",
-          priority: "high",
-          status: "Completed",
-        },
-        {
-          id: 20,
-          referenceId: "APT-2024-020",
-          applicantName: "Naomi Wairimu",
-          applicantEmail: "naomi.w@example.com",
-          appointmentType: "Training Session",
-          appointmentDate: "6 Jan, 2025",
-          appointmentTime: "1:30 PM",
-          subject: "Risk Management Workshop",
-          priority: "normal",
-          status: "Confirmed",
-        },
-      ],
-      selected: [],
-      selectAll: false,
-      sort: { key: "appointmentDate", asc: true },
-      page: 1,
-      perPage: 10,
-      get totalPages() {
-        return Math.ceil(this.rows.length / this.perPage) || 1;
-      },
-      get paginatedRows() {
-        return this.sortedRows.slice(
-                (this.page - 1) * this.perPage,
-                this.page * this.perPage,
-        );
-      },
-      get sortedRows() {
-        return this.rows.slice().sort((a, b) => {
-          let valA = a[this.sort.key];
-          let valB = b[this.sort.key];
-          if (typeof valA === "string") valA = valA.toLowerCase();
-          if (typeof valB === "string") valB = valB.toLowerCase();
-          if (valA < valB) return this.sort.asc ? -1 : 1;
-          if (valA > valB) return this.sort.asc ? 1 : -1;
-          return 0;
-        });
-      },
-      sortBy(key) {
-        if (this.sort.key === key) {
-          this.sort.asc = !this.sort.asc;
-        } else {
-          this.sort.key = key;
-          this.sort.asc = true;
-        }
-        this.page = 1;
-      },
-      toggleSelectAll() {
-        if (this.selectAll) {
-          this.selected = this.paginatedRows.map((t) => t.id);
-        } else {
-          this.selected = [];
-        }
-      },
-      updateSelectAll() {
-        this.selectAll = this.paginatedRows.every((row) =>
-                this.selected.includes(row.id),
-        );
-      },
-      get startEntry() {
-        return this.rows.length === 0 ? 0 : (this.page - 1) * this.perPage + 1;
-      },
-      get endEntry() {
-        let end = this.page * this.perPage;
-        return end > this.rows.length ? this.rows.length : end;
-      },
-      goToPage(n) {
-        if (n >= 1 && n <= this.totalPages) this.page = n;
-      },
-    };
-  }
-</script>
-  <!-- Simplified JavaScript -->
-  <script>
-    document.addEventListener('alpine:init', () => {
-      Alpine.data('appointmentWizard', () => ({
-        currentStep: 1,
-        agreement: false,
-
-        applicant: {
-          name: '',
-          email: '',
-          phone: '',
-          company: '',
-          purpose: ''
-        },
-
-        appointment: {
-          type: '',
-          date: '',
-          time: '',
-          subject: '',
-          description: '',
-          duration: '',
-          priority: 'normal'
-        },
-
-        nextStep() {
-          if (this.currentStep < 3) {
-            this.currentStep++;
+        toggleSelectAll() {
+          if (this.selectAll) {
+            this.selected = this.paginatedRows.map((t) => t.id);
+          } else {
+            this.selected = [];
           }
         },
-
-        previousStep() {
-          if (this.currentStep > 1) {
-            this.currentStep--;
-          }
+        updateSelectAll() {
+          this.selectAll = this.paginatedRows.every((row) =>
+                  this.selected.includes(row.id),
+          );
         },
-
-        getAppointmentTypeLabel(type) {
-          const types = {
-            'consultation': 'Consultation Meeting',
-            'review': 'Document Review',
-            'signing': 'Document Signing',
-            'interview': 'Job Interview',
-            'training': 'Training Session',
-            'presentation': 'Client Presentation',
-            'followup': 'Follow-up Meeting',
-            'other': 'Other'
-          };
-          return types[type] || 'Not specified';
+        get startEntry() {
+          return this.rows.length === 0 ? 0 : (this.page - 1) * this.perPage + 1;
         },
-
-        generateReferenceId() {
-          const date = new Date();
-          const year = date.getFullYear();
-          const random = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
-          return `APT-${year}-${random}`;
-        }
-      }));
-    });
+        get endEntry() {
+          let end = this.page * this.perPage;
+          return end > this.rows.length ? this.rows.length : end;
+        },
+        goToPage(n) {
+          if (n >= 1 && n <= this.totalPages) this.page = n;
+        },
+      };
+    }
   </script>
 </body>
 </html>
