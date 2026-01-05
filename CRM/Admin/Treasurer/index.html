@@ -590,44 +590,54 @@
                   <!-- Metric Item Start -->
                   <div class="flex flex-col justify-between space-y-6 rounded-xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-white/3">
                     <div class="flex items-start justify-between">
-                      <div class="">
-                        <p class="text-medium text-success-500 dark:text-success-400">
-                          Current Sacco balance
+                      <div class="items-center justify-center">
+                        <p class="items-center justify-center text-lg font-semibold text-gray-500 dark:text-white/90">
+                          Bodaboda group wallet
                         </p>
                         <h3 class="text-2xl font-semibold text-gray-600 dark:text-white/90">
-                          KES 23,445,700.00
+                          KES 245,700.00
                         </h3>
+                        <p class="text-xs text-gray-500 dark:text-gray-400">
+                          <span class="text-success-600 font-medium">+3.85%</span>
+                          than last Month
+                        </p>
                       </div>
                       <div x-data="{openDropDown: false}" class="relative h-fit">
                       </div>
                     </div>
                     <div class="items-center justify-between">
                       <div>
-                        <div class="grid grid-cols-2 justify-between gap-10 divide-x divide-gray-100 rounded-xl border border-gray-100 bg-white py-4 dark:divide-gray-800 dark:border-gray-800 dark:bg-gray-800/[0.03]">
-                          <div class="px-5">
-                            <span class="block text-sm text-gray-500 dark:text-gray-400">Contributions</span>
-                            <div class="mt-1 flex items-center gap-2">
-                                <span class="bg-success-50 dark:bg-success-500/15 text-success-600 inline-flex size-5 items-center justify-center rounded-full">
-                                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.56462 1.62411C5.70194 1.47091 5.90136 1.37451 6.12329 1.37451C6.1236 1.37451 6.1239 1.37451 6.12421 1.37451C6.3163 1.37434 6.50845 1.4475 6.65505 1.594L9.65514 4.59199C9.94814 4.88478 9.94831 5.35966 9.65552 5.65265C9.36272 5.94565 8.88785 5.94581 8.59486 5.65302L6.87329 3.93267L6.87329 10.1252C6.87329 10.5394 6.53751 10.8752 6.12329 10.8752C5.70908 10.8752 5.37329 10.5394 5.37329 10.1252L5.37329 3.93597L3.65516 5.65301C3.36218 5.94581 2.8873 5.94566 2.5945 5.65267C2.3017 5.35968 2.30185 4.88481 2.59484 4.59201L5.56462 1.62411Z" fill="currentColor"></path>
-                                  </svg>
-                                </span>
-                              <h4 class="text-xl font-semibold text-gray-500 dark:text-white/90">
-                                790
-                              </h4>
+                        <div class="mt-5 flex items-center gap-2">
+                          <div class="flex items-center justify-center gap-6">
+                            <div>
+                              <p class="text-lg font-semibold text-center text-gray-500 dark:text-white/90">
+                                827
+                              </p>
+                              <p class="text-theme-xs mt-0.5 text-center text-gray-500 dark:text-gray-400">
+                                Total Members
+                              </p>
                             </div>
-                          </div>
-                          <div class="px-5">
-                            <span class="block text-sm text-gray-500 dark:text-gray-400">Withdrawals</span>
-                            <div class="mt-1 flex items-center gap-2">
-                                <span class="bg-error-50 dark:bg-error-500/15 text-error-600 inline-flex size-5 items-center justify-center rounded-full">
-                                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.31462 10.3761C5.45194 10.5293 5.65136 10.6257 5.87329 10.6257C5.8736 10.6257 5.8739 10.6257 5.87421 10.6257C6.0663 10.6259 6.25845 10.5527 6.40505 10.4062L9.40514 7.4082C9.69814 7.11541 9.69831 6.64054 9.40552 6.34754C9.11273 6.05454 8.63785 6.05438 8.34486 6.34717L6.62329 8.06753L6.62329 1.875C6.62329 1.46079 6.28751 1.125 5.87329 1.125C5.45908 1.125 5.12329 1.46079 5.12329 1.875L5.12329 8.06422L3.40516 6.34719C3.11218 6.05439 2.6373 6.05454 2.3445 6.34752C2.0517 6.64051 2.05185 7.11538 2.34484 7.40818L5.31462 10.3761Z" fill="currentColor"></path>
-                                  </svg>
-                                </span>
-                              <h4 class="text-xl font-semibold text-gray-500 dark:text-white/90">
-                                572
-                              </h4>
+
+                            <div class="w-px bg-gray-200 h-11 dark:bg-gray-800"></div>
+
+                            <div>
+                              <p class="text-lg font-semibold text-center text-success-700 dark:text-white/90">
+                                199
+                              </p>
+                              <p class="text-theme-xs mt-0.5 text-center text-gray-500 dark:text-gray-400">
+                                Active Loans
+                              </p>
+                            </div>
+
+                            <div class="w-px bg-gray-200 h-11 dark:bg-gray-800"></div>
+
+                            <div>
+                              <p class="text-lg font-semibold text-center text-warning-700 dark:text-white/90">
+                                101
+                              </p>
+                              <p class="text-theme-xs mt-0.5 text-center text-gray-500 dark:text-gray-400">
+                                Pending Memberships
+                              </p>
                             </div>
                           </div>
                         </div>
@@ -641,10 +651,10 @@
                     <div class="flex items-start justify-between">
                       <div>
                         <h3 class="text-lg font-semibold text-gray-500 dark:text-white/90">
-                          Loans Wallet
+                          Loans
                         </h3>
                         <p class="dark:text-gray-40 text-sm text-gray-500">
-                          Current loan wallet balance
+                          Active Loans Balance
                         </p>
                       </div>
                     </div>
@@ -661,21 +671,21 @@
                           <div class="flex items-center justify-center gap-6">
                             <div>
                               <p class="text-lg font-semibold text-center text-gray-500 dark:text-white/90">
-                                224
+                                1,224
                               </p>
                               <p class="text-theme-xs mt-0.5 text-center text-gray-500 dark:text-gray-400">
-                                Total Borrowed
+                                Borrowers
                               </p>
                             </div>
 
                             <div class="w-px bg-gray-200 h-11 dark:bg-gray-800"></div>
 
                             <div>
-                              <p class="text-lg font-semibold text-center text-success-500 dark:text-white/90">
-                                1.4K
+                              <p class="text-lg font-semibold text-center text-success-700 dark:text-white/90">
+                                127
                               </p>
                               <p class="text-theme-xs mt-0.5 text-center text-gray-500 dark:text-gray-400">
-                                Total Active
+                                Active Clients
                               </p>
                             </div>
 
@@ -683,10 +693,10 @@
 
                             <div>
                               <p class="text-lg font-semibold text-center text-warning-500 dark:text-white/90">
-                                22.1K
+                                22
                               </p>
                               <p class="text-theme-xs mt-0.5 text-center text-gray-500 dark:text-gray-400">
-                                Total Overdue
+                                Pending Loan Applications
                               </p>
                             </div>
                           </div>
@@ -701,17 +711,17 @@
                     <div class="flex items-start justify-between">
                       <div>
                         <h3 class="text-lg font-semibold text-gray-500 dark:text-white/90">
-                          Loans Wallet
+                          Real Estate
                         </h3>
                         <p class="dark:text-gray-40 text-sm text-gray-500">
-                          Current loan wallet balance
+                          Wallet
                         </p>
                       </div>
                     </div>
                     <div class="relative mt-5 flex justify-between">
                       <div>
                         <h3 class="mb-1 text-2xl font-bold text-gray-500 dark:text-white/90">
-                          KES 350,000.00
+                          KES 1,350,000.00
                         </h3>
                         <p class="text-xs text-gray-500 dark:text-gray-400">
                           <span class="text-success-600 font-medium">+3.85%</span>
@@ -724,7 +734,7 @@
                                 224
                               </p>
                               <p class="text-theme-xs mt-0.5 text-center text-gray-500 dark:text-gray-400">
-                                Total Borrowed
+                                Total Units
                               </p>
                             </div>
 
@@ -732,10 +742,10 @@
 
                             <div>
                               <p class="text-lg font-semibold text-center text-success-500 dark:text-white/90">
-                                1.4K
+                                103
                               </p>
                               <p class="text-theme-xs mt-0.5 text-center text-gray-500 dark:text-gray-400">
-                                Total Active
+                                Units Sold
                               </p>
                             </div>
 
@@ -743,10 +753,10 @@
 
                             <div>
                               <p class="text-lg font-semibold text-center text-warning-500 dark:text-white/90">
-                                22.1K
+                                101
                               </p>
                               <p class="text-theme-xs mt-0.5 text-center text-gray-500 dark:text-gray-400">
-                                Total Overdue
+                                Available Units
                               </p>
                             </div>
                           </div>
@@ -791,178 +801,112 @@
                           <div x-show="openDropDown"
                                @click.outside="openDropDown = false"
                                class="shadow-theme-lg dark:bg-gray-dark absolute top-full right-0 z-40 w-40 space-y-1 rounded-2xl border border-gray-200 bg-white p-2 dark:border-gray-800">
-                            <button onclick="window.location.href='events.html'" class="text-theme-xs flex w-full rounded-lg px-3 py-2 text-left font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300">View More</button>
+                            <button onclick="window.location.href='appointments.html'" class="text-theme-xs flex w-full rounded-lg px-3 py-2 text-left font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300">View More</button>
                           </div>
                         </div>
                       </div>
                       <div class="custom-scrollbar overflow-x-auto">
                         <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-800">
                           <thead>
-                          <tr class="bg-gray-50 dark:bg-gray-900">
+                            <tr class="bg-gray-50 dark:bg-gray-900">
                             <th class="px-6 py-4 text-left text-sm font-medium whitespace-nowrap text-gray-500 dark:text-gray-400">Appointment ID</th>
                             <th class="px-6 py-4 text-left text-sm font-medium whitespace-nowrap text-gray-500 dark:text-gray-400">DateTime</th>
                             <th class="px-6 py-4 text-left text-sm font-medium whitespace-nowrap text-gray-500 dark:text-gray-400">Office</th>
                             <th class="px-6 py-4 text-left text-sm font-medium whitespace-nowrap text-gray-500 dark:text-gray-400">Priority</th>
                             <th class="px-6 py-4 text-left text-sm font-medium whitespace-nowrap text-gray-500 dark:text-gray-400">Status</th>
-                            <th class="px-6 py-4 text-left text-sm font-medium whitespace-nowrap text-gray-500 dark:text-gray-400">Action</th>
                           </tr>
                           </thead>
                           <tbody class="divide-y divide-gray-200 dark:divide-gray-800">
-                          <tr>
-                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">#APP0012025</td>
-                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Dec 18, 2025 09:30</td>
-                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Treasurer</td>
-                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">High</td>
-                            <td class="px-6 py-4 text-left">
-                              <span class="bg-warning-50 text-theme-xs text-warning-600 dark:bg-warning-500/15 dark:text-warning-500 rounded-full px-2 py-0.5 font-medium">Pending Approval</span>
-                            </td>
-                            <td class="px-6 py-4 text-left">
-                              <div class="flex items-center justify-center">
-                                <button class=" items-center justify-center">
-                                  <svg class="w-[21px] h-[21px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                    <path stroke="currentColor" stroke-width="1.1" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
-                                    <path stroke="currentColor" stroke-width="1.1" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
-                                  </svg>
-                                </button>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">#APP0022025</td>
-                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Dec 18, 2025 11:00</td>
-                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">General</td>
-                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Medium</td>
-                            <td class="px-6 py-4 text-left">
-                              <span class="bg-success-50 text-theme-xs text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 font-medium">Confirmed</span>
-                            </td>
-                            <td class="px-6 py-4 text-left">
-                              <button class=" items-center justify-center">
-                                <svg class="w-[21px] h-[21px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                  <path stroke="currentColor" stroke-width="1.1" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
-                                  <path stroke="currentColor" stroke-width="1.1" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
-                                </svg>
-                              </button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">#APP0032025</td>
-                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Dec 19, 2025 14:15</td>
-                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Treasurer</td>
-                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">High</td>
-                            <td class="px-6 py-4 text-left">
-                              <span class="bg-warning-50 text-theme-xs text-warning-600 dark:bg-warning-500/15 dark:text-warning-500 rounded-full px-2 py-0.5 font-medium">Pending Approval</span>
-                            </td>
-                            <td class="px-6 py-4 text-left">
-                              <button class=" items-center justify-center">
-                                <svg class="w-[21px] h-[21px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                  <path stroke="currentColor" stroke-width="1.1" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
-                                  <path stroke="currentColor" stroke-width="1.1" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
-                                </svg>
-                              </button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">#APP0042025</td>
-                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Dec 20, 2025 10:00</td>
-                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Chairman</td>
-                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Medium</td>
-                            <td class="px-6 py-4 text-left">
-                              <span class="bg-success-50 text-theme-xs text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 font-medium">Confirmed</span>
-                            </td>
-                            <td class="px-6 py-4 text-left">
-                              <button class=" items-center justify-center">
-                                <svg class="w-[21px] h-[21px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                  <path stroke="currentColor" stroke-width="1.1" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
-                                  <path stroke="currentColor" stroke-width="1.1" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
-                                </svg>
-                              </button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">#APP0052025</td>
-                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Dec 22, 2025 09:45</td>
-                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Office</td>
-                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Low</td>
-                            <td class="px-6 py-4 text-left">
-                              <span class="bg-error-50 text-theme-xs text-error-600 dark:bg-error-500/15 dark:text-error-500 rounded-full px-2 py-0.5 font-medium">Cancelled</span>
-                            </td>
-                            <td class="px-6 py-4 text-left">
-                              <button class=" items-center justify-center">
-                                <svg class="w-[21px] h-[21px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                  <path stroke="currentColor" stroke-width="1.1" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
-                                  <path stroke="currentColor" stroke-width="1.1" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
-                                </svg>
-                              </button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">#APP0022025</td>
-                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Dec 18, 2025 11:00</td>
-                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">General</td>
-                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Medium</td>
-                            <td class="px-6 py-4 text-left">
-                              <span class="bg-success-50 text-theme-xs text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 font-medium">Confirmed</span>
-                            </td>
-                            <td class="px-6 py-4 text-left">
-                              <button class=" items-center justify-center">
-                                <svg class="w-[21px] h-[21px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                  <path stroke="currentColor" stroke-width="1.1" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
-                                  <path stroke="currentColor" stroke-width="1.1" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
-                                </svg>
-                              </button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">#APP0032025</td>
-                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Dec 19, 2025 14:15</td>
-                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Treasurer</td>
-                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">High</td>
-                            <td class="px-6 py-4 text-left">
-                              <span class="bg-warning-50 text-theme-xs text-warning-600 dark:bg-warning-500/15 dark:text-warning-500 rounded-full px-2 py-0.5 font-medium">Pending Approval</span>
-                            </td>
-                            <td class="px-6 py-4 text-left">
-                              <button class=" items-center justify-center">
-                                <svg class="w-[21px] h-[21px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                  <path stroke="currentColor" stroke-width="1.1" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
-                                  <path stroke="currentColor" stroke-width="1.1" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
-                                </svg>
-                              </button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">#APP0042025</td>
-                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Dec 20, 2025 10:00</td>
-                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Chairman</td>
-                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Medium</td>
-                            <td class="px-6 py-4 text-left">
-                              <span class="bg-success-50 text-theme-xs text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 font-medium">Confirmed</span>
-                            </td>
-                            <td class="px-6 py-4 text-left">
-                              <button class=" items-center justify-center">
-                                <svg class="w-[21px] h-[21px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                  <path stroke="currentColor" stroke-width="1.1" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
-                                  <path stroke="currentColor" stroke-width="1.1" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
-                                </svg>
-                              </button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">#APP0052025</td>
-                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Dec 22, 2025 09:45</td>
-                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Office</td>
-                            <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Low</td>
-                            <td class="px-6 py-4 text-left">
-                              <span class="bg-error-50 text-theme-xs text-error-600 dark:bg-error-500/15 dark:text-error-500 rounded-full px-2 py-0.5 font-medium">Cancelled</span>
-                            </td>
-                            <td class="px-6 py-4 text-left">
-                              <button class=" items-center justify-center">
-                                <svg class="w-[21px] h-[21px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                  <path stroke="currentColor" stroke-width="1.1" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
-                                  <path stroke="currentColor" stroke-width="1.1" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
-                                </svg>
-                              </button>
-                            </td>
-                          </tr>
+                            <tr>
+                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">#APP0012025</td>
+                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Dec 18, 2025 09:30</td>
+                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Treasurer</td>
+                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">High</td>
+                              <td class="px-6 py-4 text-left">
+                                <span class="bg-success-50 text-theme-xs text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 font-medium">Confirmed</span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">#APP0022025</td>
+                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Dec 18, 2025 11:00</td>
+                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">General</td>
+                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Medium</td>
+                              <td class="px-6 py-4 text-left">
+                                <span class="bg-success-50 text-theme-xs text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 font-medium">Confirmed</span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">#APP0032025</td>
+                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Dec 19, 2025 14:15</td>
+                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Treasurer</td>
+                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">High</td>
+                              <td class="px-6 py-4 text-left">
+                                <span class="bg-success-50 text-theme-xs text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 font-medium">Confirmed</span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">#APP0042025</td>
+                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Dec 20, 2025 10:00</td>
+                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Chairman</td>
+                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Medium</td>
+                              <td class="px-6 py-4 text-left">
+                                <span class="bg-success-50 text-theme-xs text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 font-medium">Confirmed</span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">#APP0052025</td>
+                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Dec 22, 2025 09:45</td>
+                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Office</td>
+                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Low</td>
+                              <td class="px-6 py-4 text-left">
+                                <span class="bg-success-50 text-theme-xs text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 font-medium">Confirmed</span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">#APP0022025</td>
+                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Dec 18, 2025 11:00</td>
+                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">General</td>
+                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Medium</td>
+                              <td class="px-6 py-4 text-left">
+                                <span class="bg-success-50 text-theme-xs text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 font-medium">Confirmed</span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">#APP0032025</td>
+                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Dec 19, 2025 14:15</td>
+                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Treasurer</td>
+                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">High</td>
+                              <td class="px-6 py-4 text-left">
+                                <span class="bg-success-50 text-theme-xs text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 font-medium">Confirmed</span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">#APP0042025</td>
+                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Dec 20, 2025 10:00</td>
+                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Chairman</td>
+                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Medium</td>
+                              <td class="px-6 py-4 text-left">
+                                <span class="bg-success-50 text-theme-xs text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 font-medium">Confirmed</span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">#APP0052025</td>
+                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Dec 22, 2025 09:45</td>
+                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Office</td>
+                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Low</td>
+                              <td class="px-6 py-4 text-left">
+                                <span class="bg-success-50 text-theme-xs text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 font-medium">Confirmed</span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">#APP0052025</td>
+                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Dec 22, 2025 09:45</td>
+                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Office</td>
+                              <td class="px-6 py-4 text-left text-sm whitespace-nowrap text-gray-700 dark:text-gray-400">Low</td>
+                              <td class="px-6 py-4 text-left">
+                                <span class="bg-success-50 text-theme-xs text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 font-medium">Confirmed</span>
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -1065,6 +1009,29 @@
                       <div class="flex-col relative ">
                         <div class="mb-4">
                           <h3 class="text-md font-semibold text-gray-600 dark:text-white/90">Next</h3>
+                        </div>
+                        <div x-data="{checked: false}" @click="checked = !checked" class="flex cursor-pointer gap-6 rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-white/[0.03]">
+                          <div class="flex items-start gap-3">
+                            <div class="text-center min-w-[60px]">
+                              <span class="text-sm text-gray-500 dark:text-gray-400">DEC</span>
+                              <span class="block text-2xl font-bold text-gray-400 dark:text-white">19</span>
+                            </div>
+                          </div>
+                          <div class="w-px bg-gray-200 h-11 dark:bg-gray-800"></div>
+                          <div class="order-2 xl:order-2">
+                            <h4 class="mb-2 text-sm font-semibold text-gray-600 xl:text-left dark:text-white/90">
+                              Meeting with Software Engineer
+                            </h4>
+                            <div class="flex flex-col gap-1 text-center xl:flex-row xl:gap-3 xl:text-left">
+                              <p class="text-sm text-gray-500 dark:text-gray-400">
+                                03:30 PM
+                              </p>
+                              <div class="hidden h-3.5 w-px bg-gray-300 xl:block dark:bg-gray-700"></div>
+                              <p class="text-sm text-gray-500 dark:text-gray-400">
+                                BAT Office, Makongeni Thika.
+                              </p>
+                            </div>
+                          </div>
                         </div>
                         <div x-data="{checked: false}" @click="checked = !checked" class="flex cursor-pointer gap-6 rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-white/[0.03]">
                           <div class="flex items-start gap-3">
