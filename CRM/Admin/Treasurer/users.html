@@ -592,19 +592,10 @@
                 <!-- In-Active Users -->
                 <article class="flex items-center gap-5 rounded-2xl border border-gray-200 bg-white p-4 dark:border-gray-800 dark:bg-white/3">
                   <div class="inline-flex h-16 w-16 items-center justify-center rounded-xl bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-white/90">
-                    <svg class="h-7 w-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                      <!-- User -->
-                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                      <circle cx="12" cy="7" r="4"></circle>
-
-                      <!-- Visible settings icon -->
-                      <circle cx="18" cy="8" r="2.5"></circle>
-                      <line x1="18" y1="5.5" x2="18" y2="3.5"></line>
-                      <line x1="18" y1="10.5" x2="18" y2="12.5"></line>
-                      <line x1="15.5" y1="8" x2="13.5" y2="8"></line>
-                      <line x1="20.5" y1="8" x2="22.5" y2="8"></line>
-                      <circle cx="18" cy="8" r="0.75" fill="currentColor"></circle>
+                    <svg class="w-[28px] h-[28px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                      <path stroke="currentColor" stroke-linecap="square" stroke-linejoin="round" stroke-width="1.1" d="M10 19H5a1 1 0 0 1-1-1v-1a3 3 0 0 1 3-3h2m10 1a3 3 0 0 1-3 3m3-3a3 3 0 0 0-3-3m3 3h1m-4 3a3 3 0 0 1-3-3m3 3v1m-3-4a3 3 0 0 1 3-3m-3 3h-1m4-3v-1m-2.121 1.879-.707-.707m5.656 5.656-.707-.707m-4.242 0-.707.707m5.656-5.656-.707.707M12 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
                     </svg>
+
                   </div>
                   <div>
                     <h3 class="text-2xl font-semibold text-gray-800 dark:text-white/90">
@@ -711,9 +702,10 @@
                                   <div class="flex items-center col-span-2">
                                     <button @click="editUserRoleModal = true"
                                             class="shadow-theme-xs inline-flex h-9 w-9 items-center justify-center rounded-lg border border-gray-300 text-gray-500 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-white/[0.03] dark:hover:text-gray-200">
-                                      <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none">
-                                        <path d="M11.75 4.16667L16.25 8.66667M4.16667 15.8333L15.3333 4.66667C15.7947 4.20536 16.0253 3.97471 16.2943 3.88891C16.5311 3.81326 16.7856 3.81326 17.0224 3.88891C17.2914 3.97471 17.522 4.20536 17.9833 4.66667L18.6667 5.35C19.128 5.81131 19.3586 6.04196 19.4444 6.31095C19.5201 6.54772 19.5201 6.80224 19.4444 7.03901C19.3586 7.308 19.128 7.53865 18.6667 8L7.5 19.1667H4.16667V15.8333L11.75 4.16667Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                      <svg class="w-[22px] h-[22px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                        <path stroke="currentColor" stroke-linecap="square" stroke-linejoin="round" stroke-width="1.1" d="M10 19H5a1 1 0 0 1-1-1v-1a3 3 0 0 1 3-3h2m10 1a3 3 0 0 1-3 3m3-3a3 3 0 0 0-3-3m3 3h1m-4 3a3 3 0 0 1-3-3m3 3v1m-3-4a3 3 0 0 1 3-3m-3 3h-1m4-3v-1m-2.121 1.879-.707-.707m5.656 5.656-.707-.707m-4.242 0-.707.707m5.656-5.656-.707.707M12 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
                                       </svg>
+
                                     </button>
                                   </div>
                                 </td>
@@ -748,9 +740,10 @@
                                 <td class="px-6 py-3 whitespace-nowrap first:pl-0">
                                   <div class="flex items-center col-span-2">
                                     <button @click="editUserRoleModal = true" class="shadow-theme-xs inline-flex h-9 w-9 items-center justify-center rounded-lg border border-gray-300 text-gray-500 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-white/[0.03] dark:hover:text-gray-200">
-                                      <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none">
-                                        <path d="M11.75 4.16667L16.25 8.66667M4.16667 15.8333L15.3333 4.66667C15.7947 4.20536 16.0253 3.97471 16.2943 3.88891C16.5311 3.81326 16.7856 3.81326 17.0224 3.88891C17.2914 3.97471 17.522 4.20536 17.9833 4.66667L18.6667 5.35C19.128 5.81131 19.3586 6.04196 19.4444 6.31095C19.5201 6.54772 19.5201 6.80224 19.4444 7.03901C19.3586 7.308 19.128 7.53865 18.6667 8L7.5 19.1667H4.16667V15.8333L11.75 4.16667Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                      <svg class="w-[22px] h-[22px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                        <path stroke="currentColor" stroke-linecap="square" stroke-linejoin="round" stroke-width="1.1" d="M10 19H5a1 1 0 0 1-1-1v-1a3 3 0 0 1 3-3h2m10 1a3 3 0 0 1-3 3m3-3a3 3 0 0 0-3-3m3 3h1m-4 3a3 3 0 0 1-3-3m3 3v1m-3-4a3 3 0 0 1 3-3m-3 3h-1m4-3v-1m-2.121 1.879-.707-.707m5.656 5.656-.707-.707m-4.242 0-.707.707m5.656-5.656-.707.707M12 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
                                       </svg>
+
                                     </button>
                                   </div>
                                 </td>
@@ -786,9 +779,10 @@
                                 <td class="px-6 py-3 whitespace-nowrap first:pl-0">
                                   <div class="flex items-center col-span-2">
                                     <button @click="editUserRoleModal = true" class="shadow-theme-xs inline-flex h-9 w-9 items-center justify-center rounded-lg border border-gray-300 text-gray-500 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-white/[0.03] dark:hover:text-gray-200">
-                                      <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none">
-                                        <path d="M11.75 4.16667L16.25 8.66667M4.16667 15.8333L15.3333 4.66667C15.7947 4.20536 16.0253 3.97471 16.2943 3.88891C16.5311 3.81326 16.7856 3.81326 17.0224 3.88891C17.2914 3.97471 17.522 4.20536 17.9833 4.66667L18.6667 5.35C19.128 5.81131 19.3586 6.04196 19.4444 6.31095C19.5201 6.54772 19.5201 6.80224 19.4444 7.03901C19.3586 7.308 19.128 7.53865 18.6667 8L7.5 19.1667H4.16667V15.8333L11.75 4.16667Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                      <svg class="w-[22px] h-[22px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                        <path stroke="currentColor" stroke-linecap="square" stroke-linejoin="round" stroke-width="1.1" d="M10 19H5a1 1 0 0 1-1-1v-1a3 3 0 0 1 3-3h2m10 1a3 3 0 0 1-3 3m3-3a3 3 0 0 0-3-3m3 3h1m-4 3a3 3 0 0 1-3-3m3 3v1m-3-4a3 3 0 0 1 3-3m-3 3h-1m4-3v-1m-2.121 1.879-.707-.707m5.656 5.656-.707-.707m-4.242 0-.707.707m5.656-5.656-.707.707M12 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
                                       </svg>
+
                                     </button>
                                   </div>
                                 </td>
@@ -824,9 +818,10 @@
                                 <td class="px-6 py-3 whitespace-nowrap first:pl-0">
                                   <div class="flex items-center col-span-2">
                                     <button @click="editUserRoleModal = true" class="shadow-theme-xs inline-flex h-9 w-9 items-center justify-center rounded-lg border border-gray-300 text-gray-500 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-white/[0.03] dark:hover:text-gray-200">
-                                      <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none">
-                                        <path d="M11.75 4.16667L16.25 8.66667M4.16667 15.8333L15.3333 4.66667C15.7947 4.20536 16.0253 3.97471 16.2943 3.88891C16.5311 3.81326 16.7856 3.81326 17.0224 3.88891C17.2914 3.97471 17.522 4.20536 17.9833 4.66667L18.6667 5.35C19.128 5.81131 19.3586 6.04196 19.4444 6.31095C19.5201 6.54772 19.5201 6.80224 19.4444 7.03901C19.3586 7.308 19.128 7.53865 18.6667 8L7.5 19.1667H4.16667V15.8333L11.75 4.16667Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                      <svg class="w-[22px] h-[22px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                        <path stroke="currentColor" stroke-linecap="square" stroke-linejoin="round" stroke-width="1.1" d="M10 19H5a1 1 0 0 1-1-1v-1a3 3 0 0 1 3-3h2m10 1a3 3 0 0 1-3 3m3-3a3 3 0 0 0-3-3m3 3h1m-4 3a3 3 0 0 1-3-3m3 3v1m-3-4a3 3 0 0 1 3-3m-3 3h-1m4-3v-1m-2.121 1.879-.707-.707m5.656 5.656-.707-.707m-4.242 0-.707.707m5.656-5.656-.707.707M12 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
                                       </svg>
+
                                     </button>
                                   </div>
                                 </td>
@@ -861,9 +856,10 @@
                                 <td class="px-6 py-3 whitespace-nowrap first:pl-0">
                                   <div class="flex items-center col-span-2">
                                     <button @click="editUserRoleModal = true" class="shadow-theme-xs inline-flex h-9 w-9 items-center justify-center rounded-lg border border-gray-300 text-gray-500 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-white/[0.03] dark:hover:text-gray-200">
-                                      <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none">
-                                        <path d="M11.75 4.16667L16.25 8.66667M4.16667 15.8333L15.3333 4.66667C15.7947 4.20536 16.0253 3.97471 16.2943 3.88891C16.5311 3.81326 16.7856 3.81326 17.0224 3.88891C17.2914 3.97471 17.522 4.20536 17.9833 4.66667L18.6667 5.35C19.128 5.81131 19.3586 6.04196 19.4444 6.31095C19.5201 6.54772 19.5201 6.80224 19.4444 7.03901C19.3586 7.308 19.128 7.53865 18.6667 8L7.5 19.1667H4.16667V15.8333L11.75 4.16667Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                      <svg class="w-[22px] h-[22px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                        <path stroke="currentColor" stroke-linecap="square" stroke-linejoin="round" stroke-width="1.1" d="M10 19H5a1 1 0 0 1-1-1v-1a3 3 0 0 1 3-3h2m10 1a3 3 0 0 1-3 3m3-3a3 3 0 0 0-3-3m3 3h1m-4 3a3 3 0 0 1-3-3m3 3v1m-3-4a3 3 0 0 1 3-3m-3 3h-1m4-3v-1m-2.121 1.879-.707-.707m5.656 5.656-.707-.707m-4.242 0-.707.707m5.656-5.656-.707.707M12 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
                                       </svg>
+
                                     </button>
                                   </div>
                                 </td>
@@ -1082,12 +1078,8 @@
                                 <td class="p-4 whitespace-nowrap">
                                   <button @click="editUserModal = true"
                                           class="shadow-theme-xs inline-flex h-9 w-9 items-center justify-center rounded-lg border border-gray-300 text-gray-500 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-white/[0.03] dark:hover:text-gray-200">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none">
-                                      <path d="M11.75 4.16667L16.25 8.66667M4.16667 15.8333L15.3333 4.66667C15.7947 4.20536 16.0253 3.97471 16.2943 3.88891C16.5311 3.81326 16.7856 3.81326 17.0224 3.88891C17.2914 3.97471 17.522 4.20536 17.9833 4.66667L18.6667 5.35C19.128 5.81131 19.3586 6.04196 19.4444 6.31095C19.5201 6.54772 19.5201 6.80224 19.4444 7.03901C19.3586 7.308 19.128 7.53865 18.6667 8L7.5 19.1667H4.16667V15.8333L11.75 4.16667Z"
-                                            stroke="currentColor"
-                                            stroke-width="1.5"
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"/>
+                                    <svg class="w-[22px] h-[22px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                      <path stroke="currentColor" stroke-linecap="square" stroke-linejoin="round" stroke-width="1.1" d="M7 19H5a1 1 0 0 1-1-1v-1a3 3 0 0 1 3-3h1m4-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm7.441 1.559a1.907 1.907 0 0 1 0 2.698l-6.069 6.069L10 19l.674-3.372 6.07-6.07a1.907 1.907 0 0 1 2.697 0Z"/>
                                     </svg>
                                   </button>
                                 </td>
@@ -1452,6 +1444,27 @@
                             </option>
                             <option value="" class="text-gray-500 dark:bg-gray-900 dark:text-gray-400">
                               Father
+                            </option>
+                            <option value="" class="text-gray-500 dark:bg-gray-900 dark:text-gray-400">
+                              Mother
+                            </option>
+                            <option value="" class="text-gray-500 dark:bg-gray-900 dark:text-gray-400">
+                              Son
+                            </option>
+                            <option value="" class="text-gray-500 dark:bg-gray-900 dark:text-gray-400">
+                              Daughter
+                            </option>
+                            <option value="" class="text-gray-500 dark:bg-gray-900 dark:text-gray-400">
+                              Brother
+                            </option>
+                            <option value="" class="text-gray-500 dark:bg-gray-900 dark:text-gray-400">
+                              Sister
+                            </option>
+                            <option value="" class="text-gray-500 dark:bg-gray-900 dark:text-gray-400">
+                              Uncle
+                            </option>
+                            <option value="" class="text-gray-500 dark:bg-gray-900 dark:text-gray-400">
+                              Employer
                             </option>
                           </select>
                           <span class="absolute top-1/2 right-4 z-30 -translate-y-1/2 text-gray-500 dark:text-gray-400">
@@ -1910,6 +1923,27 @@
                             </option>
                             <option value="" class="text-gray-500 dark:bg-gray-900 dark:text-gray-400">
                               Father
+                            </option>
+                            <option value="" class="text-gray-500 dark:bg-gray-900 dark:text-gray-400">
+                              Mother
+                            </option>
+                            <option value="" class="text-gray-500 dark:bg-gray-900 dark:text-gray-400">
+                              Son
+                            </option>
+                            <option value="" class="text-gray-500 dark:bg-gray-900 dark:text-gray-400">
+                              Daughter
+                            </option>
+                            <option value="" class="text-gray-500 dark:bg-gray-900 dark:text-gray-400">
+                              Brother
+                            </option>
+                            <option value="" class="text-gray-500 dark:bg-gray-900 dark:text-gray-400">
+                              Sister
+                            </option>
+                            <option value="" class="text-gray-500 dark:bg-gray-900 dark:text-gray-400">
+                              Uncle
+                            </option>
+                            <option value="" class="text-gray-500 dark:bg-gray-900 dark:text-gray-400">
+                              Employer
                             </option>
                           </select>
                           <span class="absolute top-1/2 right-4 z-30 -translate-y-1/2 text-gray-500 dark:text-gray-400">
