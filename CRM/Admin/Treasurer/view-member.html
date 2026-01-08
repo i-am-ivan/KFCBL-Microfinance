@@ -613,6 +613,110 @@
                 </div>
               </div>
 
+              <div class="mb-6 flex relative grid grid-cols-1 gap-6 sm:grid-cols-1 lg:grid-cols-2">
+                <div class="flex flex-col justify-between space-y-6 rounded-xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-white/3">
+                  <div class="flex items-start justify-between">
+                    <div class="">
+                      <p class="text-sm font-semibold text-success-700 dark:text-gray-400">
+                        Account Balance
+                      </p>
+                      <h3 class="text-2xl font-bold text-success-700 dark:text-white/90">
+                        KES 23,500.00
+                      </h3>
+                    </div>
+                  </div>
+
+                  <div class="flex items-center justify-between">
+                    <div>
+                      <div class="flex items-center justify-center gap-6">
+                        <div>
+                          <p class="text-lg font-semibold text-center text-gray-500 dark:text-white/90">
+                            KES 122,040.00
+                          </p>
+                          <p class="text-theme-sm font-semibold mt-0.5 text-center text-success-700 dark:text-gray-400">
+                            Contributed
+                          </p>
+                        </div>
+
+                        <div class="w-px bg-gray-200 h-11 dark:bg-gray-800"></div>
+
+                        <div>
+                          <p class="text-lg font-semibold text-center text-gray-500 dark:text-white/90">
+                            KES 92,040.00
+                          </p>
+                          <p class="text-theme-sm font-semibold mt-0.5 text-center text-error-700 dark:text-gray-400">
+                            Withdrawn
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Updated button container -->
+                    <div class="flex items-center gap-2">
+                      <button @click="awardLoanModal = true"
+                              class="flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M15.3086 2C15.7228 2 16.0586 2.33579 16.0586 2.75V2.91898C16.807 3.10815 17.3609 3.78601 17.3609 4.59323C17.3609 5.00744 17.0251 5.34323 16.6109 5.34323C16.1967 5.34323 15.8609 5.00744 15.8609 4.59323C15.8609 4.46796 15.7594 4.36641 15.6341 4.36641H15.2391C14.9724 4.36641 14.7563 4.58257 14.7563 4.84921C14.7563 5.05046 14.8811 5.2306 15.0695 5.30127L16.0744 5.67811C16.8482 5.96833 17.3609 6.70814 17.3609 7.53464C17.3609 8.39065 16.8185 9.11996 16.0586 9.39759V9.63372C16.0586 10.0479 15.7228 10.3837 15.3086 10.3837C14.8944 10.3837 14.5586 10.0479 14.5586 9.63372V9.46488C13.8101 9.2757 13.2563 8.59785 13.2563 7.79062C13.2563 7.37641 13.5921 7.04062 14.0063 7.04062C14.4205 7.04062 14.7563 7.37641 14.7563 7.79062C14.7563 7.91589 14.8578 8.01744 14.9831 8.01744H15.3781C15.6448 8.01744 15.8609 7.80129 15.8609 7.53464C15.8609 7.3334 15.7361 7.15326 15.5477 7.08259L14.5428 6.70575C13.7689 6.41552 13.2563 5.67571 13.2563 4.84921C13.2563 3.99321 13.7987 3.2639 14.5586 2.98626V2.75C14.5586 2.33579 14.8944 2 15.3086 2Z" fill="#323544"></path>
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M19.4266 11.0844C20.0839 10.5513 21.0447 10.6316 21.6044 11.2664C22.1114 11.8415 22.1317 12.6979 21.6525 13.2964L17.7859 18.125C17.4104 18.5938 16.8423 18.8667 16.2417 18.8667H10.0685C9.8825 18.8667 9.70317 18.9358 9.56527 19.0606L9.04042 19.5355C9.14503 19.864 9.01125 20.2324 8.7004 20.4119L6.1238 21.8995C5.76508 22.1066 5.30638 21.9837 5.09928 21.625L2.10061 16.4311C1.8935 16.0724 2.01641 15.6137 2.37513 15.4066L4.95173 13.919C5.18986 13.7815 5.47206 13.7895 5.69546 13.9153L7.38764 12.5626C7.94114 12.1201 8.64057 11.8151 9.41278 11.8116C10.2262 11.8079 11.5119 11.8799 12.6754 12.3045H15.2732C15.9345 12.3045 16.512 12.6637 16.8212 13.1975L19.4266 11.0844ZM8.55886 17.9483L8.2864 18.1948L6.53627 15.1635L8.32425 13.7342C8.66549 13.4614 9.04628 13.3133 9.41955 13.3116C10.1887 13.3081 11.296 13.3834 12.222 13.7363C12.3365 13.7799 12.4613 13.8045 12.5912 13.8045H15.2732C15.432 13.8045 15.5608 13.9333 15.5608 14.0922C15.5608 14.1589 15.5381 14.2203 15.5 14.2691L15.4269 14.3284C15.4184 14.3352 15.4102 14.3422 15.4021 14.3494C15.3633 14.3688 15.3195 14.3798 15.2732 14.3798H12.5383C12.1241 14.3798 11.7883 14.7156 11.7883 15.1298C11.7883 15.544 12.1241 15.8798 12.5383 15.8798H15.2732C15.7583 15.8798 16.1984 15.6865 16.5205 15.3728L20.3715 12.2494C20.404 12.223 20.4515 12.227 20.4792 12.2584C20.5043 12.2868 20.5053 12.3292 20.4816 12.3588L16.615 17.1874C16.5242 17.3007 16.3869 17.3667 16.2417 17.3667H10.0685C9.51056 17.3667 8.97255 17.574 8.55886 17.9483ZM3.77464 16.3307L6.02332 20.2255L7.30088 19.4879L5.05221 15.5931L3.77464 16.3307Z" fill="#323544"></path>
+                        </svg>
+                        Withdraw
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-white/[0.03]">
+                  <div class="mb-6 flex justify-between">
+                    <div>
+                      <h3 class="text-lg font-semibold text-warning-700 dark:text-white/90">
+                        Loans
+                      </h3>
+                      <p class="text-theme-sm mt-1 text-gray-500 dark:text-gray-400">
+                        Pending Loan Balance
+                      </p>
+                      <h3 class="text-2xl font-semibold text-gray-500 dark:text-white/90">
+                        KES 23,500.00
+                      </h3>
+                    </div>
+
+                  </div>
+                  <div class="flex justify-between">
+                    <div>
+                      <div class="flex items-center justify-center gap-6">
+                        <div>
+                          <p class="text-lg font-semibold text-center text-gray-500 dark:text-white/90">
+                            KES 122,040.00
+                          </p>
+                          <p class="text-theme-sm font-semibold mt-0.5 text-center text-success-700 dark:text-gray-400">
+                            Contributed
+                          </p>
+                        </div>
+
+                        <div class="w-px bg-gray-200 h-11 dark:bg-gray-800"></div>
+
+                        <div>
+                          <p class="text-lg font-semibold text-center text-gray-500 dark:text-white/90">
+                            KES 92,040.00
+                          </p>
+                          <p class="text-theme-sm mt-0.5 font-semibold text-center text-error-500 dark:text-gray-400">
+                            Withdrawn
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <button @click="awardLoanModal = true"
+                              class="flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M15.3086 2C15.7228 2 16.0586 2.33579 16.0586 2.75V2.91898C16.807 3.10815 17.3609 3.78601 17.3609 4.59323C17.3609 5.00744 17.0251 5.34323 16.6109 5.34323C16.1967 5.34323 15.8609 5.00744 15.8609 4.59323C15.8609 4.46796 15.7594 4.36641 15.6341 4.36641H15.2391C14.9724 4.36641 14.7563 4.58257 14.7563 4.84921C14.7563 5.05046 14.8811 5.2306 15.0695 5.30127L16.0744 5.67811C16.8482 5.96833 17.3609 6.70814 17.3609 7.53464C17.3609 8.39065 16.8185 9.11996 16.0586 9.39759V9.63372C16.0586 10.0479 15.7228 10.3837 15.3086 10.3837C14.8944 10.3837 14.5586 10.0479 14.5586 9.63372V9.46488C13.8101 9.2757 13.2563 8.59785 13.2563 7.79062C13.2563 7.37641 13.5921 7.04062 14.0063 7.04062C14.4205 7.04062 14.7563 7.37641 14.7563 7.79062C14.7563 7.91589 14.8578 8.01744 14.9831 8.01744H15.3781C15.6448 8.01744 15.8609 7.80129 15.8609 7.53464C15.8609 7.3334 15.7361 7.15326 15.5477 7.08259L14.5428 6.70575C13.7689 6.41552 13.2563 5.67571 13.2563 4.84921C13.2563 3.99321 13.7987 3.2639 14.5586 2.98626V2.75C14.5586 2.33579 14.8944 2 15.3086 2Z" fill="#323544"></path>
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M19.4266 11.0844C20.0839 10.5513 21.0447 10.6316 21.6044 11.2664C22.1114 11.8415 22.1317 12.6979 21.6525 13.2964L17.7859 18.125C17.4104 18.5938 16.8423 18.8667 16.2417 18.8667H10.0685C9.8825 18.8667 9.70317 18.9358 9.56527 19.0606L9.04042 19.5355C9.14503 19.864 9.01125 20.2324 8.7004 20.4119L6.1238 21.8995C5.76508 22.1066 5.30638 21.9837 5.09928 21.625L2.10061 16.4311C1.8935 16.0724 2.01641 15.6137 2.37513 15.4066L4.95173 13.919C5.18986 13.7815 5.47206 13.7895 5.69546 13.9153L7.38764 12.5626C7.94114 12.1201 8.64057 11.8151 9.41278 11.8116C10.2262 11.8079 11.5119 11.8799 12.6754 12.3045H15.2732C15.9345 12.3045 16.512 12.6637 16.8212 13.1975L19.4266 11.0844ZM8.55886 17.9483L8.2864 18.1948L6.53627 15.1635L8.32425 13.7342C8.66549 13.4614 9.04628 13.3133 9.41955 13.3116C10.1887 13.3081 11.296 13.3834 12.222 13.7363C12.3365 13.7799 12.4613 13.8045 12.5912 13.8045H15.2732C15.432 13.8045 15.5608 13.9333 15.5608 14.0922C15.5608 14.1589 15.5381 14.2203 15.5 14.2691L15.4269 14.3284C15.4184 14.3352 15.4102 14.3422 15.4021 14.3494C15.3633 14.3688 15.3195 14.3798 15.2732 14.3798H12.5383C12.1241 14.3798 11.7883 14.7156 11.7883 15.1298C11.7883 15.544 12.1241 15.8798 12.5383 15.8798H15.2732C15.7583 15.8798 16.1984 15.6865 16.5205 15.3728L20.3715 12.2494C20.404 12.223 20.4515 12.227 20.4792 12.2584C20.5043 12.2868 20.5053 12.3292 20.4816 12.3588L16.615 17.1874C16.5242 17.3007 16.3869 17.3667 16.2417 17.3667H10.0685C9.51056 17.3667 8.97255 17.574 8.55886 17.9483ZM3.77464 16.3307L6.02332 20.2255L7.30088 19.4879L5.05221 15.5931L3.77464 16.3307Z" fill="#323544"></path>
+                        </svg>
+                        Award Loan
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               <div class="rounded-xl border border-gray-200 p-6 dark:border-gray-800" x-data="{ activeTab: 'personal' }">
                 <div class="flex flex-col gap-6 sm:flex-row sm:gap-8">
                   <!-- Left Sidebar Menu -->
@@ -654,15 +758,6 @@
                         Next of Kin
                       </button>
 
-                      <button @click="activeTab = 'guarantors'"
-                              :class="activeTab === 'guarantors' ? 'bg-brand-50 text-brand-600 dark:bg-brand-500/10 dark:text-brand-400' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700'"
-                              class="inline-flex items-center gap-3 whitespace-nowrap rounded-lg px-3 py-2.5 text-sm font-medium transition-colors duration-200 ease-in-out sm:p-3">
-                        <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-                        </svg>
-                        Guarantors
-                      </button>
-
                       <button @click="activeTab = 'vehicles'"
                               :class="activeTab === 'vehicles' ? 'bg-brand-50 text-brand-600 dark:bg-brand-500/10 dark:text-brand-400' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700'"
                               class="inline-flex items-center gap-3 whitespace-nowrap rounded-lg px-3 py-2.5 text-sm font-medium transition-colors duration-200 ease-in-out sm:p-3">
@@ -672,8 +767,8 @@
                         Vehicles
                       </button>
 
-                      <button @click="activeTab = 'financials'"
-                              :class="activeTab === 'financials' ? 'bg-brand-50 text-brand-600 dark:bg-brand-500/10 dark:text-brand-400' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700'"
+                      <button @click="activeTab = 'contributions'"
+                              :class="activeTab === 'contributions' ? 'bg-brand-50 text-brand-600 dark:bg-brand-500/10 dark:text-brand-400' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700'"
                               class="inline-flex items-center gap-3 whitespace-nowrap rounded-lg px-3 py-2.5 text-sm font-medium transition-colors duration-200 ease-in-out sm:p-3">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M17.8076 2C18.2218 2 18.5576 2.33579 18.5576 2.75V2.91898C19.3061 3.10815 19.8599 3.78601 19.8599 4.59323C19.8599 5.00744 19.5242 5.34323 19.1099 5.34323C18.6957 5.34323 18.3599 5.00744 18.3599 4.59323C18.3599 4.46796 18.2584 4.36641 18.1331 4.36641H17.7381C17.4714 4.36641 17.2553 4.58257 17.2553 4.84921C17.2553 5.05046 17.3801 5.2306 17.5686 5.30127L18.5734 5.67811C19.3473 5.96833 19.8599 6.70814 19.8599 7.53464C19.8599 8.39065 19.3175 9.11996 18.5576 9.39759V9.63372C18.5576 10.0479 18.2218 10.3837 17.8076 10.3837C17.3934 10.3837 17.0576 10.0479 17.0576 9.63372V9.46488C16.3092 9.2757 15.7553 8.59785 15.7553 7.79062C15.7553 7.37641 16.0911 7.04062 16.5053 7.04062C16.9195 7.04062 17.2553 7.37641 17.2553 7.79062C17.2553 7.91589 17.3568 8.01744 17.4821 8.01744H17.8771C18.1438 8.01744 18.3599 7.80129 18.3599 7.53464C18.3599 7.3334 18.2351 7.15326 18.0467 7.08259L17.0418 6.70575C16.268 6.41552 15.7553 5.67571 15.7553 4.84921C15.7553 3.99321 16.2977 3.2639 17.0576 2.98626V2.75C17.0576 2.33579 17.3934 2 17.8076 2Z" fill="#323544"/>
@@ -682,7 +777,17 @@
                           <path fill-rule="evenodd" clip-rule="evenodd" d="M15.916 14.9223C15.916 13.6797 16.9234 12.6723 18.166 12.6723H18.4993C19.742 12.6723 20.7493 13.6797 20.7493 14.9223V18.5005C20.7493 19.7432 19.742 20.7505 18.4993 20.7505H18.166C16.9234 20.7505 15.916 19.7432 15.916 18.5005V14.9223ZM18.166 14.1723C17.7518 14.1723 17.416 14.5081 17.416 14.9223V18.5005C17.416 18.9147 17.7518 19.2505 18.166 19.2505H18.4993C18.9136 19.2505 19.2493 18.9147 19.2493 18.5005V14.9223C19.2493 14.5081 18.9136 14.1723 18.4993 14.1723H18.166Z" fill="#323544"/>
                         </svg>
 
-                        Financials
+                        Contributions
+                      </button>
+
+                      <button @click="activeTab = 'loans'"
+                              :class="activeTab === 'loans' ? 'bg-brand-50 text-brand-600 dark:bg-brand-500/10 dark:text-brand-400' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700'"
+                              class="inline-flex items-center gap-3 whitespace-nowrap rounded-lg px-3 py-2.5 text-sm font-medium transition-colors duration-200 ease-in-out sm:p-3">
+                        <svg class="w-[28px] h-[28px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                          <path stroke="currentColor" stroke-linecap="round" stroke-width="1" d="M8 7V6a1 1 0 0 1 1-1h11a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-1M3 18v-7a1 1 0 0 1 1-1h11a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1Zm8-3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z"/>
+                        </svg>
+
+                        Loans
                       </button>
 
                       <button @click="activeTab = 'settings'"
@@ -703,12 +808,8 @@
                     <div x-show="activeTab === 'personal'">
                       <!-- Header: Title Left + Edit Button Right -->
                       <div class="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M16.4107 6.35C16.4107 8.74 14.4707 10.69 12.0707 10.69L12.0607 10.68C9.6707 10.68 7.7207 8.73 7.7207 6.34C7.7207 3.95 9.6807 2 12.0707 2C14.4607 2 16.4107 3.96 16.4107 6.35ZM14.9107 6.34C14.9107 4.78 13.6407 3.5 12.0707 3.5C10.5107 3.5 9.2307 4.78 9.2307 6.34C9.2307 7.9 10.5107 9.18 12.0707 9.18C13.6307 9.18 14.9107 7.9 14.9107 6.34Z" fill="#323544"/>
-                          <path opacity="0.4" d="M12 12.1895C14.67 12.1895 16.76 12.9395 18.21 14.4195V14.4095C20.2567 16.4956 20.2504 19.2563 20.25 19.4344L20.25 19.4395C20.24 19.8495 19.91 20.1795 19.5 20.1795H19.49C19.07 20.1695 18.75 19.8295 18.75 19.4195C18.75 19.3695 18.75 17.0895 17.13 15.4495C15.97 14.2795 14.24 13.6795 12 13.6795C9.76002 13.6795 8.03002 14.2795 6.87002 15.4495C5.25002 17.0995 5.25002 19.3995 5.25002 19.4195C5.25002 19.8295 4.92002 20.1795 4.51002 20.1795C4.15002 20.1995 3.75002 19.8595 3.75002 19.4495L3.75002 19.4448C3.74962 19.2771 3.74302 16.506 5.79002 14.4195C7.24002 12.9395 9.33002 12.1895 12 12.1895Z" fill="#323544"/>
-                        </svg>
                         <h3 class="text-2xl font-semibold text-gray-800 dark:text-white/90">
-                          Personal Information
+                          General Information
                         </h3>
                         <button @click="isProfileInfoModal = true"
                                 class="shadow-theme-xs flex w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-white px-6 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-800 sm:w-auto dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03] dark:hover:text-gray-200">
@@ -915,96 +1016,6 @@
                       </div>
                     </div>
 
-                    <!-- Guarantors Table (already complete) -->
-                    <div x-show="activeTab === 'guarantors'">
-                      <!-- Header: Title Left + Buttons Right -->
-                      <div class="mb-6 flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
-                        <h3 class="text-2xl font-semibold text-gray-800 dark:text-white/90">
-                          Guarantors
-                        </h3>
-                        <div class="flex flex-col gap-3 sm:flex-row">
-                          <button @click="isProfileGuarantorModal = true"
-                                  class="inline-flex items-center gap-2 px-4 py-3 text-sm font-medium text-white transition rounded-lg bg-brand-500 shadow-theme-xs hover:bg-brand-600">
-                            <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
-                            </svg>
-                            Add Guarantor
-                          </button>
-                          <button class="flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700">
-                            <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/>
-                            </svg>
-                            Print
-                          </button>
-                        </div>
-                      </div>
-                      <!-- Search + Tab Filter -->
-                      <div class="flex flex-col gap-5 mb-6 sm:flex-row sm:justify-between">
-                        <div class="w-full">
-                          <h3 class="text-lg font-semibold text-gray-800 dark:text-white/90">
-                            Statistics
-                          </h3>
-                          <p class="mt-1 text-gray-500 text-theme-sm dark:text-gray-400">
-                            Target you’ve set for each month
-                          </p>
-                        </div>
-
-                        <div class="flex items-start w-full gap-3 sm:justify-end">
-                          <form>
-                            <div class="relative">
-                              <span class="absolute -translate-y-1/2 pointer-events-none top-1/2 left-4">
-                                <svg class="fill-gray-500 dark:fill-gray-400" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                  <path fill-rule="evenodd" clip-rule="evenodd" d="M3.04199 9.37381C3.04199 5.87712 5.87735 3.04218 9.37533 3.04218C12.8733 3.04218 15.7087 5.87712 15.7087 9.37381C15.7087 12.8705 12.8733 15.7055 9.37533 15.7055C5.87735 15.7055 3.04199 12.8705 3.04199 9.37381ZM9.37533 1.54218C5.04926 1.54218 1.54199 5.04835 1.54199 9.37381C1.54199 13.6993 5.04926 17.2055 9.37533 17.2055C11.2676 17.2055 13.0032 16.5346 14.3572 15.4178L17.1773 18.2381C17.4702 18.531 17.945 18.5311 18.2379 18.2382C18.5308 17.9453 18.5309 17.4704 18.238 17.1775L15.4182 14.3575C16.5367 13.0035 17.2087 11.2671 17.2087 9.37381C17.2087 5.04835 13.7014 1.54218 9.37533 1.54218Z" fill=""></path>
-                                </svg>
-                              </span>
-                              <input type="text" placeholder="Search..." class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-10 w-full rounded-lg border border-gray-300 bg-transparent py-2.5 pr-4 pl-[42px] text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden xl:w-[300px] dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
-                            </div>
-                          </form>
-                        </div>
-                      </div>
-
-                      <div class="overflow-x-auto">
-                        <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                          <thead class="bg-gray-50 dark:bg-gray-800">
-                          <tr>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400">Name</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400">Address</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400">Phone</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400">Relationship</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400">Status</th>
-                          </tr>
-                          </thead>
-                          <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
-                          <tr>
-                            <td class="px-6 py-4">
-                              <div>
-                                <p class="text-sm font-medium text-gray-900 dark:text-white">Mary Wanjiku</p>
-                                <p class="text-xs text-gray-500 dark:text-gray-400">mary.wanjiku@gmail.com</p>
-                              </div>
-                            </td>
-                            <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">Thika Town</td>
-                            <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">+254 722 987 654</td>
-                            <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">Sister</td>
-                            <td class="px-6 py-4">
-                              <span class="bg-success-50 text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 text-xs font-medium">Active</span>
-                            </td>
-                          </tr>
-                          </tbody>
-                        </table>
-                      </div>
-
-                      <!-- Pagination (Bottom Right) -->
-                      <div class="mt-6 flex justify-end">
-                        <nav class="flex items-center gap-2">
-                          <button class="rounded-lg border border-gray-300 px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-700">
-                            Previous
-                          </button>
-                          <button class="rounded-lg bg-brand-600 px-4 py-2 text-sm font-medium text-gray">1</button>
-                          <button class="rounded-lg border border-gray-300 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-700">Next</button>
-                        </nav>
-                      </div>
-                    </div>
-
                     <!-- Vehicles Table (already complete) -->
                     <div x-show="activeTab === 'vehicles'">
                       <!-- Header: Title Left + Buttons Right -->
@@ -1141,29 +1152,20 @@
                       </div>
                     </div>
 
-                    <!-- Financials Table -->
-                    <div x-show="activeTab === 'financials'">
+                    <!-- Contributions Table -->
+                    <div x-show="activeTab === 'contributions'">
                       <!-- Header: Title Left + Buttons Right -->
                       <div class="mb-6 flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
                         <h3 class="text-2xl font-semibold text-gray-800 dark:text-white/90">
-                          Financials
+                          Contributions
                         </h3>
 
                         <div class="flex flex-col gap-3 sm:flex-row">
-                          <button @click="makeDepositModal = true"
-                                  class="inline-flex items-center gap-2 px-4 py-3 text-sm font-medium text-white transition rounded-lg bg-success-500 shadow-theme-xs hover:bg-success-600">
-                            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 18h14M5 18v3h14v-3M5 18l1-9h12l1 9M16 6v3m-4-3v3m-2-6h8v3h-8V3Zm-1 9h.01v.01H9V12Zm3 0h.01v.01H12V12Zm3 0h.01v.01H15V12Zm-6 3h.01v.01H9V15Zm3 0h.01v.01H12V15Zm3 0h.01v.01H15V15Z"/>
+                          <button @click="makeDepositModal = true" class="flex items-center justify-center gap-2 rounded-lg bg-success-500 px-5 py-2.5 text-sm font-medium text-white transition shadow-theme-xs hover:bg-success-600">
+                            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 18h14M5 18v3h14v-3M5 18l1-9h12l1 9M16 6v3m-4-3v3m-2-6h8v3h-8V3Zm-1 9h.01v.01H9V12Zm3 0h.01v.01H12V12Zm3 0h.01v.01H15V12Zm-6 3h.01v.01H9V15Zm3 0h.01v.01H12V15Zm3 0h.01v.01H15V15Z"></path>
                             </svg>
-                            Make Deposit
-                          </button>
-                          <button onclick="window.location.href='bodaboda-loan.html'"
-                                  class="flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M15.3086 2C15.7228 2 16.0586 2.33579 16.0586 2.75V2.91898C16.807 3.10815 17.3609 3.78601 17.3609 4.59323C17.3609 5.00744 17.0251 5.34323 16.6109 5.34323C16.1967 5.34323 15.8609 5.00744 15.8609 4.59323C15.8609 4.46796 15.7594 4.36641 15.6341 4.36641H15.2391C14.9724 4.36641 14.7563 4.58257 14.7563 4.84921C14.7563 5.05046 14.8811 5.2306 15.0695 5.30127L16.0744 5.67811C16.8482 5.96833 17.3609 6.70814 17.3609 7.53464C17.3609 8.39065 16.8185 9.11996 16.0586 9.39759V9.63372C16.0586 10.0479 15.7228 10.3837 15.3086 10.3837C14.8944 10.3837 14.5586 10.0479 14.5586 9.63372V9.46488C13.8101 9.2757 13.2563 8.59785 13.2563 7.79062C13.2563 7.37641 13.5921 7.04062 14.0063 7.04062C14.4205 7.04062 14.7563 7.37641 14.7563 7.79062C14.7563 7.91589 14.8578 8.01744 14.9831 8.01744H15.3781C15.6448 8.01744 15.8609 7.80129 15.8609 7.53464C15.8609 7.3334 15.7361 7.15326 15.5477 7.08259L14.5428 6.70575C13.7689 6.41552 13.2563 5.67571 13.2563 4.84921C13.2563 3.99321 13.7987 3.2639 14.5586 2.98626V2.75C14.5586 2.33579 14.8944 2 15.3086 2Z" fill="#323544"/>
-                              <path fill-rule="evenodd" clip-rule="evenodd" d="M19.4266 11.0844C20.0839 10.5513 21.0447 10.6316 21.6044 11.2664C22.1114 11.8415 22.1317 12.6979 21.6525 13.2964L17.7859 18.125C17.4104 18.5938 16.8423 18.8667 16.2417 18.8667H10.0685C9.8825 18.8667 9.70317 18.9358 9.56527 19.0606L9.04042 19.5355C9.14503 19.864 9.01125 20.2324 8.7004 20.4119L6.1238 21.8995C5.76508 22.1066 5.30638 21.9837 5.09928 21.625L2.10061 16.4311C1.8935 16.0724 2.01641 15.6137 2.37513 15.4066L4.95173 13.919C5.18986 13.7815 5.47206 13.7895 5.69546 13.9153L7.38764 12.5626C7.94114 12.1201 8.64057 11.8151 9.41278 11.8116C10.2262 11.8079 11.5119 11.8799 12.6754 12.3045H15.2732C15.9345 12.3045 16.512 12.6637 16.8212 13.1975L19.4266 11.0844ZM8.55886 17.9483L8.2864 18.1948L6.53627 15.1635L8.32425 13.7342C8.66549 13.4614 9.04628 13.3133 9.41955 13.3116C10.1887 13.3081 11.296 13.3834 12.222 13.7363C12.3365 13.7799 12.4613 13.8045 12.5912 13.8045H15.2732C15.432 13.8045 15.5608 13.9333 15.5608 14.0922C15.5608 14.1589 15.5381 14.2203 15.5 14.2691L15.4269 14.3284C15.4184 14.3352 15.4102 14.3422 15.4021 14.3494C15.3633 14.3688 15.3195 14.3798 15.2732 14.3798H12.5383C12.1241 14.3798 11.7883 14.7156 11.7883 15.1298C11.7883 15.544 12.1241 15.8798 12.5383 15.8798H15.2732C15.7583 15.8798 16.1984 15.6865 16.5205 15.3728L20.3715 12.2494C20.404 12.223 20.4515 12.227 20.4792 12.2584C20.5043 12.2868 20.5053 12.3292 20.4816 12.3588L16.615 17.1874C16.5242 17.3007 16.3869 17.3667 16.2417 17.3667H10.0685C9.51056 17.3667 8.97255 17.574 8.55886 17.9483ZM3.77464 16.3307L6.02332 20.2255L7.30088 19.4879L5.05221 15.5931L3.77464 16.3307Z" fill="#323544"/>
-                            </svg>
-                            Request Loan
+                            Contribute
                           </button>
                           <button class="flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700">
                             <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1173,12 +1175,13 @@
                           </button>
                         </div>
                       </div>
+
                       <!-- Search + Tab Filter -->
                       <div class="flex flex-col gap-5 mb-6 sm:flex-row sm:justify-between">
 
                         <div class="w-full">
                           <h3 class="text-lg font-semibold text-gray-800 dark:text-white/90">
-                            Statistics
+                            Contributions
                           </h3>
                           <p class="mt-1 text-gray-500 text-theme-sm dark:text-gray-400">
                             Target you’ve set for each month
@@ -1207,6 +1210,176 @@
                                 </span>
                               </div>
                             </div>
+                                <div class="flatpickr-days" tabindex="-1"><div class="dayContainer"><span class="flatpickr-day prevMonthDay" aria-label="November 30, 2025" tabindex="-1">30</span><span class="flatpickr-day" aria-label="December 1, 2025" tabindex="-1">1</span><span class="flatpickr-day" aria-label="December 2, 2025" tabindex="-1">2</span><span class="flatpickr-day" aria-label="December 3, 2025" tabindex="-1">3</span><span class="flatpickr-day" aria-label="December 4, 2025" tabindex="-1">4</span><span class="flatpickr-day" aria-label="December 5, 2025" tabindex="-1">5</span><span class="flatpickr-day" aria-label="December 6, 2025" tabindex="-1">6</span><span class="flatpickr-day" aria-label="December 7, 2025" tabindex="-1">7</span><span class="flatpickr-day" aria-label="December 8, 2025" tabindex="-1">8</span><span class="flatpickr-day" aria-label="December 9, 2025" tabindex="-1">9</span><span class="flatpickr-day" aria-label="December 10, 2025" tabindex="-1">10</span><span class="flatpickr-day" aria-label="December 11, 2025" tabindex="-1">11</span><span class="flatpickr-day" aria-label="December 12, 2025" tabindex="-1">12</span><span class="flatpickr-day selected startRange" aria-label="December 13, 2025" tabindex="-1">13</span><span class="flatpickr-day inRange" aria-label="December 14, 2025" tabindex="-1">14</span><span class="flatpickr-day inRange" aria-label="December 15, 2025" tabindex="-1">15</span><span class="flatpickr-day inRange" aria-label="December 16, 2025" tabindex="-1">16</span><span class="flatpickr-day inRange" aria-label="December 17, 2025" tabindex="-1">17</span><span class="flatpickr-day inRange" aria-label="December 18, 2025" tabindex="-1">18</span><span class="flatpickr-day today selected endRange" aria-label="December 19, 2025" aria-current="date" tabindex="-1">19</span><span class="flatpickr-day" aria-label="December 20, 2025" tabindex="-1">20</span><span class="flatpickr-day" aria-label="December 21, 2025" tabindex="-1">21</span><span class="flatpickr-day" aria-label="December 22, 2025" tabindex="-1">22</span><span class="flatpickr-day" aria-label="December 23, 2025" tabindex="-1">23</span><span class="flatpickr-day" aria-label="December 24, 2025" tabindex="-1">24</span><span class="flatpickr-day" aria-label="December 25, 2025" tabindex="-1">25</span><span class="flatpickr-day" aria-label="December 26, 2025" tabindex="-1">26</span><span class="flatpickr-day" aria-label="December 27, 2025" tabindex="-1">27</span><span class="flatpickr-day" aria-label="December 28, 2025" tabindex="-1">28</span><span class="flatpickr-day" aria-label="December 29, 2025" tabindex="-1">29</span><span class="flatpickr-day" aria-label="December 30, 2025" tabindex="-1">30</span><span class="flatpickr-day" aria-label="December 31, 2025" tabindex="-1">31</span><span class="flatpickr-day nextMonthDay" aria-label="January 1, 2026" tabindex="-1">1</span><span class="flatpickr-day nextMonthDay" aria-label="January 2, 2026" tabindex="-1">2</span><span class="flatpickr-day nextMonthDay" aria-label="January 3, 2026" tabindex="-1">3</span><span class="flatpickr-day nextMonthDay" aria-label="January 4, 2026" tabindex="-1">4</span><span class="flatpickr-day nextMonthDay" aria-label="January 5, 2026" tabindex="-1">5</span><span class="flatpickr-day nextMonthDay" aria-label="January 6, 2026" tabindex="-1">6</span><span class="flatpickr-day nextMonthDay" aria-label="January 7, 2026" tabindex="-1">7</span><span class="flatpickr-day nextMonthDay" aria-label="January 8, 2026" tabindex="-1">8</span><span class="flatpickr-day nextMonthDay" aria-label="January 9, 2026" tabindex="-1">9</span><span class="flatpickr-day nextMonthDay" aria-label="January 10, 2026" tabindex="-1">10</span></div></div></div></div></div></div><div class="flatpickr-calendar rangeMode animate static flatpickr-right" tabindex="-1"><div class="flatpickr-months"><span class="flatpickr-prev-month"><svg class="stroke-current" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.25 6L9 12.25L15.25 18.5" stroke="" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><div class="flatpickr-month"><div class="flatpickr-current-month"><span class="cur-month">December </span><div class="numInputWrapper"><input class="numInput cur-year" type="number" tabindex="-1" aria-label="Year"><span class="arrowUp"></span><span class="arrowDown"></span></div></div></div><span class="flatpickr-next-month"><svg class="stroke-current" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.75 19L15 12.75L8.75 6.5" stroke="" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></div><div class="flatpickr-innerContainer"><div class="flatpickr-rContainer"><div class="flatpickr-weekdays"><div class="flatpickr-weekdaycontainer">
+                            </div>
+                            </div>
+                              <div class="flatpickr-days" tabindex="-1">
+                                <div class="dayContainer">
+                                  <span class="flatpickr-day prevMonthDay" aria-label="November 30, 2025" tabindex="-1">30</span><span class="flatpickr-day" aria-label="December 1, 2025" tabindex="-1">1</span><span class="flatpickr-day" aria-label="December 2, 2025" tabindex="-1">2</span><span class="flatpickr-day" aria-label="December 3, 2025" tabindex="-1">3</span><span class="flatpickr-day" aria-label="December 4, 2025" tabindex="-1">4</span><span class="flatpickr-day" aria-label="December 5, 2025" tabindex="-1">5</span><span class="flatpickr-day" aria-label="December 6, 2025" tabindex="-1">6</span><span class="flatpickr-day" aria-label="December 7, 2025" tabindex="-1">7</span><span class="flatpickr-day" aria-label="December 8, 2025" tabindex="-1">8</span><span class="flatpickr-day" aria-label="December 9, 2025" tabindex="-1">9</span><span class="flatpickr-day" aria-label="December 10, 2025" tabindex="-1">10</span><span class="flatpickr-day" aria-label="December 11, 2025" tabindex="-1">11</span><span class="flatpickr-day" aria-label="December 12, 2025" tabindex="-1">12</span><span class="flatpickr-day selected startRange" aria-label="December 13, 2025" tabindex="-1">13</span><span class="flatpickr-day inRange" aria-label="December 14, 2025" tabindex="-1">14</span><span class="flatpickr-day inRange" aria-label="December 15, 2025" tabindex="-1">15</span><span class="flatpickr-day inRange" aria-label="December 16, 2025" tabindex="-1">16</span><span class="flatpickr-day inRange" aria-label="December 17, 2025" tabindex="-1">17</span><span class="flatpickr-day inRange" aria-label="December 18, 2025" tabindex="-1">18</span><span class="flatpickr-day today selected endRange" aria-label="December 19, 2025" aria-current="date" tabindex="-1">19</span><span class="flatpickr-day" aria-label="December 20, 2025" tabindex="-1">20</span><span class="flatpickr-day" aria-label="December 21, 2025" tabindex="-1">21</span><span class="flatpickr-day" aria-label="December 22, 2025" tabindex="-1">22</span><span class="flatpickr-day" aria-label="December 23, 2025" tabindex="-1">23</span><span class="flatpickr-day" aria-label="December 24, 2025" tabindex="-1">24</span><span class="flatpickr-day" aria-label="December 25, 2025" tabindex="-1">25</span><span class="flatpickr-day" aria-label="December 26, 2025" tabindex="-1">26</span><span class="flatpickr-day" aria-label="December 27, 2025" tabindex="-1">27</span><span class="flatpickr-day" aria-label="December 28, 2025" tabindex="-1">28</span><span class="flatpickr-day" aria-label="December 29, 2025" tabindex="-1">29</span><span class="flatpickr-day" aria-label="December 30, 2025" tabindex="-1">30</span><span class="flatpickr-day" aria-label="December 31, 2025" tabindex="-1">31</span><span class="flatpickr-day nextMonthDay" aria-label="January 1, 2026" tabindex="-1">1</span><span class="flatpickr-day nextMonthDay" aria-label="January 2, 2026" tabindex="-1">2</span><span class="flatpickr-day nextMonthDay" aria-label="January 3, 2026" tabindex="-1">3</span><span class="flatpickr-day nextMonthDay" aria-label="January 4, 2026" tabindex="-1">4</span><span class="flatpickr-day nextMonthDay" aria-label="January 5, 2026" tabindex="-1">5</span><span class="flatpickr-day nextMonthDay" aria-label="January 6, 2026" tabindex="-1">6</span><span class="flatpickr-day nextMonthDay" aria-label="January 7, 2026" tabindex="-1">7</span><span class="flatpickr-day nextMonthDay" aria-label="January 8, 2026" tabindex="-1">8</span><span class="flatpickr-day nextMonthDay" aria-label="January 9, 2026" tabindex="-1">9</span><span class="flatpickr-day nextMonthDay" aria-label="January 10, 2026" tabindex="-1">10</span>
+                                </div>
+                              </div>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                            <div class="absolute inset-0 right-auto flex items-center pointer-events-none left-4">
+                              <svg class="fill-gray-700 dark:fill-gray-400" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M6.66683 1.54199C7.08104 1.54199 7.41683 1.87778 7.41683 2.29199V3.00033H12.5835V2.29199C12.5835 1.87778 12.9193 1.54199 13.3335 1.54199C13.7477 1.54199 14.0835 1.87778 14.0835 2.29199V3.00033L15.4168 3.00033C16.5214 3.00033 17.4168 3.89576 17.4168 5.00033V7.50033V15.8337C17.4168 16.9382 16.5214 17.8337 15.4168 17.8337H4.5835C3.47893 17.8337 2.5835 16.9382 2.5835 15.8337V7.50033V5.00033C2.5835 3.89576 3.47893 3.00033 4.5835 3.00033L5.91683 3.00033V2.29199C5.91683 1.87778 6.25262 1.54199 6.66683 1.54199ZM6.66683 4.50033H4.5835C4.30735 4.50033 4.0835 4.72418 4.0835 5.00033V6.75033H15.9168V5.00033C15.9168 4.72418 15.693 4.50033 15.4168 4.50033H13.3335H6.66683ZM15.9168 8.25033H4.0835V15.8337C4.0835 16.1098 4.30735 16.3337 4.5835 16.3337H15.4168C15.693 16.3337 15.9168 16.1098 15.9168 15.8337V8.25033Z" fill=""></path>
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+
+                      <div class="flex">
+                        <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                          <thead class="bg-gray-50 dark:bg-gray-800">
+                          <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400">#TransactionID</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400">Type</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400">Date</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400">Amount</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400">Payment</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400">Status</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400">Actions</th>
+                          </tr>
+                          </thead>
+                          <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                          <tr>
+                            <td class="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">#TRX001</td>
+                            <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">Contribution</td>
+                            <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">15 Dec 2025</td>
+                            <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">KES 2,000</td>
+                            <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">M-Pesa</td>
+                            <td class="px-6 py-4">
+                              <span class="bg-success-50 text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 text-xs font-medium">Completed</span>
+                            </td>
+                            <td class="px-6 py-4">
+                              <div class="flex items-center gap-3">
+                                <button class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                                  <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                                  </svg>
+                                </button>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">#TRX002</td>
+                            <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">Loan Disbursement</td>
+                            <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">10 Dec 2025</td>
+                            <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">KES 50,000</td>
+                            <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">Bank Transfer</td>
+                            <td class="px-6 py-4">
+                              <span class="bg-warning-50 text-warning-600 dark:bg-warning-500/15 dark:text-warning-500 rounded-full px-2 py-0.5 text-xs font-medium">Pending</span>
+                            </td>
+                            <td class="px-6 py-4">
+                              <div class="flex items-center gap-3">
+                                <button class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                                  <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                                  </svg>
+                                </button>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">#TRX003</td>
+                            <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">Withdrawal</td>
+                            <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">05 Dec 2025</td>
+                            <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">KES 5,000</td>
+                            <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">Cash</td>
+                            <td class="px-6 py-4">
+                              <span class="bg-success-50 text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 text-xs font-medium">Completed</span>
+                            </td>
+                            <td class="px-6 py-4">
+                              <div class="flex items-center gap-3">
+                                <button class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                                  <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                                  </svg>
+                                </button>
+                              </div>
+                            </td>
+                          </tr>
+                          <!-- Add more rows as needed -->
+                          </tbody>
+                        </table>
+                      </div>
+                      <!-- Pagination (Bottom Right) -->
+                      <div class="mt-6 flex justify-end">
+                        <nav class="flex items-center gap-2">
+                          <button class="rounded-lg border border-gray-300 px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-700">
+                            Previous
+                          </button>
+                          <button class="rounded-lg bg-brand-600 px-4 py-2 text-sm font-medium text-gray">1</button>
+                          <button class="rounded-lg border border-gray-300 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-700">Next</button>
+                        </nav>
+                      </div>
+                    </div>
+
+                    <!-- Loans Table -->
+                    <div x-show="activeTab === 'loans'">
+                      <!-- Header: Title Left + Buttons Right -->
+                      <div class="mb-6 flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
+                        <h3 class="text-2xl font-semibold text-gray-800 dark:text-white/90">
+                          Loans
+                        </h3>
+
+                        <div class="flex flex-col gap-3 sm:flex-row">
+                          <button @click="makeDepositModal = true" class="flex items-center justify-center gap-2 rounded-lg bg-success-500 px-5 py-2.5 text-sm font-medium text-white transition shadow-theme-xs hover:bg-success-600">
+                            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 18h14M5 18v3h14v-3M5 18l1-9h12l1 9M16 6v3m-4-3v3m-2-6h8v3h-8V3Zm-1 9h.01v.01H9V12Zm3 0h.01v.01H12V12Zm3 0h.01v.01H15V12Zm-6 3h.01v.01H9V15Zm3 0h.01v.01H12V15Zm3 0h.01v.01H15V15Z"></path>
+                            </svg>
+                            Make Payment
+                          </button>
+                          <button class="flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700">
+                            <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/>
+                            </svg>
+                            Print
+                          </button>
+                        </div>
+                      </div>
+
+                      <!-- Search + Tab Filter -->
+                      <div class="flex flex-col gap-5 mb-6 sm:flex-row sm:justify-between">
+
+                        <div class="w-full">
+                          <h3 class="text-lg font-semibold text-gray-800 dark:text-white/90">
+                            Loans
+                          </h3>
+                          <p class="mt-1 text-gray-500 text-theme-sm dark:text-gray-400">
+                            Target you’ve set for each month
+                          </p>
+                        </div>
+
+                        <div class="flex items-start w-full gap-3 sm:justify-end">
+                          <div x-data="{selected: 'overview'}" class="inline-flex w-fit items-center gap-0.5 rounded-lg bg-gray-100 p-0.5 dark:bg-gray-900">
+                            <button @click="selected = 'overview'" :class="selected === 'overview' ? 'shadow-theme-xs text-gray-900 dark:text-white bg-white dark:bg-gray-800' : 'text-gray-500 dark:text-gray-400'" class="px-3 py-2 font-medium rounded-md text-theme-sm hover:text-gray-900 dark:hover:text-white text-gray-500 dark:text-gray-400 shadow-theme-xs text-gray-900 dark:text-white bg-white dark:bg-gray-800">
+                              All
+                            </button>
+                            <button @click="selected = 'sales'" :class="selected === 'sales' ? 'shadow-theme-xs text-gray-900 dark:text-white bg-white dark:bg-gray-800' : 'text-gray-500 dark:text-gray-400'" class="px-3 py-2 font-medium rounded-md text-theme-sm hover:text-gray-900 dark:hover:text-white text-gray-500 dark:text-gray-400">
+                              Contributions
+                            </button>
+                            <button @click="selected = 'revenue'" :class="selected === 'revenue' ? 'shadow-theme-xs text-gray-900 dark:text-white bg-white dark:bg-gray-800' : 'text-gray-500 dark:text-gray-400'" class="px-3 py-2 font-medium rounded-md text-theme-sm hover:text-gray-900 dark:hover:text-white text-gray-500 dark:text-gray-400">
+                              Loans
+                            </button>
+                          </div>
+
+                          <div class="relative w-fit">
+                            <div class="flatpickr-wrapper">
+                              <div class="flatpickr-wrapper">
+                                <input class="datepicker h-10 w-full max-w-11 rounded-lg border border-gray-200 bg-white py-2.5 pl-[34px] pr-4 text-theme-sm font-medium text-gray-700 shadow-theme-xs focus:outline-hidden focus:ring-0 focus-visible:outline-hidden dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 xl:max-w-fit xl:pl-11 flatpickr-input" placeholder="Select dates" data-class="flatpickr-right" readonly="readonly" type="text"><div class="flatpickr-calendar rangeMode animate static flatpickr-right" tabindex="-1"><div class="flatpickr-months"><span class="flatpickr-prev-month"><svg class="stroke-current" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.25 6L9 12.25L15.25 18.5" stroke="" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><div class="flatpickr-month"><div class="flatpickr-current-month"><span class="cur-month">December </span><div class="numInputWrapper"><input class="numInput cur-year" type="number" tabindex="-1" aria-label="Year"><span class="arrowUp"></span><span class="arrowDown"></span></div></div></div><span class="flatpickr-next-month"><svg class="stroke-current" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.75 19L15 12.75L8.75 6.5" stroke="" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></div><div class="flatpickr-innerContainer"><div class="flatpickr-rContainer"><div class="flatpickr-weekdays"><div class="flatpickr-weekdaycontainer">
+                                <span class="flatpickr-weekday">
+                                  Sun</span><span class="flatpickr-weekday">Mon</span><span class="flatpickr-weekday">Tue</span><span class="flatpickr-weekday">Wed</span><span class="flatpickr-weekday">Thu</span><span class="flatpickr-weekday">Fri</span><span class="flatpickr-weekday">Sat
+                                </span>
+                              </div>
+                              </div>
                                 <div class="flatpickr-days" tabindex="-1"><div class="dayContainer"><span class="flatpickr-day prevMonthDay" aria-label="November 30, 2025" tabindex="-1">30</span><span class="flatpickr-day" aria-label="December 1, 2025" tabindex="-1">1</span><span class="flatpickr-day" aria-label="December 2, 2025" tabindex="-1">2</span><span class="flatpickr-day" aria-label="December 3, 2025" tabindex="-1">3</span><span class="flatpickr-day" aria-label="December 4, 2025" tabindex="-1">4</span><span class="flatpickr-day" aria-label="December 5, 2025" tabindex="-1">5</span><span class="flatpickr-day" aria-label="December 6, 2025" tabindex="-1">6</span><span class="flatpickr-day" aria-label="December 7, 2025" tabindex="-1">7</span><span class="flatpickr-day" aria-label="December 8, 2025" tabindex="-1">8</span><span class="flatpickr-day" aria-label="December 9, 2025" tabindex="-1">9</span><span class="flatpickr-day" aria-label="December 10, 2025" tabindex="-1">10</span><span class="flatpickr-day" aria-label="December 11, 2025" tabindex="-1">11</span><span class="flatpickr-day" aria-label="December 12, 2025" tabindex="-1">12</span><span class="flatpickr-day selected startRange" aria-label="December 13, 2025" tabindex="-1">13</span><span class="flatpickr-day inRange" aria-label="December 14, 2025" tabindex="-1">14</span><span class="flatpickr-day inRange" aria-label="December 15, 2025" tabindex="-1">15</span><span class="flatpickr-day inRange" aria-label="December 16, 2025" tabindex="-1">16</span><span class="flatpickr-day inRange" aria-label="December 17, 2025" tabindex="-1">17</span><span class="flatpickr-day inRange" aria-label="December 18, 2025" tabindex="-1">18</span><span class="flatpickr-day today selected endRange" aria-label="December 19, 2025" aria-current="date" tabindex="-1">19</span><span class="flatpickr-day" aria-label="December 20, 2025" tabindex="-1">20</span><span class="flatpickr-day" aria-label="December 21, 2025" tabindex="-1">21</span><span class="flatpickr-day" aria-label="December 22, 2025" tabindex="-1">22</span><span class="flatpickr-day" aria-label="December 23, 2025" tabindex="-1">23</span><span class="flatpickr-day" aria-label="December 24, 2025" tabindex="-1">24</span><span class="flatpickr-day" aria-label="December 25, 2025" tabindex="-1">25</span><span class="flatpickr-day" aria-label="December 26, 2025" tabindex="-1">26</span><span class="flatpickr-day" aria-label="December 27, 2025" tabindex="-1">27</span><span class="flatpickr-day" aria-label="December 28, 2025" tabindex="-1">28</span><span class="flatpickr-day" aria-label="December 29, 2025" tabindex="-1">29</span><span class="flatpickr-day" aria-label="December 30, 2025" tabindex="-1">30</span><span class="flatpickr-day" aria-label="December 31, 2025" tabindex="-1">31</span><span class="flatpickr-day nextMonthDay" aria-label="January 1, 2026" tabindex="-1">1</span><span class="flatpickr-day nextMonthDay" aria-label="January 2, 2026" tabindex="-1">2</span><span class="flatpickr-day nextMonthDay" aria-label="January 3, 2026" tabindex="-1">3</span><span class="flatpickr-day nextMonthDay" aria-label="January 4, 2026" tabindex="-1">4</span><span class="flatpickr-day nextMonthDay" aria-label="January 5, 2026" tabindex="-1">5</span><span class="flatpickr-day nextMonthDay" aria-label="January 6, 2026" tabindex="-1">6</span><span class="flatpickr-day nextMonthDay" aria-label="January 7, 2026" tabindex="-1">7</span><span class="flatpickr-day nextMonthDay" aria-label="January 8, 2026" tabindex="-1">8</span><span class="flatpickr-day nextMonthDay" aria-label="January 9, 2026" tabindex="-1">9</span><span class="flatpickr-day nextMonthDay" aria-label="January 10, 2026" tabindex="-1">10</span></div></div></div></div></div></div><div class="flatpickr-calendar rangeMode animate static flatpickr-right" tabindex="-1"><div class="flatpickr-months"><span class="flatpickr-prev-month"><svg class="stroke-current" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.25 6L9 12.25L15.25 18.5" stroke="" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><div class="flatpickr-month"><div class="flatpickr-current-month"><span class="cur-month">December </span><div class="numInputWrapper"><input class="numInput cur-year" type="number" tabindex="-1" aria-label="Year"><span class="arrowUp"></span><span class="arrowDown"></span></div></div></div><span class="flatpickr-next-month"><svg class="stroke-current" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.75 19L15 12.75L8.75 6.5" stroke="" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></div><div class="flatpickr-innerContainer"><div class="flatpickr-rContainer"><div class="flatpickr-weekdays"><div class="flatpickr-weekdaycontainer">
                             </div>
                             </div>
@@ -2793,7 +2966,7 @@
 
     <div x-show="makeDepositModal" class="fixed inset-0 flex items-center justify-center p-5 overflow-y-auto z-99999">
       <div class="modal-close-btn fixed inset-0 h-full w-full bg-gray-400/50 backdrop-blur-[32px]"></div>
-      <div @click.outside="makeDepositModal = false" class="no-scrollbar relative flex w-full max-w-[700px] flex-col overflow-y-auto rounded-3xl bg-white p-6 dark:bg-gray-900 lg:p-11">
+      <div @click.outside="makeDepositModal = false" class="flex no-scrollbar relative w-full max-w-[700px] flex-col overflow-y-auto rounded-3xl bg-white p-6 dark:bg-gray-900 lg:p-11">
         <!-- close btn -->
         <button @click="makeDepositModal = false"
                 class="transition-color absolute right-5 top-5 z-999 flex h-11 w-11 items-center justify-center rounded-full bg-gray-100 text-gray-400 hover:bg-gray-200 hover:text-gray-600 dark:bg-gray-700 dark:bg-white/[0.05] dark:text-gray-400 dark:hover:bg-white/[0.07] dark:hover:text-gray-300">
@@ -2816,50 +2989,212 @@
 
         <div class="px-2 pr-14">
           <h4 class="mb-2 text-2xl font-semibold text-gray-800 dark:text-white/90">
-            Make Deposit
+            Payment
           </h4>
           <p class="mb-6 text-sm text-gray-500 dark:text-gray-400 lg:mb-7">
-            Make a new cash deposit.
+            Specify contribution amount and status.
           </p>
         </div>
         <form class="flex flex-col">
-          <div class="px-2 overflow-y-auto custom-scrollbar">
-            <div class="grid grid-cols-1 gap-x-6 gap-y-5 lg:grid-cols-1">
+          <div class="custom-scrollbar flex-1 overflow-y-auto px-6">
+            <!-- Preview Report View (unchanged design) -->
+            <div class="space-y-6">
               <div>
-                <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">Amount</label>
-                <input type="text"
-                        placeholder="KES 100.00 ... "
-                        class="dark:bg-dark-900 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-hidden focus:ring-3 focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800"
-                />
-              </div>
 
-              <div>
-                <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
-                  Comments
-                </label>
-                <textarea
-                        placeholder="Enter a description..."
-                        type="text"
-                        rows="6"
-                        class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30"></textarea>
+                <!-- Appointment Report Card -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6 mb-6">
+                  <!-- Applicant Information Section -->
+                  <div class="mb-8">
+                    <div class="mb-4 md:mb-0">
+                      <h4 class="text-normal font-bold text-gray-600 dark:text-white/90 mb-2">Sarah Kamau</h4>
+                      <div class="flex flex-col items-center gap-1 text-center xl:flex-row xl:gap-3 xl:text-left">
+                        <p class="text-sm text-gray-500 dark:text-gray-400">sarah.k@example.com</p>
+                        <div class="hidden h-3.5 w-px bg-gray-300 xl:block dark:bg-gray-700"></div>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">
+                          +254 700 000 000
+                        </p>
+                        <div class="hidden h-3.5 w-px bg-gray-300 xl:block dark:bg-gray-700"></div>
+                        <span class="bg-success-50 text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 text-xs font-medium">Active</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
+
+            <!-- Change Appointment Details Section -->
+            <div class="space-y-6 mt-8">
+              <h5 class="text-lg font-medium text-gray-600 dark:text-white/90 mb-6">Payment Details</h5>
+
+              <!-- Amount -->
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                <!-- Amount -->
+                <div>
+                  <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                    Amount
+                  </label>
+                  <div class="relative">
+                    <input type="number" placeholder="Amount" class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 pl-[62px] text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
+                    <span class="absolute top-1/2 left-0 flex h-11 w-[46px] -translate-y-1/2 items-center justify-center border-r border-gray-200 dark:border-gray-800">
+                          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="6.25" cy="10" r="5.625" fill="#E80B26"></circle>
+                            <circle cx="13.75" cy="10" r="5.625" fill="#F59D31"></circle>
+                            <path d="M10 14.1924C11.1508 13.1625 11.875 11.6657 11.875 9.99979C11.875 8.33383 11.1508 6.8371 10 5.80713C8.84918 6.8371 8.125 8.33383 8.125 9.99979C8.125 11.6657 8.84918 13.1625 10 14.1924Z" fill="#FC6020"></path>
+                          </svg>
+                        </span>
+                  </div>
+                </div>
+
+                <!-- Payment Type -->
+                <div>
+                  <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                    Type
+                  </label>
+                  <div class="relative z-20 bg-transparent">
+                    <select class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 pr-11 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" :class="isOptionSelected &amp;&amp; 'text-gray-800 dark:text-white/90'">
+                      <option value="confirm" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400" selected="">Type</option>
+                      <option value="cancel" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Contribution</option>
+                      <option value="done" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Membership Fee</option>
+                    </select>
+                    <span class="pointer-events-none absolute top-1/2 right-4 z-30 -translate-y-1/2 text-gray-700 dark:text-gray-400">
+                    <svg class="stroke-current" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4.79175 7.396L10.0001 12.6043L15.2084 7.396" stroke="" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                  </span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Action Buttons - Bottom Right -->
+            <div class="flex justify-end items-center gap-3 pt-6 border-t border-gray-200 dark:border-gray-700 mt-8">
+              <button class="h-11 rounded-lg border border-gray-300 bg-transparent px-6 text-sm font-semibold text-gray-700 shadow-theme-xs hover:bg-gray-50 hover:text-gray-800 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-400 dark:hover:bg-white/[0.03] dark:hover:text-gray-300">
+                Close
+              </button>
+              <button type="submit"
+                      class="h-11 rounded-lg border border-success-500 bg-success-500 px-6 text-sm font-semibold text-white shadow-theme-xs hover:bg-success-600 disabled:pointer-events-none disabled:opacity-50">
+                Make Payment
+              </button>
+            </div>
           </div>
-          <div class="flex items-center gap-3 mt-6 lg:justify-end">
-            <button
-                    @click="makeDepositModal = false"
-                    type="button"
-                    class="flex w-full justify-center rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03] sm:w-auto"
-            >
-              Cancel
-            </button>
-            <button
-                    @click="isModalOpen = true"
-                    type="button"
-                    class="flex w-full justify-center rounded-lg bg-success-500 px-4 py-2.5 text-sm font-medium text-white hover:bg-success-600 sm:w-auto"
-            >
-              Deposit
-            </button>
+        </form>
+      </div>
+    </div>
+
+    <div x-show="DepositModal" class="fixed inset-0 flex items-center justify-center p-5 overflow-y-auto z-99999">
+      <div class="modal-close-btn fixed inset-0 h-full w-full bg-gray-400/50 backdrop-blur-[32px]"></div>
+      <div @click.outside="makeDepositModal = false" class="flex no-scrollbar relative w-full max-w-[700px] flex-col overflow-y-auto rounded-3xl bg-white p-6 dark:bg-gray-900 lg:p-11">
+        <!-- close btn -->
+        <button @click="makeDepositModal = false"
+                class="transition-color absolute right-5 top-5 z-999 flex h-11 w-11 items-center justify-center rounded-full bg-gray-100 text-gray-400 hover:bg-gray-200 hover:text-gray-600 dark:bg-gray-700 dark:bg-white/[0.05] dark:text-gray-400 dark:hover:bg-white/[0.07] dark:hover:text-gray-300">
+          <svg
+                  class="fill-current"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M6.04289 16.5418C5.65237 16.9323 5.65237 17.5655 6.04289 17.956C6.43342 18.3465 7.06658 18.3465 7.45711 17.956L11.9987 13.4144L16.5408 17.9565C16.9313 18.347 17.5645 18.347 17.955 17.9565C18.3455 17.566 18.3455 16.9328 17.955 16.5423L13.4129 12.0002L17.955 7.45808C18.3455 7.06756 18.3455 6.43439 17.955 6.04387C17.5645 5.65335 16.9313 5.65335 16.5408 6.04387L11.9987 10.586L7.45711 6.04439C7.06658 5.65386 6.43342 5.65386 6.04289 6.04439C5.65237 6.43491 5.65237 7.06808 6.04289 7.4586L10.5845 12.0002L6.04289 16.5418Z"
+                    fill=""
+            />
+          </svg>
+        </button>
+
+        <div class="px-2 pr-14">
+          <h4 class="mb-2 text-2xl font-semibold text-gray-800 dark:text-white/90">
+            Payment
+          </h4>
+          <p class="mb-6 text-sm text-gray-500 dark:text-gray-400 lg:mb-7">
+            Specify contribution amount and status.
+          </p>
+        </div>
+        <form class="flex flex-col">
+          <div class="custom-scrollbar flex-1 overflow-y-auto px-6">
+            <!-- Preview Report View (unchanged design) -->
+            <div class="space-y-6">
+              <div>
+
+                <!-- Appointment Report Card -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6 mb-6">
+                  <!-- Applicant Information Section -->
+                  <div class="mb-8">
+                    <div class="mb-4 md:mb-0">
+                      <h4 class="text-normal font-bold text-gray-600 dark:text-white/90 mb-2">Sarah Kamau</h4>
+                      <div class="flex flex-col items-center gap-1 text-center xl:flex-row xl:gap-3 xl:text-left">
+                        <p class="text-sm text-gray-500 dark:text-gray-400">sarah.k@example.com</p>
+                        <div class="hidden h-3.5 w-px bg-gray-300 xl:block dark:bg-gray-700"></div>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">
+                          +254 700 000 000
+                        </p>
+                        <div class="hidden h-3.5 w-px bg-gray-300 xl:block dark:bg-gray-700"></div>
+                        <span class="bg-success-50 text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 text-xs font-medium">Active</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Change Appointment Details Section -->
+            <div class="space-y-6 mt-8">
+              <h5 class="text-lg font-medium text-gray-600 dark:text-white/90 mb-6">Payment Details</h5>
+
+              <!-- Amount -->
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                <!-- Amount -->
+                <div>
+                  <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                    Amount
+                  </label>
+                  <div class="relative">
+                    <input type="number" placeholder="Amount" class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 pl-[62px] text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
+                    <span class="absolute top-1/2 left-0 flex h-11 w-[46px] -translate-y-1/2 items-center justify-center border-r border-gray-200 dark:border-gray-800">
+                          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="6.25" cy="10" r="5.625" fill="#E80B26"></circle>
+                            <circle cx="13.75" cy="10" r="5.625" fill="#F59D31"></circle>
+                            <path d="M10 14.1924C11.1508 13.1625 11.875 11.6657 11.875 9.99979C11.875 8.33383 11.1508 6.8371 10 5.80713C8.84918 6.8371 8.125 8.33383 8.125 9.99979C8.125 11.6657 8.84918 13.1625 10 14.1924Z" fill="#FC6020"></path>
+                          </svg>
+                        </span>
+                  </div>
+                </div>
+
+                <!-- Payment Type -->
+                <div>
+                  <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                    Type
+                  </label>
+                  <div class="relative z-20 bg-transparent">
+                    <select class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 pr-11 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" :class="isOptionSelected &amp;&amp; 'text-gray-800 dark:text-white/90'">
+                      <option value="confirm" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400" selected="">Type</option>
+                      <option value="cancel" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Contribution</option>
+                      <option value="done" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">Membership Fee</option>
+                    </select>
+                    <span class="pointer-events-none absolute top-1/2 right-4 z-30 -translate-y-1/2 text-gray-700 dark:text-gray-400">
+                    <svg class="stroke-current" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4.79175 7.396L10.0001 12.6043L15.2084 7.396" stroke="" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                  </span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Action Buttons - Bottom Right -->
+            <div class="flex justify-end items-center gap-3 pt-6 border-t border-gray-200 dark:border-gray-700 mt-8">
+              <button class="h-11 rounded-lg border border-gray-300 bg-transparent px-6 text-sm font-semibold text-gray-700 shadow-theme-xs hover:bg-gray-50 hover:text-gray-800 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-400 dark:hover:bg-white/[0.03] dark:hover:text-gray-300">
+                Close
+              </button>
+              <button type="submit"
+                      class="h-11 rounded-lg border border-success-500 bg-success-500 px-6 text-sm font-semibold text-white shadow-theme-xs hover:bg-success-600 disabled:pointer-events-none disabled:opacity-50">
+                Make Payment
+              </button>
+            </div>
           </div>
         </form>
       </div>
