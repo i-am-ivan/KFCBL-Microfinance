@@ -10,8 +10,8 @@
 
     <title>Users | KFBCL - Mircofinance</title>
 
-    <link rel="icon" href="../../assets/favicon.ico">
-    <link href="../../assets/style.css" rel="stylesheet">
+    <link rel="icon" href="../../../assets/favicon.ico">
+    <link href="../../../assets/style.css" rel="stylesheet">
   </head>
 
   <body x-data="{ page: 'users', 'loaded': true, 'darkMode': false, 'stickyMenu': false, 'sidebarToggle': false, 'scrollTop': false, 'editUserRoleModal': false, 'newUserRoleModal': false,  'newUserModal': false, 'editUserModal': false, 'isProfileAddressModal': false }"
@@ -38,11 +38,11 @@
              class="sidebar-header flex items-center gap-2 pt-8 pb-7">
           <a href="index.html">
                 <span class="logo" :class="sidebarToggle ? 'hidden' : ''">
-                  <img class="dark:hidden" src="../../assets/src/images/logo/KFCBL-Logo-transparent.png" alt="Logo" />
-                  <img class="hidden dark:block" src="../../assets/src/images/logo/KFCBL-Logo-transparent.png" alt="Logo"/>
+                  <img class="dark:hidden" src="../../../assets/src/images/logo/KFCBL-Logo-transparent.png" alt="Logo" />
+                  <img class="hidden dark:block" src="../../../assets/src/images/logo/KFCBL-Logo-transparent.png" alt="Logo"/>
                 </span>
 
-            <img class="logo-icon" :class="sidebarToggle ? 'xl:block' : 'hidden'" src="../../assets/src/images/logo/logo-icon.svg" alt="Logo"/>
+            <img class="logo-icon" :class="sidebarToggle ? 'xl:block' : 'hidden'" src="../../../assets/src/images/logo/logo-icon.svg" alt="Logo"/>
           </a>
         </div>
         <!-- SIDEBAR HEADER -->
@@ -406,8 +406,8 @@
               <!-- Hamburger Toggle BTN -->
 
               <a href="index.html" class="xl:hidden">
-                <img class="dark:hidden" src="../../assets/src/images/logo/logo.svg" alt="Logo" />
-                <img class="hidden dark:block" src="../../assets/src/images/logo/logo-dark.svg" alt="Logo"/>
+                <img class="dark:hidden" src="../../../assets/src/images/logo/logo.svg" alt="Logo" />
+                <img class="hidden dark:block" src="../../../assets/src/images/logo/logo-dark.svg" alt="Logo"/>
               </a>
 
               <!-- Application nav menu button -->
@@ -441,7 +441,7 @@
               <!-- User Area -->
               <div class="relative" x-data="{ dropdownOpen: false }" @click.outside="dropdownOpen = false">
                 <a class="flex items-center text-gray-700 dark:text-gray-400" href="#" @click.prevent="dropdownOpen = ! dropdownOpen">
-                  <span class="mr-3 h-11 w-11 overflow-hidden rounded-full"><img src="../../assets/src/images/user/owner.png" alt="User" /></span>
+                  <span class="mr-3 h-11 w-11 overflow-hidden rounded-full"><img src="../../../assets/src/images/user/owner.png" alt="User" /></span>
 
                   <span class="text-theme-sm mr-1 block font-medium"> Kamau Njunge </span>
 
@@ -467,7 +467,7 @@
                   <div>
                     <span class="text-theme-sm block font-medium text-gray-700 dark:text-gray-400">Kamau Njunge</span>
                     <span class="text-theme-xs mt-0.5 block text-gray-500 dark:text-gray-400">
-                          <a href="../../cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="6113000f050e0c141204132111080c0b0e4f020e0c">[email&#160;protected]</a>
+                          <a href="../../../cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="6113000f050e0c141204132111080c0b0e4f020e0c">[email&#160;protected]</a>
                         </span>
                   </div>
 
@@ -881,7 +881,7 @@
                           Users
                         </h3>
                         <p class="text-sm text-gray-500 dark:text-gray-400">
-                          Users list
+                          All system users
                         </p>
                       </div>
                       <div class="hidden flex-col gap-3 sm:flex sm:flex-row sm:items-center">
@@ -948,7 +948,7 @@
                     <!-- Users Table -->
                     <div>
                       <!-- Users Table -->
-                      <div x-data="transactionTableFull()">
+                      <div>
                         <div class="custom-scrollbar overflow-x-auto">
                           <table class="w-full table-auto">
                             <thead>
@@ -1076,7 +1076,7 @@
                                         x-show="row.accountStatus === 'Blacklisted'">Blacklisted</span>
                                 </td>
                                 <td class="p-4 whitespace-nowrap">
-                                  <button @click="editUserModal = true"
+                                  <button @click="editUserModal = true; $dispatch('user-selected', row)"
                                           class="shadow-theme-xs inline-flex h-9 w-9 items-center justify-center rounded-lg border border-gray-300 text-gray-500 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-white/[0.03] dark:hover:text-gray-200">
                                     <svg class="w-[22px] h-[22px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                       <path stroke="currentColor" stroke-linecap="square" stroke-linejoin="round" stroke-width="1.1" d="M7 19H5a1 1 0 0 1-1-1v-1a3 3 0 0 1 3-3h1m4-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm7.441 1.559a1.907 1.907 0 0 1 0 2.698l-6.069 6.069L10 19l.674-3.372 6.07-6.07a1.907 1.907 0 0 1 2.697 0Z"/>
@@ -1091,14 +1091,14 @@
 
                         <div class="border-t border-gray-200 px-5 py-4 dark:border-gray-800">
                           <div class="flex justify-center pb-4 sm:hidden">
-            <span class="block text-sm font-medium text-gray-500 dark:text-gray-400">
-                Showing
-                <span class="text-gray-800 dark:text-white/90" x-text="startEntry"></span>
-                to
-                <span class="text-gray-800 dark:text-white/90" x-text="endEntry"></span>
-                of
-                <span class="text-gray-800 dark:text-white/90" x-text="rows.length"></span>
-            </span>
+                            <span class="block text-sm font-medium text-gray-500 dark:text-gray-400">
+                                Showing
+                                <span class="text-gray-800 dark:text-white/90" x-text="startEntry"></span>
+                                to
+                                <span class="text-gray-800 dark:text-white/90" x-text="endEntry"></span>
+                                of
+                                <span class="text-gray-800 dark:text-white/90" x-text="rows.length"></span>
+                            </span>
                           </div>
 
                           <div class="flex items-center justify-between">
@@ -1656,38 +1656,33 @@
 
       </div>
     </div>
-    <!-- Edit user -->
-    <div x-show="editUserModal" class="fixed inset-0 flex items-center justify-center p-5 overflow-y-auto z-99999">
+    <!-- Edit user Modal -->
+    <div x-show="editUserModal"
+         @user-selected.window="selectedUser = $event.detail"
+         x-data="{ selectedUser: null, currentStep: 1 }"
+         class="fixed inset-0 flex items-center justify-center p-5 overflow-y-auto z-99999">
       <div class="modal-close-btn fixed inset-0 h-full w-full bg-gray-400/50 backdrop-blur-[32px]"></div>
-      <div @click.outside="editUserModal = false" class=" relative w-full max-w-[700px] overflow-y-auto rounded-3xl bg-white p-4 dark:bg-gray-900 lg:p-11">
+
+      <div @click.outside="editUserModal = false" class="relative w-full max-w-[700px] overflow-y-auto rounded-3xl bg-white p-4 dark:bg-gray-900 lg:p-11">
+
         <!-- close btn -->
         <button @click="editUserModal = false" class="transition-color absolute right-5 top-5 z-999 flex h-11 w-11 items-center justify-center rounded-full bg-gray-100 text-gray-400 hover:bg-gray-200 hover:text-gray-600 dark:bg-gray-700 dark:bg-white/[0.05] dark:text-gray-400 dark:hover:bg-white/[0.07] dark:hover:text-gray-300">
-          <svg
-                  class="fill-current"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M6.04289 16.5418C5.65237 16.9323 5.65237 17.5655 6.04289 17.956C6.43342 18.3465 7.06658 18.3465 7.45711 17.956L11.9987 13.4144L16.5408 17.9565C16.9313 18.347 17.5645 18.347 17.955 17.9565C18.3455 17.566 18.3455 16.9328 17.955 16.5423L13.4129 12.0002L17.955 7.45808C18.3455 7.06756 18.3455 6.43439 17.955 6.04387C17.5645 5.65335 16.9313 5.65335 16.5408 6.04387L11.9987 10.586L7.45711 6.04439C7.06658 5.65386 6.43342 5.65386 6.04289 6.04439C5.65237 6.43491 5.65237 7.06808 6.04289 7.4586L10.5845 12.0002L6.04289 16.5418Z"
-                    fill=""
-            />
+          <svg class="fill-current" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M6.04289 16.5418C5.65237 16.9323 5.65237 17.5655 6.04289 17.956C6.43342 18.3465 7.06658 18.3465 7.45711 17.956L11.9987 13.4144L16.5408 17.9565C16.9313 18.347 17.5645 18.347 17.955 17.9565C18.3455 17.566 18.3455 16.9328 17.955 16.5423L13.4129 12.0002L17.955 7.45808C18.3455 7.06756 18.3455 6.43439 17.955 6.04387C17.5645 5.65335 16.9313 5.65335 16.5408 6.04387L11.9987 10.586L7.45711 6.04439C7.06658 5.65386 6.43342 5.65386 6.04289 6.04439C5.65237 6.43491 5.65237 7.06808 6.04289 7.4586L10.5845 12.0002L6.04289 16.5418Z" fill=""/>
           </svg>
         </button>
+
         <div class="px-2 pr-14">
           <h4 class="mb-2 text-2xl font-semibold text-gray-800 dark:text-white/90">
-           Edit User Details
+            Edit User Details
+            <span x-show="selectedUser" x-text="' - ' + selectedUser.user" class="text-brand-500"></span>
           </h4>
           <p class="mb-6 text-sm text-gray-500 dark:text-gray-400 lg:mb-7">
             Update user information
           </p>
         </div>
 
-        <div x-data="appointmentWizard()" class="flex flex-col h-full px-2 pr-14">
+        <div class="flex flex-col h-full px-2 pr-14">
           <!-- Progress Bar -->
           <div class="mb-8 px-4 sm:px-6">
             <div class="flex items-center justify-between mb-2">
@@ -1699,10 +1694,10 @@
               </div>
             </div>
             <div class="flex justify-between text-sm text-gray-500 dark:text-gray-400">
-              <span :class="{'text-brand-600 dark:text-brand-400 font-medium': currentStep >= 1}">New User details</span>
+              <span :class="{'text-brand-600 dark:text-brand-400 font-medium': currentStep >= 1}">User details</span>
               <span :class="{'text-brand-600 dark:text-brand-400 font-medium': currentStep >= 2}">Addresses</span>
               <span :class="{'text-brand-600 dark:text-brand-400 font-medium': currentStep >= 3}">Next of Kin</span>
-              <span :class="{'text-brand-600 dark:text-brand-400 font-medium': currentStep >= 4}">Preview </span>
+              <span :class="{'text-brand-600 dark:text-brand-400 font-medium': currentStep >= 4}">Preview</span>
             </div>
           </div>
 
@@ -1717,7 +1712,6 @@
             <!-- Step 1: User Information -->
             <div x-show="currentStep === 1" x-cloak class="space-y-6">
               <div>
-                <!-- User Form -->
                 <div class="space-y-6 border-t border-gray-100 p-5 sm:p-6 dark:border-gray-800">
                   <form>
                     <div class="-mx-2.5 flex flex-wrap gap-y-5">
@@ -1727,82 +1721,96 @@
                         </h4>
                       </div>
 
+                      <!-- First Name -->
                       <div class="w-full px-2.5 xl:w-1/2">
                         <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
                           First Name
                         </label>
-                        <input type="text" placeholder="Enter first name" class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
+                        <input type="text"
+                               x-model="selectedUser.firstName"
+                               placeholder="Enter first name"
+                               class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
                       </div>
 
+                      <!-- Last Name -->
                       <div class="w-full px-2.5 xl:w-1/2">
                         <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
                           Last Name
                         </label>
-                        <input type="text" placeholder="Enter last name" class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
+                        <input type="text"
+                               x-model="selectedUser.lastName"
+                               placeholder="Enter last name"
+                               class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
                       </div>
 
+                      <!-- Gender -->
                       <div class="w-full px-2.5 xl:w-1/2">
                         <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
                           Gender
                         </label>
-                        <div x-data="{ isOptionSelected: false }" class="relative z-20 bg-transparent">
-                          <select class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-3 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" :class="isOptionSelected &amp;&amp; 'text-gray-500 dark:text-gray-400'" @change="isOptionSelected = true">
-                            <option value="" class="text-gray-500 dark:bg-gray-900 dark:text-gray-400">
-                              Male
-                            </option>
-                            <option value="" class="text-gray-500 dark:bg-gray-900 dark:text-gray-400">
-                              Female
-                            </option>
-                            <option value="" class="text-gray-500 dark:bg-gray-900 dark:text-gray-400">
-                              Others
-                            </option>
+                        <div class="relative z-20 bg-transparent">
+                          <select x-model="selectedUser.gender"
+                                  class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-3 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
+                            <option value="">Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Others">Others</option>
                           </select>
                           <span class="absolute top-1/2 right-4 z-30 -translate-y-1/2 text-gray-500 dark:text-gray-400">
-                              <svg class="stroke-current" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4.79175 7.396L10.0001 12.6043L15.2084 7.396" stroke="" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                              </svg>
-                            </span>
+                        <svg class="stroke-current" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M4.79175 7.396L10.0001 12.6043L15.2084 7.396" stroke="" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                      </span>
                         </div>
                       </div>
 
+                      <!-- Date of Birth -->
                       <div class="w-full px-2.5 xl:w-1/2">
                         <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
                           Date of Birth
                         </label>
-
                         <div class="relative">
-                          <div class="flatpickr-wrapper"><input type="text" placeholder="Select date" class="dark:bg-dark-900 datepickerTwo shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 pr-11 pl-4 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 flatpickr-input" readonly="readonly"><div class="flatpickr-calendar animate static null" tabindex="-1"><div class="flatpickr-months"><span class="flatpickr-prev-month"><svg class="stroke-current" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.25 6L9 12.25L15.25 18.5" stroke="" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><div class="flatpickr-month"><div class="flatpickr-current-month"><span class="cur-month">January </span><div class="numInputWrapper"><input class="numInput cur-year" type="number" tabindex="-1" aria-label="Year"><span class="arrowUp"></span><span class="arrowDown"></span></div></div></div><span class="flatpickr-next-month"><svg class="stroke-current" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="httpwww.w3.org/2000/svg"><path d="M8.75 19L15 12.75L8.75 6.5" stroke="" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></div><div class="flatpickr-innerContainer"><div class="flatpickr-rContainer"><div class="flatpickr-weekdays"><div class="flatpickr-weekdaycontainer">
-      <span class="flatpickr-weekday">
-        Sun</span><span class="flatpickr-weekday">Mon</span><span class="flatpickr-weekday">Tue</span><span class="flatpickr-weekday">Wed</span><span class="flatpickr-weekday">Thu</span><span class="flatpickr-weekday">Fri</span><span class="flatpickr-weekday">Sat
-      </span>
-                          </div></div><div class="flatpickr-days" tabindex="-1"><div class="dayContainer"><span class="flatpickr-day prevMonthDay" aria-label="December 28, 2025" tabindex="-1">28</span><span class="flatpickr-day prevMonthDay" aria-label="December 29, 2025" tabindex="-1">29</span><span class="flatpickr-day prevMonthDay" aria-label="December 30, 2025" tabindex="-1">30</span><span class="flatpickr-day prevMonthDay" aria-label="December 31, 2025" tabindex="-1">31</span><span class="flatpickr-day" aria-label="January 1, 2026" tabindex="-1">1</span><span class="flatpickr-day" aria-label="January 2, 2026" tabindex="-1">2</span><span class="flatpickr-day" aria-label="January 3, 2026" tabindex="-1">3</span><span class="flatpickr-day" aria-label="January 4, 2026" tabindex="-1">4</span><span class="flatpickr-day" aria-label="January 5, 2026" tabindex="-1">5</span><span class="flatpickr-day" aria-label="January 6, 2026" tabindex="-1">6</span><span class="flatpickr-day today" aria-label="January 7, 2026" aria-current="date" tabindex="-1">7</span><span class="flatpickr-day" aria-label="January 8, 2026" tabindex="-1">8</span><span class="flatpickr-day" aria-label="January 9, 2026" tabindex="-1">9</span><span class="flatpickr-day" aria-label="January 10, 2026" tabindex="-1">10</span><span class="flatpickr-day" aria-label="January 11, 2026" tabindex="-1">11</span><span class="flatpickr-day" aria-label="January 12, 2026" tabindex="-1">12</span><span class="flatpickr-day" aria-label="January 13, 2026" tabindex="-1">13</span><span class="flatpickr-day" aria-label="January 14, 2026" tabindex="-1">14</span><span class="flatpickr-day" aria-label="January 15, 2026" tabindex="-1">15</span><span class="flatpickr-day" aria-label="January 16, 2026" tabindex="-1">16</span><span class="flatpickr-day" aria-label="January 17, 2026" tabindex="-1">17</span><span class="flatpickr-day" aria-label="January 18, 2026" tabindex="-1">18</span><span class="flatpickr-day" aria-label="January 19, 2026" tabindex="-1">19</span><span class="flatpickr-day" aria-label="January 20, 2026" tabindex="-1">20</span><span class="flatpickr-day" aria-label="January 21, 2026" tabindex="-1">21</span><span class="flatpickr-day" aria-label="January 22, 2026" tabindex="-1">22</span><span class="flatpickr-day" aria-label="January 23, 2026" tabindex="-1">23</span><span class="flatpickr-day" aria-label="January 24, 2026" tabindex="-1">24</span><span class="flatpickr-day" aria-label="January 25, 2026" tabindex="-1">25</span><span class="flatpickr-day" aria-label="January 26, 2026" tabindex="-1">26</span><span class="flatpickr-day" aria-label="January 27, 2026" tabindex="-1">27</span><span class="flatpickr-day" aria-label="January 28, 2026" tabindex="-1">28</span><span class="flatpickr-day" aria-label="January 29, 2026" tabindex="-1">29</span><span class="flatpickr-day" aria-label="January 30, 2026" tabindex="-1">30</span><span class="flatpickr-day" aria-label="January 31, 2026" tabindex="-1">31</span><span class="flatpickr-day nextMonthDay" aria-label="February 1, 2026" tabindex="-1">1</span><span class="flatpickr-day nextMonthDay" aria-label="February 2, 2026" tabindex="-1">2</span><span class="flatpickr-day nextMonthDay" aria-label="February 3, 2026" tabindex="-1">3</span><span class="flatpickr-day nextMonthDay" aria-label="February 4, 2026" tabindex="-1">4</span><span class="flatpickr-day nextMonthDay" aria-label="February 5, 2026" tabindex="-1">5</span><span class="flatpickr-day nextMonthDay" aria-label="February 6, 2026" tabindex="-1">6</span><span class="flatpickr-day nextMonthDay" aria-label="February 7, 2026" tabindex="-1">7</span></div></div></div></div></div></div>
+                          <input type="text"
+                                 x-model="selectedUser.dateOfBirth"
+                                 placeholder="Select date"
+                                 class="dark:bg-dark-900 datepickerTwo shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 pr-11 pl-4 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 flatpickr-input">
                           <span class="absolute top-1/2 right-3 -translate-y-1/2 text-gray-500 dark:text-gray-400">
-                              <svg class="fill-current" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M6.66659 1.5415C7.0808 1.5415 7.41658 1.87729 7.41658 2.2915V2.99984H12.5833V2.2915C12.5833 1.87729 12.919 1.5415 13.3333 1.5415C13.7475 1.5415 14.0833 1.87729 14.0833 2.2915V2.99984L15.4166 2.99984C16.5212 2.99984 17.4166 3.89527 17.4166 4.99984V7.49984V15.8332C17.4166 16.9377 16.5212 17.8332 15.4166 17.8332H4.58325C3.47868 17.8332 2.58325 16.9377 2.58325 15.8332V7.49984V4.99984C2.58325 3.89527 3.47868 2.99984 4.58325 2.99984L5.91659 2.99984V2.2915C5.91659 1.87729 6.25237 1.5415 6.66659 1.5415ZM6.66659 4.49984H4.58325C4.30711 4.49984 4.08325 4.7237 4.08325 4.99984V6.74984H15.9166V4.99984C15.9166 4.7237 15.6927 4.49984 15.4166 4.49984H13.3333H6.66659ZM15.9166 8.24984H4.08325V15.8332C4.08325 16.1093 4.30711 16.3332 4.58325 16.3332H15.4166C15.6927 16.3332 15.9166 16.1093 15.9166 15.8332V8.24984Z" fill=""></path>
-                              </svg>
-                            </span>
+                        <svg class="fill-current" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M6.66659 1.5415C7.0808 1.5415 7.41658 1.87729 7.41658 2.2915V2.99984H12.5833V2.2915C12.5833 1.87729 12.919 1.5415 13.3333 1.5415C13.7475 1.5415 14.0833 1.87729 14.0833 2.2915V2.99984L15.4166 2.99984C16.5212 2.99984 17.4166 3.89527 17.4166 4.99984V7.49984V15.8332C17.4166 16.9377 16.5212 17.8332 15.4166 17.8332H4.58325C3.47868 17.8332 2.58325 16.9377 2.58325 15.8332V7.49984V4.99984C2.58325 3.89527 3.47868 2.99984 4.58325 2.99984L5.91659 2.99984V2.2915C5.91659 1.87729 6.25237 1.5415 6.66659 1.5415ZM6.66659 4.49984H4.58325C4.30711 4.49984 4.08325 4.7237 4.08325 4.99984V6.74984H15.9166V4.99984C15.9166 4.7237 15.6927 4.49984 15.4166 4.49984H13.3333H6.66659ZM15.9166 8.24984H4.08325V15.8332C4.08325 16.1093 4.30711 16.3332 4.58325 16.3332H15.4166C15.6927 16.3332 15.9166 16.1093 15.9166 15.8332V8.24984Z" fill=""></path>
+                        </svg>
+                      </span>
                         </div>
                       </div>
 
+                      <!-- Email -->
                       <div class="w-full px-2.5">
                         <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
                           Email
                         </label>
-                        <input type="email" placeholder="Enter email address" class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
+                        <input type="email"
+                               x-model="selectedUser.email"
+                               placeholder="Enter email address"
+                               class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
                       </div>
 
+                      <!-- National ID -->
                       <div class="w-full px-2.5 xl:w-1/2">
                         <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
                           National ID
                         </label>
-                        <input type="text" class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
+                        <input type="text"
+                               x-model="selectedUser.nationalId"
+                               class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
                       </div>
 
+                      <!-- Phone -->
                       <div class="w-full px-2.5 xl:w-1/2">
                         <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
                           Phone
                         </label>
-                        <input type="text" class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
+                        <input type="text"
+                               x-model="selectedUser.phone"
+                               class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
                       </div>
                     </div>
                   </form>
@@ -1813,7 +1821,6 @@
             <!-- Step 2: User Address Details -->
             <div x-show="currentStep === 2" x-cloak class="space-y-6">
               <div>
-                <!-- User Form -->
                 <div class="space-y-6 border-t border-gray-100 p-5 sm:p-6 dark:border-gray-800">
                   <form>
                     <div class="-mx-2.5 flex flex-wrap gap-y-5">
@@ -1823,25 +1830,34 @@
                         </h4>
                       </div>
 
+                      <!-- Street -->
                       <div class="w-full px-2.5">
                         <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
                           Street/Residence
                         </label>
-                        <input type="text" class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
+                        <input type="text"
+                               x-model="selectedUser.street"
+                               class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
                       </div>
 
+                      <!-- City -->
                       <div class="w-full px-2.5 xl:w-1/2">
                         <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
                           City/Town
                         </label>
-                        <input type="text" class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
+                        <input type="text"
+                               x-model="selectedUser.city"
+                               class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
                       </div>
 
+                      <!-- County -->
                       <div class="w-full px-2.5 xl:w-1/2">
                         <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
                           County
                         </label>
-                        <input type="text" class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
+                        <input type="text"
+                               x-model="selectedUser.county"
+                               class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
                       </div>
                     </div>
                   </form>
@@ -1852,7 +1868,6 @@
             <!-- Step 3: User Next of Kin Information -->
             <div x-show="currentStep === 3" x-cloak class="space-y-6">
               <div>
-                <!-- User Form -->
                 <div class="space-y-6 border-t border-gray-100 p-5 sm:p-6 dark:border-gray-800">
                   <form>
                     <div class="-mx-2.5 flex flex-wrap gap-y-5">
@@ -1862,103 +1877,103 @@
                         </h4>
                       </div>
 
+                      <!-- Kin First Name -->
                       <div class="w-full px-2.5 xl:w-1/2">
                         <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
                           First Name
                         </label>
-                        <input type="text" placeholder="Enter first name" class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
+                        <input type="text"
+                               x-model="selectedUser.kinFirstName"
+                               placeholder="Enter first name"
+                               class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
                       </div>
 
+                      <!-- Kin Last Name -->
                       <div class="w-full px-2.5 xl:w-1/2">
                         <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
                           Last Name
                         </label>
-                        <input type="text" placeholder="Enter last name" class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
+                        <input type="text"
+                               x-model="selectedUser.kinLastName"
+                               placeholder="Enter last name"
+                               class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
                       </div>
 
+                      <!-- Kin National ID -->
                       <div class="w-full px-2.5 xl:w-1/2">
                         <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
                           National ID
                         </label>
-                        <input type="text" class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
+                        <input type="text"
+                               x-model="selectedUser.kinNationalId"
+                               class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
                       </div>
 
+                      <!-- Kin Date of Birth -->
                       <div class="w-full px-2.5 xl:w-1/2">
                         <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
                           Date of Birth
                         </label>
-
                         <div class="relative">
-                          <div class="flatpickr-wrapper"><input type="text" placeholder="Select date" class="dark:bg-dark-900 datepickerTwo shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 pr-11 pl-4 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 flatpickr-input" readonly="readonly"><div class="flatpickr-calendar animate static null" tabindex="-1"><div class="flatpickr-months"><span class="flatpickr-prev-month"><svg class="stroke-current" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.25 6L9 12.25L15.25 18.5" stroke="" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><div class="flatpickr-month"><div class="flatpickr-current-month"><span class="cur-month">January </span><div class="numInputWrapper"><input class="numInput cur-year" type="number" tabindex="-1" aria-label="Year"><span class="arrowUp"></span><span class="arrowDown"></span></div></div></div><span class="flatpickr-next-month"><svg class="stroke-current" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="httpwww.w3.org/2000/svg"><path d="M8.75 19L15 12.75L8.75 6.5" stroke="" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></div><div class="flatpickr-innerContainer"><div class="flatpickr-rContainer"><div class="flatpickr-weekdays"><div class="flatpickr-weekdaycontainer">
-                            <span class="flatpickr-weekday">
-                              Sun</span><span class="flatpickr-weekday">Mon</span><span class="flatpickr-weekday">Tue</span><span class="flatpickr-weekday">Wed</span><span class="flatpickr-weekday">Thu</span><span class="flatpickr-weekday">Fri</span><span class="flatpickr-weekday">Sat
-                            </span>
-                          </div></div><div class="flatpickr-days" tabindex="-1"><div class="dayContainer"><span class="flatpickr-day prevMonthDay" aria-label="December 28, 2025" tabindex="-1">28</span><span class="flatpickr-day prevMonthDay" aria-label="December 29, 2025" tabindex="-1">29</span><span class="flatpickr-day prevMonthDay" aria-label="December 30, 2025" tabindex="-1">30</span><span class="flatpickr-day prevMonthDay" aria-label="December 31, 2025" tabindex="-1">31</span><span class="flatpickr-day" aria-label="January 1, 2026" tabindex="-1">1</span><span class="flatpickr-day" aria-label="January 2, 2026" tabindex="-1">2</span><span class="flatpickr-day" aria-label="January 3, 2026" tabindex="-1">3</span><span class="flatpickr-day" aria-label="January 4, 2026" tabindex="-1">4</span><span class="flatpickr-day" aria-label="January 5, 2026" tabindex="-1">5</span><span class="flatpickr-day" aria-label="January 6, 2026" tabindex="-1">6</span><span class="flatpickr-day today" aria-label="January 7, 2026" aria-current="date" tabindex="-1">7</span><span class="flatpickr-day" aria-label="January 8, 2026" tabindex="-1">8</span><span class="flatpickr-day" aria-label="January 9, 2026" tabindex="-1">9</span><span class="flatpickr-day" aria-label="January 10, 2026" tabindex="-1">10</span><span class="flatpickr-day" aria-label="January 11, 2026" tabindex="-1">11</span><span class="flatpickr-day" aria-label="January 12, 2026" tabindex="-1">12</span><span class="flatpickr-day" aria-label="January 13, 2026" tabindex="-1">13</span><span class="flatpickr-day" aria-label="January 14, 2026" tabindex="-1">14</span><span class="flatpickr-day" aria-label="January 15, 2026" tabindex="-1">15</span><span class="flatpickr-day" aria-label="January 16, 2026" tabindex="-1">16</span><span class="flatpickr-day" aria-label="January 17, 2026" tabindex="-1">17</span><span class="flatpickr-day" aria-label="January 18, 2026" tabindex="-1">18</span><span class="flatpickr-day" aria-label="January 19, 2026" tabindex="-1">19</span><span class="flatpickr-day" aria-label="January 20, 2026" tabindex="-1">20</span><span class="flatpickr-day" aria-label="January 21, 2026" tabindex="-1">21</span><span class="flatpickr-day" aria-label="January 22, 2026" tabindex="-1">22</span><span class="flatpickr-day" aria-label="January 23, 2026" tabindex="-1">23</span><span class="flatpickr-day" aria-label="January 24, 2026" tabindex="-1">24</span><span class="flatpickr-day" aria-label="January 25, 2026" tabindex="-1">25</span><span class="flatpickr-day" aria-label="January 26, 2026" tabindex="-1">26</span><span class="flatpickr-day" aria-label="January 27, 2026" tabindex="-1">27</span><span class="flatpickr-day" aria-label="January 28, 2026" tabindex="-1">28</span><span class="flatpickr-day" aria-label="January 29, 2026" tabindex="-1">29</span><span class="flatpickr-day" aria-label="January 30, 2026" tabindex="-1">30</span><span class="flatpickr-day" aria-label="January 31, 2026" tabindex="-1">31</span><span class="flatpickr-day nextMonthDay" aria-label="February 1, 2026" tabindex="-1">1</span><span class="flatpickr-day nextMonthDay" aria-label="February 2, 2026" tabindex="-1">2</span><span class="flatpickr-day nextMonthDay" aria-label="February 3, 2026" tabindex="-1">3</span><span class="flatpickr-day nextMonthDay" aria-label="February 4, 2026" tabindex="-1">4</span><span class="flatpickr-day nextMonthDay" aria-label="February 5, 2026" tabindex="-1">5</span><span class="flatpickr-day nextMonthDay" aria-label="February 6, 2026" tabindex="-1">6</span><span class="flatpickr-day nextMonthDay" aria-label="February 7, 2026" tabindex="-1">7</span></div></div></div></div></div></div>
+                          <input type="text"
+                                 x-model="selectedUser.kinDateOfBirth"
+                                 placeholder="Select date"
+                                 class="dark:bg-dark-900 datepickerTwo shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 pr-11 pl-4 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 flatpickr-input">
                           <span class="absolute top-1/2 right-3 -translate-y-1/2 text-gray-500 dark:text-gray-400">
-                              <svg class="fill-current" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M6.66659 1.5415C7.0808 1.5415 7.41658 1.87729 7.41658 2.2915V2.99984H12.5833V2.2915C12.5833 1.87729 12.919 1.5415 13.3333 1.5415C13.7475 1.5415 14.0833 1.87729 14.0833 2.2915V2.99984L15.4166 2.99984C16.5212 2.99984 17.4166 3.89527 17.4166 4.99984V7.49984V15.8332C17.4166 16.9377 16.5212 17.8332 15.4166 17.8332H4.58325C3.47868 17.8332 2.58325 16.9377 2.58325 15.8332V7.49984V4.99984C2.58325 3.89527 3.47868 2.99984 4.58325 2.99984L5.91659 2.99984V2.2915C5.91659 1.87729 6.25237 1.5415 6.66659 1.5415ZM6.66659 4.49984H4.58325C4.30711 4.49984 4.08325 4.7237 4.08325 4.99984V6.74984H15.9166V4.99984C15.9166 4.7237 15.6927 4.49984 15.4166 4.49984H13.3333H6.66659ZM15.9166 8.24984H4.08325V15.8332C4.08325 16.1093 4.30711 16.3332 4.58325 16.3332H15.4166C15.6927 16.3332 15.9166 16.1093 15.9166 15.8332V8.24984Z" fill=""></path>
-                              </svg>
-                            </span>
+                        <svg class="fill-current" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M6.66659 1.5415C7.0808 1.5415 7.41658 1.87729 7.41658 2.2915V2.99984H12.5833V2.2915C12.5833 1.87729 12.919 1.5415 13.3333 1.5415C13.7475 1.5415 14.0833 1.87729 14.0833 2.2915V2.99984L15.4166 2.99984C16.5212 2.99984 17.4166 3.89527 17.4166 4.99984V7.49984V15.8332C17.4166 16.9377 16.5212 17.8332 15.4166 17.8332H4.58325C3.47868 17.8332 2.58325 16.9377 2.58325 15.8332V7.49984V4.99984C2.58325 3.89527 3.47868 2.99984 4.58325 2.99984L5.91659 2.99984V2.2915C5.91659 1.87729 6.25237 1.5415 6.66659 1.5415ZM6.66659 4.49984H4.58325C4.30711 4.49984 4.08325 4.7237 4.08325 4.99984V6.74984H15.9166V4.99984C15.9166 4.7237 15.6927 4.49984 15.4166 4.49984H13.3333H6.66659ZM15.9166 8.24984H4.08325V15.8332C4.08325 16.1093 4.30711 16.3332 4.58325 16.3332H15.4166C15.6927 16.3332 15.9166 16.1093 15.9166 15.8332V8.24984Z" fill=""></path>
+                        </svg>
+                      </span>
                         </div>
                       </div>
 
+                      <!-- Kin Email -->
                       <div class="w-full px-2.5">
                         <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
                           Email
                         </label>
-                        <input type="email" placeholder="Enter email address" class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
+                        <input type="email"
+                               x-model="selectedUser.kinEmail"
+                               placeholder="Enter email address"
+                               class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
                       </div>
 
+                      <!-- Kin Relationship -->
                       <div class="w-full px-2.5 xl:w-1/2">
                         <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
                           Relationship
                         </label>
-                        <div x-data="{ isOptionSelected: false }" class="relative z-20 bg-transparent">
-                          <select class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-3 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" :class="isOptionSelected &amp;&amp; 'text-gray-500 dark:text-gray-400'" @change="isOptionSelected = true">
-                            <option value="" class="text-gray-500 dark:bg-gray-900 dark:text-gray-400">
-                              Husband
-                            </option>
-                            <option value="" class="text-gray-500 dark:bg-gray-900 dark:text-gray-400">
-                              Wife
-                            </option>
-                            <option value="" class="text-gray-500 dark:bg-gray-900 dark:text-gray-400">
-                              Father
-                            </option>
-                            <option value="" class="text-gray-500 dark:bg-gray-900 dark:text-gray-400">
-                              Mother
-                            </option>
-                            <option value="" class="text-gray-500 dark:bg-gray-900 dark:text-gray-400">
-                              Son
-                            </option>
-                            <option value="" class="text-gray-500 dark:bg-gray-900 dark:text-gray-400">
-                              Daughter
-                            </option>
-                            <option value="" class="text-gray-500 dark:bg-gray-900 dark:text-gray-400">
-                              Brother
-                            </option>
-                            <option value="" class="text-gray-500 dark:bg-gray-900 dark:text-gray-400">
-                              Sister
-                            </option>
-                            <option value="" class="text-gray-500 dark:bg-gray-900 dark:text-gray-400">
-                              Uncle
-                            </option>
-                            <option value="" class="text-gray-500 dark:bg-gray-900 dark:text-gray-400">
-                              Employer
-                            </option>
+                        <div class="relative z-20 bg-transparent">
+                          <select x-model="selectedUser.kinRelationship"
+                                  class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-3 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
+                            <option value="">Select Relationship</option>
+                            <option value="Husband">Husband</option>
+                            <option value="Wife">Wife</option>
+                            <option value="Father">Father</option>
+                            <option value="Mother">Mother</option>
+                            <option value="Son">Son</option>
+                            <option value="Daughter">Daughter</option>
+                            <option value="Brother">Brother</option>
+                            <option value="Sister">Sister</option>
+                            <option value="Uncle">Uncle</option>
+                            <option value="Employer">Employer</option>
                           </select>
                           <span class="absolute top-1/2 right-4 z-30 -translate-y-1/2 text-gray-500 dark:text-gray-400">
-                              <svg class="stroke-current" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4.79175 7.396L10.0001 12.6043L15.2084 7.396" stroke="" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                              </svg>
-                            </span>
+                        <svg class="stroke-current" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M4.79175 7.396L10.0001 12.6043L15.2084 7.396" stroke="" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                      </span>
                         </div>
                       </div>
 
+                      <!-- Kin Phone -->
                       <div class="w-full px-2.5 xl:w-1/2">
                         <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
                           Phone
                         </label>
-                        <input type="text" class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
+                        <input type="text"
+                               x-model="selectedUser.kinPhone"
+                               class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
                       </div>
                     </div>
                   </form>
@@ -1969,91 +1984,71 @@
             <!-- Step 4: Preview & Submit -->
             <div x-show="currentStep === 4" x-cloak class="space-y-6">
               <div>
-                <!-- New User Information -->
                 <div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4 mb-6">
-
-                  <!-- New User Information Section -->
+                  <!-- User Information Section -->
                   <div class="mb-8">
                     <div class="mb-4 md:mb-0">
-                      <h4 class="text-normal font-bold text-gray-600 dark:text-white/90 mb-2">John Mwangi</h4>
+                      <h4 class="text-normal font-bold text-gray-600 dark:text-white/90 mb-2"
+                          x-text="selectedUser ? (selectedUser.firstName + ' ' + selectedUser.lastName) : ''">
+                      </h4>
                       <div class="flex flex-col items-center gap-1 text-center xl:flex-row xl:gap-3 xl:text-left">
-                        <p class="text-sm text-gray-500 dark:text-gray-400" >
+                        <p class="text-sm text-gray-500 dark:text-gray-400">
                           <span class="font-semibold text-gray-400 dark:text-gray-400">ID: </span>
-                          27523689
+                          <span x-text="selectedUser ? selectedUser.nationalId : ''"></span>
                         </p>
                         <div class="hidden h-3.5 w-px bg-gray-300 xl:block dark:bg-gray-700"></div>
                         <p class="text-sm text-gray-500 dark:text-gray-400">
                           <span class="font-semibold text-gray-400 dark:text-gray-400">DoB: </span>
-                          27 July 1987
+                          <span x-text="selectedUser ? selectedUser.dateOfBirth : ''"></span>
                         </p>
                         <div class="hidden h-3.5 w-px bg-gray-300 xl:block dark:bg-gray-700"></div>
-                        <p class="text-sm text-gray-500 dark:text-gray-400">
-                          Male
-                        </p>
+                        <p class="text-sm text-gray-500 dark:text-gray-400" x-text="selectedUser ? selectedUser.gender : ''"></p>
                       </div>
                     </div>
                     <div class="flex items-center gap-4">
                       <div>
-                        <div>
-                          <p class="text-sm text-gray-500 dark:text-gray-400">+254785369963</p>
-                        </div>
+                        <p class="text-sm text-gray-500 dark:text-gray-400" x-text="selectedUser ? selectedUser.phone : ''"></p>
                       </div>
-                      <!-- Date & Time -->
                       <div class="w-px bg-gray-200 h-11 dark:bg-gray-800"></div>
-                      <!-- Date & Time -->
                       <div>
-                        <div class="flex items-center gap-2">
-                          <p class="text-sm text-gray-500 dark:text-gray-400">
-                            john.mwangi@mail.com
-                          </p>
-                        </div>
+                        <p class="text-sm text-gray-500 dark:text-gray-400" x-text="selectedUser ? selectedUser.email : ''"></p>
                       </div>
                     </div>
                     <hr class="mt-6 border-gray-200 dark:border-gray-700">
                   </div>
 
-                  <!-- Next of Kin  Details Section -->
+                  <!-- Next of Kin Details Section -->
                   <div class="mb-8">
                     <h3 class="text-normal font-semibold text-gray-500 dark:text-white/90 mb-2">Next of Kin</h3>
                     <div class="mb-4 md:mb-0">
-                      <h5 class="text-normal font-bold text-gray-600 dark:text-white/90 mb-2">Mulunge Tuse</h5>
+                      <h5 class="text-normal font-bold text-gray-600 dark:text-white/90 mb-2">
+                        <span x-text="selectedUser ? (selectedUser.kinFirstName + ' ' + selectedUser.kinLastName) : ''"></span>
+                      </h5>
                       <div class="flex flex-col items-center gap-1 text-center xl:flex-row xl:gap-3 xl:text-left">
-                        <p class="text-sm text-gray-500 dark:text-gray-400" >
+                        <p class="text-sm text-gray-500 dark:text-gray-400">
                           <span class="font-semibold text-gray-400 dark:text-gray-400">Relationship: </span>
-                          Brother
+                          <span x-text="selectedUser ? selectedUser.kinRelationship : ''"></span>
                         </p>
                         <div class="hidden h-3.5 w-px bg-gray-300 xl:block dark:bg-gray-700"></div>
-                        <p class="text-sm text-gray-500 dark:text-gray-400" >
+                        <p class="text-sm text-gray-500 dark:text-gray-400">
                           <span class="font-semibold text-gray-400 dark:text-gray-400">ID: </span>
-                          27523689
+                          <span x-text="selectedUser ? selectedUser.kinNationalId : ''"></span>
                         </p>
                         <div class="hidden h-3.5 w-px bg-gray-300 xl:block dark:bg-gray-700"></div>
                         <p class="text-sm text-gray-500 dark:text-gray-400">
                           <span class="font-semibold text-gray-400 dark:text-gray-400">DoB: </span>
-                          27 July 1987
-                        </p>
-                        <div class="hidden h-3.5 w-px bg-gray-300 xl:block dark:bg-gray-700"></div>
-                        <p class="text-sm text-gray-500 dark:text-gray-400">
-                          Male
+                          <span x-text="selectedUser ? selectedUser.kinDateOfBirth : ''"></span>
                         </p>
                       </div>
                     </div>
 
                     <div class="flex items-center gap-6">
                       <div>
-                        <div>
-                          <p class="text-sm text-gray-500 dark:text-gray-400">+254785369963</p>
-                        </div>
+                        <p class="text-sm text-gray-500 dark:text-gray-400" x-text="selectedUser ? selectedUser.kinPhone : ''"></p>
                       </div>
-                      <!-- Date & Time -->
                       <div class="w-px bg-gray-200 h-11 dark:bg-gray-800"></div>
-                      <!-- Date & Time -->
                       <div>
-                        <div class="flex items-center gap-2">
-                          <p class="text-sm text-gray-500 dark:text-gray-400">
-                            john.mwangi@mail.com
-                          </p>
-                        </div>
+                        <p class="text-sm text-gray-500 dark:text-gray-400" x-text="selectedUser ? selectedUser.kinEmail : ''"></p>
                       </div>
                     </div>
                     <hr class="mt-6 border-gray-200 dark:border-gray-700">
@@ -2062,32 +2057,21 @@
                   <!-- User role Section -->
                   <div class="mb-8">
                     <h3 class="text-normal font-semibold text-gray-500 dark:text-white/90 mb-2">User Role</h3>
-                    <div x-data="{ isOptionSelected: false }" class="relative z-20 bg-transparent">
-                      <select class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-3 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30" :class="isOptionSelected &amp;&amp; 'text-gray-500 dark:text-gray-400'" @change="isOptionSelected = true">
-                        <option value="" class="text-gray-500 dark:bg-gray-900 dark:text-gray-400">
-                          Assign Role
-                        </option>
-                        <option value="Chairman" class="text-gray-500 dark:bg-gray-900 dark:text-gray-400">
-                          Chairman
-                        </option>
-                        <option value="Secretary General" class="text-gray-500 dark:bg-gray-900 dark:text-gray-400">
-                          Secretary General
-                        </option>
-                        <option value="Treasurer" class="text-gray-500 dark:bg-gray-900 dark:text-gray-400">
-                          Treasurer
-                        </option>
-                        <option value="Stage Manager" class="text-gray-500 dark:bg-gray-900 dark:text-gray-400">
-                          Stage Manager
-                        </option>
-                        <option value="Secretary" class="text-gray-500 dark:bg-gray-900 dark:text-gray-400">
-                          Secretary
-                        </option>
+                    <div class="relative z-20 bg-transparent">
+                      <select x-model="selectedUser.role"
+                              class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-3 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
+                        <option value="">Assign Role</option>
+                        <option value="Chairman">Chairman</option>
+                        <option value="Secretary General">Secretary General</option>
+                        <option value="Treasurer">Treasurer</option>
+                        <option value="Stage Manager">Stage Manager</option>
+                        <option value="Secretary">Secretary</option>
                       </select>
                       <span class="absolute top-1/2 right-4 z-30 -translate-y-1/2 text-gray-500 dark:text-gray-400">
-                              <svg class="stroke-current" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4.79175 7.396L10.0001 12.6043L15.2084 7.396" stroke="" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                              </svg>
-                            </span>
+                    <svg class="stroke-current" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4.79175 7.396L10.0001 12.6043L15.2084 7.396" stroke="" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                  </span>
                     </div>
                   </div>
                 </div>
@@ -2095,11 +2079,10 @@
             </div>
           </div>
 
-          <!-- Navigation Buttons - FIXED LAYOUT -->
+          <!-- Navigation Buttons -->
           <div class="flex items-center justify-between px-6 pt-4 pb-6 border-t border-gray-200 dark:border-gray-700">
-            <!-- Bottom Left: Previous Button (only visible when not on step 1) -->
             <div>
-              <button type="button" x-show="currentStep > 1" @click="previousStep()"
+              <button type="button" x-show="currentStep > 1" @click="currentStep--"
                       class="flex items-center gap-2 rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03]">
                 <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
@@ -2107,16 +2090,15 @@
                 Previous
               </button>
             </div>
-            <!-- Bottom Right: Cancel and Action Buttons -->
             <div class="flex items-center gap-3">
-              <!-- Cancel Button (always visible) -->
-              <button type="button" @click="newUserModal = false"
+              <!-- Cancel Button -->
+              <button type="button" @click="editUserModal = false"
                       class="rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03]">
                 Cancel
               </button>
 
-              <!-- Next Button (for steps 1-2) -->
-              <button type="button" x-show="currentStep < 4" @click="nextStep()"
+              <!-- Next Button -->
+              <button type="button" x-show="currentStep < 4" @click="currentStep++"
                       class="flex items-center gap-2 rounded-lg bg-brand-500 px-4 py-2.5 text-sm font-medium text-white hover:bg-brand-600">
                 Next
                 <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -2124,8 +2106,8 @@
                 </svg>
               </button>
 
-              <!-- Schedule Appointment Button (for step 3) -->
-              <button type="button" x-show="currentStep === 4" onclick="window.location.href='users.html'"
+              <!-- Update User Button -->
+              <button type="button" x-show="currentStep === 4" @click="saveUserChanges()"
                       class="rounded-lg bg-brand-500 px-4 py-2.5 text-sm font-medium text-white hover:bg-green-600">
                 Update User
               </button>
@@ -2591,170 +2573,393 @@
     <!-- END MODALS -->
 
 
-    <script defer src="../../assets/bundle.js"></script>
-    <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script defer src="../../../assets/bundle.js"></script>
+    <script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;67f7a278e3374824ae6dd92295d38f77&quot;,&quot;r&quot;:1,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}" crossorigin="anonymous"></script>
     <!-- Table -->
     <script>
-      function transactionTableFull() {
+      function usersTableFull() {
         return {
           rows: [
             {
               id: 1,
               userId: "usr202401",
               user: "John Mwangi",
+              firstName: "John",
+              lastName: "Mwangi",
               email: "john.m@example.com",
               role: "Chairman",
               created: "15-Dec-24 10:30",
               lastLogin: "06-Jan-25 13:12",
               accountStatus: "Active",
+              phone: "+254712345678",
+              nationalId: "27523689",
+              gender: "Male",
+              dateOfBirth: "1987-07-27",
+              street: "123 Main Street",
+              city: "Nairobi",
+              county: "Nairobi County",
+              kinFirstName: "Mulunge",
+              kinLastName: "Tuse",
+              kinNationalId: "27523690",
+              kinDateOfBirth: "1985-05-15",
+              kinEmail: "mulunge.t@example.com",
+              kinRelationship: "Brother",
+              kinPhone: "+254798765432"
             },
             {
               id: 2,
               userId: "usr202402",
               user: "Sarah Kamau",
+              firstName: "Sarah",
+              lastName: "Kamau",
               email: "sarah.k@example.com",
               role: "Secretary General",
               created: "16-Dec-24 14:00",
               lastLogin: "05-Jan-25 09:45",
               accountStatus: "Active",
+              phone: "+254723456789",
+              nationalId: "27523691",
+              gender: "Female",
+              dateOfBirth: "1990-03-12",
+              street: "456 Park Avenue",
+              city: "Mombasa",
+              county: "Mombasa County",
+              kinFirstName: "James",
+              kinLastName: "Kamau",
+              kinNationalId: "27523692",
+              kinDateOfBirth: "1988-08-20",
+              kinEmail: "james.k@example.com",
+              kinRelationship: "Husband",
+              kinPhone: "+254787654321"
             },
             {
               id: 3,
               userId: "usr202403",
               user: "David Ochieng",
+              firstName: "David",
+              lastName: "Ochieng",
               email: "david.o@example.com",
               role: "Treasurer",
               created: "17-Dec-24 11:00",
               lastLogin: "04-Jan-25 16:30",
               accountStatus: "Suspended",
+              phone: "+254734567890",
+              nationalId: "27523693",
+              gender: "Male",
+              dateOfBirth: "1985-11-05",
+              street: "789 River Road",
+              city: "Kisumu",
+              county: "Kisumu County",
+              kinFirstName: "Grace",
+              kinLastName: "Ochieng",
+              kinNationalId: "27523694",
+              kinDateOfBirth: "1987-12-30",
+              kinEmail: "grace.o@example.com",
+              kinRelationship: "Wife",
+              kinPhone: "+254776543210"
             },
             {
               id: 4,
               userId: "usr202404",
               user: "Grace Akinyi",
+              firstName: "Grace",
+              lastName: "Akinyi",
               email: "grace.a@example.com",
               role: "Stage Manager",
               created: "18-Dec-24 15:30",
               lastLogin: "03-Jan-25 11:20",
               accountStatus: "Active",
+              phone: "+254745678901",
+              nationalId: "27523695",
+              gender: "Female",
+              dateOfBirth: "1992-06-18",
+              street: "101 Forest Lane",
+              city: "Eldoret",
+              county: "Uasin Gishu",
+              kinFirstName: "Peter",
+              kinLastName: "Akinyi",
+              kinNationalId: "27523696",
+              kinDateOfBirth: "1990-04-22",
+              kinEmail: "peter.a@example.com",
+              kinRelationship: "Brother",
+              kinPhone: "+254765432109"
             },
             {
               id: 5,
               userId: "usr202405",
               user: "Michael Odhiambo",
+              firstName: "Michael",
+              lastName: "Odhiambo",
               email: "michael.o@example.com",
               role: "Secretary",
               created: "19-Dec-24 09:00",
               lastLogin: "02-Jan-25 14:15",
               accountStatus: "In-Active",
+              phone: "+254756789012",
+              nationalId: "27523697",
+              gender: "Male",
+              dateOfBirth: "1988-09-25",
+              street: "202 Valley View",
+              city: "Nakuru",
+              county: "Nakuru County",
+              kinFirstName: "Lucy",
+              kinLastName: "Odhiambo",
+              kinNationalId: "27523698",
+              kinDateOfBirth: "1990-02-14",
+              kinEmail: "lucy.o@example.com",
+              kinRelationship: "Wife",
+              kinPhone: "+254754321098"
             },
             {
               id: 6,
               userId: "usr202406",
               user: "Lucy Wanjiku",
+              firstName: "Lucy",
+              lastName: "Wanjiku",
               email: "lucy.w@example.com",
               role: "Secretary",
               created: "20-Dec-24 13:30",
               lastLogin: "01-Jan-25 10:00",
               accountStatus: "Blacklisted",
+              phone: "+254767890123",
+              nationalId: "27523699",
+              gender: "Female",
+              dateOfBirth: "1991-01-30",
+              street: "303 Hilltop Road",
+              city: "Thika",
+              county: "Kiambu County",
+              kinFirstName: "Robert",
+              kinLastName: "Wanjiku",
+              kinNationalId: "27523700",
+              kinDateOfBirth: "1989-07-18",
+              kinEmail: "robert.w@example.com",
+              kinRelationship: "Husband",
+              kinPhone: "+254743210987"
             },
             {
               id: 7,
               userId: "usr202407",
               user: "Peter Njoroge",
+              firstName: "Peter",
+              lastName: "Njoroge",
               email: "peter.n@example.com",
               role: "Stage Manager",
               created: "21-Dec-24 10:00",
               lastLogin: "31-Dec-24 08:45",
               accountStatus: "Active",
+              phone: "+254778901234",
+              nationalId: "27523701",
+              gender: "Male",
+              dateOfBirth: "1986-12-08",
+              street: "404 Lake Drive",
+              city: "Naivasha",
+              county: "Nakuru County",
+              kinFirstName: "Esther",
+              kinLastName: "Njoroge",
+              kinNationalId: "27523702",
+              kinDateOfBirth: "1988-03-22",
+              kinEmail: "esther.n@example.com",
+              kinRelationship: "Wife",
+              kinPhone: "+254732109876"
             },
             {
               id: 8,
               userId: "usr202408",
               user: "Esther Atieno",
+              firstName: "Esther",
+              lastName: "Atieno",
               email: "esther.a@example.com",
               role: "Treasurer",
               created: "22-Dec-24 16:00",
               lastLogin: "30-Dec-24 17:30",
               accountStatus: "Active",
+              phone: "+254789012345",
+              nationalId: "27523703",
+              gender: "Female",
+              dateOfBirth: "1993-04-17",
+              street: "505 Sunset Boulevard",
+              city: "Kisii",
+              county: "Kisii County",
+              kinFirstName: "Brian",
+              kinLastName: "Atieno",
+              kinNationalId: "27523704",
+              kinDateOfBirth: "1991-10-11",
+              kinEmail: "brian.a@example.com",
+              kinRelationship: "Brother",
+              kinPhone: "+254721098765"
             },
             {
               id: 9,
               userId: "usr202409",
               user: "James Kariuki",
+              firstName: "James",
+              lastName: "Kariuki",
               email: "james.k@example.com",
               role: "Secretary General",
               created: "23-Dec-24 11:30",
               lastLogin: "29-Dec-24 12:45",
               accountStatus: "Suspended",
+              phone: "+254790123456",
+              nationalId: "27523705",
+              gender: "Male",
+              dateOfBirth: "1989-08-03",
+              street: "606 Mountain View",
+              city: "Meru",
+              county: "Meru County",
+              kinFirstName: "Mary",
+              kinLastName: "Kariuki",
+              kinNationalId: "27523706",
+              kinDateOfBirth: "1990-11-28",
+              kinEmail: "mary.k@example.com",
+              kinRelationship: "Wife",
+              kinPhone: "+254710987654"
             },
             {
               id: 10,
               userId: "usr202410",
               user: "Mary Wambui",
+              firstName: "Mary",
+              lastName: "Wambui",
               email: "mary.w@example.com",
               role: "Chairman",
               created: "24-Dec-24 14:30",
               lastLogin: "28-Dec-24 15:20",
               accountStatus: "Active",
+              phone: "+254701234567",
+              nationalId: "27523707",
+              gender: "Female",
+              dateOfBirth: "1994-02-19",
+              street: "707 Sunrise Avenue",
+              city: "Nyeri",
+              county: "Nyeri County",
+              kinFirstName: "John",
+              kinLastName: "Wambui",
+              kinNationalId: "27523708",
+              kinDateOfBirth: "1992-05-07",
+              kinEmail: "john.w@example.com",
+              kinRelationship: "Husband",
+              kinPhone: "+254709876543"
             },
             {
               id: 11,
               userId: "usr202411",
               user: "Robert Mwenda",
+              firstName: "Robert",
+              lastName: "Mwenda",
               email: "robert.m@example.com",
               role: "Secretary",
               created: "26-Dec-24 10:00",
               lastLogin: "27-Dec-24 09:30",
               accountStatus: "In-Active",
+              phone: "+254712345670",
+              nationalId: "27523709",
+              gender: "Male",
+              dateOfBirth: "1987-10-23",
+              street: "808 Ocean Drive",
+              city: "Malindi",
+              county: "Kilifi County",
+              kinFirstName: "Susan",
+              kinLastName: "Mwenda",
+              kinNationalId: "27523710",
+              kinDateOfBirth: "1989-01-16",
+              kinEmail: "susan.m@example.com",
+              kinRelationship: "Wife",
+              kinPhone: "+254798765430"
             },
             {
               id: 12,
               userId: "usr202412",
               user: "Susan Chebet",
+              firstName: "Susan",
+              lastName: "Chebet",
               email: "susan.c@example.com",
               role: "Stage Manager",
               created: "27-Dec-24 09:30",
               lastLogin: "26-Dec-24 14:15",
               accountStatus: "Active",
+              phone: "+254723456701",
+              nationalId: "27523711",
+              gender: "Female",
+              dateOfBirth: "1990-07-04",
+              street: "909 Garden Road",
+              city: "Kitale",
+              county: "Trans Nzoia",
+              kinFirstName: "David",
+              kinLastName: "Chebet",
+              kinNationalId: "27523712",
+              kinDateOfBirth: "1988-12-09",
+              kinEmail: "david.c@example.com",
+              kinRelationship: "Husband",
+              kinPhone: "+254787654301"
             },
             {
               id: 13,
               userId: "usr202413",
               user: "Brian Onyango",
+              firstName: "Brian",
+              lastName: "Onyango",
               email: "brian.o@example.com",
               role: "Treasurer",
               created: "28-Dec-24 15:00",
               lastLogin: "25-Dec-24 11:00",
               accountStatus: "Blacklisted",
-            },
+              phone: "+254734567012",
+              nationalId: "27523713",
+              gender: "Male",
+              dateOfBirth: "1985-05-29",
+              street: "1010 Forest Park",
+              city: "Bungoma",
+              county: "Bungoma County",
+              kinFirstName: "Jane",
+              kinLastName: "Onyango",
+              kinNationalId: "27523714",
+              kinDateOfBirth: "1987-09-13",
+              kinEmail: "jane.o@example.com",
+              kinRelationship: "Wife",
+              kinPhone: "+254776543012"
+            }
           ],
           selected: [],
           selectAll: false,
-          sort: { key: "appointmentDate", asc: true },
+          sort: { key: "created", asc: false },
           page: 1,
           perPage: 10,
+          editUserModal: false, // THIS CONTROLS MODAL VISIBILITY
+
+          // Initialize function
+          init() {
+            console.log('Users table initialized');
+          },
+
+          // Pagination and table functions
           get totalPages() {
             return Math.ceil(this.rows.length / this.perPage) || 1;
           },
+
           get paginatedRows() {
-            return this.sortedRows.slice(
-                    (this.page - 1) * this.perPage,
-                    this.page * this.perPage,
-            );
+            const start = (this.page - 1) * this.perPage;
+            const end = start + this.perPage;
+            return this.sortedRows.slice(start, end);
           },
+
           get sortedRows() {
             return this.rows.slice().sort((a, b) => {
               let valA = a[this.sort.key];
               let valB = b[this.sort.key];
+
+              if (valA === undefined || valA === null) valA = '';
+              if (valB === undefined || valB === null) valB = '';
+
               if (typeof valA === "string") valA = valA.toLowerCase();
               if (typeof valB === "string") valB = valB.toLowerCase();
+
               if (valA < valB) return this.sort.asc ? -1 : 1;
               if (valA > valB) return this.sort.asc ? 1 : -1;
               return 0;
             });
           },
+
           sortBy(key) {
             if (this.sort.key === key) {
               this.sort.asc = !this.sort.asc;
@@ -2764,6 +2969,7 @@
             }
             this.page = 1;
           },
+
           toggleSelectAll() {
             if (this.selectAll) {
               this.selected = this.paginatedRows.map((t) => t.id);
@@ -2771,29 +2977,60 @@
               this.selected = [];
             }
           },
+
           updateSelectAll() {
             this.selectAll = this.paginatedRows.every((row) =>
                     this.selected.includes(row.id),
             );
           },
+
           get startEntry() {
             return this.rows.length === 0 ? 0 : (this.page - 1) * this.perPage + 1;
           },
+
           get endEntry() {
             let end = this.page * this.perPage;
             return end > this.rows.length ? this.rows.length : end;
           },
+
           goToPage(n) {
-            if (n >= 1 && n <= this.totalPages) this.page = n;
+            if (n >= 1 && n <= this.totalPages) {
+              this.page = n;
+            }
           },
-          // ADD THIS FUNCTION:
-          dropdown() {
-            return {
-              open: false,
-              toggle() {
-                this.open = !this.open;
-              }
-            };
+
+          // BUTTON CLICK FUNCTION TO POPUP MODAL
+          editUser(row) {
+            // Store the current user data
+            this.currentUser = { ...row };
+            // Show the modal - THIS MAKES THE MODAL VISIBLE
+            this.editUserModal = true;
+            console.log('Opening edit modal for:', row.user);
+          },
+
+          // Save user changes
+          saveUserChanges() {
+            if (!this.currentUser) return;
+
+            const index = this.rows.findIndex(user => user.id === this.currentUser.id);
+            if (index !== -1) {
+              // Update the row with the new data
+              this.rows[index] = { ...this.rows[index], ...this.currentUser };
+              // Also update the 'user' field (full name)
+              this.rows[index].user = `${this.currentUser.firstName || ''} ${this.currentUser.lastName || ''}`.trim();
+
+              console.log('User updated successfully:', this.rows[index]);
+            }
+
+            // Close the modal
+            this.editUserModal = false;
+            this.currentUser = null;
+          },
+
+          // Close modal function
+          closeEditModal() {
+            this.editUserModal = false;
+            this.currentUser = null;
           }
         };
       }
@@ -2938,32 +3175,6 @@
         }
       });
     </script>
-
-    <!-- Popovers -->
-    <!-- <div class="absolute z-99999 bg-white border border-gray-200 rounded-xl dark:bg-[#1E2634] dark:border-gray-700 block" style="left: 434.391px; top: 599.5px;">
-
-      <div class="max-w-[390px]">
-        <div class="relative z-20 rounded-t-xl border-b border-gray-200 px-5 py-3 dark:border-white/[0.03]">
-          <h4 class="text-base font-semibold text-gray-800 dark:text-white/90">
-            Popover Title
-          </h4>
-        </div>
-        <div class="p-5">
-          <p class="text-sm text-gray-500 dark:text-gray-400">
-            Lorem ipsum dolor sit amet, consect adipiscing elit. Mauris facilisis
-            congue exclamate justo nec facilisis.
-          </p>
-          <a href="#" class="text-brand-500 hover:text-brand-600 mt-5 flex items-center gap-1 text-sm font-medium">
-            Learn More
-            <svg class="fill-current" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M14.0855 7.99888C14.0858 8.19107 14.0126 8.38334 13.8661 8.53001L9.86873 12.5301C9.57594 12.8231 9.10107 12.8233 8.80807 12.5305C8.51508 12.2377 8.51491 11.7629 8.8077 11.4699L11.5279 8.74772L2.66797 8.74772C2.25375 8.74772 1.91797 8.41194 1.91797 7.99772C1.91797 7.58351 2.25375 7.24772 2.66797 7.24772L11.5235 7.24772L8.80772 4.53016C8.51492 4.23718 8.51507 3.7623 8.80805 3.4695C9.10104 3.1767 9.57591 3.17685 9.86871 3.46984L13.8311 7.43478C13.9871 7.57222 14.0855 7.77348 14.0855 7.99772C14.0855 7.99811 14.0855 7.9985 14.0855 7.99888Z" fill=""></path>
-            </svg>
-          </a>
-        </div>
-      </div>
-
-      <div class="popover-arrow absolute h-3 w-3 rotate-45 bg-white dark:bg-[#1E2634] border-r border-t border-gray-200 dark:border-gray-700" style="right: -6px; top: 78.5px;"></div>
-    </div> -->
   </body>
 
 </html>
