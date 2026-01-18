@@ -1,0 +1,1522 @@
+<!doctype html>
+<html lang="en">
+
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+  <title>Events - KFBCL | Mircofinance</title>
+
+  <link rel="icon" href="../../../assets/favicon.ico">
+  <link href="../../../assets/style.css" rel="stylesheet">
+
+</head>
+
+<body x-data="{ page: 'saas', 'loaded': true, 'darkMode': false, 'stickyMenu': false, 'sidebarToggle': false, 'scrollTop': false, 'isCreateEventModal': false, 'isEditEventModal': false }"
+      x-init="
+         darkMode = JSON.parse(localStorage.getItem('darkMode'));
+         $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))"
+      :class="{'dark bg-gray-900': darkMode === true}">
+    <!-- ===== Preloader Start ===== -->
+    <div x-show="loaded"
+         x-init="window.addEventListener('DOMContentLoaded', () => {setTimeout(() => loaded = false, 500)})"
+         class="fixed left-0 top-0 z-999999 flex h-screen w-screen items-center justify-center bg-white dark:bg-black">
+      <div class="h-16 w-16 animate-spin rounded-full border-4 border-solid border-brand-500 border-t-transparent"></div>
+    </div>
+    <!-- ===== Preloader End ===== -->
+
+    <!-- ===== Page Wrapper Start ===== -->
+    <div class="flex h-screen overflow-hidden">
+      <!-- ===== Sidebar Start ===== -->
+      <aside :class="sidebarToggle ? 'translate-x-0 xl:w-[90px]' : '-translate-x-full'"
+             class="sidebar fixed top-0 left-0 z-9999 flex h-screen w-[290px] flex-col overflow-y-auto border-r border-gray-200 bg-white px-5 transition-all duration-300 xl:static xl:translate-x-0 dark:border-gray-800 dark:bg-black"
+             @click.outside="sidebarToggle = false">
+        <!-- SIDEBAR HEADER -->
+        <div :class="sidebarToggle ? 'justify-center' : 'justify-between'"
+             class="sidebar-header flex items-center gap-2 pt-8 pb-7">
+          <a href="index.php">
+            <span class="logo" :class="sidebarToggle ? 'hidden' : ''">
+              <img class="dark:hidden" src="../../../assets/src/images/logo/KFCBL-Logo-transparent.png" alt="Logo" />
+              <img class="hidden dark:block" src="../../../assets/src/images/logo/KFCBL-Logo-transparent.png" alt="Logo"/>
+            </span>
+
+            <img class="logo-icon" :class="sidebarToggle ? 'xl:block' : 'hidden'" src="../../../assets/src/images/logo/logo-icon.svg" alt="Logo"/>
+          </a>
+        </div>
+        <!-- SIDEBAR HEADER -->
+
+        <div class="no-scrollbar flex flex-col overflow-y-auto duration-300 ease-linear">
+          <!-- Sidebar Menu -->
+          <nav x-data="{selected: $persist('Dashboard')}">
+            <!-- Menu Group -->
+            <div>
+              <h3 class="mb-4 text-xs leading-[20px] text-gray-400 uppercase">
+      <span class="menu-group-title"
+            :class="sidebarToggle ? 'xl:hidden' : ''">
+        MENU
+      </span>
+                <svg
+                        :class="sidebarToggle ? 'xl:block hidden' : 'hidden'"
+                        class="menu-group-icon mx-auto fill-current"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M5.99915 10.2451C6.96564 10.2451 7.74915 11.0286 7.74915 11.9951V12.0051C7.74915 12.9716 6.96564 13.7551 5.99915 13.7551C5.03265 13.7551 4.24915 12.9716 4.24915 12.0051V11.9951C4.24915 11.0286 5.03265 10.2451 5.99915 10.2451ZM17.9991 10.2451C18.9656 10.2451 19.7491 11.0286 19.7491 11.9951V12.0051C19.7491 12.9716 18.9656 13.7551 17.9991 13.7551C17.0326 13.7551 16.2491 12.9716 16.2491 12.0051V11.9951C16.2491 11.0286 17.0326 10.2451 17.9991 10.2451ZM13.7491 11.9951C13.7491 11.0286 12.9656 10.2451 11.9991 10.2451C11.0326 10.2451 10.2491 11.0286 10.2491 11.9951V12.0051C10.2491 12.9716 11.0326 13.7551 11.9991 13.7551C12.9656 13.7551 13.7491 12.9716 13.7491 12.0051V11.9951Z"
+                          fill="currentColor"
+                  />
+                </svg>
+              </h3>
+
+              <ul class="mb-6 flex flex-col gap-1">
+                <!-- Menu Item Dashboard -->
+                <li>
+                  <a href="index.php" @click="selected = (selected === 'Dashboard' ? '':'Dashboard')" class="menu-item group"
+                     :class=" (selected === 'Dashboard') || (page === 'dashboard') ? 'menu-item-active' : 'menu-item-inactive'">
+                    <svg :class="(selected === 'Dashboard') || (page === 'dashboard') ? 'menu-item-icon-active'  :'menu-item-icon-inactive'"
+                         width="24"
+                         height="24"
+                         viewBox="0 0 24 24"
+                         fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M5.5 3.25C4.25736 3.25 3.25 4.25736 3.25 5.5V8.99998C3.25 10.2426 4.25736 11.25 5.5 11.25H9C10.2426 11.25 11.25 10.2426 11.25 8.99998V5.5C11.25 4.25736 10.2426 3.25 9 3.25H5.5ZM4.75 5.5C4.75 5.08579 5.08579 4.75 5.5 4.75H9C9.41421 4.75 9.75 5.08579 9.75 5.5V8.99998C9.75 9.41419 9.41421 9.74998 9 9.74998H5.5C5.08579 9.74998 4.75 9.41419 4.75 8.99998V5.5ZM5.5 12.75C4.25736 12.75 3.25 13.7574 3.25 15V18.5C3.25 19.7426 4.25736 20.75 5.5 20.75H9C10.2426 20.75 11.25 19.7427 11.25 18.5V15C11.25 13.7574 10.2426 12.75 9 12.75H5.5ZM4.75 15C4.75 14.5858 5.08579 14.25 5.5 14.25H9C9.41421 14.25 9.75 14.5858 9.75 15V18.5C9.75 18.9142 9.41421 19.25 9 19.25H5.5C5.08579 19.25 4.75 18.9142 4.75 18.5V15ZM12.75 5.5C12.75 4.25736 13.7574 3.25 15 3.25H18.5C19.7426 3.25 20.75 4.25736 20.75 5.5V8.99998C20.75 10.2426 19.7426 11.25 18.5 11.25H15C13.7574 11.25 12.75 10.2426 12.75 8.99998V5.5ZM15 4.75C14.5858 4.75 14.25 5.08579 14.25 5.5V8.99998C14.25 9.41419 14.5858 9.74998 15 9.74998H18.5C18.9142 9.74998 19.25 9.41419 19.25 8.99998V5.5C19.25 5.08579 18.9142 4.75 18.5 4.75H15ZM15 12.75C13.7574 12.75 12.75 13.7574 12.75 15V18.5C12.75 19.7426 13.7574 20.75 15 20.75H18.5C19.7426 20.75 20.75 19.7427 20.75 18.5V15C20.75 13.7574 19.7426 12.75 18.5 12.75H15ZM14.25 15C14.25 14.5858 14.5858 14.25 15 14.25H18.5C18.9142 14.25 19.25 14.5858 19.25 15V18.5C19.25 18.9142 18.9142 19.25 18.5 19.25H15C14.5858 19.25 14.25 18.9142 14.25 18.5V15Z"
+                            fill="currentColor"/>
+                    </svg>
+                    <span class="menu-item-text"
+                          :class="sidebarToggle ? 'xl:hidden' : ''">Dashboard</span>
+                  </a>
+                </li>
+
+                <!-- Menu Item Events -->
+                <li>
+                  <a href="events.php" @click="selected = (selected === 'Events' ? '':'Events')" class="menu-item group"
+                     :class=" (selected === 'Events') || (page === 'events') ? 'menu-item-active' : 'menu-item-inactive'">
+                    <svg :class="(selected === 'Events') || (page === 'events') ? 'menu-item-icon-active'  :'menu-item-icon-inactive'"
+                         width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M8 2C8.41421 2 8.75 2.33579 8.75 2.75V3.75H15.25V2.75C15.25 2.33579 15.5858 2 16 2C16.4142 2 16.75 2.33579 16.75 2.75V3.75H18.5C19.7426 3.75 20.75 4.75736 20.75 6V9V19C20.75 20.2426 19.7426 21.25 18.5 21.25H5.5C4.25736 21.25 3.25 20.2426 3.25 19V9V6C3.25 4.75736 4.25736 3.75 5.5 3.75H7.25V2.75C7.25 2.33579 7.58579 2 8 2ZM8 5.25H5.5C5.08579 5.25 4.75 5.58579 4.75 6V8.25H19.25V6C19.25 5.58579 18.9142 5.25 18.5 5.25H16H8ZM19.25 9.75H4.75V19C4.75 19.4142 5.08579 19.75 5.5 19.75H18.5C18.9142 19.75 19.25 19.4142 19.25 19V9.75Z" fill="currentColor"></path>
+                    </svg>
+                    <span class="menu-item-text"
+                          :class="sidebarToggle ? 'xl:hidden' : ''">Events</span>
+                  </a>
+                </li>
+
+                <!-- Menu Item Appointments -->
+                <li>
+                  <a href="appointments.php" @click="selected = (selected === 'Appointments' ? '':'Appointments')" class="menu-item group"
+                     :class="(selected === 'Appointments') || (page === 'appointments') ? 'menu-item-active' : 'menu-item-inactive'">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-calendar-event">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                      <path d="M4 5m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" />
+                      <path d="M16 3l0 4" />
+                      <path d="M8 3l0 4" />
+                      <path d="M4 11l16 0" />
+                      <path d="M8 15h2v2h-2z" />
+                    </svg>
+                    <span class="menu-item-text"
+                          :class="sidebarToggle ? 'xl:hidden' : ''">Appointments</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Manage Group -->
+            <div>
+              <h3 class="mb-4 text-xs leading-[20px] text-gray-400 uppercase">
+      <span class="menu-group-title"
+            :class="sidebarToggle ? 'xl:hidden' : ''">MANAGE</span>
+                <svg
+                        :class="sidebarToggle ? 'xl:block hidden' : 'hidden'"
+                        class="menu-group-icon mx-auto fill-current"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M5.99915 10.2451C6.96564 10.2451 7.74915 11.0286 7.74915 11.9951V12.0051C7.74915 12.9716 6.96564 13.7551 5.99915 13.7551C5.03265 13.7551 4.24915 12.9716 4.24915 12.0051V11.9951C4.24915 11.0286 5.03265 10.2451 5.99915 10.2451ZM17.9991 10.2451C18.9656 10.2451 19.7491 11.0286 19.7491 11.9951V12.0051C19.7491 12.9716 18.9656 13.7551 17.9991 13.7551C17.0326 13.7551 16.2491 12.9716 16.2491 12.0051V11.9951C16.2491 11.0286 17.0326 10.2451 17.9991 10.2451ZM13.7491 11.9951C13.7491 11.0286 12.9656 10.2451 11.9991 10.2451C11.0326 10.2451 10.2491 11.0286 10.2491 11.9951V12.0051C10.2491 12.9716 11.0326 13.7551 11.9991 13.7551C12.9656 13.7551 13.7491 12.9716 13.7491 12.0051V11.9951Z"
+                          fill="currentColor"
+                  />
+                </svg>
+              </h3>
+
+              <ul class="mb-6 flex flex-col gap-1">
+                <!-- Menu Item Users -->
+                <li>
+                  <a href="users.php" @click="selected = (selected === 'Users' ? '':'Users')" class="menu-item group"
+                     :class=" (selected === 'Users') || (page === 'users') ? 'menu-item-active' : 'menu-item-inactive'">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-users">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                      <path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+                      <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                      <path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
+                    </svg>
+                    <span class="menu-item-text"
+                          :class="sidebarToggle ? 'xl:hidden' : ''">Users</span>
+                  </a>
+                </li>
+
+                <!-- Menu Item Bodaboda Group -->
+                <li>
+                  <a href="bodaboda.php" @click="selected = (selected === 'Bodaboda Group' ? '':'Bodaboda Group')" class="menu-item group"
+                     :class=" (selected === 'Bodaboda Group') || (page === 'bodaboda') ? 'menu-item-active' : 'menu-item-inactive'">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                         stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-motorbike">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                      <path d="M5 16m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+                      <path d="M19 16m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+                      <path d="M7.5 14h5l4 -4h-10.5m1.5 4l4 -4" />
+                      <path d="M13 6h2l1.5 3l2 4" />
+                    </svg>
+                    <span class="menu-item-text"
+                          :class="sidebarToggle ? 'xl:hidden' : ''">Bodaboda Group</span>
+                  </a>
+                </li>
+
+                <!-- Menu Item Loans -->
+                <li>
+                  <a href="loans.php" @click="selected = (selected === 'Loans' ? '':'Loans')" class="menu-item group"
+                     :class="(selected === 'Loans') || (page === 'loans') ? 'menu-item-active' : 'menu-item-inactive'">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         width="24"
+                         height="24"
+                         viewBox="0 0 24 24"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="1.5"
+                         stroke-linecap="round"
+                         stroke-linejoin="round"
+                         class="icon icon-tabler icons-tabler-outline icon-tabler-credit-card"
+                    >
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                      <path d="M3 5m0 3a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v8a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3z" />
+                      <path d="M3 10l18 0" />
+                      <path d="M7 15l.01 0" />
+                      <path d="M11 15l2 0" />
+                    </svg>
+                    <span class="menu-item-text"
+                          :class="sidebarToggle ? 'xl:hidden' : ''">Loans</span>
+                  </a>
+                </li>
+
+                <!-- Menu Item Real-Estate -->
+                <li>
+                  <a href="real-estate.php" @click="selected = (selected === 'Real Estate' ? '':'Real Estate')" class="menu-item group"
+                     :class="(selected === 'Real Estate') || (page === 'real estate') ? 'menu-item-active' : 'menu-item-inactive'">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-building">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                      <path d="M3 21l18 0" />
+                      <path d="M9 8l1 0" />
+                      <path d="M9 12l1 0" />
+                      <path d="M9 16l1 0" />
+                      <path d="M14 8l1 0" />
+                      <path d="M14 12l1 0" />
+                      <path d="M14 16l1 0" />
+                      <path d="M5 21v-16a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v16" />
+                    </svg>
+                    <span class="menu-item-text"
+                          :class="sidebarToggle ? 'xl:hidden' : ''">Real Estate</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Settings Group -->
+            <div>
+              <h3 class="mb-4 text-xs leading-[20px] text-gray-400 uppercase">
+             <span class="menu-group-title"
+                   :class="sidebarToggle ? 'xl:hidden' : ''">SETTINGS</span>
+                <svg
+                        :class="sidebarToggle ? 'xl:block hidden' : 'hidden'"
+                        class="menu-group-icon mx-auto fill-current"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M5.99915 10.2451C6.96564 10.2451 7.74915 11.0286 7.74915 11.9951V12.0051C7.74915 12.9716 6.96564 13.7551 5.99915 13.7551C5.03265 13.7551 4.24915 12.9716 4.24915 12.0051V11.9951C4.24915 11.0286 5.03265 10.2451 5.99915 10.2451ZM17.9991 10.2451C18.9656 10.2451 19.7491 11.0286 19.7491 11.9951V12.0051C19.7491 12.9716 18.9656 13.7551 17.9991 13.7551C17.0326 13.7551 16.2491 12.9716 16.2491 12.0051V11.9951C16.2491 11.0286 17.0326 10.2451 17.9991 10.2451ZM13.7491 11.9951C13.7491 11.0286 12.9656 10.2451 11.9991 10.2451C11.0326 10.2451 10.2491 11.0286 10.2491 11.9951V12.0051C10.2491 12.9716 11.0326 13.7551 11.9991 13.7551C12.9656 13.7551 13.7491 12.9716 13.7491 12.0051V11.9951Z"
+                          fill="currentColor"
+                  />
+                </svg>
+              </h3>
+
+              <ul class="mb-6 flex flex-col gap-1">
+                <!-- Menu Item Profile -->
+                <li>
+                  <a href="profile.php" @click="selected = (selected === 'Profile' ? '':'Profile')"
+                     class="menu-item group"
+                     :class=" (selected === 'Profile') && (page === 'profile') ? 'menu-item-active' : 'menu-item-inactive'">
+                    <svg
+                            :class="(selected === 'Profile') && (page === 'profile') ?  'menu-item-icon-active'  :'menu-item-icon-inactive'"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                              fill-rule="evenodd"
+                              clip-rule="evenodd"
+                              d="M12 3.5C7.30558 3.5 3.5 7.30558 3.5 12C3.5 14.1526 4.3002 16.1184 5.61936 17.616C6.17279 15.3096 8.24852 13.5955 10.7246 13.5955H13.2746C15.7509 13.5955 17.8268 15.31 18.38 17.6167C19.6996 16.119 20.5 14.153 20.5 12C20.5 7.30558 16.6944 3.5 12 3.5ZM17.0246 18.8566V18.8455C17.0246 16.7744 15.3457 15.0955 13.2746 15.0955H10.7246C8.65354 15.0955 6.97461 16.7744 6.97461 18.8455V18.856C8.38223 19.8895 10.1198 20.5 12 20.5C13.8798 20.5 15.6171 19.8898 17.0246 18.8566ZM2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12ZM11.9991 7.25C10.8847 7.25 9.98126 8.15342 9.98126 9.26784C9.98126 10.3823 10.8847 11.2857 11.9991 11.2857C13.1135 11.2857 14.0169 10.3823 14.0169 9.26784C14.0169 8.15342 13.1135 7.25 11.9991 7.25ZM8.48126 9.26784C8.48126 7.32499 10.0563 5.75 11.9991 5.75C13.9419 5.75 15.5169 7.32499 15.5169 9.26784C15.5169 11.2107 13.9419 12.7857 11.9991 12.7857C10.0563 12.7857 8.48126 11.2107 8.48126 9.26784Z"
+                              fill="currentColor"
+                      />
+                    </svg>
+                    <span class="menu-item-text"
+                          :class="sidebarToggle ? 'xl:hidden' : ''">Profile</span>
+                  </a>
+                </li>
+
+                <!-- Menu Item Support Tickets -->
+                <li>
+                  <a href="support.php" @click="selected = (selected === 'Support Tickets' ? '':'Support Tickets')" class="menu-item group"
+                     :class="(selected === 'Support Tickets') || (page === 'support') ? 'menu-item-active' : 'menu-item-inactive'">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-ticket">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                      <path d="M15 5l0 2" />
+                      <path d="M15 11l0 2" />
+                      <path d="M15 17l0 2" />
+                      <path d="M5 5h14a2 2 0 0 1 2 2v3a2 2 0 0 0 0 4v3a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-3a2 2 0 0 0 0 -4v-3a2 2 0 0 1 2 -2" />
+                    </svg>
+                    <span class="menu-item-text"
+                          :class="sidebarToggle ? 'xl:hidden' : ''">Support Tickets</span>
+                  </a>
+                </li>
+
+                <!-- Menu Item Settings -->
+                <li>
+                  <a href="settings.php" @click="selected = (selected === 'Settings' ? '':'Settings')" class="menu-item group"
+                     :class="(selected === 'Settings') || (page === 'settings') ? 'menu-item-active' : 'menu-item-inactive'">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-settings">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                      <path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z" />
+                      <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
+                    </svg>
+                    <span class="menu-item-text"
+                          :class="sidebarToggle ? 'xl:hidden' : ''">Settings</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Logout Item -->
+            <div class="mt-auto">
+              <ul class="flex flex-col gap-1">
+                <li>
+                  <a href="../../../index.php" @click="selected = (selected === 'Logout' ? '':'Logout')" class="menu-item group"
+                     :class="(selected === 'Logout') ? 'menu-item-active' : 'menu-item-inactive'">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-logout-2">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                      <path d="M10 8v-2a2 2 0 0 1 2 -2h7a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-7a2 2 0 0 1 -2 -2v-2" />
+                      <path d="M15 12h-12l3 -3" />
+                      <path d="M6 15l-3 -3" />
+                    </svg>
+                    <span class="menu-item-text" :class="sidebarToggle ? 'xl:hidden' : ''">Logout</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          <!-- Sidebar Menu -->
+        </div>
+      </aside>
+      <!-- ===== Sidebar End ===== -->
+
+      <!-- ===== Content Area Start ===== -->
+      <div class="relative flex flex-1 flex-col overflow-x-hidden overflow-y-auto">
+        <!-- Small Device Overlay Start -->
+        <div :class="sidebarToggle ? 'block xl:hidden' : 'hidden'" class="fixed z-50 h-screen w-full bg-gray-900/50"></div>
+        <!-- Small Device Overlay End -->
+
+        <!-- ===== Header Start ===== -->
+        <header x-data="{menuToggle: false}"
+                class="sticky top-0 z-99999 flex w-full border-gray-200 bg-white xl:border-b dark:border-gray-800 dark:bg-gray-900">
+          <div class="flex grow flex-col items-center justify-between xl:flex-row xl:px-6">
+            <div class="flex w-full items-center justify-between gap-2 border-b border-gray-200 px-3 py-3 sm:gap-4 lg:py-4 xl:justify-normal xl:border-b-0 xl:px-0 dark:border-gray-800">
+              <!-- Hamburger Toggle BTN -->
+              <button :class="sidebarToggle ? 'xl:bg-transparent dark:xl:bg-transparent bg-gray-100 dark:bg-gray-800' : ''"
+                      class="z-99999 flex h-10 w-10 items-center justify-center rounded-lg border-gray-200 text-gray-500 xl:h-11 xl:w-11 xl:border dark:border-gray-800 dark:text-gray-400"
+                      @click.stop="sidebarToggle = !sidebarToggle">
+                <svg
+                        class="hidden fill-current xl:block"
+                        width="16"
+                        height="12"
+                        viewBox="0 0 16 12"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M0.583252 1C0.583252 0.585788 0.919038 0.25 1.33325 0.25H14.6666C15.0808 0.25 15.4166 0.585786 15.4166 1C15.4166 1.41421 15.0808 1.75 14.6666 1.75L1.33325 1.75C0.919038 1.75 0.583252 1.41422 0.583252 1ZM0.583252 11C0.583252 10.5858 0.919038 10.25 1.33325 10.25L14.6666 10.25C15.0808 10.25 15.4166 10.5858 15.4166 11C15.4166 11.4142 15.0808 11.75 14.6666 11.75L1.33325 11.75C0.919038 11.75 0.583252 11.4142 0.583252 11ZM1.33325 5.25C0.919038 5.25 0.583252 5.58579 0.583252 6C0.583252 6.41421 0.919038 6.75 1.33325 6.75L7.99992 6.75C8.41413 6.75 8.74992 6.41421 8.74992 6C8.74992 5.58579 8.41413 5.25 7.99992 5.25L1.33325 5.25Z"
+                          fill=""
+                  />
+                </svg>
+
+                <svg
+                        :class="sidebarToggle ? 'hidden' : 'block xl:hidden'"
+                        class="fill-current xl:hidden"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M3.25 6C3.25 5.58579 3.58579 5.25 4 5.25L20 5.25C20.4142 5.25 20.75 5.58579 20.75 6C20.75 6.41421 20.4142 6.75 20 6.75L4 6.75C3.58579 6.75 3.25 6.41422 3.25 6ZM3.25 18C3.25 17.5858 3.58579 17.25 4 17.25L20 17.25C20.4142 17.25 20.75 17.5858 20.75 18C20.75 18.4142 20.4142 18.75 20 18.75L4 18.75C3.58579 18.75 3.25 18.4142 3.25 18ZM4 11.25C3.58579 11.25 3.25 11.5858 3.25 12C3.25 12.4142 3.58579 12.75 4 12.75L12 12.75C12.4142 12.75 12.75 12.4142 12.75 12C12.75 11.5858 12.4142 11.25 12 11.25L4 11.25Z"
+                          fill=""
+                  />
+                </svg>
+
+                <!-- cross icon -->
+                <svg
+                        :class="sidebarToggle ? 'block xl:hidden' : 'hidden'"
+                        class="fill-current"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M6.21967 7.28131C5.92678 6.98841 5.92678 6.51354 6.21967 6.22065C6.51256 5.92775 6.98744 5.92775 7.28033 6.22065L11.999 10.9393L16.7176 6.22078C17.0105 5.92789 17.4854 5.92788 17.7782 6.22078C18.0711 6.51367 18.0711 6.98855 17.7782 7.28144L13.0597 12L17.7782 16.7186C18.0711 17.0115 18.0711 17.4863 17.7782 17.7792C17.4854 18.0721 17.0105 18.0721 16.7176 17.7792L11.999 13.0607L7.28033 17.7794C6.98744 18.0722 6.51256 18.0722 6.21967 17.7794C5.92678 17.4865 5.92678 17.0116 6.21967 16.7187L10.9384 12L6.21967 7.28131Z"
+                          fill=""
+                  />
+                </svg>
+              </button>
+              <!-- Hamburger Toggle BTN -->
+
+              <a href="index.php" class="xl:hidden">
+                <img class="dark:hidden" src="../../../assets/src/images/logo/KFCBL-Logo-transparent.png" alt="Logo" />
+                <img
+                        class="hidden dark:block"
+                        src="../../../assets/src/images/logo/KFCBL-Logo-transparent.png"
+                        alt="Logo"
+                />
+              </a>
+
+              <!-- Application nav menu button -->
+              <button class="z-99999 flex h-10 w-10 items-center justify-center rounded-lg text-gray-700 hover:bg-gray-100 xl:hidden dark:text-gray-400 dark:hover:bg-gray-800"
+                      :class="menuToggle ? 'bg-gray-100 dark:bg-gray-800' : ''"
+                      @click.stop="menuToggle = !menuToggle">
+                <svg
+                        class="fill-current"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M5.99902 10.4951C6.82745 10.4951 7.49902 11.1667 7.49902 11.9951V12.0051C7.49902 12.8335 6.82745 13.5051 5.99902 13.5051C5.1706 13.5051 4.49902 12.8335 4.49902 12.0051V11.9951C4.49902 11.1667 5.1706 10.4951 5.99902 10.4951ZM17.999 10.4951C18.8275 10.4951 19.499 11.1667 19.499 11.9951V12.0051C19.499 12.8335 18.8275 13.5051 17.999 13.5051C17.1706 13.5051 16.499 12.8335 16.499 12.0051V11.9951C16.499 11.1667 17.1706 10.4951 17.999 10.4951ZM13.499 11.9951C13.499 11.1667 12.8275 10.4951 11.999 10.4951C11.1706 10.4951 10.499 11.1667 10.499 11.9951V12.0051C10.499 12.8335 11.1706 13.5051 11.999 13.5051C12.8275 13.5051 13.499 12.8335 13.499 12.0051V11.9951Z"
+                          fill=""
+                  />
+                </svg>
+              </button>
+              <!-- Application nav menu button -->
+
+            </div>
+
+            <div :class="menuToggle ? 'flex' : 'hidden'"
+                 class="shadow-theme-md w-full items-center justify-between gap-4 px-5 py-4 xl:flex xl:justify-end xl:px-0 xl:shadow-none">
+              <div class="2xsm:gap-3 flex items-center gap-2">
+              </div>
+
+              <!-- User Area -->
+              <div
+                      class="relative"
+                      x-data="{ dropdownOpen: false }"
+                      @click.outside="dropdownOpen = false"
+              >
+                <a
+                        class="flex items-center text-gray-700 dark:text-gray-400"
+                        href="#"
+                        @click.prevent="dropdownOpen = ! dropdownOpen"
+                >
+                    <span class="mr-3 h-11 w-11 overflow-hidden rounded-full">
+                      <img src="../../../assets/src/images/user/owner.png" alt="User" />
+                    </span>
+
+                  <span class="text-theme-sm mr-1 block font-medium"> Kamau Njunge </span>
+
+                  <svg
+                          :class="dropdownOpen && 'rotate-180'"
+                          class="stroke-gray-500 dark:stroke-gray-400"
+                          width="18"
+                          height="20"
+                          viewBox="0 0 18 20"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                            d="M4.3125 8.65625L9 13.3437L13.6875 8.65625"
+                            stroke=""
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+
+                <!-- Dropdown Start -->
+                <div x-show="dropdownOpen"
+                     class="shadow-theme-lg dark:bg-gray-dark absolute right-0 mt-[17px] flex w-[260px] flex-col rounded-2xl border border-gray-200 bg-white p-3 dark:border-gray-800">
+                  <div>
+                      <span
+                              class="text-theme-sm block font-medium text-gray-700 dark:text-gray-400"
+                      >
+                        Kamau Njunge
+                      </span>
+                    <span
+                            class="text-theme-xs mt-0.5 block text-gray-500 dark:text-gray-400"
+                    >
+                        <a href="../../../cdn-cgi/l/email-protection.php" class="__cf_email__" data-cfemail="8ffdeee1ebe0e2fafceafdcfffe6e2e5e0a1ece0e2">[email&#160;protected]</a>
+                      </span>
+                  </div>
+
+                  <ul
+                          class="flex flex-col gap-1 border-b border-gray-200 pt-4 pb-3 dark:border-gray-800"
+                  >
+                    <li>
+                      <a
+                              href="profile.php"
+                              class="group text-theme-sm flex items-center gap-3 rounded-lg px-3 py-2 font-medium text-gray-700 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300"
+                      >
+                        <svg
+                                class="fill-gray-500 group-hover:fill-gray-700 dark:fill-gray-400 dark:group-hover:fill-gray-300"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                                  fill-rule="evenodd"
+                                  clip-rule="evenodd"
+                                  d="M12 3.5C7.30558 3.5 3.5 7.30558 3.5 12C3.5 14.1526 4.3002 16.1184 5.61936 17.616C6.17279 15.3096 8.24852 13.5955 10.7246 13.5955H13.2746C15.7509 13.5955 17.8268 15.31 18.38 17.6167C19.6996 16.119 20.5 14.153 20.5 12C20.5 7.30558 16.6944 3.5 12 3.5ZM17.0246 18.8566V18.8455C17.0246 16.7744 15.3457 15.0955 13.2746 15.0955H10.7246C8.65354 15.0955 6.97461 16.7744 6.97461 18.8455V18.856C8.38223 19.8895 10.1198 20.5 12 20.5C13.8798 20.5 15.6171 19.8898 17.0246 18.8566ZM2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12ZM11.9991 7.25C10.8847 7.25 9.98126 8.15342 9.98126 9.26784C9.98126 10.3823 10.8847 11.2857 11.9991 11.2857C13.1135 11.2857 14.0169 10.3823 14.0169 9.26784C14.0169 8.15342 13.1135 7.25 11.9991 7.25ZM8.48126 9.26784C8.48126 7.32499 10.0563 5.75 11.9991 5.75C13.9419 5.75 15.5169 7.32499 15.5169 9.26784C15.5169 11.2107 13.9419 12.7857 11.9991 12.7857C10.0563 12.7857 8.48126 11.2107 8.48126 9.26784Z"
+                                  fill=""
+                          />
+                        </svg>
+                        Profile
+                      </a>
+                    </li>
+                  </ul>
+                  <button
+                          class="group text-theme-sm mt-3 flex items-center gap-3 rounded-lg px-3 py-2 font-medium text-gray-700 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300"
+                  >
+                    <svg
+                            class="fill-gray-500 group-hover:fill-gray-700 dark:group-hover:fill-gray-300"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                              fill-rule="evenodd"
+                              clip-rule="evenodd"
+                              d="M15.1007 19.247C14.6865 19.247 14.3507 18.9112 14.3507 18.497L14.3507 14.245H12.8507V18.497C12.8507 19.7396 13.8581 20.747 15.1007 20.747H18.5007C19.7434 20.747 20.7507 19.7396 20.7507 18.497L20.7507 5.49609C20.7507 4.25345 19.7433 3.24609 18.5007 3.24609H15.1007C13.8581 3.24609 12.8507 4.25345 12.8507 5.49609V9.74501L14.3507 9.74501V5.49609C14.3507 5.08188 14.6865 4.74609 15.1007 4.74609L18.5007 4.74609C18.9149 4.74609 19.2507 5.08188 19.2507 5.49609L19.2507 18.497C19.2507 18.9112 18.9149 19.247 18.5007 19.247H15.1007ZM3.25073 11.9984C3.25073 12.2144 3.34204 12.4091 3.48817 12.546L8.09483 17.1556C8.38763 17.4485 8.86251 17.4487 9.15549 17.1559C9.44848 16.8631 9.44863 16.3882 9.15583 16.0952L5.81116 12.7484L16.0007 12.7484C16.4149 12.7484 16.7507 12.4127 16.7507 11.9984C16.7507 11.5842 16.4149 11.2484 16.0007 11.2484L5.81528 11.2484L9.15585 7.90554C9.44864 7.61255 9.44847 7.13767 9.15547 6.84488C8.86248 6.55209 8.3876 6.55226 8.09481 6.84525L3.52309 11.4202C3.35673 11.5577 3.25073 11.7657 3.25073 11.9984Z"
+                              fill=""
+                      />
+                    </svg>
+
+                    Sign out
+                  </button>
+                </div>
+                <!-- Dropdown End -->
+              </div>
+              <!-- User Area -->
+            </div>
+          </div>
+        </header>
+        <!-- ===== Header End ===== -->
+
+        <!-- ===== Main Content Start ===== -->
+        <main>
+          <div class="mx-auto max-w-(--breakpoint-2xl) p-4 pb-20 md:p-6 md:pb-6">
+            <!-- Breadcrumb Start -->
+            <div x-data="{ pageName: `Events Calendar` }">
+              <div class="flex flex-wrap items-center justify-between gap-3 pb-6">
+                <h2 class="text-xl font-semibold text-gray-800 dark:text-white/90" x-text="pageName"></h2>
+                <nav>
+                  <ol class="flex items-center gap-1.5">
+                    <li>
+                      <a class="inline-flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400" href="index.php">
+                        Home
+                        <svg
+                                class="stroke-current"
+                                width="17"
+                                height="16"
+                                viewBox="0 0 17 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                                  d="M6.0765 12.667L10.2432 8.50033L6.0765 4.33366"
+                                  stroke=""
+                                  stroke-width="1.2"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                          />
+                        </svg>
+                      </a>
+                    </li>
+                    <li class="text-sm text-gray-800 dark:text-white/90" x-text="pageName"></li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+            <!-- Breadcrumb End -->
+
+            <!-- Content Start -->
+            <div>
+              <div class="grid grid-cols-12 gap-4 md:gap-6">
+                <div class="col-span-12 xl:col-span-4">
+                  <!-- ====== Chart Twelve Start -->
+                  <div class="relative rounded-2xl border border-gray-200 justify-between gap-2 bg-white p-5 dark:border-gray-800 dark:bg-white/[0.03] sm:p-6">
+                    <div class="mb-8">
+                      <div class="mb-4">
+                        <h3 class="text-md font-semibold text-gray-600 dark:text-white/90">Today</h3>
+                      </div>
+
+                      <div class="rounded-lg border border-gray-200 p-4 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-white/[0.03]">
+                        <div class="mb-4">
+                          <h3 class="text-md font-semibold text-gray-500 dark:text-white/90">28 December, 2025</h3>
+                        </div>
+
+                        <div class="space-y-3 pl-4">
+                          <div class="flex items-start gap-3">
+                            <div class="mt-0.5 flex h-5 w-5 items-center justify-center">
+                              <div class="h-2 w-2 rounded-full bg-success-500"></div>
+                            </div>
+                            <div class="w-px bg-gray-200 h-11 dark:bg-gray-800"></div>
+                            <div class="order-2 xl:order-2">
+                              <h4 class="mb-2 text-sm font-semibold text-gray-600 xl:text-left dark:text-white/90">
+                                Meeting with Software Engineer
+                              </h4>
+                              <div class="flex flex-col gap-1 text-center xl:flex-row xl:gap-3 xl:text-left">
+                                <p class="text-sm text-gray-500 dark:text-gray-400">
+                                  03:30 PM
+                                </p>
+                                <div class="hidden h-3.5 w-px bg-gray-300 xl:block dark:bg-gray-700"></div>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">
+                                  BAT Office, Makongeni Thika.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="flex items-start gap-3">
+                            <div class="mt-0.5 flex h-5 w-5 items-center justify-center">
+                              <div class="h-2 w-2 rounded-full bg-warning-500"></div>
+                            </div>
+                            <div class="w-px bg-gray-200 h-11 dark:bg-gray-800"></div>
+                            <div class="order-2 xl:order-2">
+                              <h4 class="mb-2 text-sm font-semibold text-gray-600 xl:text-left dark:text-white/90">
+                                Meeting with Software Engineer
+                              </h4>
+                              <div class="flex flex-col gap-1 text-center xl:flex-row xl:gap-3 xl:text-left">
+                                <p class="text-sm text-gray-500 dark:text-gray-400">
+                                  03:30 PM
+                                </p>
+                                <div class="hidden h-3.5 w-px bg-gray-300 xl:block dark:bg-gray-700"></div>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">
+                                  BAT Office, Makongeni Thika.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="flex items-start gap-3">
+                            <div class="mt-0.5 flex h-5 w-5 items-center justify-center">
+                              <div class="h-2 w-2 rounded-full bg-primary-500"></div>
+                            </div>
+                            <div class="w-px bg-gray-200 h-11 dark:bg-gray-800"></div>
+                            <div class="order-2 xl:order-2">
+                              <h4 class="mb-2 text-sm font-semibold text-gray-600 xl:text-left dark:text-white/90">
+                                Meeting with Software Engineer
+                              </h4>
+                              <div class="flex flex-col gap-1 text-center xl:flex-row xl:gap-3 xl:text-left">
+                                <p class="text-sm text-gray-500 dark:text-gray-400">
+                                  03:30 PM
+                                </p>
+                                <div class="hidden h-3.5 w-px bg-gray-300 xl:block dark:bg-gray-700"></div>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">
+                                  BAT Office, Makongeni Thika.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flex-col relative ">
+                      <div class="mb-4">
+                        <h3 class="text-md font-semibold text-gray-600 dark:text-white/90">Next</h3>
+                      </div>
+                      <div x-data="{checked: false}" @click="checked = !checked" class="flex cursor-pointer gap-6 rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-white/[0.03]">
+                        <div class="flex items-start gap-3">
+                          <div class="text-center min-w-[60px]">
+                            <span class="text-sm text-gray-500 dark:text-gray-400">DEC</span>
+                            <span class="block text-2xl font-bold text-gray-400 dark:text-white">19</span>
+                          </div>
+                        </div>
+                        <div class="w-px bg-gray-200 h-11 dark:bg-gray-800"></div>
+                        <div class="order-2 xl:order-2">
+                          <h4 class="mb-2 text-sm font-semibold text-gray-600 xl:text-left dark:text-white/90">
+                            Meeting with Software Engineer
+                          </h4>
+                          <div class="flex flex-col gap-1 text-center xl:flex-row xl:gap-3 xl:text-left">
+                            <p class="text-sm text-gray-500 dark:text-gray-400">
+                              03:30 PM
+                            </p>
+                            <div class="hidden h-3.5 w-px bg-gray-300 xl:block dark:bg-gray-700"></div>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">
+                              BAT Office, Makongeni Thika.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mb-8">
+                      <div x-data="{checked: false}" @click="checked = !checked" class="flex cursor-pointer gap-6 rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-white/[0.03]">
+                        <div class="flex items-start gap-3">
+                          <div class="text-center min-w-[60px]">
+                            <span class="text-sm text-gray-500 dark:text-gray-400">DEC</span>
+                            <span class="block text-2xl font-bold text-gray-400 dark:text-white">19</span>
+                          </div>
+                        </div>
+                        <div class="w-px bg-gray-200 h-11 dark:bg-gray-800"></div>
+                        <div class="order-2 xl:order-2">
+                          <h4 class="mb-2 text-sm font-semibold text-gray-600 xl:text-left dark:text-white/90">
+                            Meeting with Software Engineer
+                          </h4>
+                          <div class="flex flex-col gap-1 text-center xl:flex-row xl:gap-3 xl:text-left">
+                            <p class="text-sm text-gray-500 dark:text-gray-400">
+                              03:30 PM
+                            </p>
+                            <div class="hidden h-3.5 w-px bg-gray-300 xl:block dark:bg-gray-700"></div>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">
+                              BAT Office, Makongeni Thika.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- ====== Chart Twelve End -->
+                </div>
+                <div class="col-span-12 xl:col-span-8">
+                  <!-- ====== Events -->
+                  <div class="rounded-2xl border border-gray-200 bg-white px-5 pb-5 pt-5 dark:border-gray-800 dark:bg-white/[0.03] sm:px-6 sm:pt-6">
+                    <div class="flex flex-col gap-5 mb-6 sm:flex-row sm:items-center sm:justify-between">
+                      <div>
+                        <h3 class="text-lg font-semibold text-gray-600 dark:text-white/90">
+                          All Events
+                        </h3>
+                        <p class="mt-1 text-gray-500 text-theme-sm dark:text-gray-400">
+                          January 2026
+                        </p>
+                      </div>
+                      <div class="flex gap-3">
+                        <div class="relative max-w-40">
+                          <div class="flatpickr-wrapper">
+                            <input class="datepicker text-theme-sm shadow-theme-xs h-10 w-full max-w-11 rounded-lg border border-gray-200 bg-white py-2.5 pr-4 pl-[34px] font-medium text-gray-700 focus:ring-0 focus:outline-hidden focus-visible:outline-hidden xl:max-w-fit xl:pl-11 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 flatpickr-input" placeholder="Select dates" data-class="flatpickr-right" readonly="readonly" type="text"><div class="flatpickr-calendar rangeMode animate static flatpickr-right arrowTop arrowLeft rightMost" tabindex="-1"><div class="flatpickr-months"><span class="flatpickr-prev-month"><svg class="stroke-current" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.25 6L9 12.25L15.25 18.5" stroke="" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><div class="flatpickr-month"><div class="flatpickr-current-month"><span class="cur-month">December </span><div class="numInputWrapper"><input class="numInput cur-year" type="number" tabindex="-1" aria-label="Year"><span class="arrowUp"></span><span class="arrowDown"></span></div></div></div><span class="flatpickr-next-month"><svg class="stroke-current" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.75 19L15 12.75L8.75 6.5" stroke="" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></div><div class="flatpickr-innerContainer"><div class="flatpickr-rContainer"><div class="flatpickr-weekdays"><div class="flatpickr-weekdaycontainer">
+                            <span class="flatpickr-weekday">
+                              Sun</span><span class="flatpickr-weekday">Mon</span><span class="flatpickr-weekday">Tue</span><span class="flatpickr-weekday">Wed</span><span class="flatpickr-weekday">Thu</span><span class="flatpickr-weekday">Fri</span><span class="flatpickr-weekday">Sat
+                            </span>
+                          </div>
+                          </div>
+                            <div class="flatpickr-days" tabindex="-1"><div class="dayContainer"><span class="flatpickr-day prevMonthDay" aria-label="November 30, 2025" tabindex="-1">30</span><span class="flatpickr-day" aria-label="December 1, 2025" tabindex="-1">1</span><span class="flatpickr-day" aria-label="December 2, 2025" tabindex="-1">2</span><span class="flatpickr-day" aria-label="December 3, 2025" tabindex="-1">3</span><span class="flatpickr-day" aria-label="December 4, 2025" tabindex="-1">4</span><span class="flatpickr-day" aria-label="December 5, 2025" tabindex="-1">5</span><span class="flatpickr-day" aria-label="December 6, 2025" tabindex="-1">6</span><span class="flatpickr-day" aria-label="December 7, 2025" tabindex="-1">7</span><span class="flatpickr-day" aria-label="December 8, 2025" tabindex="-1">8</span><span class="flatpickr-day" aria-label="December 9, 2025" tabindex="-1">9</span><span class="flatpickr-day" aria-label="December 10, 2025" tabindex="-1">10</span><span class="flatpickr-day" aria-label="December 11, 2025" tabindex="-1">11</span><span class="flatpickr-day" aria-label="December 12, 2025" tabindex="-1">12</span><span class="flatpickr-day" aria-label="December 13, 2025" tabindex="-1">13</span><span class="flatpickr-day" aria-label="December 14, 2025" tabindex="-1">14</span><span class="flatpickr-day" aria-label="December 15, 2025" tabindex="-1">15</span><span class="flatpickr-day" aria-label="December 16, 2025" tabindex="-1">16</span><span class="flatpickr-day" aria-label="December 17, 2025" tabindex="-1">17</span><span class="flatpickr-day" aria-label="December 18, 2025" tabindex="-1">18</span><span class="flatpickr-day" aria-label="December 19, 2025" tabindex="-1">19</span><span class="flatpickr-day" aria-label="December 20, 2025" tabindex="-1">20</span><span class="flatpickr-day" aria-label="December 21, 2025" tabindex="-1">21</span><span class="flatpickr-day" aria-label="December 22, 2025" tabindex="-1">22</span><span class="flatpickr-day" aria-label="December 23, 2025" tabindex="-1">23</span><span class="flatpickr-day" aria-label="December 24, 2025" tabindex="-1">24</span><span class="flatpickr-day" aria-label="December 25, 2025" tabindex="-1">25</span><span class="flatpickr-day" aria-label="December 26, 2025" tabindex="-1">26</span><span class="flatpickr-day" aria-label="December 27, 2025" tabindex="-1">27</span><span class="flatpickr-day" aria-label="December 28, 2025" tabindex="-1">28</span><span class="flatpickr-day selected startRange" aria-label="December 29, 2025" tabindex="-1">29</span><span class="flatpickr-day inRange" aria-label="December 30, 2025" tabindex="-1">30</span><span class="flatpickr-day inRange" aria-label="December 31, 2025" tabindex="-1">31</span><span class="flatpickr-day nextMonthDay inRange" aria-label="January 1, 2026" tabindex="-1">1</span><span class="flatpickr-day nextMonthDay inRange" aria-label="January 2, 2026" tabindex="-1">2</span><span class="flatpickr-day nextMonthDay inRange" aria-label="January 3, 2026" tabindex="-1">3</span><span class="flatpickr-day nextMonthDay today selected endRange" aria-label="January 4, 2026" aria-current="date" tabindex="-1">4</span><span class="flatpickr-day nextMonthDay" aria-label="January 5, 2026" tabindex="-1">5</span><span class="flatpickr-day nextMonthDay" aria-label="January 6, 2026" tabindex="-1">6</span><span class="flatpickr-day nextMonthDay" aria-label="January 7, 2026" tabindex="-1">7</span><span class="flatpickr-day nextMonthDay" aria-label="January 8, 2026" tabindex="-1">8</span><span class="flatpickr-day nextMonthDay" aria-label="January 9, 2026" tabindex="-1">9</span><span class="flatpickr-day nextMonthDay" aria-label="January 10, 2026" tabindex="-1">10</span></div></div></div></div></div></div>
+                          <div class="pointer-events-none absolute inset-0 right-auto left-4 flex items-center">
+                            <svg class="fill-gray-700 dark:fill-gray-400" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd" clip-rule="evenodd" d="M6.66683 1.54199C7.08104 1.54199 7.41683 1.87778 7.41683 2.29199V3.00033H12.5835V2.29199C12.5835 1.87778 12.9193 1.54199 13.3335 1.54199C13.7477 1.54199 14.0835 1.87778 14.0835 2.29199V3.00033L15.4168 3.00033C16.5214 3.00033 17.4168 3.89576 17.4168 5.00033V7.50033V15.8337C17.4168 16.9382 16.5214 17.8337 15.4168 17.8337H4.5835C3.47893 17.8337 2.5835 16.9382 2.5835 15.8337V7.50033V5.00033C2.5835 3.89576 3.47893 3.00033 4.5835 3.00033L5.91683 3.00033V2.29199C5.91683 1.87778 6.25262 1.54199 6.66683 1.54199ZM6.66683 4.50033H4.5835C4.30735 4.50033 4.0835 4.72418 4.0835 5.00033V6.75033H15.9168V5.00033C15.9168 4.72418 15.693 4.50033 15.4168 4.50033H13.3335H6.66683ZM15.9168 8.25033H4.0835V15.8337C4.0835 16.1098 4.30735 16.3337 4.5835 16.3337H15.4168C15.693 16.3337 15.9168 16.1098 15.9168 15.8337V8.25033Z" fill=""></path>
+                            </svg>
+                          </div>
+                        </div>
+
+                        <button @click="isCreateEventModal = true"
+                                class="shadow-theme-xs inline-flex flex w-full justify-center rounded-lg bg-brand-500 px-4 py-2.5 text-sm font-medium text-white hover:bg-brand-600 sm:w-auto">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M5 10.0002H15.0006M10.0002 5V15.0006" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                          </svg>
+                          New event
+                        </button>
+                      </div>
+                    </div>
+
+                    <div class="relative">
+                      <div class="relative">
+                        <!-- Timeline line -->
+                        <div class="custom-scrollbar max-w-full overflow-x-auto">
+                          <div class="min-w-[500px]">
+                            <div id="timeline-container" class="flex flex-col gap-2">
+                              <!-- Timeline items will be dynamically inserted here -->
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Pagination -->
+                        <div class="flex flex-col items-center justify-between border-t border-gray-200 px-5 py-4 sm:flex-row dark:border-gray-800">
+                          <div class="pb-3 sm:pb-0">
+                            <span id="pagination-info" class="block text-sm font-medium text-gray-500 dark:text-gray-400">
+                              Showing <span id="start-item" class="text-gray-800 dark:text-white/90">1</span>
+                              to <span id="end-item" class="text-gray-800 dark:text-white/90">10</span>
+                              of <span id="total-items" class="text-gray-800 dark:text-white/90">20</span>
+                            </span>
+                          </div>
+                          <div class="flex w-full items-center justify-between gap-2 rounded-lg bg-gray-50 p-4 sm:w-auto sm:justify-normal sm:rounded-none sm:bg-transparent sm:p-0 dark:bg-gray-900 dark:sm:bg-transparent">
+                            <button id="prev-btn" class="shadow-theme-xs flex items-center gap-2 rounded-lg border border-gray-300 bg-white p-2 text-gray-700 hover:bg-gray-50 hover:text-gray-800 disabled:cursor-not-allowed disabled:opacity-50 sm:p-2.5 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03] dark:hover:text-gray-200" disabled>
+                              <span>
+                                <svg class="fill-current" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path fill-rule="evenodd" clip-rule="evenodd" d="M2.58203 9.99868C2.58174 10.1909 2.6549 10.3833 2.80152 10.53L7.79818 15.5301C8.09097 15.8231 8.56584 15.8233 8.85883 15.5305C9.15183 15.2377 8.152 14.7629 8.85921 14.4699L5.13911 10.7472L16.6665 10.7472C17.0807 10.7472 17.4165 10.4114 17.4165 9.99715C17.4165 9.58294 17.0807 9.24715 16.6665 9.24715L5.14456 9.24715L8.85919 5.53016C9.15199 5.23717 9.15184 4.7623 8.85885 4.4695C8.56587 4.1767 8.09099 4.17685 7.79819 4.46984L2.84069 9.43049C2.68224 9.568 2.58203 9.77087 2.58203 9.99715C2.58203 9.99766 2.58203 9.99817 2.58203 9.99868Z"></path>
+                                </svg>
+                              </span>
+                            </button>
+
+                            <span class="block text-sm font-medium text-gray-700 sm:hidden dark:text-gray-400">
+                              Page <span id="current-page-mobile">1</span> of <span id="total-pages-mobile">2</span>
+                            </span>
+
+                            <ul id="page-numbers" class="hidden items-center gap-0.5 sm:flex">
+                              <!-- Page numbers will be dynamically inserted here -->
+                            </ul>
+
+                            <button id="next-btn" class="shadow-theme-xs flex items-center gap-2 rounded-lg border border-gray-300 bg-white p-2 text-gray-700 hover:bg-gray-50 hover:text-gray-800 disabled:cursor-not-allowed disabled:opacity-50 sm:p-2.5 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03] dark:hover:text-gray-200">
+                              <span>
+                                <svg class="fill-current" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path fill-rule="evenodd" clip-rule="evenodd" d="M17.4165 9.9986C17.4168 10.1909 17.3437 10.3832 17.197 10.53L12.2004 15.5301C11.9076 15.8231 11.4327 15.8233 11.1397 15.5305C10.8467 15.2377 10.8465 14.7629 11.1393 14.4699L14.8594 10.7472L3.33203 10.7472C2.91782 10.7472 2.58203 10.4114 2.58203 9.99715C2.58203 9.58294 2.91782 9.24715 3.33203 9.24715L14.854 9.24715L11.1393 5.53016C10.8465 5.23717 10.8467 4.7623 11.1397 4.4695C11.4327 4.1767 11.9075 4.17685 12.2003 4.46984L17.1578 9.43049C17.3163 9.568 17.4165 9.77087 17.4165 9.99715C17.4165 9.99763 17.4165 9.99812 17.4165 9.9986Z"></path>
+                                </svg>
+                              </span>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <!-- Content End -->
+          </div>
+        </main>
+        <!-- ===== Main Content End ===== -->
+      </div>
+      <!-- ===== Content Area End ===== -->
+    </div>
+    <!-- ===== Page Wrapper End ===== -->
+
+    <!-- ===== MODALS Begin ===== -->
+    <!-- Create Event -->
+    <div x-show="isCreateEventModal" class="fixed inset-0 flex items-center justify-center p-5 overflow-y-auto z-99999">
+      <div class="modal-close-btn fixed inset-0 h-full w-full bg-gray-400/50 backdrop-blur-[32px]"></div>
+      <div @click.outside="isCreateEventModal = false" class="no-scrollbar relative w-full max-w-[700px] overflow-y-auto rounded-3xl bg-white p-4 dark:bg-gray-900 lg:p-11">
+        <!-- close btn -->
+        <button @click="isCreateEventModal = false"
+                class="transition-color absolute right-5 top-5 z-999 flex h-11 w-11 items-center justify-center rounded-full bg-gray-100 text-gray-400 hover:bg-gray-200 hover:text-gray-600 dark:bg-gray-700 dark:bg-white/[0.05] dark:text-gray-400 dark:hover:bg-white/[0.07] dark:hover:text-gray-300">
+          <svg
+                  class="fill-current"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M6.04289 16.5418C5.65237 16.9323 5.65237 17.5655 6.04289 17.956C6.43342 18.3465 7.06658 18.3465 7.45711 17.956L11.9987 13.4144L16.5408 17.9565C16.9313 18.347 17.5645 18.347 17.955 17.9565C18.3455 17.566 18.3455 16.9328 17.955 16.5423L13.4129 12.0002L17.955 7.45808C18.3455 7.06756 18.3455 6.43439 17.955 6.04387C17.5645 5.65335 16.9313 5.65335 16.5408 6.04387L11.9987 10.586L7.45711 6.04439C7.06658 5.65386 6.43342 5.65386 6.04289 6.04439C5.65237 6.43491 5.65237 7.06808 6.04289 7.4586L10.5845 12.0002L6.04289 16.5418Z"
+                    fill=""
+            />
+          </svg>
+        </button>
+        <div class="px-2 pr-8">
+          <h4 class="mb-2 text-2xl font-semibold text-gray-800 dark:text-white/90">
+            New Event
+          </h4>
+          <p class="mb-6 text-sm text-gray-500 dark:text-gray-400 lg:mb-7">
+            Enter new event details
+          </p>
+        </div>
+        <div class="flex flex-col h-full">
+          <!-- Create Event Details -->
+          <div x-data="{
+            newEventData: { name: '', date: '', time: '', location: '' },
+
+            // Helper functions for date parsing
+            getMonthAbbreviation(dateString) {
+              if (!dateString) return '';
+              try {
+                // Parse date string (could be 'Jan 15, 2025' or similar)
+                const date = new Date(dateString);
+                if (isNaN(date.getTime())) {
+                  // Try to extract month from string like 'Jan 15, 2025'
+                  const monthMatch = dateString.match(/^([A-Za-z]+)/);
+                  return monthMatch ? monthMatch[1].toUpperCase() : '';
+                }
+                const monthNames = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN',
+                                   'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+                return monthNames[date.getMonth()];
+              } catch (error) {
+                return '';
+              }
+            },
+
+            getDayNumber(dateString) {
+              if (!dateString) return '';
+              try {
+                const date = new Date(dateString);
+                if (isNaN(date.getTime())) {
+                  // Try to extract day from string like 'Jan 15, 2025'
+                  const dayMatch = dateString.match(/\b(\d{1,2})\b/);
+                  return dayMatch ? dayMatch[1] : '';
+                }
+                const day = date.getDate();
+                return day < 10 ? '0' + day : day.toString();
+              } catch (error) {
+                return '';
+              }
+            },
+
+            // Format time to AM/PM if needed
+            formatTimeDisplay(time) {
+              if (!time) return '';
+              // If already has AM/PM, return as is
+              if (time.includes('AM') || time.includes('PM')) return time;
+
+              // Convert 24h to 12h format
+              const [hours, minutes] = time.split(':');
+              const hour = parseInt(hours);
+              const ampm = hour >= 12 ? 'PM' : 'AM';
+              const hour12 = hour % 12 || 12;
+              return `${hour12}:${minutes} ${ampm}`;
+            }
+          }">
+            <div class="space-y-6">
+              <div class="-mx-2.5 flex flex-wrap gap-y-5">
+                <div class="w-full px-2.5">
+                  <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                    Event Name
+                  </label>
+                  <input type="text"
+                         x-model="newEventData.name"
+                         placeholder="Event Title"
+                         class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
+                </div>
+                <!-- Time -->
+                <div class="w-full px-2.5 xl:w-1/2">
+                  <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                    Time
+                  </label>
+                  <div class="relative">
+                    <input type="time"
+                           x-model="newEventData.time"
+                           placeholder="12:00 AM"
+                           onclick="this.showPicker()"
+                           class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 pr-11 pl-4 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
+                    <span class="absolute top-1/2 right-3 -translate-y-1/2 text-gray-500 dark:text-gray-400">
+            <svg class="fill-current" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M3.04175 9.99984C3.04175 6.15686 6.1571 3.0415 10.0001 3.0415C13.8431 3.0415 16.9584 6.15686 16.9584 9.99984C16.9584 13.8428 13.8431 16.9582 10.0001 16.9582C6.1571 16.9582 3.04175 13.8428 3.04175 9.99984ZM10.0001 1.5415C5.32867 1.5415 1.54175 5.32843 1.54175 9.99984C1.54175 14.6712 5.32867 18.4582 10.0001 18.4582C14.6715 18.4582 18.4584 14.6712 18.4584 9.99984C18.4584 5.32843 14.6715 1.5415 10.0001 1.5415ZM9.99998 10.7498C9.58577 10.7498 9.24998 10.4141 9.24998 9.99984V5.4165C9.24998 5.00229 9.58577 4.6665 9.99998 4.6665C10.4142 4.6665 10.75 5.00229 10.75 5.4165V9.24984H13.3334C13.7476 9.24984 14.0834 9.58562 14.0834 9.99984C14.0834 10.4141 13.7476 10.7498 13.3334 10.7498H10.0001H9.99998Z" fill=""></path>
+            </svg>
+          </span>
+                  </div>
+                </div>
+                <!-- Date -->
+                <div class="w-full px-2.5 xl:w-1/2">
+                  <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                    Date
+                  </label>
+                  <div class="relative">
+                    <div class="flatpickr-wrapper">
+                      <input
+                              type="text"
+                              x-model="newEventData.date"
+                              placeholder="Select date"
+                              class="dark:bg-dark-900 datepickerTwo shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 pr-11 pl-4 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 flatpickr-input"
+                              readonly="readonly">
+                    </div>
+                    <span class="pointer-events-none absolute top-1/2 right-3 -translate-y-1/2 text-gray-500 dark:text-gray-400">
+            <svg class="fill-current" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M6.66659 1.5415C7.0808 1.5415 7.41658 1.87729 7.41658 2.2915V2.99984H12.5833V2.2915C12.5833 1.87729 12.919 1.5415 13.3333 1.5415C13.7475 1.5415 14.0833 1.87729 14.0833 2.2915V2.99984L15.4166 2.99984C16.5212 2.99984 17.4166 3.89527 17.4166 4.99984V7.49984V15.8332C17.4166 16.9377 16.5212 17.8332 15.4166 17.8332H4.58325C3.47868 17.8332 2.58325 16.9377 2.58325 15.8332V7.49984V4.99984C2.58325 3.89527 3.47868 2.99984 4.58325 2.99984L5.91659 2.99984V2.2915C5.91659 1.87729 6.25237 1.5415 6.66659 1.5415ZM6.66659 4.49984H4.58325C4.30711 4.49984 4.08325 4.7237 4.08325 4.99984V6.74984H15.9166V4.99984C15.9166 4.7237 15.6927 4.49984 15.4166 4.49984H13.3333H6.66659ZM15.9166 8.24984H4.08325V15.8332C4.08325 16.1093 4.30711 16.3332 4.58325 16.3332H15.4166C15.6927 16.3332 15.9166 16.1093 15.9166 15.8332V8.24984Z" fill=""></path>
+            </svg>
+          </span>
+                  </div>
+                </div>
+                <div class="w-full px-2.5">
+                  <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                    Location
+                  </label>
+                  <input type="text"
+                         x-model="newEventData.location"
+                         placeholder="Enter event location"
+                         class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
+                </div>
+              </div>
+              <div>
+                <!-- Event Preview Card -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6 mb-6">
+                  <!-- Event Preview Section -->
+                  <div x-data="{checked: false}" @click="checked = !checked" class="flex cursor-pointer gap-6 rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-white/[0.03]">
+                    <div class="flex items-start gap-3">
+                      <div class="text-center min-w-[60px]">
+                        <!-- Month (uppercase) -->
+                        <span class="text-sm text-gray-500 dark:text-gray-400" x-text="getMonthAbbreviation(newEventData.date) || 'No Date'">DEC</span>
+                        <!-- Day Number -->
+                        <span class="block text-2xl font-bold text-gray-400 dark:text-white" x-text="getDayNumber(newEventData.date) || 'No Date'">28</span>
+                      </div>
+                    </div>
+                    <div class="w-px bg-gray-200 h-11 dark:bg-gray-800"></div>
+                    <div class="order-2 xl:order-2">
+                      <h4 class="mb-2 text-sm font-semibold text-gray-600 xl:text-left dark:text-white/90" x-text="newEventData.name || 'Event Name'">
+                        Meeting with Software Engineer
+                      </h4>
+                      <div class="flex flex-col gap-1 text-center xl:flex-row xl:gap-3 xl:text-left">
+                        <p class="text-sm text-gray-500 dark:text-gray-400" x-text="formatTimeDisplay(newEventData.time) || 'Specify time'">
+                          03:30 PM
+                        </p>
+                        <div class="hidden h-3.5 w-px bg-gray-300 xl:block dark:bg-gray-700"></div>
+                        <p class="text-sm text-gray-500 dark:text-gray-400" x-text="newEventData.location || 'Specify event location'">
+                          BAT Office, Makongeni, Thika, Kiambu County.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                <!-- buttons -->
+              <div class="flex justify-end items-center gap-3 pt-6">
+                <button type="button" @click="isCreateEventModal = false"
+                        class="h-11 rounded-lg border border-gray-300 bg-transparent px-6 text-sm font-semibold text-gray-700 shadow-theme-xs hover:bg-gray-50 hover:text-gray-800 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-400 dark:hover:bg-white/[0.03] dark:hover:text-gray-300">
+                  Cancel
+                </button>
+                <button type="button" onclick="window.location.href='events.php'"
+                        class="h-11 rounded-lg border border-brand-500 bg-brand-500 px-6 text-sm font-semibold text-white shadow-theme-xs hover:bg-brand-600">
+                  Create Event
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Edit Event -->
+    <div x-show="isEditEventModal"
+         x-data="{
+       isEditEventModal: false,
+       eventData: { name: '', date: '', time: '', location: '' },
+       // Helper functions to extract month and day from the date string
+       getMonthFromDate() {
+         if (!this.eventData.date) return '';
+         // Extract month from 'DEC 19, 2025'
+          const parts = this.eventData.date.split(' ');
+          return parts[0] || '';
+          },
+          getDayFromDate() {
+          if (!this.eventData.date) return '';
+          // Extract day from 'DEC 19, 2025'
+          const parts = this.eventData.date.split(' ');
+          return parts[1] ? parts[1].replace(',', '') : '';
+          }
+          }"
+          @open-edit-event-modal.window="
+          isEditEventModal = true;
+          // Populate the form fields with the clicked event data
+          if ($event.detail.event) {
+          eventData.name = $event.detail.event.title;
+          eventData.date = $event.detail.event.month + ' ' + $event.detail.event.day + ', ' + ($event.detail.event.month === 'DEC' ? '2024' : '2025');
+          eventData.time = $event.detail.event.time;
+          eventData.location = $event.detail.event.location;
+          }
+          "
+          class="fixed inset-0 flex items-center justify-center p-5 overflow-y-auto z-99999">
+      <div class="modal-close-btn fixed inset-0 h-full w-full bg-gray-400/50 backdrop-blur-[32px]"></div>
+      <div @click.outside="isEditEventModal = false" class="no-scrollbar relative w-full max-w-[700px] overflow-y-auto rounded-3xl bg-white p-4 dark:bg-gray-900 lg:p-11">
+        <!-- close btn -->
+        <button @click="isEditEventModal = false"
+                class="transition-color absolute right-5 top-5 z-999 flex h-11 w-11 items-center justify-center rounded-full bg-gray-100 text-gray-400 hover:bg-gray-200 hover:text-gray-600 dark:bg-gray-700 dark:bg-white/[0.05] dark:text-gray-400 dark:hover:bg-white/[0.07] dark:hover:text-gray-300">
+          <svg
+                  class="fill-current"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M6.04289 16.5418C5.65237 16.9323 5.65237 17.5655 6.04289 17.956C6.43342 18.3465 7.06658 18.3465 7.45711 17.956L11.9987 13.4144L16.5408 17.9565C16.9313 18.347 17.5645 18.347 17.955 17.9565C18.3455 17.566 18.3455 16.9328 17.955 16.5423L13.4129 12.0002L17.955 7.45808C18.3455 7.06756 18.3455 6.43439 17.955 6.04387C17.5645 5.65335 16.9313 5.65335 16.5408 6.04387L11.9987 10.586L7.45711 6.04439C7.06658 5.65386 6.43342 5.65386 6.04289 6.04439C5.65237 6.43491 5.65237 7.06808 6.04289 7.4586L10.5845 12.0002L6.04289 16.5418Z"
+                    fill=""
+            />
+          </svg>
+        </button>
+        <div class="px-2 pr-8">
+          <h4 class="mb-2 text-2xl font-semibold text-gray-800 dark:text-white/90">
+            Edit Event
+          </h4>
+          <p class="mb-6 text-sm text-gray-500 dark:text-gray-400 lg:mb-7">
+            Edit events details
+          </p>
+        </div>
+        <div class="">
+          <div>
+            <h5 class="text-lg font-medium text-gray-600 dark:text-white/90 mb-6">Event Details</h5>
+
+            <div class="space-y-6">
+              <div class="-mx-2.5 flex flex-wrap gap-y-5">
+                <div class="w-full px-2.5">
+                  <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                    Event Name
+                  </label>
+                  <input type="text" x-model="eventData.name" placeholder="Event Title" class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
+                </div>
+                <!-- Time -->
+                <div class="w-full px-2.5 xl:w-1/2">
+                  <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                    Time
+                  </label>
+                  <div class="relative">
+                    <div class="flatpickr-wrapper">
+                      <input
+                              type="text"
+                              x-model="eventData.time"
+                              placeholder="Select time"
+                              class="timepicker dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 pr-11 pl-4 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30"
+                              readonly>
+                    </div>
+                    <span class="pointer-events-none absolute top-1/2 right-3 -translate-y-1/2 text-gray-500 dark:text-gray-400">
+    <svg class="fill-current" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M3.04175 9.99984C3.04175 6.15686 6.1571 3.0415 10.0001 3.0415C13.8431 3.0415 16.9584 6.15686 16.9584 9.99984C16.9584 13.8428 13.8431 16.9582 10.0001 16.9582C6.1571 16.9582 3.04175 13.8428 3.04175 9.99984ZM10.0001 1.5415C5.32867 1.5415 1.54175 5.32843 1.54175 9.99984C1.54175 14.6712 5.32867 18.4582 10.0001 18.4582C14.6715 18.4582 18.4584 14.6712 18.4584 9.99984C18.4584 5.32843 14.6715 1.5415 10.0001 1.5415ZM9.99998 10.7498C9.58577 10.7498 9.24998 10.4141 9.24998 9.99984V5.4165C9.24998 5.00229 9.58577 4.6665 9.99998 4.6665C10.4142 4.6665 10.75 5.00229 10.75 5.4165V9.24984H13.3334C13.7476 9.24984 14.0834 9.58562 14.0834 9.99984C14.0834 10.4141 13.7476 10.7498 13.3334 10.7498H10.0001H9.99998Z" fill=""></path>
+    </svg>
+  </span>
+                  </div>
+                </div>
+                <!-- Date -->
+                <div class="w-full px-2.5 xl:w-1/2">
+                  <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                    Date
+                  </label>
+                  <div class="relative">
+                    <div class="flatpickr-wrapper">
+                      <input type="text" x-model="eventData.date" placeholder="Select date" class="dark:bg-dark-900 datepickerTwo shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 pr-11 pl-4 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 flatpickr-input" readonly="readonly">
+                    </div>
+                    <span class="pointer-events-none absolute top-1/2 right-3 -translate-y-1/2 text-gray-500 dark:text-gray-400">
+                  <svg class="fill-current" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M6.66659 1.5415C7.0808 1.5415 7.41658 1.87729 7.41658 2.2915V2.99984H12.5833V2.2915C12.5833 1.87729 12.919 1.5415 13.3333 1.5415C13.7475 1.5415 14.0833 1.87729 14.0833 2.2915V2.99984L15.4166 2.99984C16.5212 2.99984 17.4166 3.89527 17.4166 4.99984V7.49984V15.8332C17.4166 16.9377 16.5212 17.8332 15.4166 17.8332H4.58325C3.47868 17.8332 2.58325 16.9377 2.58325 15.8332V7.49984V4.99984C2.58325 3.89527 3.47868 2.99984 4.58325 2.99984L5.91659 2.99984V2.2915C5.91659 1.87729 6.25237 1.5415 6.66659 1.5415ZM6.66659 4.49984H4.58325C4.30711 4.49984 4.08325 4.7237 4.08325 4.99984V6.74984H15.9166V4.99984C15.9166 4.7237 15.6927 4.49984 15.4166 4.49984H13.3333H6.66659ZM15.9166 8.24984H4.08325V15.8332C4.08325 16.1093 4.30711 16.3332 4.58325 16.3332H15.4166C15.6927 16.3332 15.9166 16.1093 15.9166 15.8332V8.24984Z" fill=""></path>
+                  </svg>
+                </span>
+                  </div>
+                </div>
+                <div class="w-full px-2.5">
+                  <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                    Location
+                  </label>
+                  <input type="text" x-model="eventData.location" placeholder="Enter event location" class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
+                </div>
+              </div>
+              <div>
+                <!-- Event Preview Card -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6 mb-6">
+                  <!-- Event Preview Section -->
+                  <div x-data="{checked: false}" @click="checked = !checked" class="flex cursor-pointer gap-6 rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-white/[0.03]">
+                    <div class="flex items-start gap-3">
+                      <div class="text-center min-w-[60px]">
+                        <!-- Month (uppercase) -->
+                        <span class="text-sm text-gray-500 dark:text-gray-400" x-text="getMonthFromDate() || 'DEC'">DEC</span>
+                        <!-- Day Number -->
+                        <span class="block text-2xl font-bold text-gray-400 dark:text-white" x-text="getDayFromDate() || '28'">28</span>
+                      </div>
+                    </div>
+                    <div class="w-px bg-gray-200 h-11 dark:bg-gray-800"></div>
+                    <div class="order-2 xl:order-2">
+                      <h4 class="mb-2 text-sm font-semibold text-gray-600 xl:text-left dark:text-white/90" x-text="eventData.name || 'Event Name'">
+                        Meeting with Software Engineer
+                      </h4>
+                      <div class="flex flex-col gap-1 text-center xl:flex-row xl:gap-3 xl:text-left">
+                        <p class="text-sm text-gray-500 dark:text-gray-400" x-text="eventData.time">
+                          03:30 PM
+                        </p>
+                        <div class="hidden h-3.5 w-px bg-gray-300 xl:block dark:bg-gray-700"></div>
+                        <p class="text-sm text-gray-500 dark:text-gray-400" x-text="eventData.location || 'BAT Office, Makongeni, Thika, Kiambu County'">
+                          BAT Office, Makongeni, Thika, Kiambu County.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- buttons -->
+              <div class="flex justify-end items-center gap-3 pt-6">
+                <button type="button" @click="isEditEventModal = false"
+                        class="h-11 rounded-lg border border-gray-300 bg-transparent px-6 text-sm font-semibold text-gray-700 shadow-theme-xs hover:bg-gray-50 hover:text-gray-800 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-400 dark:hover:bg-white/[0.03] dark:hover:text-gray-300">
+                  Cancel
+                </button>
+                <button type="button" onclick="window.location.href='events.php'"
+                        class="h-11 rounded-lg border border-brand-500 bg-brand-500 px-6 text-sm font-semibold text-white shadow-theme-xs hover:bg-brand-600">
+                  Update Event
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ===== MODALS End ===== -->
+
+  <script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script defer src="../../../assets/bundle.js"></script>
+
+  <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Sample timeline data - in a real app, this would come from a database/API
+        const timelineEvents = [
+          { id: 20, month: 'Apr', day: '30', year: '2025', title: 'Performance Reviews', time: '10:00 AM', location: 'Treasurer Office' },
+          { id: 19, month: 'Apr', day: '23', year: '2025', title: 'Industry Conference', time: '09:00 AM', location: 'Secretary Gen Office' },
+          { id: 18, month: 'Apr', day: '16', year: '2025', title: 'New Hire Orientation', time: '08:30 AM', location: 'Secretary Gen Office' },
+          { id: 17, month: 'Apr', day: '09', year: '2025', title: 'Easter Holiday', time: '09:45 AM', location: 'Treasurer Office' },
+          { id: 16, month: 'Apr', day: '02', year: '2025', title: 'Tax Filing Deadline', time: '05:00 PM', location: 'Finance Department' },
+          { id: 15, month: 'Mar', day: '24', year: '2025', title: 'Quarterly Review', time: '09:00 AM', location: 'Conference Room B' },
+          { id: 14, month: 'Mar', day: '17', year: '2025', title: 'Staff Appreciation Day', time: '12:00 PM', location: 'Company Grounds' },
+          { id: 13, month: 'Mar', day: '10', year: '2025', title: 'Investor Presentation', time: '03:00 PM', location: 'Virtual Meeting' },
+          { id: 12, month: 'Mar', day: '03', year: '2025', title: 'Board Meeting', time: '10:00 AM', location: 'Board Room, Head Office.' },
+          { id: 11, month: 'Feb', day: '25', year: '2025', title: 'Product Launch', time: '02:00 PM', location: 'Convention Center, Mombasa.' },
+          { id: 10, month: 'Feb', day: '18', year: '2025', title: 'Company Anniversary', time: '06:00 PM', location: 'Grand Hotel, Nairobi.' },
+          { id: 9, month: 'Feb', day: '12', year: '2025', title: 'Training Workshop', time: '09:00 AM', location: 'Training Center, Thika.' }
+        ];
+
+        // Pagination settings
+        const itemsPerPage = 10;
+        let currentPage = 1;
+        const totalItems = timelineEvents.length;
+        const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+        // DOM elements
+        const timelineContainer = document.getElementById('timeline-container');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const pageNumbersContainer = document.getElementById('page-numbers');
+        const startItemElement = document.getElementById('start-item');
+        const endItemElement = document.getElementById('end-item');
+        const totalItemsElement = document.getElementById('total-items');
+        const currentPageMobile = document.getElementById('current-page-mobile');
+        const totalPagesMobile = document.getElementById('total-pages-mobile');
+
+        // Store the currently selected event for the modal
+        let selectedEventForModal = null;
+
+        // Initialize pagination
+        function initPagination() {
+          updatePaginationInfo();
+          renderTimelineEvents();
+          renderPageNumbers();
+          updateButtonStates();
+        }
+
+        // Update pagination information
+        function updatePaginationInfo() {
+          const startItem = (currentPage - 1) * itemsPerPage + 1;
+          const endItem = Math.min(currentPage * itemsPerPage, totalItems);
+
+          startItemElement.textContent = startItem;
+          endItemElement.textContent = endItem;
+          totalItemsElement.textContent = totalItems;
+
+          currentPageMobile.textContent = currentPage;
+          totalPagesMobile.textContent = totalPages;
+        }
+
+        // Render timeline events for current page
+        function renderTimelineEvents() {
+          timelineContainer.innerHTML = '';
+
+          const startIndex = (currentPage - 1) * itemsPerPage;
+          const endIndex = Math.min(startIndex + itemsPerPage, totalItems);
+          const currentEvents = timelineEvents.slice(startIndex, endIndex);
+
+          currentEvents.forEach(event => {
+            const eventElement = document.createElement('div');
+            eventElement.className = 'flex cursor-pointer items-center gap-6 rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-white/[0.03]';
+            eventElement.innerHTML = `
+          <div class="flex items-start gap-3">
+            <div class="text-center min-w-[60px]">
+              <span class="block text-xs text-gray-500 dark:text-gray-400">${event.month}</span>
+              <span class="block text-2xl font-bold text-gray-400 dark:text-white">${event.day}</span>
+            </div>
+          </div>
+          <div class="w-px bg-gray-200 h-11 dark:bg-gray-800"></div>
+          <div class="order-3 xl:order-2">
+            <h4 class="mb-2 text-center text-sm font-semibold text-gray-600 xl:text-left dark:text-white/90">
+              ${event.title}
+            </h4>
+            <div class="flex flex-col items-center gap-1 text-center xl:flex-row xl:gap-3 xl:text-left">
+              <p class="text-sm text-gray-500 dark:text-gray-400">
+                ${event.time}
+              </p>
+              <div class="hidden h-3.5 w-px bg-gray-300 xl:block dark:bg-gray-700"></div>
+              <p class="text-sm text-gray-500 dark:text-gray-400">
+                ${event.location}
+              </p>
+            </div>
+          </div>
+        `;
+
+            // Add click event to each timeline item
+            eventElement.addEventListener('click', function() {
+              // Store the clicked event for the modal
+              selectedEventForModal = event;
+
+              // Remove active class from all timeline items
+              document.querySelectorAll('#timeline-container > div').forEach(item => {
+                item.classList.remove('bg-gray-100', 'dark:bg-gray-800');
+              });
+
+              // Add active class to clicked item
+              this.classList.add('bg-gray-100', 'dark:bg-gray-800');
+
+              // Trigger the Alpine.js modal
+              triggerAlpineModal();
+            });
+
+            timelineContainer.appendChild(eventElement);
+          });
+        }
+
+        // Function to trigger the Alpine.js modal and populate data
+        function triggerAlpineModal() {
+          // Method 1: Dispatch a custom event with all event data
+          const modalEvent = new CustomEvent('open-edit-event-modal', {
+            detail: {
+              event: selectedEventForModal,
+              // Send individual fields for direct binding
+              eventName: selectedEventForModal.title,
+              // Add year to date: "Month Day, Year"
+              eventDate: `${selectedEventForModal.month} ${selectedEventForModal.day}, ${selectedEventForModal.year || '2024'}`,
+              eventTime: selectedEventForModal.time,
+              eventLocation: selectedEventForModal.location
+            }
+          });
+          document.dispatchEvent(modalEvent);
+
+          // Method 2: Directly update Alpine.js component
+          if (window.Alpine) {
+            const alpineRoots = document.querySelectorAll('[x-data]');
+
+            alpineRoots.forEach(root => {
+              const alpineData = Alpine.$data(root);
+
+              // Check if this component has isEditEventModal
+              if (alpineData && alpineData.isEditEventModal !== undefined) {
+                // Set the modal to open
+                alpineData.isEditEventModal = true;
+
+                // Populate eventData object with year
+                if (alpineData.eventData && selectedEventForModal) {
+                  alpineData.eventData.name = selectedEventForModal.title;
+                  // Add year to date
+                  alpineData.eventData.date = `${selectedEventForModal.month} ${selectedEventForModal.day}, ${selectedEventForModal.year || '2024'}`;
+                  alpineData.eventData.time = selectedEventForModal.time;
+                  alpineData.eventData.location = selectedEventForModal.location;
+                }
+
+                // Also set selectedEvent if it exists
+                if (alpineData.selectedEvent !== undefined) {
+                  alpineData.selectedEvent = selectedEventForModal;
+                }
+
+                console.log('Alpine modal populated with event data:', selectedEventForModal);
+              }
+            });
+          }
+
+          // Method 3: Set global variable for Alpine to access
+          window.__selectedTimelineEvent = selectedEventForModal;
+        }
+
+        // Render page number buttons
+        function renderPageNumbers() {
+          pageNumbersContainer.innerHTML = '';
+
+          // Create page number buttons
+          for (let i = 1; i <= totalPages; i++) {
+            const pageItem = document.createElement('li');
+            const pageLink = document.createElement('a');
+            pageLink.href = '#';
+            pageLink.className = `flex h-10 w-10 items-center justify-center rounded-lg text-sm font-medium ${i === currentPage ? 'bg-brand-500 text-white' : 'text-gray-700 dark:text-gray-400 hover:bg-brand-500 hover:text-white dark:hover:text-white'}`;
+            pageLink.textContent = i;
+
+            pageLink.addEventListener('click', function(e) {
+              e.preventDefault();
+              goToPage(i);
+            });
+
+            pageItem.appendChild(pageLink);
+            pageNumbersContainer.appendChild(pageItem);
+          }
+        }
+
+        // Update button states
+        function updateButtonStates() {
+          prevBtn.disabled = currentPage === 1;
+          nextBtn.disabled = currentPage === totalPages;
+
+          // Update styles based on disabled state
+          if (prevBtn.disabled) {
+            prevBtn.classList.add('opacity-50', 'cursor-not-allowed');
+          } else {
+            prevBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+          }
+
+          if (nextBtn.disabled) {
+            nextBtn.classList.add('opacity-50', 'cursor-not-allowed');
+          } else {
+            nextBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+          }
+        }
+
+        // Go to specific page
+        function goToPage(page) {
+          if (page < 1 || page > totalPages || page === currentPage) return;
+
+          currentPage = page;
+          initPagination();
+
+          // Scroll to top of timeline for better UX
+          timelineContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // Go to previous page
+        function prevPage() {
+          if (currentPage > 1) {
+            goToPage(currentPage - 1);
+          }
+        }
+
+        // Go to next page
+        function nextPage() {
+          if (currentPage < totalPages) {
+            goToPage(currentPage + 1);
+          }
+        }
+
+        // Event listeners
+        prevBtn.addEventListener('click', prevPage);
+        nextBtn.addEventListener('click', nextPage);
+
+        // Initialize
+        initPagination();
+      });
+    </script>
+  <script>
+      document.addEventListener('alpine:init', () => {
+        // In your JavaScript initialization
+        flatpickr('.timepicker', {
+          enableTime: true,
+          noCalendar: true,
+          dateFormat: "h:i K", // 12-hour format with AM/PM
+          time_24hr: false // Show AM/PM
+        });
+
+        Alpine.data('newEventWizard', () => ({
+          currentStep: 1,
+          eventData: {
+            name: '',
+            date: '',
+            time: '',
+            location: ''
+          },
+
+          // Helper function to get month abbreviation (like "DEC", "JAN", etc.)
+          getMonthAbbreviation(dateString) {
+            if (!dateString) return '';
+
+            try {
+              const date = new Date(dateString);
+              if (isNaN(date.getTime())) return '';
+
+              const monthNames = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN',
+                'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+              return monthNames[date.getMonth()];
+            } catch (error) {
+              console.error('Error parsing date:', error);
+              return '';
+            }
+          },
+
+          // Helper function to get day number with leading zero (like "01", "09", "19", etc.)
+          getDayNumber(dateString) {
+            if (!dateString) return '';
+
+            try {
+              const date = new Date(dateString);
+              if (isNaN(date.getTime())) return '';
+
+              // Get day of month (1-31) and pad with leading zero if needed
+              const day = date.getDate();
+              return day < 10 ? '0' + day : day.toString();
+            } catch (error) {
+              console.error('Error parsing date:', error);
+              return '';
+            }
+          },
+
+          // Optional: If you also need day of week (like "Mon", "Tue")
+          getDayOfWeek(dateString) {
+            if (!dateString) return '';
+
+            try {
+              const date = new Date(dateString);
+              if (isNaN(date.getTime())) return '';
+
+              const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+              return dayNames[date.getDay()];
+            } catch (error) {
+              console.error('Error parsing date:', error);
+              return '';
+            }
+          },
+
+          nextStep() {
+            if (this.currentStep < 2) {
+              this.currentStep++;
+            }
+          },
+
+          previousStep() {
+            if (this.currentStep > 1) {
+              this.currentStep--;
+            }
+          },
+
+          createEvent() {
+            console.log('Creating event with data:', this.eventData);
+            alert('Event created successfully!');
+          }
+        }));
+      });
+    </script>
+
+</body>
+</html>

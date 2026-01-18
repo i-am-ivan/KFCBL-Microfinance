@@ -1,0 +1,13 @@
+# /CRM/System/Config/.htaccess
+
+# Deny all access
+Order deny,allow
+Deny from all
+
+# Prevent directory listing
+Options -Indexes
+
+# Custom error pages
+ErrorDocument 403 /CRM/System/Config/error_403.php
+ErrorDocument 404 /CRM/System/Config/error_404.php
+ErrorDocument 500 /CRM/System/Config/error_500.php

@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   
-<!-- Mirrored from demo.tailadmin.com/maintenance by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 11 Dec 2025 07:02:55 GMT -->
+<!-- Mirrored from demo.tailadmin.com/success by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 11 Dec 2025 07:02:57 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 <head>
     <meta charset="UTF-8" />
@@ -11,11 +11,11 @@
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>
-      Maintenance Page | KFCBL Microfinance Management System
+      Success Page | TailAdmin - Tailwind CSS Admin Dashboard Template
     </title>
-  <link rel="icon" href="../../assets/favicon.ico"><link href="../../assets/style.css" rel="stylesheet"><script data-cfasync="false" nonce="4d4e3c43-fca3-4b0a-843a-0189765733c6">try{(function(w, d){!function(j, k, l, m){if(j.zaraz)console.error("zaraz is loaded twice");else{j[l]=j[l]||{};j[l].executed=[];j.zaraz={deferred:[],listeners:[]};j.zaraz._v="5874";j.zaraz._n="4d4e3c43-fca3-4b0a-843a-0189765733c6";j.zaraz.q=[];j.zaraz._f=function(n){return async function(){var o=Array.prototype.slice.call(arguments);j.zaraz.q.push({m:n,a:o})}};for(const p of["track","set","debug"])j.zaraz[p]=j.zaraz._f(p);j.zaraz.init=()=>{var q=k.getElementsByTagName(m)[0],r=k.createElement(m),s=k.getElementsByTagName("title")[0];s&&(j[l].t=k.getElementsByTagName("title")[0].text);j[l].x=Math.random();j[l].w=j.screen.width;j[l].h=j.screen.height;j[l].j=j.innerHeight;j[l].e=j.innerWidth;j[l].l=j.location.href;j[l].r=k.referrer;j[l].k=j.screen.colorDepth;j[l].n=k.characterSet;j[l].o=(new Date).getTimezoneOffset();if(j.dataLayer)for(const t of Object.entries(Object.entries(dataLayer).reduce((u, v)=>({...u[1],...v[1]}),{})))zaraz.set(t[0],t[1],{scope:"page"});j[l].q=[];for(; j.zaraz.q.length;){const w=j.zaraz.q.shift();j[l].q.push(w)}r.defer=!0;for(const x of[localStorage,sessionStorage])Object.keys(x||{}).filter(z=>z.startsWith("_zaraz_")).forEach(y=>{try{j[l]["z_"+y.slice(7)]=JSON.parse(x.getItem(y))}catch{j[l]["z_"+y.slice(7)]=x.getItem(y)}});r.referrerPolicy="origin";r.src="cdn-cgi/zaraz/sd0d9.js?z="+btoa(encodeURIComponent(JSON.stringify(j[l])));q.parentNode.insertBefore(r,q)};["complete","interactive"].includes(k.readyState)?zaraz.init():j.addEventListener("DOMContentLoaded",zaraz.init)}}(w,d,"zarazData","script");window.zaraz._p=async d$=>new Promise(ea=>{if(d$){d$.e&&d$.e.forEach(eb=>{try{const ec=d.querySelector("script[nonce]"),ed=ec?.nonce||ec?.getAttribute("nonce"),ee=d.createElement("script");ed&&(ee.nonce=ed);ee.innerHTML=eb;ee.onload=()=>{d.head.removeChild(ee)};d.head.appendChild(ee)}catch(ef){console.error(`Error executing script: ${eb}\n`,ef)}});Promise.allSettled((d$.f||[]).map(eg=>fetch(eg[0],eg[1])))}ea()});zaraz._p({"e":["(function(w,d){})(window,document)"]});})(window,document)}catch(e){throw fetch("/cdn-cgi/zaraz/t"),e;};</script></head>
+  <link rel="icon" href="../../assets/favicon.ico"><link href="../../assets/style.css" rel="stylesheet"><script data-cfasync="false" nonce="50fb57d9-c512-46a2-a65e-fbf4392ac039">try{(function(w, d){!function(j, k, l, m){if(j.zaraz)console.error("zaraz is loaded twice");else{j[l]=j[l]||{};j[l].executed=[];j.zaraz={deferred:[],listeners:[]};j.zaraz._v="5874";j.zaraz._n="50fb57d9-c512-46a2-a65e-fbf4392ac039";j.zaraz.q=[];j.zaraz._f=function(n){return async function(){var o=Array.prototype.slice.call(arguments);j.zaraz.q.push({m:n,a:o})}};for(const p of["track","set","debug"])j.zaraz[p]=j.zaraz._f(p);j.zaraz.init=()=>{var q=k.getElementsByTagName(m)[0],r=k.createElement(m),s=k.getElementsByTagName("title")[0];s&&(j[l].t=k.getElementsByTagName("title")[0].text);j[l].x=Math.random();j[l].w=j.screen.width;j[l].h=j.screen.height;j[l].j=j.innerHeight;j[l].e=j.innerWidth;j[l].l=j.location.href;j[l].r=k.referrer;j[l].k=j.screen.colorDepth;j[l].n=k.characterSet;j[l].o=(new Date).getTimezoneOffset();if(j.dataLayer)for(const t of Object.entries(Object.entries(dataLayer).reduce((u, v)=>({...u[1],...v[1]}),{})))zaraz.set(t[0],t[1],{scope:"page"});j[l].q=[];for(; j.zaraz.q.length;){const w=j.zaraz.q.shift();j[l].q.push(w)}r.defer=!0;for(const x of[localStorage,sessionStorage])Object.keys(x||{}).filter(z=>z.startsWith("_zaraz_")).forEach(y=>{try{j[l]["z_"+y.slice(7)]=JSON.parse(x.getItem(y))}catch{j[l]["z_"+y.slice(7)]=x.getItem(y)}});r.referrerPolicy="origin";r.src="cdn-cgi/zaraz/sd0d9.js?z="+btoa(encodeURIComponent(JSON.stringify(j[l])));q.parentNode.insertBefore(r,q)};["complete","interactive"].includes(k.readyState)?zaraz.init():j.addEventListener("DOMContentLoaded",zaraz.init)}}(w,d,"zarazData","script");window.zaraz._p=async d$=>new Promise(ea=>{if(d$){d$.e&&d$.e.forEach(eb=>{try{const ec=d.querySelector("script[nonce]"),ed=ec?.nonce||ec?.getAttribute("nonce"),ee=d.createElement("script");ed&&(ee.nonce=ed);ee.innerHTML=eb;ee.onload=()=>{d.head.removeChild(ee)};d.head.appendChild(ee)}catch(ef){console.error(`Error executing script: ${eb}\n`,ef)}});Promise.allSettled((d$.f||[]).map(eg=>fetch(eg[0],eg[1])))}ea()});zaraz._p({"e":["(function(w,d){})(window,document)"]});})(window,document)}catch(e){throw fetch("/cdn-cgi/zaraz/t"),e;};</script></head>
   <body
-    x-data="{ page: 'maintenance', 'loaded': true, 'darkMode': false, 'stickyMenu': false, 'sidebarToggle': false, 'scrollTop': false }"
+    x-data="{ page: 'success', 'loaded': true, 'darkMode': false, 'stickyMenu': false, 'sidebarToggle': false, 'scrollTop': false }"
     x-init="
          darkMode = JSON.parse(localStorage.getItem('darkMode'));
          $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))"
@@ -53,16 +53,16 @@
       <div>
         <div class="mx-auto w-full max-w-[274px] text-center sm:max-w-[555px]">
           <div
-            class="mx-auto mb-10 w-full max-w-[155px] text-center sm:max-w-[204px]"
+            class="mx-auto mb-10 w-full max-w-[100px] text-center sm:max-w-[160px]"
           >
             <img
-              src="../../assets/src/images/error/maintenance.svg"
-              alt="maintenance"
+              src="../../assets/src/images/error/success.svg"
+              alt="success"
               class="dark:hidden"
             />
             <img
-              src="../../assets/src/images/error/maintenance-dark.svg"
-              alt="maintenance"
+              src="../../assets/src/images/error/success-dark.svg"
+              alt="success"
               class="hidden dark:block"
             />
           </div>
@@ -70,28 +70,29 @@
           <h1
             class="text-title-md xl:text-title-2xl mb-2 font-bold text-gray-800 dark:text-white/90"
           >
-            MAINTENANCE
+            SUCCESS !
           </h1>
 
           <p
             class="mt-6 mb-6 text-base text-gray-700 sm:text-lg dark:text-gray-400"
           >
-            Our Site is Currently under maintenance We will be back Shortly
-            Thank You For Patience
+            Awesome! your message has been sent successfully, Our support team
+            will get back to you as soon as possible.
           </p>
 
           <a
-            href="../index.html"
+            href="../index.php"
             class="shadow-theme-xs inline-flex items-center justify-center rounded-lg border border-gray-300 bg-white px-5 py-3.5 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-800 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03] dark:hover:text-gray-200"
           >
             Back to Home Page
           </a>
         </div>
+
         <!-- Footer -->
         <p
           class="absolute bottom-6 left-1/2 -translate-x-1/2 text-center text-sm text-gray-500 dark:text-gray-400"
         >
-          &copy; <span id="year"></span> - Powered by <a href="">Jovicorp Studio</a>
+          &copy; <span id="year"></span> - TailAdmin
         </p>
       </div>
     </div>
